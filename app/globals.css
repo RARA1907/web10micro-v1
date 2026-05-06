@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary: #1B2FFF;
+    --primary-dark: #1223CC;
+    --primary-light: #EEF0FF;
+    --accent: #FF6B35;
+    --accent-light: #FFF0EB;
+    --success: #00C48C;
+    --warning: #FFB020;
+    --text-primary: #0F0F1A;
+    --text-secondary: #5A5A7A;
+    --text-muted: #9999BB;
+    --bg: #FAFAFA;
+    --bg-card: #FFFFFF;
+    --border: #E8E8F0;
+    --token-color: #7C3AED;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #1B2FFF 0%, #7C3AED 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-hero-pattern {
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(27,47,255,0.07) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(124,58,237,0.07) 0%, transparent 50%),
+      radial-gradient(circle at 60% 80%, rgba(255,107,53,0.05) 0%, transparent 40%);
+  }
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(27,47,255,0.12);
+  }
 }
