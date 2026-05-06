@@ -22,7 +22,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             <div className="col-span-1 sm:col-span-2 lg:col-span-1">
-              <Logo size="md" className="brightness-0 invert mb-4" />
+              <Logo size="md" variant="white" className="mb-4" />
               <p className="text-sm text-gray-400 leading-relaxed">
                 KOBİ&apos;ler için yapay zeka destekli web sitesi oluşturucu. 60 saniyede profesyonel, uygun fiyatlı.
               </p>
