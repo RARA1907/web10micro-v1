@@ -27,23 +27,33 @@ export default function Home() {
                 KOBİ&apos;ler için yapay zeka destekli web sitesi oluşturucu. 60 saniyede profesyonel, uygun fiyatlı.
               </p>
             </div>
-            {[
-              { title: "Ürün", links: ["Nasıl Çalışır?", "Sektörler", "Fiyatlar", "Demo Oluştur"] },
-              { title: "Şirket", links: ["Hakkımızda", "Blog", "İletişim", "Kariyer"] },
-              { title: "Destek", links: ["SSS", "Gizlilik", "Kullanım Şartları", "KVKK"] },
-            ].map(col => (
-              <div key={col.title}>
-                <h4 className="text-sm font-semibold mb-4">{col.title}</h4>
-                <ul className="space-y-2">
-                  {col.links.map(l => (
-                    <li key={l}><a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            <div>
+              <h4 className="text-sm font-semibold mb-4 text-white">Ürün</h4>
+              <ul className="space-y-2">
+                {[["Nasıl Çalışır?", "#how"], ["Sektörler", "#templates"], ["Fiyatlar", "#pricing"], ["Demo Oluştur", "#hero"]].map(([l, href]) => (
+                  <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold mb-4 text-white">Şirket</h4>
+              <ul className="space-y-2">
+                {[["Hakkımızda", "#"], ["Blog", "#"], ["İletişim", "#"], ["Kariyer", "#"]].map(([l, href]) => (
+                  <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold mb-4 text-white">Destek</h4>
+              <ul className="space-y-2">
+                {[["SSS", "#"], ["Gizlilik", "#"], ["Kullanım Şartları", "#"], ["KVKK", "#"]].map(([l, href]) => (
+                  <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
+                ))}
+              </ul>
+            </div>
           </div>
           <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-gray-500">© 2026 web10micro. Tüm hakları saklıdır.</p>
+            <p className="text-xs text-gray-500">© 2026 <span className="text-white">web</span>10<span className="text-white">micro</span>. Tüm hakları saklıdır.</p>
             <p className="text-xs text-gray-500">Mira ✦ ile güçlendirildi</p>
           </div>
         </div>
