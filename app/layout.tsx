@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   title: "web10micro — 60 Saniyede Profesyonel Web Sitesi",
   description: "Google Maps linkini yapıştır. Yapay zeka sitenizi hazırlasın.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
