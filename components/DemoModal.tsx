@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { MiraAvatar } from "./MiraAvatar";
 
-type Step = "form" | "loading" | "done";
+type Step = "form" | "loading" | "done" | "error";
 
 interface Props {
   open: boolean;
@@ -11,36 +11,66 @@ interface Props {
   defaultUrl?: string;
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://api.web10micro.com";
+
 export function DemoModal({ open, onClose, defaultSector, defaultUrl }: Props) {
-  const [step, setStep] = useState<Step>("form");
-  const [url, setUrl] = useState(defaultUrl ?? "");
-  const [email, setEmail] = useState("");
-  const [demoSlug, setDemoSlug] = useState("");
+  const [step, setStep]           = useState<Step>("form");
+  const [url, setUrl]             = useState(defaultUrl ?? "");
+  const [email, setEmail]         = useState("");
+  const [demoUrl, setDemoUrl]     = useState("");
+  const [bizName, setBizName]     = useState("");
+  const [errMsg, setErrMsg]       = useState("");
 
   if (!open) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!url.trim() || !email.trim()) return;
 
-    const slug = url
-      .replace(/https?:\/\//g, "")
-      .replace(/[^a-z0-9]/gi, "-")
-      .toLowerCase()
-      .slice(0, 30)
-      .replace(/-+$/, "");
-
-    setDemoSlug(slug || "isletmeniz");
     setStep("loading");
+    setErrMsg("");
 
-    setTimeout(() => setStep("done"), 3500);
+    try {
+      const res = await fetch(`${API_URL}/generate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          query: url.trim(),
+          email: email.trim(),
+          plan: "standart",
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.detail ?? `API hatası: ${res.status}`);
+      }
+
+      const data = await res.json();
+      setDemoUrl(data.url);
+      setBizName(data.business_name);
+      setStep("done");
+
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Bilinmeyen hata";
+      setErrMsg(msg);
+      setStep("error");
+    }
   };
 
   const handleClose = () => {
     setStep("form");
     setUrl("");
     setEmail("");
+    setDemoUrl("");
+    setBizName("");
+    setErrMsg("");
     onClose();
+  };
+
+  const handleRetry = () => {
+    setStep("form");
+    setErrMsg("");
   };
 
   return (
@@ -54,23 +84,33 @@ export function DemoModal({ open, onClose, defaultSector, defaultUrl }: Props) {
       >
         {/* Header */}
         <div className="bg-gradient-to-r from-[var(--primary-light)] to-[#F3F0FF] px-6 py-5 flex items-center gap-3 border-b border-[var(--border)]">
-          <MiraAvatar mood={step === "loading" ? "thinking" : step === "done" ? "celebrating" : "greeting"} size={40} />
+          <MiraAvatar
+            mood={
+              step === "loading" ? "thinking"
+              : step === "done"  ? "celebrating"
+              : "greeting"
+            }
+            size={40}
+          />
           <div className="flex-1">
             <p className="font-bold text-[var(--text-primary)]">
-              {step === "form" && "Demo Sitenizi Oluşturun"}
+              {step === "form"    && "Demo Sitenizi Oluşturun"}
               {step === "loading" && "Mira çalışıyor..."}
-              {step === "done" && "Hazır! 🎉"}
+              {step === "done"    && "Hazır! 🎉"}
+              {step === "error"   && "Bir sorun oluştu"}
             </p>
             <p className="text-xs text-[var(--text-muted)]">
-              {step === "form" && "Ücretsiz · Kredi kartı gerekmez"}
+              {step === "form"    && "Ücretsiz · Kredi kartı gerekmez"}
               {step === "loading" && "İşletmenizi analiz ediyorum..."}
-              {step === "done" && "Demo siteniz hazırlandı"}
+              {step === "done"    && "Demo siteniz canlıya alındı"}
+              {step === "error"   && "Tekrar deneyin"}
             </p>
           </div>
           <button onClick={handleClose} className="text-[var(--text-muted)] hover:text-[var(--text-primary)] text-xl leading-none">✕</button>
         </div>
 
         <div className="px-6 py-6">
+
           {/* FORM */}
           {step === "form" && (
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -164,17 +204,24 @@ export function DemoModal({ open, onClose, defaultSector, defaultUrl }: Props) {
                 <span className="text-3xl">✅</span>
               </div>
 
-              <h3 className="font-bold text-[var(--text-primary)] mb-2">Demo talebiniz alındı!</h3>
+              <h3 className="font-bold text-[var(--text-primary)] mb-1">
+                {bizName || "Siteniz"} hazır!
+              </h3>
               <p className="text-sm text-[var(--text-secondary)] mb-6">
-                Demo siteniz hazırlanıyor. Birkaç dakika içinde erişime açılacak.
+                Demo siteniz canlıya alındı. Aşağıdaki linkten ziyaret edebilirsiniz.
               </p>
 
-              <div className="bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-4 mb-6">
+              <a
+                href={demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--primary)] rounded-2xl p-4 mb-6 transition-colors group"
+              >
                 <p className="text-xs text-[var(--text-muted)] mb-1">Demo adresiniz:</p>
-                <p className="font-bold text-[var(--primary)] text-sm break-all">
-                  {demoSlug}.web10micro.com
+                <p className="font-bold text-[var(--primary)] text-sm break-all group-hover:underline">
+                  {demoUrl}
                 </p>
-              </div>
+              </a>
 
               <p className="text-xs text-[var(--text-muted)] mb-6">
                 Bağlantı <strong>{email}</strong> adresine de gönderildi.
@@ -188,6 +235,32 @@ export function DemoModal({ open, onClose, defaultSector, defaultUrl }: Props) {
               </button>
             </div>
           )}
+
+          {/* ERROR */}
+          {step === "error" && (
+            <div className="py-4 text-center">
+              <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-3xl">⚠️</span>
+              </div>
+
+              <h3 className="font-bold text-[var(--text-primary)] mb-2">Bir sorun oluştu</h3>
+              <p className="text-sm text-red-500 mb-6 break-words">{errMsg}</p>
+
+              <button
+                onClick={handleRetry}
+                className="w-full bg-[var(--primary)] text-white font-semibold py-3 rounded-xl text-sm mb-3"
+              >
+                Tekrar Dene
+              </button>
+              <button
+                onClick={handleClose}
+                className="w-full border border-[var(--border)] text-[var(--text-secondary)] font-medium py-3 rounded-xl text-sm"
+              >
+                Kapat
+              </button>
+            </div>
+          )}
+
         </div>
       </div>
     </div>
