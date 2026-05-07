@@ -1,6 +1,10 @@
 "use client";
 import { useState } from "react";
 
+interface Props {
+  onCTA: (sector?: string) => void;
+}
+
 const sectors = [
   { id: "hukuk",     label: "Hukuk / Avukat",    icon: "⚖️", color: "#1A3A5C", active: true,  preview: "arslan-hukuk.web10micro.com" },
   { id: "veteriner", label: "Veteriner",          icon: "🐾", color: "#27AE60", active: true,  preview: "nuhungemisi-vet.com.tr" },
@@ -14,7 +18,7 @@ const sectors = [
   { id: "spor",      label: "Spor / Fitness",     icon: "💪", color: "#F39C12", active: false },
 ];
 
-export function TemplateSelector() {
+export function TemplateSelector({ onCTA }: Props) {
   const [selected, setSelected] = useState<string | null>(null);
 
   return (
@@ -50,19 +54,15 @@ export function TemplateSelector() {
                 }
               `}
             >
-              {/* Yakında badge */}
               {!s.active && (
                 <span className="absolute top-2 right-2 text-[9px] font-semibold bg-gray-100 text-gray-400 px-1.5 py-0.5 rounded-full">
                   Yakında
                 </span>
               )}
-
-              {/* Aktif badge */}
               {s.active && (
                 <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-[var(--success)]" />
               )}
 
-              {/* İkon */}
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center text-xl mb-3"
                 style={{ backgroundColor: s.color + "18" }}
@@ -106,12 +106,14 @@ export function TemplateSelector() {
                       >
                         Canlı Örneği Gör →
                       </a>
-                      <button className="text-sm font-semibold bg-[var(--primary)] text-white px-4 py-2 rounded-xl hover:bg-[var(--primary-dark)] transition-colors">
+                      <button
+                        onClick={() => onCTA(s.label)}
+                        className="text-sm font-semibold bg-[var(--primary)] text-white px-4 py-2 rounded-xl hover:bg-[var(--primary-dark)] transition-colors"
+                      >
                         Bu Template ile Başla
                       </button>
                     </div>
                   </div>
-                  {/* Mini renk paleti */}
                   <div className="flex gap-2">
                     {[s.color, s.color + "99", s.color + "33"].map((c, i) => (
                       <div key={i} className="w-8 h-8 rounded-lg" style={{ backgroundColor: c }} />

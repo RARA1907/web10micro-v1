@@ -2,7 +2,11 @@
 import { useState } from "react";
 import { MiraAvatar } from "./MiraAvatar";
 
-export function Hero() {
+interface Props {
+  onCTA: (url?: string) => void;
+}
+
+export function Hero({ onCTA }: Props) {
   const [url, setUrl] = useState("");
 
   return (
@@ -41,10 +45,14 @@ export function Hero() {
                 type="text"
                 value={url}
                 onChange={e => setUrl(e.target.value)}
+                onKeyDown={e => e.key === "Enter" && onCTA(url)}
                 placeholder="Google Maps linkini yapıştırın..."
                 className="flex-1 min-w-0 px-4 py-3 text-sm outline-none text-[var(--text-primary)] placeholder:text-[var(--text-muted)] bg-transparent"
               />
-              <button className="bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white font-semibold text-sm px-6 py-3 rounded-xl transition-colors whitespace-nowrap">
+              <button
+                onClick={() => onCTA(url)}
+                className="bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white font-semibold text-sm px-6 py-3 rounded-xl transition-colors whitespace-nowrap"
+              >
                 Demo Oluştur →
               </button>
             </div>
@@ -124,7 +132,7 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Floating badge — Mira düşünüyor */}
+            {/* Floating badge */}
             <div className="absolute -top-2 -left-2 sm:-left-4 bg-white rounded-2xl border border-[var(--border)] shadow-lg px-2 py-2 flex items-center gap-2">
               <MiraAvatar mood="thinking" size={28} />
               <div>

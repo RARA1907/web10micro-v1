@@ -1,6 +1,10 @@
 "use client";
 import { useState } from "react";
 
+interface Props {
+  onCTA: (plan?: string) => void;
+}
+
 const plans = [
   {
     id: "standart",
@@ -53,7 +57,7 @@ const tokenPacks = [
   { tokens: 500, price: "299", label: "Avantajlı" },
 ];
 
-export function Pricing() {
+export function Pricing({ onCTA }: Props) {
   const [showTokenModal, setShowTokenModal] = useState(false);
 
   return (
@@ -108,7 +112,6 @@ export function Pricing() {
                   </span>
                 </div>
 
-                {/* AI + Token göstergesi */}
                 <div className={`flex items-center gap-2 text-xs font-semibold rounded-xl px-3 py-2 ${plan.highlight ? "bg-white/15" : "bg-[var(--primary-light)]"}`}>
                   <span className={plan.highlight ? "text-blue-200" : "text-[var(--primary)]"}>✦</span>
                   <span className={plan.highlight ? "text-white" : "text-[var(--primary)]"}>{plan.ai}</span>
@@ -119,7 +122,6 @@ export function Pricing() {
                 </div>
               </div>
 
-              {/* Özellikler */}
               <ul className="space-y-2.5 mb-8">
                 {plan.features.map((f) => (
                   <li key={f} className={`flex items-center gap-2.5 text-sm ${plan.highlight ? "text-blue-50" : "text-[var(--text-secondary)]"}`}>
@@ -129,20 +131,23 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <button className={`
-                w-full py-3.5 rounded-xl font-semibold text-sm transition-colors
-                ${plan.highlight
-                  ? "bg-white text-[var(--primary)] hover:bg-blue-50"
-                  : "bg-[var(--primary)] text-white hover:bg-[var(--primary-dark)]"
-                }
-              `}>
+              <button
+                onClick={() => onCTA(plan.name)}
+                className={`
+                  w-full py-3.5 rounded-xl font-semibold text-sm transition-colors
+                  ${plan.highlight
+                    ? "bg-white text-[var(--primary)] hover:bg-blue-50"
+                    : "bg-[var(--primary)] text-white hover:bg-[var(--primary-dark)]"
+                  }
+                `}
+              >
                 {plan.cta}
               </button>
             </div>
           ))}
         </div>
 
-        {/* Token sistemi açıklaması */}
+        {/* Token sistemi */}
         <div className="max-w-3xl mx-auto bg-gradient-to-r from-[#F3F0FF] to-[var(--primary-light)] rounded-3xl p-8 border border-purple-100">
           <div className="flex flex-col sm:flex-row items-start gap-6">
             <div className="flex-1">
@@ -210,7 +215,10 @@ export function Pricing() {
                 ))}
               </div>
 
-              <button className="w-full bg-[var(--token-color)] hover:bg-purple-700 text-white font-semibold py-3.5 rounded-xl transition-colors">
+              <button
+                onClick={() => { setShowTokenModal(false); onCTA("Token"); }}
+                className="w-full bg-[var(--token-color)] hover:bg-purple-700 text-white font-semibold py-3.5 rounded-xl transition-colors"
+              >
                 Satın Al — Stripe ile Güvenli Ödeme
               </button>
               <p className="text-center text-xs text-[var(--text-muted)] mt-3">Tokenler hemen hesabına eklenir</p>

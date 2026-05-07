@@ -2,7 +2,11 @@
 import { useState } from "react";
 import { Logo } from "./Logo";
 
-export function Navbar() {
+interface Props {
+  onCTA: () => void;
+}
+
+export function Navbar({ onCTA }: Props) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -17,10 +21,16 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <button className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors px-4 py-2">
+          <button
+            onClick={onCTA}
+            className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors px-4 py-2"
+          >
             Giriş Yap
           </button>
-          <button className="text-sm font-semibold bg-[var(--primary)] text-white px-5 py-2.5 rounded-xl hover:bg-[var(--primary-dark)] transition-colors">
+          <button
+            onClick={onCTA}
+            className="text-sm font-semibold bg-[var(--primary)] text-white px-5 py-2.5 rounded-xl hover:bg-[var(--primary-dark)] transition-colors"
+          >
             Ücretsiz Dene
           </button>
         </div>
@@ -42,7 +52,10 @@ export function Navbar() {
           <a href="#nasil-calisir" className="text-sm text-[var(--text-secondary)]" onClick={() => setOpen(false)}>Nasıl Çalışır?</a>
           <a href="#template" className="text-sm text-[var(--text-secondary)]" onClick={() => setOpen(false)}>Sektörler</a>
           <a href="#fiyat" className="text-sm text-[var(--text-secondary)]" onClick={() => setOpen(false)}>Fiyatlar</a>
-          <button className="text-sm font-semibold bg-[var(--primary)] text-white px-5 py-2.5 rounded-xl">
+          <button
+            onClick={() => { setOpen(false); onCTA(); }}
+            className="text-sm font-semibold bg-[var(--primary)] text-white px-5 py-2.5 rounded-xl"
+          >
             Ücretsiz Dene
           </button>
         </div>

@@ -1,5 +1,9 @@
 import { MiraAvatar } from "./MiraAvatar";
 
+interface Props {
+  onCTA: () => void;
+}
+
 const steps = [
   {
     step: "01",
@@ -30,7 +34,7 @@ const steps = [
   },
 ];
 
-export function HowItWorks() {
+export function HowItWorks({ onCTA }: Props) {
   return (
     <section id="nasil-calisir" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -49,12 +53,10 @@ export function HowItWorks() {
 
         {/* Adımlar */}
         <div className="grid md:grid-cols-3 gap-6 relative">
-          {/* Bağlantı çizgisi */}
           <div className="hidden md:block absolute top-16 left-1/3 right-1/3 h-px bg-gradient-to-r from-[var(--primary)] to-[var(--token-color)] opacity-20" />
 
           {steps.map((s, i) => (
             <div key={i} className="relative bg-white rounded-3xl border border-[var(--border)] p-6 card-hover">
-              {/* Adım numarası */}
               <div className="flex items-start justify-between mb-5">
                 <span className="text-5xl font-black text-[var(--border)]">{s.step}</span>
                 <div className="p-2 rounded-2xl" style={{ backgroundColor: s.color }}>
@@ -69,7 +71,6 @@ export function HowItWorks() {
                 <p className="text-xs text-[var(--text-muted)]">{s.detail}</p>
               </div>
 
-              {/* Ok (son adım hariç) */}
               {i < 2 && (
                 <div className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white border border-[var(--border)] rounded-full items-center justify-center shadow-sm">
                   <span style={{ color: "var(--primary)" }} className="text-sm font-bold">→</span>
@@ -84,7 +85,10 @@ export function HowItWorks() {
           <p className="text-sm text-[var(--text-muted)] mb-6">
             Beğenmezseniz revize edin — <strong className="text-[var(--text-primary)]">Mira ile sohbet ederek</strong> istediğiniz değişiklikleri yapın
           </p>
-          <button className="bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-sm">
+          <button
+            onClick={onCTA}
+            className="bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-sm"
+          >
             Hemen Deneyin — Ücretsiz
           </button>
         </div>
