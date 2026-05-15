@@ -81,46 +81,44 @@ export function Hero({ onCTA }: Props) {
 
           {/* Sağ — Demo önizleme */}
           <div className="relative flex justify-center lg:justify-end">
-            <div className="relative group">
-              {/* Laptop mockup */}
-              <div className="bg-gray-800 rounded-t-2xl p-3 pb-0 shadow-2xl shadow-blue-100 w-full max-w-sm">
-                {/* Üst çubuk */}
-                <div className="flex items-center gap-2 mb-3 px-1">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                  </div>
-                  <div className="flex-1 bg-white/15 rounded-full px-3 py-1 text-white/60 text-[10px] text-center truncate text-xs">
-                    maisoluna.web10micro.com
-                  </div>
-                  <div className="w-5" />
+            <div className="relative w-full max-w-sm">
+              {/* Üst badge */}
+              <div className="flex items-center justify-between mb-3 bg-white rounded-2xl border border-[var(--border)] shadow-lg px-4 py-2.5">
+                <div className="flex items-center gap-2">
+                  <MiraAvatar mood="celebrating" size={28} />
+                  <span className="text-xs font-semibold text-[var(--text-primary)]">Mira hazırladı! 🎉</span>
                 </div>
-                {/* Ekran görüntüsü */}
-                <div className="rounded-xl overflow-hidden bg-white">
-                  <img
-                    src="/template-guzellik.png"
-                    alt="Maison Luna demo"
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-                {/* Alt badge */}
-                <div className="flex items-center justify-between -mx-3 px-1 py-2">
-                  <div className="flex items-center gap-2">
-                    <MiraAvatar mood="celebrating" size={24} />
-                    <span className="text-[11px] text-white/80 font-medium">Mira hazırladı! 🎉</span>
-                  </div>
-                  <span className="text-[10px] font-semibold text-green-300 bg-green-500/20 px-2 py-0.5 rounded-full">Canlı ✓</span>
-                </div>
+                <span className="text-[10px] font-semibold text-[var(--success)] bg-green-50 px-2.5 py-1 rounded-full">Canlı ✓</span>
               </div>
-              {/* Laptop alt kısmı */}
-              <div className="bg-gray-900 rounded-b-lg h-4 mx-8 mb-1 shadow-lg" />
-              <div className="bg-gray-700 rounded-full h-1 w-20 mx-auto" />
 
-              {/* Floating badge — sol üst */}
-              <div className="absolute -top-3 -left-3 sm:-left-5 bg-white rounded-2xl border border-[var(--border)] shadow-lg px-3 py-2 flex items-center gap-2">
-                <div className="w-6 h-6 rounded-lg bg-[var(--primary)] flex items-center justify-center text-white text-[10px] font-bold">W</div>
-                <p className="text-[10px] font-semibold text-[var(--text-primary)]">web10micro demo</p>
+              {/* Ekran görüntüsü */}
+              <a
+                href="/templates/guzellik-kuafor/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl overflow-hidden border border-[var(--border)] shadow-2xl shadow-blue-100 group"
+              >
+                <img
+                  src="/template-guzellik.png"
+                  alt="Maison Luna demo"
+                  className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-2xl" />
+              </a>
+
+              {/* Alt CTA satırı */}
+              <div className="flex items-center justify-between mt-3">
+                <p className="text-xs text-[var(--text-muted)]">
+                  <span className="font-semibold text-[var(--text-primary)]">Maison Luna</span> · Butik Kuaför
+                </p>
+                <a
+                  href="/templates/guzellik-kuafor/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-semibold bg-[var(--primary)] text-white px-4 py-2 rounded-xl hover:bg-[var(--primary-dark)] transition-colors"
+                >
+                  Canlı Gör →
+                </a>
               </div>
             </div>
           </div>
