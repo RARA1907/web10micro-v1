@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Viraj Oto Servis — Mecidiyeköy Profesyonel Oto Servis & Yıkama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:    '#1A1A1A',
+          coal:   '#2B2B2B',
+          neon:   '#E63946',
+          ash:    '#F0F0F0',
+          silver: '#C0C0C0',
+        },
+        fontFamily: {
+          display: ['Orbitron','sans-serif'],
+          sans:    ['Manrope','sans-serif'],
+          mono:    ['JetBrains Mono','monospace'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Manrope', sans-serif; background: #F0F0F0; color: #1A1A1A; }
+
+  /* Section number signature */
+  .sect-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: #E63946;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding-left: 14px;
+    position: relative;
+  }
+  .sect-num::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 28px;
+    background: #E63946;
+  }
+
+  /* Vertical signature rail on left of sections */
+  .rail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 56px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 80px;
+    pointer-events: none;
+  }
+  .rail-line {
+    width: 1px;
+    background: linear-gradient(180deg, #E63946 0%, rgba(230,57,70,0) 100%);
+    height: 220px;
+  }
+  .rail-num {
+    position: absolute;
+    top: 320px;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    color: #C0C0C0;
+    white-space: nowrap;
+  }
+  .rail-on-dark .rail-num { color: #555; }
+  .rail-on-dark .rail-line { background: linear-gradient(180deg, #E63946 0%, rgba(230,57,70,0) 100%); }
+
+  /* Display heading */
+  .display {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+  }
+
+  /* Hairlines */
+  .hairline { height: 1px; background: rgba(0,0,0,0.08); }
+  .hairline-dark { height: 1px; background: rgba(255,255,255,0.08); }
+
+  /* Hero gradient overlay */
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(26,26,26,0.45) 0%, rgba(26,26,26,0.2) 35%, rgba(26,26,26,0.95) 100%),
+      radial-gradient(ellipse at 70% 40%, rgba(230,57,70,0.18) 0%, transparent 55%);
+  }
+
+  /* Marquee */
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 38s linear infinite;
+  }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-stagger > * { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
+  .reveal-stagger.in > *:nth-child(1) { transition-delay: .05s; opacity: 1; transform: none; }
+  .reveal-stagger.in > *:nth-child(2) { transition-delay: .12s; opacity: 1; transform: none; }
+  .reveal-stagger.in > *:nth-child(3) { transition-delay: .19s; opacity: 1; transform: none; }
+  .reveal-stagger.in > *:nth-child(4) { transition-delay: .26s; opacity: 1; transform: none; }
+  .reveal-stagger.in > *:nth-child(5) { transition-delay: .33s; opacity: 1; transform: none; }
+  .reveal-stagger.in > *:nth-child(6) { transition-delay: .40s; opacity: 1; transform: none; }
+
+  /* Service card */
+  .svc-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+  }
+  .svc-card::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 0; height: 2px;
+    background: #E63946;
+    transition: width .35s ease;
+  }
+  .svc-card:hover { border-color: rgba(230,57,70,0.4); transform: translateY(-2px); }
+  .svc-card:hover::after { width: 100%; }
+
+  /* Price card popular */
+  .popular-glow {
+    position: relative;
+    background: linear-gradient(180deg, #2B2B2B 0%, #1A1A1A 100%);
+    box-shadow: 0 30px 60px -20px rgba(230,57,70,0.35), 0 0 0 1px rgba(230,57,70,0.3) inset;
+  }
+  .popular-glow::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(135deg, rgba(230,57,70,0.6), transparent 40%, transparent 60%, rgba(230,57,70,0.4));
+    z-index: -1;
+    border-radius: inherit;
+  }
+
+  /* Before / After slider */
+  .ba {
+    position: relative;
+    overflow: hidden;
+    background: #1A1A1A;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .ba img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+  .ba .after { position: absolute; inset: 0; clip-path: inset(0 0 0 50%); transition: clip-path .05s linear; }
+  .ba .handle {
+    position: absolute; top: 0; bottom: 0; width: 2px;
+    background: #E63946; left: 50%; transform: translateX(-50%);
+    box-shadow: 0 0 18px rgba(230,57,70,0.6);
+  }
+  .ba .knob {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px; height: 44px; border-radius: 50%;
+    background: #E63946; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    cursor: ew-resize;
+  }
+  .ba .tag {
+    position: absolute;
+    top: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: #fff;
+    background: rgba(26,26,26,0.7);
+    padding: 6px 10px;
+    backdrop-filter: blur(6px);
+  }
+
+  /* Tilted plate */
+  .plate {
+    background: #fff;
+    border: 2px solid #1A1A1A;
+    color: #1A1A1A;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    padding: 6px 14px;
+    box-shadow: 4px 4px 0 #E63946;
+  }
+
+  /* Map placeholder grid */
+  .map-grid {
+    background-color: #1A1A1A;
+    background-image:
+      linear-gradient(rgba(230,57,70,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(230,57,70,0.08) 1px, transparent 1px),
+      radial-gradient(circle at 60% 45%, rgba(230,57,70,0.25) 0%, transparent 40%);
+    background-size: 40px 40px, 40px 40px, 100% 100%;
+  }
+
+  /* Floating whatsapp pulse */
+  @keyframes pulseRing {
+    0% { transform: scale(.9); opacity: .7; }
+    100%{ transform: scale(1.6); opacity: 0; }
+  }
+  .pulse::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: #25D366;
+    animation: pulseRing 1.8s ease-out infinite;
+    z-index: -1;
+  }
+
+  /* Speed lines bg for stats */
+  .speedlines {
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.04) 0,
+      rgba(255,255,255,0.04) 1px,
+      transparent 1px,
+      transparent 8px
+    );
+  }
+
+  /* Form */
+  .field {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+    padding: 14px 0 12px;
+    color: #fff;
+    width: 100%;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color .2s ease;
+  }
+  .field::placeholder { color: rgba(255,255,255,0.4); }
+  .field:focus { border-color: #E63946; }
+  .field-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+  }
+
+  /* Nav link */
+  .nav-link { position: relative; padding-bottom: 3px; }
+  .nav-link::after {
+    content: '';
+    position: absolute; left: 0; bottom: -2px;
+    width: 0; height: 1px; background: #E63946;
+    transition: width .25s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  /* Number ticker */
+  .stat-num {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  /* Icon box */
+  .icon-box {
+    width: 56px; height: 56px;
+    border: 1px solid rgba(0,0,0,0.12);
+    display: flex; align-items: center; justify-content: center;
+    color: #1A1A1A;
+    background: #F0F0F0;
+    position: relative;
+  }
+  .icon-box::after {
+    content: '';
+    position: absolute; right: -1px; bottom: -1px;
+    width: 10px; height: 10px;
+    background: #E63946;
+  }
+
+  /* Caret */
+  .caret { display: inline-block; transition: transform .2s ease; }
+  a:hover .caret, button:hover .caret { transform: translateX(4px); }
+
+  /* Diagonal stripe */
+  .diag {
+    background-image: repeating-linear-gradient(
+      135deg,
+      #E63946 0,
+      #E63946 8px,
+      #1A1A1A 8px,
+      #1A1A1A 16px
+    );
+  }
+
+  /* Scroll cue */
+  @keyframes scrollCue {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(24px); opacity: 0; }
+  }
+  .scroll-cue-dot {
+    width: 4px; height: 8px; background: #E63946;
+    animation: scrollCue 1.6s ease-in-out infinite;
+  }
+
+  /* Selection */
+  ::selection { background: #E63946; color: #fff; }
+</style>
+</head>
+<body class="antialiased">
+
+<a href="https://web10micro.com" target="_blank" style="position:fixed;bottom:24px;left:24px;z-index:9999;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:10px 18px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:600;color:#1a1a1a;text-decoration:none;box-shadow:0 8px 30px rgba(0,0,0,.12);display:flex;align-items:center;gap:8px;transition:all .25s ease">← Diğer Demolar</a>
+
+<!-- ============== STICKY HEADER ============== -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-ink/90 backdrop-blur-md border-b border-white/10">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-10 h-[72px] flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3 text-white">
+      <div class="relative">
+        <div class="w-9 h-9 bg-neon flex items-center justify-center">
+          <span class="font-display font-black text-white text-lg">V</span>
+        </div>
+        <div class="absolute -bottom-1 -right-1 w-2 h-2 bg-white"></div>
+      </div>
+      <div class="leading-tight">
+        <div class="font-display font-bold text-[15px] tracking-wider">VIRAJ</div>
+        <div class="font-mono text-[9px] tracking-[0.3em] text-silver">OTO SERVIS</div>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-9 text-white text-sm font-medium">
+      <a href="#hizmetler" class="nav-link">Hizmetler</a>
+      <a href="#paketler" class="nav-link">Paketler</a>
+      <a href="#neden-biz" class="nav-link">Neden Biz</a>
+      <a href="#galeri" class="nav-link">Galeri</a>
+      <a href="#iletisim" class="nav-link">İletişim</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="tel:+905551234567" class="hidden md:flex items-center gap-2 text-white text-sm font-medium">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +90 555 123 45 67
+      </a>
+      <a href="#randevu" class="group inline-flex items-center gap-2 bg-neon hover:bg-white text-white hover:text-ink px-5 py-3 text-sm font-semibold transition-colors">
+        RANDEVU AL
+        <span class="caret">→</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============== 1. HERO ============== -->
+<section id="top" class="relative min-h-screen w-full overflow-hidden bg-ink text-white">
+  <!-- Background image -->
+  <img
+    src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2400&q=80"
+    alt="Profesyonel oto servis atölyesi"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+  <div class="absolute inset-0 hero-overlay"></div>
+
+  <!-- Top status bar -->
+  <div class="absolute top-[72px] left-0 right-0 z-10 border-b border-white/10">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10 h-10 flex items-center justify-between text-[10px] font-mono tracking-[0.3em] text-silver">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-neon rounded-full animate-pulse"></span>AÇIK · ŞU AN HİZMETTE</span>
+        <span class="hidden md:inline">MECİDİYEKÖY / İSTANBUL</span>
+      </div>
+      <div class="hidden md:flex items-center gap-6">
+        <span>EST. 2009</span>
+        <span>41.0658° N · 28.9876° E</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vertical rail signature -->
+  <div class="absolute left-0 top-[112px] bottom-0 w-14 hidden md:flex items-start justify-center pt-24">
+    <div class="rail-line"></div>
+  </div>
+  <div class="hidden md:block absolute left-3 top-[400px] -rotate-90 origin-left font-mono text-[10px] tracking-[0.4em] text-silver">
+    SECTION / 01 — HERO
+  </div>
+
+  <!-- Hero content -->
+  <div class="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-20 pt-[180px] pb-24 min-h-screen flex flex-col justify-between">
+    <div class="max-w-4xl">
+      <div class="flex items-center gap-4 mb-8">
+        <span class="sect-num">01 / Hero</span>
+        <span class="hairline-dark flex-1 max-w-[120px]"></span>
+        <span class="font-mono text-[10px] tracking-[0.3em] text-silver">PRO SERVIS · BOYA · DETAY</span>
+      </div>
+
+      <h1 class="display text-[64px] md:text-[96px] lg:text-[120px] text-white">
+        ARACINIZ <br/>
+        <span class="text-neon">BİZDE</span> GÜVENDE.
+      </h1>
+
+      <div class="mt-10 max-w-xl">
+        <p class="text-lg md:text-xl text-white/80 leading-relaxed">
+          Mecidiyeköy'de <span class="text-white font-semibold">profesyonel oto servis</span>, boya, kaporta ve detaylı temizlik.
+          Sertifikalı ustalar, orijinal yedek parça ve şeffaf fiyat garantisi.
+        </p>
+      </div>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <a href="#randevu" class="group inline-flex items-center gap-3 bg-neon hover:bg-white text-white hover:text-ink px-8 py-5 font-semibold tracking-wide transition-colors">
+          ÜCRETSİZ RANDEVU AL
+          <span class="caret text-lg">→</span>
+        </a>
+        <a href="#hizmetler" class="group inline-flex items-center gap-3 text-white border border-white/30 hover:border-white px-8 py-5 font-medium tracking-wide transition-colors">
+          Hizmetlerimizi İnceleyin
+        </a>
+      </div>
+
+      <!-- mini stats inline -->
+      <div class="mt-16 grid grid-cols-3 max-w-2xl">
+        <div class="border-l border-white/15 pl-5">
+          <div class="font-display font-bold text-3xl">15+</div>
+          <div class="font-mono text-[10px] tracking-[0.25em] text-silver mt-1">YIL TECRÜBE</div>
+        </div>
+        <div class="border-l border-white/15 pl-5">
+          <div class="font-display font-bold text-3xl">8K+</div>
+          <div class="font-mono text-[10px] tracking-[0.25em] text-silver mt-1">BAKIM / YIL</div>
+        </div>
+        <div class="border-l border-white/15 pl-5">
+          <div class="font-display font-bold text-3xl">4.9<span class="text-neon">★</span></div>
+          <div class="font-mono text-[10px] tracking-[0.25em] text-silver mt-1">GOOGLE PUANI</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom hero strip -->
+    <div class="hidden md:flex items-end justify-between mt-10">
+      <div class="flex items-center gap-3">
+        <div class="scroll-cue-dot"></div>
+        <span class="font-mono text-[10px] tracking-[0.3em] text-silver">SCROLL · KEŞFEDİN</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="plate">34 VRJ 09</div>
+        <div class="text-right">
+          <div class="font-mono text-[10px] tracking-[0.3em] text-silver">BUGÜN AÇIK</div>
+          <div class="font-display font-bold text-lg">08:00 — 20:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== MARQUEE ============== -->
+<div class="bg-ink border-y border-white/10 overflow-hidden">
+  <div class="marquee-track py-5 text-white">
+    <div class="flex items-center gap-12 px-6 font-display font-bold tracking-[0.2em] text-2xl whitespace-nowrap">
+      <span>PERİYODİK BAKIM</span><span class="text-neon">/</span>
+      <span>BOYA & KAPORTA</span><span class="text-neon">/</span>
+      <span>SERAMİK KAPLAMA</span><span class="text-neon">/</span>
+      <span>DETAYLI TEMİZLİK</span><span class="text-neon">/</span>
+      <span>MEKANİK ONARIM</span><span class="text-neon">/</span>
+      <span>KLİMA BAKIMI</span><span class="text-neon">/</span>
+      <span>LASTİK & JANT</span><span class="text-neon">/</span>
+    </div>
+    <div class="flex items-center gap-12 px-6 font-display font-bold tracking-[0.2em] text-2xl whitespace-nowrap" aria-hidden="true">
+      <span>PERİYODİK BAKIM</span><span class="text-neon">/</span>
+      <span>BOYA & KAPORTA</span><span class="text-neon">/</span>
+      <span>SERAMİK KAPLAMA</span><span class="text-neon">/</span>
+      <span>DETAYLI TEMİZLİK</span><span class="text-neon">/</span>
+      <span>MEKANİK ONARIM</span><span class="text-neon">/</span>
+      <span>KLİMA BAKIMI</span><span class="text-neon">/</span>
+      <span>LASTİK & JANT</span><span class="text-neon">/</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== 2. HİZMETLER ============== -->
+<section id="hizmetler" class="relative bg-ash py-28 lg:py-36">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-20">
+    <!-- Section header -->
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 reveal">
+      <div>
+        <div class="sect-num mb-6">02 / Hizmetler</div>
+        <h2 class="display text-5xl md:text-6xl lg:text-7xl text-ink max-w-3xl">
+          ARACINIZIN <br/>HER İHTİYACI <br/>
+          <span class="text-neon">TEK ÇATIDA.</span>
+        </h2>
+      </div>
+      <div class="max-w-md">
+        <p class="text-coal/80 text-lg leading-relaxed">
+          Periyodik bakımdan seramik kaplamaya, kaporta-boyadan klima hijyenine kadar;
+          orijinal parça, sertifikalı ekipman ve 12 ay işçilik garantisi ile.
+        </p>
+        <a href="#randevu" class="group inline-flex items-center gap-2 mt-6 text-ink font-semibold border-b-2 border-neon pb-1">
+          Tüm hizmetleri görüştür <span class="caret">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-ink/10 reveal-stagger">
+      <!-- 1 -->
+      <article class="svc-card p-10">
+        <div class="flex items-start justify-between mb-8">
+          <div class="icon-box">
+            <!-- wrench -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0 6 6L21 13l-8 8-6-6 8-8 .7.3z"/><path d="m9 11-6 6 3 3 6-6"/></svg>
+          </div>
+          <span class="font-mono text-[11px] text-silver tracking-[0.25em]">/01</span>
+        </div>
+        <h3 class="font-display font-bold text-2xl mb-3">Periyodik Bakım</h3>
+        <p class="text-coal/70 leading-relaxed">Yağ değişimi, hava–polen–yakıt filtresi, fren balatası, triger seti ve 30 nokta kontrol.</p>
+        <div class="mt-8 flex items-center justify-between border-t border-ink/10 pt-5">
+          <span class="font-mono text-xs tracking-wider text-coal/60">12 AY GARANTİ</span>
+          <span class="caret text-neon font-semibold">→</span>
+        </div>
+      </article>
+      <!-- 2 -->
+      <article class="svc-card p-10">
+        <div class="flex items-start justify-between mb-8">
+          <div class="icon-box">
+            <!-- brush -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.06 11.9l8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/><path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"/></svg>
+          </div>
+          <span class="font-mono text-[11px] text-silver tracking-[0.25em]">/02</span>
+        </div>
+        <h3 class="font-display font-bold text-2xl mb-3">Boya & Kaporta</h3>
+        <p class="text-coal/70 leading-relaxed">Çizik giderme, lokal boya, tam kaporta restorasyonu, rötuş ve pasta–cila ile koruma.</p>
+        <div class="mt-8 flex items-center justify-between border-t border-ink/10 pt-5">
+          <span class="font-mono text-xs tracking-wider text-coal/60">RENK KODU EŞLEŞTİRME</span>
+          <span class="caret text-neon font-semibold">→</span>
+        </div>
+      </article>
+      <!-- 3 -->
+      <article class="svc-card p-10">
+        <div class="flex items-start justify-between mb-8">
+          <div class="icon-box">
+            <!-- droplet -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 9.5 12 2.5 12 2.5z"/></svg>
+          </div>
+          <span class="font-mono text-[11px] text-silver tracking-[0.25em]">/03</span>
+        </div>
+        <h3 class="font-display font-bold text-2xl mb-3">Oto Yıkama & Detay</h3>
+        <p class="text-coal/70 leading-relaxed">El yıkama, iç temizlik, motor yıkama, seramik kaplama ve uzun ömürlü cila uygulaması.</p>
+        <div class="mt-8 flex items-center justify-between border-t border-ink/10 pt-5">
+          <span class="font-mono text-xs tracking-wider text-coal/60">PH NÖTR ŞAMPUAN</span>
+          <span class="caret text-neon font-semibold">→</span>
+        </div>
+      </article>
+      <!-- 4 -->
+      <article class="svc-card p-10">
+        <div class="flex items-start justify-between mb-8">
+          <div class="icon-box">
+            <!-- tire / circle -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+          </div>
+          <span class="font-mono text-[11px] text-silver tracking-[0.25em]">/04</span>
+        </div>
+        <h3 class="font-display font-bold text-2xl mb-3">Lastik & Jant</h3>
+        <p class="text-coal/70 leading-relaxed">Mevsimlik lastik değişimi, jant yenileme, balans ve rot ayarı, ücretsiz basınç kontrolü.</p>
+        <div class="mt-8 flex items-center justify-between border-t border-ink/10 pt-5">
+          <span class="font-mono text-xs tracking-wider text-coal/60">SEZONLUK DEPOLAMA</span>
+          <span class="caret text-neon font-semibold">→</span>
+        </div>
+      </article>
+      <!-- 5 -->
+      <article class="svc-card p-10">
+        <div class="flex items-start justify-between mb-8">
+          <div class="icon-box">
+            <!-- gear -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <span class="font-mono text-[11px] text-silver tracking-[0.25em]">/05</span>
+        </div>
+        <h3 class="font-display font-bold text-2xl mb-3">Mekanik Onarım</h3>
+        <p class="text-coal/70 leading-relaxed">Motor, şanzıman, egzoz, debriyaj ve süspansiyon arızalarında bilgisayar destekli teşhis.</p>
+        <div class="mt-8 flex items-center justify-between border-t border-ink/10 pt-5">
+          <span class="font-mono text-xs tracking-wider text-coal/60">OBD-II TEŞHİS</span>
+          <span class="caret text-neon font-semibold">→</span>
+        </div>
+      </article>
+      <!-- 6 -->
+      <article class="svc-card p-10">
+        <div class="flex items-start justify-between mb-8">
+          <div class="icon-box">
+            <!-- snowflake -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.93 4.93l14.14 14.14M2 12h20M4.93 19.07L19.07 4.93"/></svg>
+          </div>
+          <span class="font-mono text-[11px] text-silver tracking-[0.25em]">/06</span>
+        </div>
+        <h3 class="font-display font-bold text-2xl mb-3">Klima Bakımı</h3>
+        <p class="text-coal/70 leading-relaxed">Gaz dolumu, kaçak tespiti, hijyen uygulaması ve polen filtresi değişimi ile temiz hava.</p>
+        <div class="mt-8 flex items-center justify-between border-t border-ink/10 pt-5">
+          <span class="font-mono text-xs tracking-wider text-coal/60">ANTİ-BAKTERİYEL</span>
+          <span class="caret text-neon font-semibold">→</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 3. FİYAT PAKETLERİ ============== -->
+<section id="paketler" class="relative bg-ink text-white py-28 lg:py-36 overflow-hidden">
+  <!-- subtle diagonal accent strip -->
+  <div class="absolute right-0 top-0 w-40 h-2 diag opacity-80"></div>
+
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-20">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 reveal">
+      <div>
+        <div class="sect-num mb-6">03 / Paketler</div>
+        <h2 class="display text-5xl md:text-6xl lg:text-7xl">
+          ŞEFFAF FİYAT, <br/>
+          <span class="text-neon">GİZLİ SÜRPRİZ YOK.</span>
+        </h2>
+      </div>
+      <div class="max-w-md">
+        <p class="text-white/70 text-lg leading-relaxed">
+          İhtiyacınıza göre 3 net paket. Her paket öncesinde yazılı keşif raporu, sonrasında parça&nbsp;faturası.
+          KDV dahil — sürprizsiz fiyat.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 reveal-stagger">
+
+      <!-- Temel -->
+      <article class="relative bg-coal border border-white/10 p-10 flex flex-col">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="font-mono text-[10px] tracking-[0.3em] text-silver">PAKET / 01</div>
+            <h3 class="font-display font-bold text-3xl mt-3">TEMEL BAKIM</h3>
+          </div>
+          <div class="font-mono text-[10px] text-silver tracking-widest">~ 45 DK</div>
+        </div>
+        <div class="mt-8 flex items-baseline gap-2">
+          <span class="font-display font-extrabold text-5xl" style="font-size: 6px">₺7.500</span>
+          <span class="text-silver text-sm">/ paket</span>
+        </div>
+        <div class="hairline-dark my-8"></div>
+        <ul class="space-y-4 text-white/85 flex-1">
+          <li class="flex gap-3"><span class="text-neon">▸</span>Motor yağı + yağ filtresi değişimi</li>
+          <li class="flex gap-3"><span class="text-neon">▸</span>30 nokta görsel kontrol</li>
+          <li class="flex gap-3"><span class="text-neon">▸</span>Lastik basıncı + diş derinliği</li>
+          <li class="flex gap-3"><span class="text-neon">▸</span>Akü ve şarj testi</li>
+          <li class="flex gap-3"><span class="text-neon">▸</span>Antifriz / cam suyu takviyesi</li>
+        </ul>
+        <a href="#randevu" class="mt-10 inline-flex items-center justify-between border border-white/20 hover:border-neon hover:text-neon px-6 py-4 font-semibold transition-colors">
+          <span>Bu paketi seç</span><span class="caret">→</span>
+        </a>
+      </article>
+
+      <!-- Tam Bakım — popular -->
+      <article class="relative popular-glow text-white p-10 flex flex-col lg:-mt-6 lg:mb-0">
+        <div class="absolute -top-3 left-10">
+          <span class="bg-neon text-white font-mono text-[10px] tracking-[0.3em] px-3 py-1.5">EN POPÜLER</span>
+        </div>
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="font-mono text-[10px] tracking-[0.3em] text-neon">PAKET / 02</div>
+            <h3 class="font-display font-bold text-3xl mt-3">TAM BAKIM</h3>
+          </div>
+          <div class="font-mono text-[10px] text-silver tracking-widest">~ 2 SA</div>
+        </div>
+        <div class="mt-8 flex items-baseline gap-2">
+          <span class="font-display font-extrabold text-6xl text-white" style="font-size: 62.5px">₺14.500</span>
+          <span class="text-silver text-sm">/ paket</span>
+        </div>
+        <div class="hairline-dark my-8"></div>
+        <ul class="space-y-4 text-white/90 flex-1">
+          <li class="flex gap-3"><span class="text-neon">▸</span><span><b>Temel Bakım</b> içeriğinin tamamı</span></li>
+          <li class="flex gap-3"><span class="text-neon">▸</span>Buji, triger seti, fren balatası</li>
+          <li class="flex gap-3"><span class="text-neon">▸</span>Hava + polen + yakıt filtresi</li>
+          <li class="flex gap-3"><span class="text-neon">▸</span>Ön düzen + balans kontrolü</li>
+          <li class="flex gap-3"><span class="text-neon">▸</span><b class="text-white">Ücretsiz dış yıkama</b> hediye</li>
+        </ul>
+        <a href="#randevu" class="mt-10 inline-flex items-center justify-between bg-neon hover:bg-white hover:text-ink px-6 py-4 font-semibold transition-colors">
+          <span>Bu paketi seç</span><span class="caret">→</span>
+        </a>
+      </article>
+
+      <!-- Premium -->
+      <article class="relative bg-coal border border-white/10 p-10 flex flex-col">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="font-mono text-[10px] tracking-[0.3em] text-silver">PAKET / 03</div>
+            <h3 class="font-display font-bold text-3xl mt-3">PREMIUM DETAY</h3>
+          </div>
+          <div class="font-mono text-[10px] text-silver tracking-widest">~ 1 GÜN</div>
+        </div>
+        <div class="mt-8 flex items-baseline gap-2">
+          <span class="font-display font-extrabold text-5xl" style="font-size: 6px">₺5.000</span>
+          <span class="text-silver text-sm">/ paket</span>
+        </div>
+        <div class="hairline-dark my-8"></div>
+        <ul class="space-y-4 text-white/85 flex-1">
+          <li class="flex gap-3"><span class="text-neon">▸</span><span><b>Tam Bakım</b> içeriğinin tamamı</span></li>
+          <li class="flex gap-3"><span class="text-neon">▸</span>9H seramik kaplama uygulaması</li>
+          <li class="flex gap-3"><span class="text-neon">▸</span>Detaylı iç temizlik + koltuk yıkama</li>
+          <li class="flex gap-3"><span class="text-neon">▸</span>Motor yıkama + plastik canlandırma</li>
+          <li class="flex gap-3"><span class="text-neon">▸</span>24 ay boya koruma garantisi</li>
+        </ul>
+        <a href="#randevu" class="mt-10 inline-flex items-center justify-between border border-white/20 hover:border-neon hover:text-neon px-6 py-4 font-semibold transition-colors">
+          <span>Bu paketi seç</span><span class="caret">→</span>
+        </a>
+      </article>
+    </div>
+
+    <p class="mt-10 font-mono text-[11px] tracking-[0.2em] text-silver text-center">
+      * FİYATLAR KDV DAHİL · ARAÇ SEGMENTİNE GÖRE FARKLILIK GÖSTEREBİLİR · YAZILI KEŞİF SONRASI KESİNLEŞİR
+    </p>
+  </div>
+</section>
+
+<!-- ============== 4. NEDEN BİZ ============== -->
+<section id="neden-biz" class="relative bg-ash py-28 lg:py-36">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-20">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 reveal">
+      <div>
+        <div class="sect-num mb-6">04 / Neden Biz</div>
+        <h2 class="display text-5xl md:text-6xl lg:text-7xl text-ink">
+          RAKAMLAR <br/>
+          <span class="text-neon">YALAN SÖYLEMEZ.</span>
+        </h2>
+      </div>
+      <p class="text-coal/80 text-lg max-w-md">
+        Mecidiyeköy'ün en güvenilir oto servislerinden biri olmamızın sebebi: doğru ekip, doğru ekipman ve binlerce memnun müşteri.
+      </p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 reveal-stagger">
+
+      <div class="relative bg-ink text-white p-10 overflow-hidden speedlines">
+        <div class="flex items-start justify-between mb-12">
+          <div class="icon-box bg-ink border-white/15 text-white">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0 6 6L21 13l-8 8-6-6 8-8 .7.3z"/></svg>
+          </div>
+          <span class="font-mono text-[11px] tracking-[0.3em] text-silver">/01</span>
+        </div>
+        <div class="stat-num text-7xl md:text-8xl">15<span class="text-neon">+</span></div>
+        <div class="mt-3 font-display font-bold tracking-wider text-lg">YILLIK TECRÜBE</div>
+        <p class="mt-3 text-white/70 leading-relaxed">2009'dan beri Mecidiyeköy'de aralıksız hizmet — her marka, her model.</p>
+      </div>
+
+      <div class="relative bg-white p-10 border border-ink/10 overflow-hidden">
+        <div class="flex items-start justify-between mb-12">
+          <div class="icon-box">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3l-1.5-4.5A2 2 0 0 0 18.6 10H5.4a2 2 0 0 0-1.9 1.5L2 16h3"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+          </div>
+          <span class="font-mono text-[11px] tracking-[0.3em] text-silver">/02</span>
+        </div>
+        <div class="stat-num text-7xl md:text-8xl text-ink">8K<span class="text-neon">+</span></div>
+        <div class="mt-3 font-display font-bold tracking-wider text-lg">YILLIK BAKIM</div>
+        <p class="mt-3 text-coal/70 leading-relaxed">Her yıl yüzlerce araç servisten gülerek çıkıyor. Hızlı, eksiksiz ve şeffaf süreç.</p>
+      </div>
+
+      <div class="relative bg-white p-10 border border-ink/10 overflow-hidden">
+        <div class="flex items-start justify-between mb-12">
+          <div class="icon-box">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 8.5 22 9.3 17 14 18.2 21 12 17.8 5.8 21 7 14 2 9.3 9 8.5 12 2"/></svg>
+          </div>
+          <span class="font-mono text-[11px] tracking-[0.3em] text-silver">/03</span>
+        </div>
+        <div class="stat-num text-7xl md:text-8xl text-ink">4.9<span class="text-neon">★</span></div>
+        <div class="mt-3 font-display font-bold tracking-wider text-lg">MÜŞTERİ PUANI</div>
+        <p class="mt-3 text-coal/70 leading-relaxed">Google'da bölgenin en yüksek puanlı oto servisleri arasındayız — 1.200+ değerlendirme.</p>
+      </div>
+    </div>
+
+    <!-- Inline review -->
+    <div class="mt-12 reveal">
+      <div class="bg-white border-l-4 border-neon p-8 md:p-10 max-w-3xl">
+        <div class="font-mono text-[11px] tracking-[0.3em] text-silver mb-5">GOOGLE YORUMU · 5 GÜN ÖNCE</div>
+        <p class="font-display font-bold text-2xl md:text-3xl leading-snug text-ink">
+          "Yıllardır gittiğim tek servis. Şeffaf fiyat, dakikası dakikasına teslim, üstüne tertemiz iç temizlik. Mecidiyeköy'de eşi yok."
+        </p>
+        <div class="mt-6 flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-ash flex items-center justify-center font-display font-bold text-ink">EK</div>
+          <div>
+            <div class="font-semibold text-ink">Emre Karaca</div>
+            <div class="text-coal/60 text-sm">VW Passat sahibi · 4 yıllık müşteri</div>
+          </div>
+          <div class="ml-auto text-neon text-lg">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 5. ÖNCE & SONRA ============== -->
+<section id="galeri" class="relative bg-coal text-white py-28 lg:py-36 overflow-hidden">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-20">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 reveal">
+      <div>
+        <div class="sect-num mb-6">05 / Önce & Sonra</div>
+        <h2 class="display text-5xl md:text-6xl lg:text-7xl">
+          GELDİĞİ GİBİ DEĞİL, <br/>
+          <span class="text-neon">GİTTİĞİ GİBİ.</span>
+        </h2>
+      </div>
+      <p class="text-white/70 text-lg max-w-md">
+        Slider'ı sürükleyerek aracın servise geldiği günkü hâli ile teslim ettiğimiz hâli arasındaki farkı yan yana görün.
+      </p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6 reveal-stagger">
+
+      <!-- BA 1 — Same photo, filtered "before" half -->
+      <div>
+        <div class="flex items-center justify-between mb-4 font-mono text-[11px] tracking-[0.3em] text-silver">
+          <span>01 — DIŞ CEPHE · PASTA & CİLA</span>
+          <span>← SÜRÜKLE →</span>
+        </div>
+        <div class="ba aspect-[4/3]" data-ba>
+          <img class="before" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80" alt="Araç dış cephe — servis öncesi" style="filter: grayscale(0.85) brightness(0.55) contrast(1.15);">
+          <img class="after"  src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80" alt="Araç dış cephe — servis sonrası">
+          <span class="tag" style="left:16px;">ÖNCE</span>
+          <span class="tag" style="right:16px; background: rgba(230,57,70,0.9)">SONRA</span>
+          <div class="handle"><div class="knob">⇆</div></div>
+        </div>
+      </div>
+
+      <!-- BA 2 -->
+      <div>
+        <div class="flex items-center justify-between mb-4 font-mono text-[11px] tracking-[0.3em] text-silver">
+          <span>02 — İÇ MEKAN · DETAYLI TEMİZLİK</span>
+          <span>← SÜRÜKLE →</span>
+        </div>
+        <div class="ba aspect-[4/3]" data-ba>
+          <img class="before" src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1400&q=80" alt="Araç iç mekan — servis öncesi" style="filter: grayscale(0.85) brightness(0.55) contrast(1.15);">
+          <img class="after"  src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1400&q=80" alt="Araç iç mekan — servis sonrası">
+          <span class="tag" style="left:16px;">ÖNCE</span>
+          <span class="tag" style="right:16px; background: rgba(230,57,70,0.9)">SONRA</span>
+          <div class="handle"><div class="knob">⇆</div></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-6 font-mono text-[10px] tracking-[0.25em] text-silver/60">
+      * GÖRSEL TEMSİLİDİR · MÜŞTERİ ONAYI İLE GERÇEK ÖNCE/SONRA FOTOĞRAFLARI ARŞİVİMİZDE
+    </p>
+
+    <!-- Gallery strip -->
+    <div class="mt-14 reveal">
+      <div class="flex items-end justify-between mb-5">
+        <div class="font-mono text-[11px] tracking-[0.3em] text-silver">ATÖLYEDEN KARELER</div>
+        <div class="hairline-dark flex-1 mx-6 mb-1"></div>
+        <div class="font-mono text-[11px] tracking-[0.3em] text-silver">/ 04 FOTOĞRAF</div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="aspect-square overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Servis görseli">
+        </div>
+        <div class="aspect-square overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Servis görseli">
+        </div>
+        <div class="aspect-square overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Servis görseli">
+        </div>
+        <div class="aspect-square overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Servis görseli">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 6. İLETİŞİM + RANDEVU ============== -->
+<section id="iletisim" class="relative bg-ink text-white py-28 lg:py-36">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-20">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 reveal">
+      <div>
+        <div class="sect-num mb-6">06 / İletişim</div>
+        <h2 class="display text-5xl md:text-6xl lg:text-7xl">
+          BİZE UĞRAYIN <br/>
+          <span class="text-neon">YA DA ARAYIN.</span>
+        </h2>
+      </div>
+      <p class="text-white/70 text-lg max-w-md">
+        Mecidiyeköy merkezde, metro çıkışından 3 dakika. Otoparkımız ücretsiz, kahvemiz bedava.
+      </p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+
+      <!-- Map placeholder -->
+      <div class="lg:col-span-7 reveal">
+        <div class="relative aspect-[4/3] lg:aspect-auto lg:h-full map-grid overflow-hidden border border-white/10">
+          <!-- pin -->
+          <div class="absolute top-[40%] left-[58%]">
+            <div class="relative">
+              <div class="w-4 h-4 bg-neon rounded-full ring-4 ring-neon/30"></div>
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border border-neon/40 animate-pulse"></div>
+            </div>
+            <div class="mt-3 bg-ink/90 backdrop-blur-sm px-4 py-3 border border-neon/30 whitespace-nowrap">
+              <div class="font-mono text-[9px] tracking-[0.3em] text-neon">ŞU AN BURADASINIZ</div>
+              <div class="font-display font-bold mt-1">VİRAJ OTO SERVİS</div>
+              <div class="text-xs text-silver">Mecidiyeköy / Şişli</div>
+            </div>
+          </div>
+          <!-- streets labels -->
+          <div class="absolute bottom-4 left-4 font-mono text-[10px] tracking-[0.3em] text-silver">
+            41.0658°N · 28.9876°E
+          </div>
+          <div class="absolute top-4 right-4 font-mono text-[10px] tracking-[0.3em] text-silver">
+            HARITA / MAP
+          </div>
+          <div class="absolute bottom-4 right-4 flex items-center gap-2">
+            <a href="https://maps.google.com/?q=Mecidiyek%C3%B6y%20oto%20servis" target="_blank" rel="noopener" class="bg-neon text-white text-xs font-semibold px-4 py-2 hover:bg-white hover:text-ink transition-colors">
+              YOL TARİFİ AL →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact card -->
+      <div class="lg:col-span-5 reveal">
+        <div class="bg-coal border border-white/10 p-8 lg:p-10 h-full flex flex-col">
+          <div class="font-mono text-[10px] tracking-[0.3em] text-silver">İLETİŞİM BİLGİLERİ</div>
+
+          <div class="mt-6 space-y-6">
+            <div>
+              <div class="font-mono text-[10px] tracking-[0.3em] text-neon">ADRES</div>
+              <div class="font-display font-bold text-xl mt-2">Mecidiyeköy Mah. Şehit Ahmet Sok. No: 42, Şişli / İstanbul</div>
+            </div>
+            <div class="hairline-dark"></div>
+            <div class="grid grid-cols-2 gap-6">
+              <div>
+                <div class="font-mono text-[10px] tracking-[0.3em] text-neon">TELEFON</div>
+                <a href="tel:+905551234567" class="block font-display font-bold text-lg mt-2 hover:text-neon transition-colors">+90 555 123 45 67</a>
+              </div>
+              <div>
+                <div class="font-mono text-[10px] tracking-[0.3em] text-neon">E-POSTA</div>
+                <a href="mailto:randevu@virajotoservis.com" class="block font-display font-bold text-base mt-2 hover:text-neon transition-colors break-all">randevu@virajotoservis.com</a>
+              </div>
+            </div>
+            <div class="hairline-dark"></div>
+            <div>
+              <div class="font-mono text-[10px] tracking-[0.3em] text-neon">ÇALIŞMA SAATLERİ</div>
+              <div class="mt-3 space-y-2 text-white/85">
+                <div class="flex justify-between"><span>Hafta İçi</span><span class="font-semibold">08:00 — 20:00</span></div>
+                <div class="flex justify-between"><span>Cumartesi</span><span class="font-semibold">09:00 — 17:00</span></div>
+                <div class="flex justify-between"><span>Pazar</span><span class="text-silver">Kapalı</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-auto pt-8">
+            <a href="https://wa.me/905551234567" target="_blank" rel="noopener" class="flex items-center justify-between bg-neon hover:bg-white hover:text-ink text-white px-6 py-4 font-semibold transition-colors">
+              <span>WhatsApp ile hızlı iletişim</span><span class="caret text-lg">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Randevu Form -->
+    <div id="randevu" class="mt-16 reveal scroll-mt-32">
+      <div class="bg-coal border border-white/10 p-8 md:p-12 lg:p-16" style="font-size: 72px">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10" style="width: 1041.81px; font-size: 72px">
+          <div class="lg:col-span-4">
+            <div class="font-mono text-[10px] tracking-[0.3em] text-neon mb-4" style="font-size: 32px">RANDEVU FORMU / 06.1</div>
+            <h3 class="display text-4xl md:text-5xl">
+              SİZİ <br/>
+              <span class="text-neon" style="font-size: 46px">15 DAKİKADA</span> <br/> ARAYALIM.
+            </h3>
+            <p class="mt-6 text-white/70 leading-relaxed" style="font-size: 42px">
+              Formu doldurun, uygun gün ve saatler için sizi telefonla arayalım.
+              Servisimize bırakırken araç teslim alma ve kontaklı teslim hizmeti dahildir.
+            </p>
+            <div class="mt-8 flex items-center gap-3 font-mono text-[10px] tracking-[0.3em] text-silver">
+              <span class="w-1.5 h-1.5 bg-neon rounded-full animate-pulse"></span>
+              ŞU AN ORTALAMA YANIT SÜRESİ: 9 DK
+            </div>
+          </div>
+
+          <form class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2" onsubmit="event.preventDefault(); this.querySelector('button').innerHTML='TEŞEKKÜRLER — SİZİ ARIYORUZ ✓'; this.querySelector('button').classList.add('bg-white','text-ink');">
+            <label class="block">
+              <span class="field-label">Ad Soyad</span>
+              <input class="field" type="text" placeholder="Örn. Ahmet Yılmaz" required>
+            </label>
+            <label class="block">
+              <span class="field-label">Telefon</span>
+              <input class="field" type="tel" placeholder="+90 5__ ___ __ __" required>
+            </label>
+            <label class="block" style="font-size: 32px">
+              <span class="field-label">Araç Marka & Model</span>
+              <input class="field" type="text" placeholder="Örn. Volkswagen Passat 2019" required>
+            </label>
+            <label class="block">
+              <span class="field-label" style="font-size: 32px">Hizmet</span>
+              <select class="field appearance-none" required style="background-image: linear-gradient(45deg, transparent 50%, #E63946 50%), linear-gradient(135deg, #E63946 50%, transparent 50%); background-position: right 4px top 22px, right 0 top 22px; background-size: 6px 6px, 6px 6px; background-repeat: no-repeat; font-size: 22px">
+                <option class="bg-coal">Periyodik Bakım</option>
+                <option class="bg-coal">Boya & Kaporta</option>
+                <option class="bg-coal">Oto Yıkama & Detay</option>
+                <option class="bg-coal">Lastik & Jant</option>
+                <option class="bg-coal">Mekanik Onarım</option>
+                <option class="bg-coal">Klima Bakımı</option>
+              </select>
+            </label>
+            <label class="block" style="font-size: 32px">
+              <span class="field-label">Tercih Edilen Tarih</span>
+              <input class="field" type="date">
+            </label>
+            <label class="block">
+              <span class="field-label">Tercih Edilen Saat</span>
+              <input class="field" type="time">
+            </label>
+            <label class="block md:col-span-2">
+              <span class="field-label">Eklemek istedikleriniz (opsiyonel)</span>
+              <input class="field" type="text" placeholder="Örn. Sağ arka çamurlukta çizik, ön balata yenisi olacak…">
+            </label>
+
+            <div class="md:col-span-2 mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <label class="flex items-start gap-3 text-sm text-white/70">
+                <input type="checkbox" class="mt-1 accent-neon" required>
+                <span>Kişisel verilerimin <a href="#" class="text-neon underline">aydınlatma metni</a> kapsamında işlenmesini kabul ediyorum.</span>
+              </label>
+              <button class="group inline-flex items-center gap-3 bg-neon hover:bg-white hover:text-ink text-white px-8 py-4 font-semibold tracking-wide transition-colors whitespace-nowrap" style="font-size: 42px">
+                RANDEVU İSTEĞİ GÖNDER
+                <span class="caret">→</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="bg-ink text-white border-t border-white/10">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-20 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+      <div class="col-span-2">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-neon flex items-center justify-center"><span class="font-display font-black text-white text-lg">V</span></div>
+          <div>
+            <div class="font-display font-bold tracking-wider">VIRAJ OTO SERVIS</div>
+            <div class="font-mono text-[10px] tracking-[0.3em] text-silver">EST. 2009 — MECİDİYEKÖY</div>
+          </div>
+        </div>
+        <p class="mt-6 text-white/60 max-w-md leading-relaxed">
+          Sertifikalı ekip, orijinal parça ve şeffaf fiyat ile aracınızın güvenli limanı.
+          Hafta içi her gün 08:00–20:00 arası açığız.
+        </p>
+      </div>
+      <div>
+        <div class="font-mono text-[10px] tracking-[0.3em] text-silver mb-4">HİZMETLER</div>
+        <ul class="space-y-2 text-white/80 text-sm">
+          <li><a href="#hizmetler" class="hover:text-neon">Periyodik Bakım</a></li>
+          <li><a href="#hizmetler" class="hover:text-neon">Boya & Kaporta</a></li>
+          <li><a href="#hizmetler" class="hover:text-neon">Detaylı Temizlik</a></li>
+          <li><a href="#hizmetler" class="hover:text-neon">Seramik Kaplama</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-mono text-[10px] tracking-[0.3em] text-silver mb-4">İLETİŞİM</div>
+        <ul class="space-y-2 text-white/80 text-sm">
+          <li>Mecidiyeköy Mah. <br/>Şehit Ahmet Sok. No:42</li>
+          <li><a href="tel:+905551234567" class="hover:text-neon">+90 555 123 45 67</a></li>
+          <li><a href="mailto:randevu@virajotoservis.com" class="hover:text-neon break-all">randevu@virajotoservis.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-silver font-mono text-[10px] tracking-[0.3em]">
+      <div>© 2026 VİRAJ OTO SERVİS · TÜM HAKLARI SAKLIDIR</div>
+      <div class="flex items-center gap-6">
+        <a href="#" class="hover:text-neon">KVKK</a>
+        <a href="#" class="hover:text-neon">ÇEREZ POLİTİKASI</a>
+        <a href="#" class="hover:text-neon">GİZLİLİK</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============== FLOATING WHATSAPP ============== -->
+<a href="https://wa.me/905551234567" target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-40 group flex items-center gap-3 bg-[#25D366] hover:bg-white text-white hover:text-ink pl-4 pr-5 py-3 shadow-2xl transition-colors">
+  <span class="relative inline-flex w-9 h-9 rounded-full items-center justify-center pulse">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.18-1.62A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.48-8.52zM12 22a9.94 9.94 0 0 1-5.07-1.39l-.36-.21-3.67.96.98-3.58-.23-.37A9.94 9.94 0 1 1 22 12c0 5.52-4.48 10-10 10zm5.45-7.45c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.34.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.51-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.51.07-.78.37-.27.3-1.02 1-1.02 2.44 0 1.44 1.05 2.83 1.2 3.03.15.2 2.07 3.15 5 4.42.7.3 1.25.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+  </span>
+  <span class="hidden md:flex flex-col leading-tight">
+    <span class="font-mono text-[9px] tracking-[0.25em] opacity-80">WHATSAPP</span>
+    <span class="font-semibold text-sm">+90 555 123 45 67</span>
+  </span>
+</a>
+
+<script>
+  // ---- Reveal on scroll ----
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+  // ---- Before/After sliders ----
+  document.querySelectorAll('[data-ba]').forEach(ba => {
+    const after  = ba.querySelector('.after');
+    const handle = ba.querySelector('.handle');
+    let dragging = false;
+
+    const setPos = (clientX) => {
+      const rect = ba.getBoundingClientRect();
+      let x = Math.max(0, Math.min(rect.width, clientX - rect.left));
+      const pct = (x / rect.width) * 100;
+      after.style.clipPath = `inset(0 0 0 ${pct}%)`;
+      handle.style.left = `${pct}%`;
+    };
+
+    const down = (e) => { dragging = true; e.preventDefault(); };
+    const up   = ()  => { dragging = false; };
+    const move = (e) => {
+      if (!dragging) return;
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      setPos(x);
+    };
+
+    handle.addEventListener('mousedown', down);
+    handle.addEventListener('touchstart', down, {passive: true});
+    window.addEventListener('mouseup', up);
+    window.addEventListener('touchend', up);
+    window.addEventListener('mousemove', move);
+    window.addEventListener('touchmove', move, {passive: true});
+
+    // Allow click to jump
+    ba.addEventListener('click', (e) => {
+      if (e.target.closest('.knob')) return;
+      setPos(e.clientX);
+    });
+  });
+</script>
+
+</body>
+</html>

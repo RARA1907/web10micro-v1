@@ -80,7 +80,10 @@ const templates = [
     label: "Oto Servis",
     icon: "🔧",
     color: "#C0392B",
-    active: false,
+    active: true,
+    url: "/templates/oto-servis/index.html",
+    img: "/template-oto.png",
+    desc: "Oto servis ve yıkama işletmeleri için güvenilir web tasarımı.",
   },
   {
     id: "muhasebe",
