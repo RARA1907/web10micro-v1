@@ -109,7 +109,7 @@ export default function Home() {
         </div>
       </footer>
 
-      <MiraChat />
+      <MiraChat onCTACallback={() => openModal()} />
 
       <DemoModal
         open={modalOpen}
