@@ -50,7 +50,10 @@ const templates = [
     label: "Sağlık / Klinik",
     icon: "🏥",
     color: "#0B6E8E",
-    active: false,
+    active: true,
+    url: "/templates/saglik-klinik/index.html",
+    img: "/template-saglik.png",
+    desc: "Modern sağlık kliniği için güvenilir ve profesyonel web tasarımı.",
   },
   {
     id: "dis-klinigi",

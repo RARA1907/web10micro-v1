@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VitaMed Sağlık Merkezi — Levent, İstanbul</title>
+<meta name="description" content="VitaMed Sağlık Merkezi — Levent'te modern tıp, uzman kadro ve ileri teknoloji. Dahiliye, kardiyoloji, nöroloji, ortopedi, dermatoloji ve check-up paketleri." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --teal: #1A7A7A;
+    --teal-deep: #155F5F;
+    --sage: #8AB4A0;
+    --ice: #F5F7F6;
+    --ink: #0F1E2E;
+    --gold: #C9A96E;
+    --line: rgba(15, 30, 46, 0.10);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--ice);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .serif {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ===== Section signature: vertical line + number ===== */
+  .section {
+    position: relative;
+    padding: 120px 0;
+  }
+  .section-tag {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .section-tag .bar {
+    display: inline-block;
+    width: 2px;
+    height: 28px;
+    background: var(--teal);
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+  .section-tag .num {
+    font-weight: 600;
+  }
+  .section-tag .label {
+    color: rgba(15, 30, 46, 0.55);
+    letter-spacing: 0.18em;
+  }
+
+  .section-heading {
+    font-size: clamp(36px, 5vw, 56px);
+    color: var(--ink);
+    max-width: 720px;
+    margin: 0 0 18px;
+  }
+  .section-sub {
+    max-width: 560px;
+    color: rgba(15, 30, 46, 0.65);
+    font-size: 17px;
+    margin: 0 0 56px;
+  }
+
+  /* ===== Navigation ===== */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    padding: 18px 0;
+    background: rgba(245, 247, 246, 0.72);
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+    border-bottom: 1px solid rgba(15, 30, 46, 0.06);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--ink);
+  }
+  .brand-mark {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%);
+    display: grid;
+    place-items: center;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(26, 122, 122, 0.25);
+  }
+  .brand small {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .brand span { line-height: 1; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(15, 30, 46, 0.75);
+  }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--teal);
+    color: #fff !important;
+    padding: 11px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .nav-cta:hover { background: var(--teal-deep); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(26, 122, 122, 0.25); }
+  @media (max-width: 860px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 140px 0 80px;
+    overflow: hidden;
+    color: #fff;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=2000&q=80&auto=format&fit=crop') center/cover no-repeat;
+    z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(15, 30, 46, 0.85) 0%, rgba(15, 30, 46, 0.40) 45%, rgba(15, 30, 46, 0.10) 100%),
+      linear-gradient(180deg, rgba(15, 30, 46, 0.10) 0%, rgba(15, 30, 46, 0.55) 100%);
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 60px;
+    align-items: end;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--sage);
+  }
+  .hero h1 {
+    font-size: clamp(44px, 6.5vw, 84px);
+    color: #fff;
+    margin: 0 0 26px;
+    max-width: 12ch;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sage);
+  }
+  .hero-sub {
+    font-size: 19px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 540px;
+    margin: 0 0 38px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all .2s ease;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--teal);
+    color: #fff;
+    box-shadow: 0 14px 30px rgba(26, 122, 122, 0.35);
+  }
+  .btn-primary:hover {
+    background: var(--teal-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(26, 122, 122, 0.45);
+  }
+  .btn-ghost {
+    background: rgba(255, 255, 255, 0.10);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(8px);
+  }
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  /* Glass card cluster in hero */
+  .hero-card {
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 18px;
+    padding: 26px;
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    color: #fff;
+  }
+  .hero-card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 18px;
+  }
+  .hero-card-title::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--sage);
+    box-shadow: 0 0 0 4px rgba(138, 180, 160, 0.25);
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .hero-stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .hero-stat-num em { color: var(--gold); font-style: normal; }
+  .hero-stat-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.4;
+  }
+  .hero-hours {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 13px;
+  }
+  .hero-hours .pulse {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--sage);
+    font-weight: 500;
+  }
+  .hero-hours .pulse::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--sage);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(138, 180, 160, 0.7); }
+    50% { box-shadow: 0 0 0 8px rgba(138, 180, 160, 0); }
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 28px; left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-scroll::after {
+    content: '';
+    width: 1px; height: 28px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+    animation: drop 2s infinite;
+  }
+  @keyframes drop {
+    0% { transform: translateY(-6px); opacity: 0; }
+    40% { opacity: 1; }
+    100% { transform: translateY(10px); opacity: 0; }
+  }
+  @media (max-width: 900px) { .hero-scroll { display: none; } }
+
+  /* ===== Floating WhatsApp ===== */
+  .whatsapp {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 60;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px 12px 12px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 14px 30px rgba(37, 211, 102, 0.35);
+    transition: transform .2s ease;
+  }
+  .whatsapp:hover { transform: translateY(-2px); }
+  .whatsapp-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+  .whatsapp small {
+    display: block;
+    font-weight: 400;
+    font-size: 11px;
+    opacity: 0.85;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  @media (max-width: 600px) {
+    .whatsapp { padding: 12px; }
+    .whatsapp .whatsapp-text { display: none; }
+  }
+
+  /* ===== Specialties grid ===== */
+  .specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 980px) { .specialties-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px) { .specialties-grid { grid-template-columns: 1fr; } }
+
+  .spec-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 1px 0 rgba(15, 30, 46, 0.04), 0 24px 40px -28px rgba(15, 30, 46, 0.18);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-radius: 20px;
+    padding: 32px 28px 30px;
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
+    overflow: hidden;
+  }
+  .spec-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: radial-gradient(800px 200px at 0% 0%, rgba(138, 180, 160, 0.18), transparent 50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .35s;
+  }
+  .spec-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 1px 0 rgba(15, 30, 46, 0.04), 0 36px 56px -28px rgba(15, 30, 46, 0.28);
+  }
+  .spec-card:hover::before { opacity: 1; }
+
+  .spec-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(26, 122, 122, 0.10), rgba(138, 180, 160, 0.18));
+    color: var(--teal);
+    display: grid;
+    place-items: center;
+    margin-bottom: 22px;
+    border: 1px solid rgba(26, 122, 122, 0.15);
+  }
+  .spec-card h3 {
+    font-size: 26px;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+  .spec-card p {
+    margin: 0 0 22px;
+    color: rgba(15, 30, 46, 0.65);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .spec-link {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--teal);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+  }
+  .spec-link::after {
+    content: '→';
+    transition: transform .2s ease;
+  }
+  .spec-card:hover .spec-link::after { transform: translateX(4px); }
+  .spec-index {
+    position: absolute;
+    top: 22px; right: 26px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 14px;
+    color: rgba(15, 30, 46, 0.25);
+  }
+
+  /* ===== Why us ===== */
+  .why-wrap {
+    position: relative;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 64px;
+  }
+  @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; } }
+
+  .stat-card {
+    position: relative;
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfa 100%);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 36px 32px;
+    overflow: hidden;
+  }
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--teal);
+    opacity: 0.6;
+  }
+  .stat-icon {
+    width: 52px; height: 52px;
+    background: rgba(26, 122, 122, 0.08);
+    color: var(--teal);
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 28px;
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(42px, 5vw, 56px);
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
+  .stat-num em { color: var(--gold); font-style: normal; font-size: 0.7em; }
+  .stat-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 18px 0 8px;
+  }
+  .stat-desc {
+    color: rgba(15, 30, 46, 0.6);
+    font-size: 14px;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .why-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    background: linear-gradient(135deg, var(--ink) 0%, #1a3047 100%);
+    color: #fff;
+    border-radius: 24px;
+    padding: 48px;
+    overflow: hidden;
+    position: relative;
+  }
+  .why-bottom::before {
+    content: '';
+    position: absolute;
+    right: -120px; top: -120px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(138, 180, 160, 0.18), transparent 60%);
+    border-radius: 50%;
+  }
+  @media (max-width: 800px) { .why-bottom { grid-template-columns: 1fr; padding: 32px; } }
+
+  .why-bottom h3 {
+    font-size: clamp(28px, 3.5vw, 38px);
+    margin: 0 0 14px;
+    color: #fff;
+  }
+  .why-bottom p {
+    color: rgba(255,255,255,0.75);
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .accred {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .accred-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 12px;
+    font-size: 14px;
+  }
+  .accred-item .check {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--sage);
+    color: var(--ink);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .accred-item strong { font-weight: 600; }
+  .accred-item span { display: block; opacity: 0.7; font-size: 12px; }
+
+  /* ===== Team ===== */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 1024px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .team-grid { grid-template-columns: 1fr; } }
+
+  .doctor {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .doctor:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -24px rgba(15, 30, 46, 0.25);
+  }
+  .doctor-photo {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    position: relative;
+    background: var(--ice);
+  }
+  .doctor-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease;
+    filter: saturate(0.9) contrast(1.02);
+  }
+  .doctor:hover .doctor-photo img { transform: scale(1.04); }
+  .doctor-photo .badge {
+    position: absolute;
+    top: 14px; left: 14px;
+    background: rgba(245, 247, 246, 0.92);
+    backdrop-filter: blur(10px);
+    color: var(--teal);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .doctor-info {
+    padding: 22px 22px 24px;
+  }
+  .doctor-info h3 {
+    font-size: 22px;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .doctor-info .role {
+    color: var(--teal);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin: 0 0 12px;
+  }
+  .doctor-info .bio {
+    color: rgba(15, 30, 46, 0.6);
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin: 0;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+  }
+
+  /* ===== Testimonials ===== */
+  .testi-section {
+    background: linear-gradient(180deg, var(--ice) 0%, #eaf0ed 100%);
+  }
+  .testi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 980px) {
+    .testi-row {
+      grid-auto-flow: column;
+      grid-auto-columns: 85%;
+      grid-template-columns: none;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 16px;
+    }
+    .testi-card { scroll-snap-align: start; }
+  }
+  .testi-card {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(14px) saturate(140%);
+    border-radius: 22px;
+    padding: 36px 32px;
+    position: relative;
+    box-shadow: 0 24px 40px -28px rgba(15, 30, 46, 0.16);
+  }
+  .testi-quote {
+    font-family: 'DM Serif Display', serif;
+    font-size: 60px;
+    line-height: 0.6;
+    color: var(--teal);
+    opacity: 0.30;
+    margin-bottom: 6px;
+  }
+  .testi-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    line-height: 1.35;
+    color: var(--ink);
+    margin: 0 0 28px;
+    letter-spacing: -0.01em;
+  }
+  .testi-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+  .testi-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--sage));
+    color: #fff;
+    display: grid; place-items: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+  }
+  .testi-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .testi-info {
+    font-size: 12px;
+    color: rgba(15, 30, 46, 0.55);
+  }
+  .stars {
+    margin-left: auto;
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* ===== Contact ===== */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 980px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  .map-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    overflow: hidden;
+    min-height: 480px;
+    position: relative;
+  }
+  .map-card iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    border: 0;
+    display: block;
+    filter: grayscale(0.2) saturate(0.9);
+  }
+
+  .info-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .info-row {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .info-row .ico {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: rgba(26, 122, 122, 0.08);
+    color: var(--teal);
+    display: grid; place-items: center;
+  }
+  .info-row .lbl {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(15, 30, 46, 0.5);
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+  .info-row p {
+    margin: 0;
+    color: var(--ink);
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+  .info-row p span { color: rgba(15, 30, 46, 0.6); }
+
+  .hours-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 14px;
+  }
+  .hours-line:last-child { border: 0; }
+  .hours-line .day { color: rgba(15, 30, 46, 0.7); }
+  .hours-line .time { color: var(--ink); font-weight: 600; }
+  .hours-line.closed .time { color: rgba(15, 30, 46, 0.4); }
+
+  /* ===== Appointment form ===== */
+  .appt-card {
+    background: linear-gradient(135deg, var(--ink) 0%, #1b3349 100%);
+    color: #fff;
+    border-radius: 24px;
+    padding: 48px;
+    overflow: hidden;
+    position: relative;
+  }
+  .appt-card::before {
+    content: '';
+    position: absolute;
+    left: -100px; bottom: -100px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(26, 122, 122, 0.30), transparent 60%);
+    border-radius: 50%;
+  }
+  @media (max-width: 700px) { .appt-card { padding: 32px 24px; } }
+
+  .appt-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: end;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .appt-head h3 {
+    font-size: clamp(28px, 3.5vw, 38px);
+    margin: 0;
+    color: #fff;
+  }
+  .appt-head p {
+    margin: 8px 0 0;
+    color: rgba(255,255,255,0.6);
+    max-width: 460px;
+    font-size: 15px;
+  }
+  .appt-phone {
+    font-size: 13px;
+    color: var(--sage);
+  }
+  .appt-phone strong {
+    display: block;
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: #fff;
+    margin-top: 4px;
+  }
+  @media (max-width: 700px) { .appt-head { grid-template-columns: 1fr; } }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    position: relative;
+  }
+  .form-grid .full { grid-column: 1 / -1; }
+  @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    font-weight: 600;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    color: #fff;
+    padding: 14px 16px;
+    font-family: inherit;
+    font-size: 15px;
+    transition: border-color .2s, background .2s;
+  }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.35); }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--sage);
+    background: rgba(255, 255, 255, 0.10);
+  }
+  .field select option { background: var(--ink); color: #fff; }
+  .field textarea { min-height: 100px; resize: vertical; }
+
+  .form-submit {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .consent {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    max-width: 420px;
+  }
+
+  .btn-submit {
+    background: var(--gold);
+    color: var(--ink);
+    box-shadow: 0 14px 30px rgba(201, 169, 110, 0.30);
+  }
+  .btn-submit:hover {
+    background: #d6b87b;
+    transform: translateY(-2px);
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    padding: 60px 0 30px;
+    margin-top: 0;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+  @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+
+  footer h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin: 0 0 18px;
+    font-weight: 600;
+  }
+  footer .brand-mark { background: linear-gradient(135deg, var(--sage), var(--teal)); }
+  footer .brand span, footer .brand small { color: #fff; }
+  footer p { color: rgba(255,255,255,0.55); font-size: 14px; line-height: 1.6; margin: 0; }
+  footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  footer ul a { color: rgba(255,255,255,0.65); font-size: 14px; }
+  footer ul a:hover { color: var(--sage); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ===== Scroll reveal ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal[data-delay="1"] { transition-delay: .08s; }
+  .reveal[data-delay="2"] { transition-delay: .16s; }
+  .reveal[data-delay="3"] { transition-delay: .24s; }
+  .reveal[data-delay="4"] { transition-delay: .32s; }
+  .reveal[data-delay="5"] { transition-delay: .40s; }
+</style>
+</head>
+<body>
+
+<a href="https://web10micro.com" target="_blank" style="position:fixed;bottom:24px;left:24px;z-index:9999;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:10px 18px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:600;color:#1a1a1a;text-decoration:none;box-shadow:0 8px 30px rgba(0,0,0,.12);display:flex;align-items:center;gap:8px;transition:all .25s ease">← Diğer Demolar</a>
+
+<!-- =============== NAV =============== -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#hero">
+      <div class="brand-mark" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16"/></svg>
+      </div>
+      <div>
+        <small>Klinik &amp; Sağlık</small>
+        <span>VitaMed</span>
+      </div>
+    </a>
+    <nav class="nav-links" aria-label="Birincil menü">
+      <a href="#uzmanlik">Uzmanlık Alanları</a>
+      <a href="#neden">Neden Biz</a>
+      <a href="#ekip">Ekibimiz</a>
+      <a href="#yorumlar">Yorumlar</a>
+      <a href="#iletisim">İletişim</a>
+      <a href="#randevu" class="nav-cta">
+        Randevu Al
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- =============== HERO =============== -->
+<section class="hero" id="hero" aria-label="Giriş">
+  <div class="hero-bg" role="img" aria-label="Modern, ferah klinik muayene odası"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-content">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow reveal">Levent, İstanbul — 2009'dan beri</div>
+        <h1 class="reveal" data-delay="1">Sağlığınız <em>bizimle</em> güvende.</h1>
+        <p class="hero-sub reveal" data-delay="2">Levent'te modern tıp, uzman kadro ve ileri teknoloji bir arada. Aynı gün randevu, dijital tahlil sonuçları ve tek noktadan tüm branşlar — VitaMed'de sağlığınızı önce dinliyoruz, sonra çözüyoruz.</p>
+        <div class="hero-ctas reveal" data-delay="3">
+          <a class="btn btn-primary" href="#randevu">
+            Randevu Al
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#uzmanlik">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Bölümleri keşfet
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-card reveal" data-delay="4" aria-label="Hızlı bilgi">
+        <div class="hero-card-title">Bugün açığız</div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">15<em>+</em></div>
+            <div class="hero-stat-label">Yıllık tecrübe<br/>2009'dan beri</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">12</div>
+            <div class="hero-stat-label">Uzman hekim<br/>6 branşta</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">%98</div>
+            <div class="hero-stat-label">Hasta<br/>memnuniyeti</div>
+          </div>
+        </div>
+        <div class="hero-hours">
+          <span class="pulse">Şu an açık · 19:00'a kadar</span>
+          <span>+90 212 555 84 22</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">Aşağı kaydır</div>
+</section>
+
+<!-- =============== SPECIALTIES =============== -->
+<section class="section" id="uzmanlik" aria-labelledby="uzmanlik-title">
+  <div class="container">
+    <div class="section-tag reveal">
+      <span class="bar"></span>
+      <span class="num">01</span>
+      <span class="label">— Uzmanlık Alanları</span>
+    </div>
+    <h2 class="section-heading reveal" id="uzmanlik-title">Altı branş, tek çatı altında bütüncül bakım.</h2>
+    <p class="section-sub reveal" data-delay="1">Dahiliyeden kardiyolojiye, nörolojiden check-up paketlerine — sağlık yolculuğunuzun her aşamasını VitaMed kadrosu birlikte yönetir. Tek randevuyla birden çok branşa erişin.</p>
+
+    <div class="specialties-grid">
+      <article class="spec-card reveal">
+        <div class="spec-index">— 01</div>
+        <div class="spec-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4M5 8h14M5 8a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2"/><path d="M12 12v6M9 15h6"/></svg>
+        </div>
+        <h3>Dahiliye</h3>
+        <p>Genel sağlık taramaları, tansiyon, diyabet ve metabolik hastalıkların tanı ve tedavisi.</p>
+        <a class="spec-link" href="#randevu">Randevu</a>
+      </article>
+
+      <article class="spec-card reveal" data-delay="1">
+        <div class="spec-index">— 02</div>
+        <div class="spec-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg>
+        </div>
+        <h3>Kardiyoloji</h3>
+        <p>EKG, efor testi, ekokardiyografi ile kalp sağlığı ve risk değerlendirmesi.</p>
+        <a class="spec-link" href="#randevu">Randevu</a>
+      </article>
+
+      <article class="spec-card reveal" data-delay="2">
+        <div class="spec-index">— 03</div>
+        <div class="spec-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3a3 3 0 0 0-3 3v1a3 3 0 0 0-3 3 3 3 0 0 0 1.5 2.6A3 3 0 0 0 6 17a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z"/><path d="M15 3a3 3 0 0 1 3 3v1a3 3 0 0 1 3 3 3 3 0 0 1-1.5 2.6A3 3 0 0 1 18 17a3 3 0 0 1-3 3 3 3 0 0 1-3-3"/></svg>
+        </div>
+        <h3>Nöroloji</h3>
+        <p>Baş ağrısı, uyku bozuklukları, baş dönmesi ve detaylı nörolojik muayene.</p>
+        <a class="spec-link" href="#randevu">Randevu</a>
+      </article>
+
+      <article class="spec-card reveal">
+        <div class="spec-index">— 04</div>
+        <div class="spec-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5h6M6 10c0-1 1-2 2-2h8c1 0 2 1 2 2v3a2 2 0 0 1-2 2h-1l1 7h-3l-1-5h-2l-1 5H8l1-7H8a2 2 0 0 1-2-2z"/></svg>
+        </div>
+        <h3>Ortopedi</h3>
+        <p>Eklem ağrıları, bel ve boyun fıtığı, spor yaralanmaları ve cerrahi danışmanlık.</p>
+        <a class="spec-link" href="#randevu">Randevu</a>
+      </article>
+
+      <article class="spec-card reveal" data-delay="1">
+        <div class="spec-index">— 05</div>
+        <div class="spec-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M9 15c1 1 2 1 3 1s2 0 3-1"/></svg>
+        </div>
+        <h3>Dermatoloji</h3>
+        <p>Cilt kanseri taraması, dermoskopi, egzama ve akne tedavisi; estetik dermatoloji.</p>
+        <a class="spec-link" href="#randevu">Randevu</a>
+      </article>
+
+      <article class="spec-card reveal" data-delay="2">
+        <div class="spec-index">— 06</div>
+        <div class="spec-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>
+        </div>
+        <h3>Check-Up Paketleri</h3>
+        <p>Kapsamlı sağlık taraması: kan tahlili, görüntüleme ve uzman değerlendirmesi tek seansta.</p>
+        <a class="spec-link" href="#randevu">Randevu</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =============== WHY US =============== -->
+<section class="section why-wrap" id="neden" aria-labelledby="neden-title" style="padding-top: 40px;">
+  <div class="container">
+    <div class="section-tag reveal">
+      <span class="bar"></span>
+      <span class="num">02</span>
+      <span class="label">— Neden VitaMed</span>
+    </div>
+    <h2 class="section-heading reveal" id="neden-title">Tedavi değil, güven ve ilgi sunuyoruz.</h2>
+    <p class="section-sub reveal" data-delay="1">2009'dan beri Levent'te, randevu sürelerini kısa tutarak ve hasta–hekim ilişkisini merkeze alarak çalışıyoruz. Sayılar bunun arkasında duruyor.</p>
+
+    <div class="why-grid">
+      <div class="stat-card reveal">
+        <div class="stat-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6M11 11h2"/></svg>
+        </div>
+        <div class="stat-num">15<em>+</em></div>
+        <div class="stat-title">Yıllık tecrübe</div>
+        <p class="stat-desc">2009'dan beri İstanbul Levent'te güvenilir sağlık hizmeti; üç nesli aşan hasta sadakati.</p>
+      </div>
+
+      <div class="stat-card reveal" data-delay="1">
+        <div class="stat-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="stat-num">12</div>
+        <div class="stat-title">Uzman hekim</div>
+        <p class="stat-desc">Alanında deneyimli, sürekli yurt içi ve yurt dışı eğitim alan, çok disiplinli kadro.</p>
+      </div>
+
+      <div class="stat-card reveal" data-delay="2">
+        <div class="stat-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13l2 2 4-4"/></svg>
+        </div>
+        <div class="stat-num">25.000<em>+</em></div>
+        <div class="stat-title">Mutlu hasta</div>
+        <p class="stat-desc">Her yıl binlerce muayene; bağımsız anketlerde %98 hasta memnuniyeti oranı.</p>
+      </div>
+    </div>
+
+    <div class="why-bottom reveal">
+      <div>
+        <h3>Hastalarımıza sadece tedavi değil, güven ve ilgi sunuyoruz.</h3>
+        <p>Her muayenede ortalama 25 dakika ayırıyor; tahlil sonuçlarını dijital panelden takip edebilmenizi sağlıyoruz. Klinikte bir sıradaki değil, bir bireysiniz.</p>
+      </div>
+      <div class="accred">
+        <div class="accred-item">
+          <span class="check" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <div><strong>ISO 9001 Kalite Yönetim Sertifikası</strong><span>2018'den beri kesintisiz onaylı</span></div>
+        </div>
+        <div class="accred-item">
+          <span class="check" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <div><strong>Sağlık Bakanlığı tam ruhsatlı poliklinik</strong><span>34 ilçe geneli denetim kayıtları temiz</span></div>
+        </div>
+        <div class="accred-item">
+          <span class="check" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <div><strong>Özel sigorta ve tamamlayıcı sigorta anlaşmaları</strong><span>15+ sigorta şirketi ile doğrudan ödeme</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== TEAM =============== -->
+<section class="section" id="ekip" aria-labelledby="ekip-title">
+  <div class="container">
+    <div class="section-tag reveal">
+      <span class="bar"></span>
+      <span class="num">03</span>
+      <span class="label">— Ekibimiz</span>
+    </div>
+    <h2 class="section-heading reveal" id="ekip-title">Tanıdığınız bir doktorla, randevudan önce.</h2>
+    <p class="section-sub reveal" data-delay="1">Kadromuzdaki her hekim alanında uzmanlaşmış, kendi kliniğinde ortalama 15 yılı aşkın deneyime sahip. İsimleri ve özgeçmişleri burada şeffafça paylaşıyoruz.</p>
+
+    <div class="team-grid">
+      <article class="doctor reveal">
+        <div class="doctor-photo">
+          <span class="badge">Kurucu</span>
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=900&q=80&auto=format&fit=crop" alt="Prof. Dr. Ayşe Karaca portresi"/>
+        </div>
+        <div class="doctor-info">
+          <h3>Prof. Dr. Ayşe Karaca</h3>
+          <p class="role">Kurucu Hekim · Dahiliye Uzmanı</p>
+          <p class="bio">30 yıllık dahiliye deneyimi; acil tıp ve metabolik hastalıklar alanında çok sayıda yayın. Hacettepe Tıp mezunu.</p>
+        </div>
+      </article>
+
+      <article class="doctor reveal" data-delay="1">
+        <div class="doctor-photo">
+          <span class="badge">18 Yıl</span>
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=900&q=80&auto=format&fit=crop" alt="Dr. Mehmet Demir portresi"/>
+        </div>
+        <div class="doctor-info">
+          <h3>Dr. Mehmet Demir</h3>
+          <p class="role">Kardiyoloji Uzmanı</p>
+          <p class="bio">18 yıllık kardiyoloji deneyimi. Avrupa Tıp Derneği üyesi; girişimsel kardiyoloji eğitimi Berlin Charité.</p>
+        </div>
+      </article>
+
+      <article class="doctor reveal" data-delay="2">
+        <div class="doctor-photo">
+          <span class="badge">12 Yıl</span>
+          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=900&q=80&auto=format&fit=crop" alt="Uz. Dr. Selin Yalçın portresi"/>
+        </div>
+        <div class="doctor-info">
+          <h3>Uz. Dr. Selin Yalçın</h3>
+          <p class="role">Nöroloji Uzmanı</p>
+          <p class="bio">12 yıllık nöroloji deneyimi. Uyku bozuklukları ve migren tedavisinde uzmanlaşmış; uyku laboratuvarı kurucusu.</p>
+        </div>
+      </article>
+
+      <article class="doctor reveal" data-delay="3">
+        <div class="doctor-photo">
+          <span class="badge">15 Yıl</span>
+          <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=900&q=80&auto=format&fit=crop" alt="Uz. Dr. Can Ateş portresi"/>
+        </div>
+        <div class="doctor-info">
+          <h3>Uz. Dr. Can Ateş</h3>
+          <p class="role">Ortopedi Uzmanı</p>
+          <p class="bio">15 yıllık ortopedi deneyimi. Spor hekimliği alt uzmanlığı; profesyonel sporcularla saha tecrübesi.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =============== TESTIMONIALS =============== -->
+<section class="section testi-section" id="yorumlar" aria-labelledby="yorum-title">
+  <div class="container">
+    <div class="section-tag reveal">
+      <span class="bar"></span>
+      <span class="num">04</span>
+      <span class="label">— Hasta Yorumları</span>
+    </div>
+    <h2 class="section-heading reveal" id="yorum-title">Hastalarımız anlatıyor.</h2>
+    <p class="section-sub reveal" data-delay="1">Google ve Şikayetvar üzerinden doğrulanmış, ortalama 4.9 yıldız değerlendirmesi. İşte son aylardan üç ses.</p>
+
+    <div class="testi-row">
+      <figure class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <blockquote class="testi-text">Prof. Dr. Karaca'nın hastayla ilgisi ve teşhisindeki isabet, sağlık sürecimin akışını tamamen değiştirdi.</blockquote>
+        <figcaption class="testi-meta">
+          <div class="testi-avatar" aria-hidden="true">MS</div>
+          <div>
+            <div class="testi-name">Mehmet S.</div>
+            <div class="testi-info">Dahiliye · 42 yaş</div>
+          </div>
+          <div class="stars" aria-label="5 yıldız">★★★★★</div>
+        </figcaption>
+      </figure>
+
+      <figure class="testi-card reveal" data-delay="1">
+        <div class="testi-quote">"</div>
+        <blockquote class="testi-text">Randevu sistemleri çok pratik — sıra beklemeden, tam saatinde muayene oluyorsunuz. Bu İstanbul'da ender.</blockquote>
+        <figcaption class="testi-meta">
+          <div class="testi-avatar" aria-hidden="true">EK</div>
+          <div>
+            <div class="testi-name">Elif K.</div>
+            <div class="testi-info">Kardiyoloji · 35 yaş</div>
+          </div>
+          <div class="stars" aria-label="5 yıldız">★★★★★</div>
+        </figcaption>
+      </figure>
+
+      <figure class="testi-card reveal" data-delay="2">
+        <div class="testi-quote">"</div>
+        <blockquote class="testi-text">Check-up paketini tavsiye ederim. Tahlil, görüntüleme ve uzman değerlendirmesi tek seansta — son derece profesyonel.</blockquote>
+        <figcaption class="testi-meta">
+          <div class="testi-avatar" aria-hidden="true">AT</div>
+          <div>
+            <div class="testi-name">Ahmet T.</div>
+            <div class="testi-info">Check-Up · 51 yaş</div>
+          </div>
+          <div class="stars" aria-label="5 yıldız">★★★★★</div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- =============== CONTACT =============== -->
+<section class="section" id="iletisim" aria-labelledby="iletisim-title">
+  <div class="container">
+    <div class="section-tag reveal">
+      <span class="bar"></span>
+      <span class="num">05</span>
+      <span class="label">— Konum &amp; İletişim</span>
+    </div>
+    <h2 class="section-heading reveal" id="iletisim-title">Levent'in kalbinde, ulaşımı kolay bir klinik.</h2>
+    <p class="section-sub reveal" data-delay="1">Metro 4. Levent durağından 3 dakika yürüyüş. Kapalı otoparkımız ve engelli erişimimiz mevcuttur.</p>
+
+    <div class="contact-grid">
+      <div class="map-card reveal">
+        <iframe
+          loading="lazy"
+          title="VitaMed Sağlık Merkezi — Levent harita"
+          src="https://www.google.com/maps?q=Levent%2C%20Istanbul&output=embed"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="info-card reveal" data-delay="1">
+        <div class="info-row">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <p class="lbl">Adres</p>
+            <p>Levent Mahallesi, Çayır Çimen Sk. No: 14<br/><span>Beşiktaş / İstanbul · 34330</span></p>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <p class="lbl">Telefon</p>
+            <p>+90 212 555 84 22<br/><span>WhatsApp: +90 555 123 45 67</span></p>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <p class="lbl">E-posta</p>
+            <p>info@vitamedklinik.com.tr<br/><span>randevu@vitamedklinik.com.tr</span></p>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div style="width:100%;">
+            <p class="lbl">Çalışma Saatleri</p>
+            <div class="hours-line"><span class="day">Pazartesi — Cuma</span><span class="time">09:00 — 19:00</span></div>
+            <div class="hours-line"><span class="day">Cumartesi</span><span class="time">09:00 — 15:00</span></div>
+            <div class="hours-line closed"><span class="day">Pazar</span><span class="time">Kapalı</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Appointment form ===== -->
+    <div class="appt-card reveal" id="randevu">
+      <div class="section-tag" style="color: var(--sage); margin-bottom: 20px;">
+        <span class="bar" style="background: var(--sage);"></span>
+        <span class="num">06</span>
+        <span class="label" style="color: rgba(255,255,255,0.55);">— Randevu Formu</span>
+      </div>
+      <div class="appt-head">
+        <div>
+          <h3>Sağlığınız için en uygun saati birlikte seçelim.</h3>
+          <p>Formu doldurun; 30 dakika içinde sizi arayıp randevunuzu kesinleştirelim. Hafta içi 19:00'a kadar, Cumartesi 15:00'a kadar.</p>
+        </div>
+        <div class="appt-phone">
+          Acil mi? Direkt arayın
+          <strong>+90 212 555 84 22</strong>
+        </div>
+      </div>
+
+      <form class="form-grid" onsubmit="event.preventDefault(); alert('Randevu talebiniz alındı. En kısa sürede sizi arayacağız.'); this.reset();">
+        <div class="field">
+          <label for="name">Ad Soyad</label>
+          <input type="text" id="name" name="name" placeholder="Adınız ve soyadınız" required />
+        </div>
+        <div class="field">
+          <label for="phone">Telefon</label>
+          <input type="tel" id="phone" name="phone" placeholder="+90 5__ ___ __ __" required />
+        </div>
+        <div class="field">
+          <label for="dept">Bölüm</label>
+          <select id="dept" name="dept" required>
+            <option value="" disabled selected>Branş seçin</option>
+            <option>Dahiliye</option>
+            <option>Kardiyoloji</option>
+            <option>Nöroloji</option>
+            <option>Ortopedi</option>
+            <option>Dermatoloji</option>
+            <option>Check-Up Paketi</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="date">Tercih Edilen Tarih</label>
+          <input type="date" id="date" name="date" required />
+        </div>
+        <div class="field full">
+          <label for="msg">Mesajınız (opsiyonel)</label>
+          <textarea id="msg" name="msg" placeholder="Şikayetinizi veya talebinizi kısaca yazabilirsiniz..."></textarea>
+        </div>
+
+        <div class="form-submit">
+          <p class="consent">Formu göndererek <a href="#" style="color: var(--sage); text-decoration: underline;">KVKK Aydınlatma Metni</a>'ni okuduğunuzu onaylamış olursunuz.</p>
+          <button class="btn btn-submit" type="submit">
+            Randevumu Onayla
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- =============== FOOTER =============== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#hero" style="margin-bottom: 18px;">
+          <div class="brand-mark" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16"/></svg>
+          </div>
+          <div>
+            <small>Klinik &amp; Sağlık</small>
+            <span style="font-family: 'DM Serif Display', serif; font-size: 22px;">VitaMed</span>
+          </div>
+        </a>
+        <p style="margin-top: 18px;">Levent'te modern tıp, uzman kadro ve ileri teknoloji. 2009'dan beri sağlığınızın yanındayız.</p>
+      </div>
+      <div>
+        <h4>Bölümler</h4>
+        <ul>
+          <li><a href="#uzmanlik">Dahiliye</a></li>
+          <li><a href="#uzmanlik">Kardiyoloji</a></li>
+          <li><a href="#uzmanlik">Nöroloji</a></li>
+          <li><a href="#uzmanlik">Ortopedi</a></li>
+          <li><a href="#uzmanlik">Check-Up</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Klinik</h4>
+        <ul>
+          <li><a href="#neden">Hakkımızda</a></li>
+          <li><a href="#ekip">Ekibimiz</a></li>
+          <li><a href="#yorumlar">Yorumlar</a></li>
+          <li><a href="#iletisim">İletişim</a></li>
+          <li><a href="#randevu">Randevu</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>İletişim</h4>
+        <ul>
+          <li>+90 212 555 84 22</li>
+          <li>info@vitamedklinik.com.tr</li>
+          <li>Levent, Beşiktaş / İstanbul</li>
+          <li>Pzt–Cuma 09:00–19:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VitaMed Sağlık Merkezi. Tüm hakları saklıdır.</span>
+      <span>KVKK · Çerez Politikası · Gizlilik</span>
+    </div>
+  </div>
+</footer>
+
+<!-- =============== WHATSAPP FLOAT =============== -->
+<a class="whatsapp" href="https://wa.me/905551234567" aria-label="WhatsApp ile iletişim">
+  <span class="whatsapp-icon" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.2 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.3c1.5.8 3.3 1.3 5.2 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+  </span>
+  <span class="whatsapp-text">
+    <small>WhatsApp ile yazın</small>
+    +90 555 123 45 67
+  </span>
+</a>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Smooth offset for sticky nav anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const t = document.querySelector(id);
+        if (t) {
+          e.preventDefault();
+          const top = t.getBoundingClientRect().top + window.scrollY - 70;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
