@@ -79,46 +79,69 @@ export function Hero({ onCTA }: Props) {
             </div>
           </div>
 
-          {/* Sağ — Demo önizleme */}
+          {/* Sağ — Mira + demo card */}
           <div className="relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm">
-              {/* Üst badge */}
-              <div className="flex items-center justify-between mb-3 bg-white rounded-2xl border border-[var(--border)] shadow-lg px-4 py-2.5">
-                <div className="flex items-center gap-2">
-                  <MiraAvatar mood="celebrating" size={28} />
-                  <span className="text-xs font-semibold text-[var(--text-primary)]">Mira hazırladı! 🎉</span>
+            {/* Ana kart */}
+            <div className="relative bg-white rounded-3xl border border-[var(--border)] shadow-2xl shadow-blue-100 p-4 sm:p-6 w-full max-w-sm overflow-hidden">
+              {/* Kart başlık */}
+              <div className="flex items-center gap-2 sm:gap-3 mb-4 pb-4 border-b border-[var(--border)] flex-wrap">
+                <MiraAvatar mood="celebrating" size={40} />
+                <div className="min-w-0 flex-1">
+                  <p className="font-semibold text-xs sm:text-sm text-[var(--text-primary)]">Mira hazırladı! 🎉</p>
+                  <p className="text-[10px] sm:text-xs text-[var(--text-muted)] truncate">arslan-hukuk.web10micro.com</p>
                 </div>
-                <span className="text-[10px] font-semibold text-[var(--success)] bg-green-50 px-2.5 py-1 rounded-full">Canlı ✓</span>
+                <div className="ml-auto flex-shrink-0">
+                  <span className="text-xs font-semibold text-[var(--success)] bg-green-50 px-2 py-1 rounded-full">Canlı ✓</span>
+                </div>
               </div>
 
-              {/* Ekran görüntüsü */}
-              <a
-                href="/templates/guzellik-kuafor/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block rounded-2xl overflow-hidden border border-[var(--border)] shadow-2xl shadow-blue-100 group"
-              >
-                <img
-                  src="/template-guzellik.png"
-                  alt="Maison Luna demo"
-                  className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-2xl" />
-              </a>
+              {/* Site önizleme mockup */}
+              <div className="bg-gray-50 rounded-2xl overflow-hidden mb-4 border border-[var(--border)]">
+                <div className="bg-[#1A3A5C] px-3 sm:px-4 py-2 sm:py-3 flex items-center gap-2">
+                  <div className="flex gap-1">
+                    <div className="w-2 h-2 rounded-full bg-red-400" />
+                    <div className="w-2 h-2 rounded-full bg-yellow-400" />
+                    <div className="w-2 h-2 rounded-full bg-green-400" />
+                  </div>
+                  <div className="flex-1 bg-white/20 rounded-full px-2 py-0.5 text-white text-[10px] truncate">arslan-hukuk.web10micro.com</div>
+                </div>
+                <div className="p-3 sm:p-4">
+                  <div className="bg-[#1A3A5C] rounded-xl p-3 sm:p-4 text-white mb-3">
+                    <div className="text-[10px] sm:text-xs font-bold mb-1">ARSLAN HUKUK BÜROSU</div>
+                    <div className="text-[9px] sm:text-[10px] opacity-70">Hukuki Danışmanlık · İstanbul</div>
+                    <div className="mt-3 bg-[var(--accent)] text-white text-[9px] sm:text-[10px] font-semibold px-3 py-1.5 rounded-lg inline-block">
+                      Ücretsiz Danışma →
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    {["Boşanma Hukuku","Ceza Hukuku","İş Hukuku","Gayrimenkul"].map(s => (
+                      <div key={s} className="bg-gray-100 rounded-lg p-2 text-[9px] sm:text-[10px] font-medium text-gray-600 truncate">{s}</div>
+                    ))}
+                  </div>
+                </div>
+              </div>
 
-              {/* Alt CTA satırı */}
-              <div className="flex items-center justify-between mt-3">
-                <p className="text-xs text-[var(--text-muted)]">
-                  <span className="font-semibold text-[var(--text-primary)]">Maison Luna</span> · Butik Kuaför
-                </p>
-                <a
-                  href="/templates/guzellik-kuafor/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-semibold bg-[var(--primary)] text-white px-4 py-2 rounded-xl hover:bg-[var(--primary-dark)] transition-colors"
-                >
-                  Canlı Gör →
-                </a>
+              {/* İstatistikler */}
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 text-center">
+                {[["4.2sn","Üretim"],["37","Bölüm"],["100","Puan"]].map(([val, label]) => (
+                  <div key={label} className="bg-[var(--primary-light)] rounded-xl p-2">
+                    <div className="text-[var(--primary)] font-bold text-xs sm:text-sm">{val}</div>
+                    <div className="text-[var(--text-muted)] text-[10px]">{label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Floating badge */}
+            <div className="absolute -top-2 -left-2 sm:-left-4 bg-white rounded-2xl border border-[var(--border)] shadow-lg px-2 py-2 flex items-center gap-2">
+              <MiraAvatar mood="thinking" size={28} />
+              <div>
+                <p className="text-[9px] sm:text-[10px] font-semibold text-[var(--text-primary)]">Mira analiz ediyor...</p>
+                <div className="flex gap-1 mt-0.5">
+                  {[0,1,2].map(i => (
+                    <div key={i} className="w-1 h-1 rounded-full bg-[var(--primary)] animate-bounce" style={{ animationDelay: `${i * 0.15}s` }} />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
