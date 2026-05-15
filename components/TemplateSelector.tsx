@@ -12,19 +12,16 @@ const templates = [
     icon: "⚖️",
     color: "#1A3A5C",
     active: true,
-    url: "https://arslan-hukuk.web10micro.com",
+    url: "/templates/hukuk-avukat/",
     img: "/template-hukuk.png",
-    desc: "Şık ve güvenilir hukuk bürosu tasarımı. 10 bölüm, mobil uyumlu.",
+    desc: "Şık ve güvenilir hukuk bürosu tasarımı.",
   },
   {
     id: "veteriner",
     label: "Veteriner",
     icon: "🐾",
     color: "#27AE60",
-    active: true,
-    url: "https://nuhungemisi-vet.com.tr",
-    img: "/template-veteriner.png",
-    desc: "Sıcak ve profesyonel veteriner kliniği sitesi. İletişim odaklı.",
+    active: false,
   },
   {
     id: "restoran",
@@ -38,7 +35,10 @@ const templates = [
     label: "Güzellik / Kuaför",
     icon: "✂️",
     color: "#C9A96E",
-    active: false,
+    active: true,
+    url: "/templates/guzellik-kuafor/",
+    img: null,
+    desc: "Modern butik kuaför ve güzellik salonu sitesi.",
   },
   {
     id: "saglik",
@@ -110,12 +110,18 @@ export function TemplateSelector({ onCTA }: Props) {
                 className="group relative bg-white rounded-3xl border border-[var(--border)] overflow-hidden card-hover cursor-pointer"
                 onClick={() => setSelected(t.id === selected ? null : t.id)}
               >
-                <div className="aspect-[4/3] overflow-hidden bg-gray-50">
-                  <img
-                    src={t.img}
-                    alt={t.label}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
+                <div className="aspect-[4/3] overflow-hidden bg-gray-50 flex items-center justify-center">
+                  {t.img ? (
+                    <img
+                      src={t.img}
+                      alt={t.label}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <span className="text-6xl opacity-30 group-hover:scale-110 transition-transform duration-500">
+                      {t.icon}
+                    </span>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
