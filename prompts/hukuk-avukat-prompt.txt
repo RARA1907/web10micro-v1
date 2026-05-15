@@ -1,0 +1,44 @@
+**Claude Design Prompt — Hukuk / Avukat**
+
+> **Proje:** web10micro — Hukuk & Avukat template'i
+> **Hedef:** Güvenilir, prestijli, profesyonel — AI standartlarının dışında özgün tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Lacivert `#1B3A5C`
+> - **İkincil:** Antrasit `#3D4A5C`
+> - **Zemin:** Fildişi `#F5F0EB`
+> - **Koyu:** Gece mavisi `#0F1E2E`
+> - **Vurgu:** Altın `#C9A96E`
+>
+> ## Tipografi
+> - **Başlıklar:** Lora (semi-bold, 36-64px)
+> - **Alt başlıklar:** Plus Jakarta Sans (medium, 16-22px)
+> - **Gövde:** Inter (regular, 16px)
+>
+> ## Tasarım Dili
+> - Klasik hukuk ofisi estetiği — ciddi, güvenilir
+> - Temiz hatlar, bol beyaz alan
+> - Altın detaylar, ince çizgiler
+> - İmza: section sol üst dikey altın çizgi + numara
+> - Scroll: sade fade-in
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero:** Adalet Sarayı veya hukuk kitabı fotoğrafı (Unsplash)
+> *Headline:* "Hakkaniyetin Adresi"
+> *Subheadline:* "20 yıllık deneyim, uzman kadro, her davada güçlü savunma."
+> *CTA:* Ücretsiz Danışma
+>
+> **2. Uzmanlık Alanları:** Boşanma · Ceza · İş · Ticaret · Gayrimenkul · İdare Hukuku
+>
+> **3. Ekibimiz:** 4 avukat kart
+>
+> **4. Neden Biz:** 500+ Dava · 20 Yıl · %85 Başarı
+>
+> **5. Yorumlar**
+>
+> **6. Konum & İletişim:** Maps embed + form
+>
+> ## Teknik Kurallar
+> - Marka: **Adil Hukuk Bürosu**
+> - Türkçe, Unsplash, lorem yok

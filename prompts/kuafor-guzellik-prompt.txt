@@ -1,0 +1,93 @@
+**Claude Design Prompt — Kuaför / Güzellik Salonu**
+
+> **Proje:** web10micro — Kuaför & Güzellik Salonu template'i
+> **Hedef:** Modern, butik lüks, AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Sıcak terakota `#C86A5A`
+> - **İkincil:** Tozlu altın `#D4A96A`
+> - **Zemin:** Fildişi krem `#FDF8F3`
+> - **Koyu:** Kömür `#1F1D1B`
+> - **Vurgu:** Yumuşak mercan `#E8927C`
+>
+> ## Tipografi
+> - **Başlıklar:** Instrument Serif (display, 400 weight, 64-96px)
+> - **Alt başlıklar:** Cabinet Grotesk (bold, 20-28px)
+> - **Gövde:** Satoshi (regular, 16px)
+>
+> ## Tasarım Dili
+> - Sessiz lüks, İtalyan butik salonu estetiği
+> - Geniş beyaz alan, bol nefes
+> - Asimetrik grid düzeni
+> - İmza: her bölümün soluna dikey ince altın çizgi + section numarası
+> - İmza: köşelerde hafif yuvarlatma (16px), soft shadow
+> - Scroll tetiklemeli fade-in animasyonları
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero (Tam ekran)**
+> *Arka plan:* Genç kadının saçına bakım yapıldığı yakın çekim profesyonel fotoğraf (Unsplash: "salon hair treatment closeup")
+> *Overlay:* Soldan gradient black→transparan (okunabilirlik için)
+> *Headline:* "Güzelliğinize Değer Katın"
+> *Subheadline:* "Nişantaşı'nda butik kuaför deneyimi. Randevunuzu şimdi alın."
+> *CTA:* Hemen Randevu Al (terakota buton, beyaz yazı)
+> *Sağ alt:* Floating WhatsApp butonu (+90 555 123 45 67)
+>
+> **2. Hizmetler**
+> *Grid:* 3×2, her kartta küçük ikon + başlık + kısa açıklama + fiyat
+> - Saç Kesimi & Şekillendirme — ₺615 — Profesyonel kesim, fön ve styling
+> - Saç Boyama — ₺1.150 — Balyaj, ombre, dipler ve renk düzeltme
+> - Cilt Bakımı — ₺875 — Derin temizlik, peeling, maske ve masaj
+> - Makyaj — ₺700 — Gündüz/moda/gelin makyajı
+> - Kaş & Kirpik — ₺450 — Laminasyon, kalıcı kirpik, şekillendirme
+> - Özel Paketler — ₺1.575 — Saç + cilt + makyaj kombini
+> *Kart tasarımı:* Beyaz zemin, altın border, hover'da yumuşak yükselme
+>
+> **3. Galeri (Masonry)**
+> *2 sütunlu masonry grid:* 6 adet salon içi ve müşteri fotoğrafı
+> *Her fotoğraf altında:* açıklama (örn. "Balyaj & Fön — Elif", "Gelin Makyajı — Merve")
+> *Hover:* hafif karartma + zoom efekti
+> *Görseller:* Unsplash "salon interior", "hair styling", "makeup artist"
+>
+> **4. Çalışanlar**
+> *3 kişi, yan yana kartlar:*
+> - **Zeynep Yılmaz** — Kurucu & Baş Stilist (15 yıl, L'Oréal eğitmeni)
+> - **Merve Demir** — Kıdemli Stilist (8 yıl, renk uzmanı)
+> - **Cem Aydın** — Makyaj Sanatçısı (6 yıl, MAC sertifikalı)
+> *Her kart:* fotoğraf (Unsplash portrait), isim, ünvan, kısa bio, Instagram linki
+>
+> **5. Fiyat Listesi**
+> *Tablo formatı, 2 sütun:* Hizmet | Fiyat
+> Saç Kesimi (Kadın) — ₺700
+> Saç Kesimi (Erkek) — ₺450
+> Fön — ₺275
+> Balyaj (Kısa) — ₺1.050
+> Balyaj (Uzun) — ₺1.575
+> Dip Boya — ₺615
+> Saç Bakımı — ₺700
+> Makyaj (Gündüz) — ₺525
+> Makyaj (Gece) — ₺875
+> Kaş Laminasyon — ₺450
+> *Alt kısımda not:* "Fiyatlarımıza KDV dahildir. Değişiklik gösterebilir."
+>
+> **6. Müşteri Yorumları**
+> *3 yorum, horizontal scroll:*
+> - "Yıllardır Zeynep Hanım'a gidiyorum, her seferinde mükemmel çıkıyorum." — Ayşe K.
+> - "Gelin makyajımı onlara yaptırdım, hayal ettiğimden güzeldi." — Büşra T.
+> - "Saçlarım ilk kez bu kadar sağlıklı görünüyor. Kesinlikle tavsiye ederim." — Damla S.
+>
+> **7. Konum & İletişim**
+> *Solda:* Google Maps embed (Nişantaşı, İstanbul)
+> *Sağda:* Adres + Telefon + Email + Çalışma Saatleri (Hafta içi 10:00-20:00, Cumartesi 10:00-18:00)
+> *Altında:* İletişim formu (Ad, Telefon, Hizmet seçimi drop-down, Mesaj)
+>
+> ## Teknik Kurallar
+> - **Tüm içerik Türkçe** olacak, lorem ipsum veya placeholder metin KULLANILMAYACAK
+> - **Her görsel alanına gerçek Unsplash fotoğrafı** konulacak (stock photo), placeholder veya renk kutusu KULLANILMAYACAK
+> - **Marka adı:** "Maison Luna" (butik kuaför markası) — tüm metinlerde tutarlı kullan
+> - **Responsive:** Mobilde tek sütun, tablette iki sütun, masaüstünde tasarımdaki grid
+> - **Fontlar:** Google Fonts üzerinden yüklenecek
+> - **SEO:** Her bölüm için semantic HTML etiketleri (section, article, h1-h3)
+> - **İmza detayı:** Section numaraları (01, 02, 07) her bölümün sol üstünde ince altın yazıyla
+>
+> Kod çıktısı tek bir HTML dosyası olarak, Tailwind CSS inline veya <style> etiketi içinde, tüm görseller Unsplash CDN linkiyle, tamamen self-contained olarak üretilecek.

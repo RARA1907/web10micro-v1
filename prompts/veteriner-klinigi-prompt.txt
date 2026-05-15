@@ -1,0 +1,44 @@
+**Claude Design Prompt — Veteriner Kliniği**
+
+> **Proje:** web10micro — Veteriner Kliniği template'i
+> **Hedef:** Sıcak, güvenilir, hayvan dostu — AI standartlarının dışında özgün tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Orman yeşili `#27AE60`
+> - **İkincil:** Okyanus mavisi `#5DADE2`
+> - **Zemin:** Sıcak beyaz `#F8F9F6`
+> - **Koyu:** Deniz yeşili `#1A5276`
+> - **Vurgu:** Mercan `#E88D88`
+>
+> ## Tipografi
+> - **Başlıklar:** Fredoka (semi-bold, 36-64px)
+> - **Alt başlıklar:** Nunito (semi-bold, 18-24px)
+> - **Gövde:** Inter (regular, 16px)
+>
+> ## Tasarım Dili
+> - Sıcak, dost canlısı, hijyenik
+> - Yuvarlak hatlar, pastel tonlar
+> - Hayvan fotoğrafları ön planda
+> - İmza: section sol üst dikey yeşil çizgi + numara
+> - Scroll: sakin fade-in
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero:** Kedi/köpek sahibiyle mutlu an (Unsplash)
+> *Headline:* "Patiniz Güvende"
+> *Subheadline:* "Modern teçhizat, sevgi dolu ekip, 15 yıllık güven."
+> *CTA:* Randevu Al
+>
+> **2. Hizmetler:** Aşı · Cerrahi · Diş · Tahlil · Görüntüleme · Kuaför
+>
+> **3. Neden Biz:** 8.000+ Hasta · 15 Yıl · Acil Servis
+>
+> **4. Ekip:** 4 veteriner kart
+>
+> **5. Yorumlar**
+>
+> **6. Konum & İletişim:** Maps + form
+>
+> ## Teknik Kurallar
+> - Marka: **PatiDost Veteriner Kliniği**
+> - Türkçe, Unsplash, lorem yok

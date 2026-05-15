@@ -1,0 +1,57 @@
+**Claude Design Prompt — Psikolog / Terapi Merkezi**
+
+> **Proje:** web10micro — Psikolog & Terapi Merkezi template'i
+> **Hedef:** Sakin, güven veren, insan odaklı — AI standartlarının dışında özgün tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Lavanta `#9B8EC4`
+> - **İkincil:** Soft mercan `#E8B4B0`
+> - **Zemin:** Buz beyazı `#F8F7FA`
+> - **Koyu:** Koyu erguvan `#2D2640`
+> - **Vurgu:** Gül kurusu `#D4A5A5`
+>
+> ## Tipografi
+> - **Başlıklar:** DM Serif Display (400 italic, 40-64px)
+> - **Alt başlıklar:** Nunito (medium, 18-24px)
+> - **Gövde:** Inter (regular, 16px)
+>
+> ## Tasarım Dili
+> - Sakin minimal — bol beyaz alan, yumuşak oval hatlar
+> - Organik şekiller (blob), pastel gradyanlar
+> - İnsan odaklı illüstrasyon veya sıcak portre fotoğrafları
+> - İmza: her bölüm sol üst dikey lavanta çizgi + section
+> - İmza: 24px radius, çok yumuşak shadow
+> - Scroll: sakin fade-in, yavaş geçişler
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero**
+> *Arka plan:* Sakin bir terapi odası, doğal ışık, bitkiler (Unsplash: "calm therapy room plants")
+> *Headline:* "Kendinize Zaman Ayırın"
+> *Subheadline:* "Nişantaşı'nda uzman psikolog kadrosuyla bireysel, çift ve online terapi."
+> *CTA:* Ücretsiz Ön Görüşme (lavanta buton)
+>
+> **2. Uzmanlık Alanları**
+> *3×2 kart:*
+> - Bireysel Terapi — "Kaygı, depresyon, öfke kontrolü, travma"
+> - Çift Terapisi — "İletişim sorunları, güven, bağlanma"
+> - Online Terapi — "Canlı görüntülü, güvenli platform"
+> - Çocuk & Ergen — "Oyun terapisi, okul sorunları, aile danışmanlığı"
+> - EMDR Terapisi — "Travma ve stres bozukluklarında kanıtlanmış yöntem"
+> - Mindfulness — "Stres yönetimi, odaklanma, duygu düzenleme"
+>
+> **3. Ekibimiz**
+> *3 kişi:* fotoğraf + isim + ünvan + kısa bio
+> - Uzm. Psk. Elif Yıldız — Klinik Psikolog (12 yıl, EMDR pratisyeni)
+> - Uzm. Psk. Can Ateş — Çift ve Aile Terapisti (10 yıl, Gottman sertifikalı)
+> - Psk. Merve Demir — Çocuk ve Ergen Uzmanı (8 yıl, oyun terapisi)
+>
+> **4. Yorumlar**
+> *3 yorum*
+>
+> **5. Konum & İletişim**
+> *Maps embed (Nişantaşı, İstanbul) + form*
+>
+> ## Teknik Kurallar
+> - Marka: **İçHuzur Psikoloji Merkezi**
+> - Türkçe, Unsplash, lorem yok

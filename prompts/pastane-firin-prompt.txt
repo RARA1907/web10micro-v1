@@ -1,0 +1,57 @@
+**Claude Design Prompt — Pastane / Fırın**
+
+> **Proje:** web10micro — Pastane & Fırın template'i
+> **Hedef:** Sıcak, rustik modern, davetkar — AI standartlarının dışında özgün tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Sıcak kahve `#8B5E3C`
+> - **İkincil:** Kayısı `#F5A623`
+> - **Zemin:** Krem `#FEF9F2`
+> - **Koyu:** Bitter `#3E2723`
+> - **Vurgu:** Toz pembe `#E8B4B0`
+>
+> ## Tipografi
+> - **Başlıklar:** Caveat (el yazısı, 36-64px)
+> - **Alt başlıklar:** Fraunces (soft serif, 20-28px)
+> - **Gövde:** Albert Sans (regular, 16px)
+>
+> ## Tasarım Dili
+> - Artisanal fırın estetiği — sıcak dokular, el yapımı his
+> - Makro ürün fotoğrafları full-bleed
+> - El yazısı font başlık + temiz sans gövde kontrastı
+> - İmza: her bölüm sol üst dikey kahve çizgi + section
+> - Scroll: fade-in-up, ürünler sıralı
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero**
+> *Arka plan:* Taze ekmek veya pasta makro yakın çekim (Unsplash: "fresh croissant bakery")
+> *Headline:* "Her Gün Taze, El Yapımı Lezzetler"
+> *Subheadline:* "Beşiktaş'ta 40 yıllık gelenek, doğal malzemeler, özenli üretim."
+> *CTA:* Hemen Sipariş Ver (kahve buton)
+>
+> **2. Ürünler**
+> *Grid 3×2:* Fotoğraf + isim + fiyat
+> - Ekşi Mayalı Ekmek — ₺65
+> - Kruvasan (Tereyağlı) — ₺45
+> - Çikolatalı Tart — ₺120
+> - Fındıklı Baklava — ₺200
+> - Vişneli Cheesecake — ₺150
+> - Susamlı Simit — ₺25
+>
+> **3. Hikayemiz**
+> *Split:* Sol fotoğraf, sağ metin
+> "Lezzet Fırını, 1985'te Kadıköy'de küçük bir dükkanda başladı. Bugün hala aynı özenle, aynı tariflerle üretiyoruz."
+>
+> **4. Neden Biz**
+> *3 sütun:* Doğal Malzemeler · 40 Yıllık Tarifler · Günlük Üretim
+>
+> **5. Yorumlar**
+> *3 yorum*
+>
+> **6. Konum & İletişim**
+> *Maps embed (Beşiktaş, İstanbul) + form*
+>
+> ## Teknik Kurallar
+> - Marka: **Lezzet Fırını**
+> - Türkçe, Unsplash, lorem yok, self-contained

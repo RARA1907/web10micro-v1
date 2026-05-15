@@ -1,0 +1,73 @@
+**Claude Design Prompt — Muhasebe / Mali Müşavirlik**
+
+> **Proje:** web10micro — Muhasebe & Mali Müşavirlik template'i
+> **Hedef:** Modern, güvenilir, profesyonel — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Koyu lacivert `#1B2A4A`
+> - **İkincil:** Orman yeşili `#2D6A4F`
+> - **Zemin:** Buz beyazı `#F8F9FA`
+> - **Koyu:** Gece mavisi `#0F1A2E`
+> - **Vurgu:** Altın `#CFA144`
+>
+> ## Tipografi
+> - **Başlıklar:** Cormorant Garamond (semi-bold, 40-72px)
+> - **Alt başlıklar:** Plus Jakarta Sans (medium, 18-24px)
+> - **Gövde:** Inter (regular, 16px)
+>
+> ## Tasarım Dili
+> - Sofistike minimal — güven ve profesyonelliğin dijital yorumu
+> - Sade, geniş beyaz alan, temiz hiyerarşi
+> - Glassmorphism dashboard mockups (finansal grafik)
+> - İmza: her bölümün sol üstünde dikey altın çizgi + section numarası
+> - İmza: 12px border-radius, soft shadow
+> - Scroll animasyonları: fade-in, glass element reveal
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero (Tam ekran)**
+> *Arka plan:* Modern ofis, cam masada finansal rapor ve tablet (Unsplash: "financial report desk modern office")
+> *Overlay:* Soldan gradient lacivert→transparan
+> *Headline:* "Finansal Geleceğinize Ortak Oluyoruz"
+> *Subheadline:* "Levent'te güvenilir mali müşavirlik, şirket kuruluşu, vergi danışmanlığı."
+> *CTA:* Ücretsiz Danışma (lacivert buton, beyaz yazı)
+> *Sağ alt:* Floating WhatsApp (+90 555 123 45 67)
+>
+> **2. Hizmetler**
+> *Grid:* 3×2 kart, ikon + başlık + açıklama
+> - Şirket Kuruluşu — "Ltd. Şti. ve A.Ş. kuruluşu, Mersis, SGK işlemleri"
+> - Vergi Danışmanlığı — "KV, KDV, stopaj, geçici vergi ve yıllık beyannameler"
+> - Muhasebe Hizmetleri — "Aylık kayıt, envanter, mizan, bağımsız denetim hazırlık"
+> - Bordro Yönetimi — "SGK, işsizlik sigortası, muhtasar, yıllık ücret beyanı"
+> - E-Fatura & E-Defter — "GİB uyumlu entegrasyon, özel entegratör danışmanlığı"
+> - İş Planlaması — "Nakit akışı, bütçe, fizibilite ve yatırım analizi"
+>
+> **3. Neden Biz**
+> *3 sütun istatistik:*
+> - 📋 350+ Aktif Müşteri — "KOBİ'den holdinge geniş portföy"
+> - 🏆 18 Yıllık Tecrübe — "2006'dan beri kesintisiz hizmet"
+> - ✅ %100 Yasal Uyum — "Hiç ceza, hiç gecikme"
+>
+> **4. Süreç Akışı**
+> *4 adım yatay timeline:*
+> 01 — Tanışma ve keşif görüşmesi
+> 02 — İhtiyaç analizi ve teklif
+> 03 — Sözleşme ve yetki devri
+> 04 — Düzenli raporlama ve danışmanlık
+>
+> **5. Müşteri Yorumları**
+> *3 yorum:*
+> - "Vergi süreçlerimizi tamamen onlara devrettik, sorunsuz ve güvenilir." — Ayşe T.
+> - "Şirket kuruluşumu 1 haftada tamamladılar, her şeyi hallettiler." — Can D.
+> - "E-fatura geçişinde çok yardımcı oldular, keşke daha önce tanışsaydık." — Elif Y.
+>
+> **6. Konum & İletişim**
+> *Solda:* Google Maps embed (Levent, İstanbul)
+> *Sağda:* Adres + Telefon + Email + Çalışma Saatleri (Hafta içi 09:00-18:00)
+> *Altında:* Danışma formu (Ad, Telefon, Firma Adı, Hizmet seçimi, Mesaj)
+>
+> ## Teknik Kurallar
+> - Tüm içerik Türkçe, lorem ipsum yok, Unsplash fotoğraf
+> - Marka adı: **Denge Mali Müşavirlik** — tutarlı kullan
+> - Responsive, semantic HTML, section numaraları
+> - Self-contained HTML, Tailwind CSS, Google Fonts, Unsplash CDN

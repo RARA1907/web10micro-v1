@@ -1,0 +1,60 @@
+**Claude Design Prompt — Erkek Kuaförü / Barber**
+
+> **Proje:** web10micro — Erkek Kuaförü & Barber Shop template'i
+> **Hedef:** Maskülen, vintage modern, cool — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Siyah `#0D0D0D`
+> - **İkincil:** Pirinç `#C9A86C`
+> - **Zemin:** Gri `#E8E6E1`
+> - **Koyu:** Kömür `#2A2826`
+> - **Vurgu:** Neon kırmızı `#D90429`
+>
+> ## Tipografi
+> - **Başlıklar:** Bebas Neue (bold uppercase, 56-96px)
+> - **Alt başlıklar:** Barlow Condensed (semi-bold, 20-28px)
+> - **Gövde:** Montserrat (regular, 15px)
+>
+> ## Tasarım Dili
+> - Vintage barber estetiği — neon, taş, metal dokular
+> - Karanlık tema, altın/piring vurgular
+> - Before/after slider, menü tahtası fiyat listesi
+> - İmza: section sol üst dikey altın çizgi
+> - Kartlar: keskin hat, 4px radius
+> - Scroll: hızlı, keskin geçişler
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero**
+> *Arka plan:* Vintage berber koltuğu, neon ışık, retro dükkan (Unsplash: "barber shop chair vintage")
+> *Headline:* "TARZINIZI KEŞFEDİN"
+> *Subheadline:* "Beyoğlu'nda klasik barber deneyimi. Sıcak havlu, kadeh viski, mükemmel kesim."
+> *CTA:* Randevu Al (siyah buton, altın yazı)
+>
+> **2. Hizmetler**
+> *Grid 3×2:*
+> - Klasik Saç Kesimi — ₺400
+> - Sıcak Havlu Tıraş — ₺600
+> - Sakal Kesim & Şekillendirme — ₺300
+> - Saç & Sakal Paketi — ₺600
+> - Saç Boyama (Sakal) — ₺500
+> - Cilt Bakımı (Erkek) — ₺450
+>
+> **3. Fiyat Listesi (Menü Tahtası)**
+> *Chalkboard/menu board estetiği:* tüm hizmetler + fiyat
+>
+> **4. Ekip**
+> *3 kişi:* fotoğraf + isim + uzmanlık
+> - Cem Yılmaz — Master Barber (15 yıl, İtalya eğitimli)
+> - Burak Demir — Barber (8 yıl, sakal uzmanı)
+> - Ali Kaya — Junior Barber (4 yıl, modern kesimler)
+>
+> **5. Before / After**
+> *Interactive slider:* 3 adet öncesi/sonrası
+>
+> **6. Konum & İletişim**
+> *Maps embed (Beyoğlu, İstanbul) + form*
+>
+> ## Teknik Kurallar
+> - Marka: **Tımarlı Barber**
+> - Türkçe, Unsplash, lorem yok

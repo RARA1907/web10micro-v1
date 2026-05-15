@@ -1,0 +1,58 @@
+**Claude Design Prompt — Fotoğrafçılık / Stüdyo**
+
+> **Proje:** web10micro — Fotoğrafçılık & Stüdyo template'i
+> **Hedef:** Minimal, sanatsal, görsel odaklı — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Siyah `#0D0D0D`
+> - **İkincil:** Sıcak gri `#8C8C8C`
+> - **Zemin:** Saf beyaz `#F5F5F5`
+> - **Koyu:** Antrasit `#1C1C1C`
+> - **Vurgu:** Hardal `#D4A05A`
+>
+> ## Tipografi
+> - **Başlıklar:** Cormorant (light, 48-96px)
+> - **Alt başlıklar:** Archivo (regular, 16-22px)
+> - **Gövde:** DM Sans (light, 15px)
+>
+> ## Tasarım Dili
+> - Galeri-first — içerik tasarımın kendisidir
+> - Monokrom + tek vurgu rengi, fotoğraflar önde
+> - Masonry grid, full-bleed görseller, asimetrik düzen
+> - İmza: her bölümde ince hardal dikey çizgi + section numarası
+> - İmza: 4px border-radius, keskin minimal
+> - Scroll: parallax, cursor-follow reveal
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero (Tam ekran)**
+> *Arka plan:* Full-bleed portföy fotoğrafı — gelinlik/düğün/portre çekimi (Unsplash: "wedding photography couple")
+> *Overlay:* İnce gradient siyah→transparan, logo ve menü için alan
+> *Headline:* "Anıları Ölümsüzleştiriyoruz"
+> *Subheadline:* "İstanbul merkezli, düğün, portre ve kurumsal fotoğrafçılık. Her kare bir hikaye."
+> *CTA:* İletişime Geç (hardal buton)
+>
+> **2. Portföy Galerisi**
+> *Masonry grid:* 6 adet fotoğraf, her biri farklı boyut
+> *Kategoriler:* Düğün · Portre · Kurumsal · Doğa
+> *Unsplash:* "wedding", "portrait photography", "corporate event"
+>
+> **3. Hizmetler**
+> *3 sütun kart:*
+> - Düğün Fotoğrafçılığı — "Tam gün kapsamlı, 2 fotoğrafçı, teslim 2 hafta, ₺8.000"
+> - Portre Çekimi — "Stüdyo veya outdoor, makyaj dahil, ₺2.500"
+> - Kurumsal Hizmetler — "Etkinlik, ürün, reklam çekimi, proje bazlı fiyatlandırma"
+>
+> **4. Hakkımızda**
+> *Split-screen:* Sol fotoğraf, sağ metin
+> *İçerik:* "10 yıldır İstanbul'da 500'ün üzerinde çiftin en özel gününe tanıklık ettik."
+>
+> **5. Yorumlar**
+> *3 yorum*
+>
+> **6. Konum & İletişim**
+> *Maps embed (Cihangir, İstanbul) + form*
+>
+> ## Teknik Kurallar
+> - Marka: **KareAtölye Fotoğrafçılık**
+> - Türkçe içerik, Unsplash, lorem yok, responsive, self-contained

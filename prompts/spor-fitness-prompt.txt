@@ -1,0 +1,70 @@
+**Claude Design Prompt — Spor / Fitness Merkezi**
+
+> **Proje:** web10micro — Spor & Fitness Merkezi template'i
+> **Hedef:** Yüksek enerji, agresif modern, motive edici — AI standartlarının dışında özgün tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Siyah `#0F0F0F`
+> - **İkincil:** Neon kırmızı `#FF0040`
+> - **Zemin:** Antrasit `#1A1A1A`
+> - **Koyu:** Kömür `#2B2B2B`
+> - **Vurgu:** Neon yeşil `#39FF14`
+>
+> ## Tipografi
+> - **Başlıklar:** Bebas Neue (bold, 56-96px, uppercase)
+> - **Alt başlıklar:** Barlow Condensed (semi-bold, 20-28px)
+> - **Gövde:** Montserrat (regular, 16px)
+>
+> ## Tasarım Dili
+> - Spor salonu estetiği — karanlık zemin, neon vurgular
+> - Full-screen video/background, aksiyon fotoğrafları
+> - Keskin tipografi, bold display fontlar
+> - İmza: her bölümün sol üstünde neon kırmızı çizgi + section
+> - İmza: kartlarda 4px border-radius, keskin hatlar
+> - Scroll: fade-in-up, hızlı geçişler
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero (Tam ekran)**
+> *Arka plan:* Yüksek kontrast spor salonu — ağırlık kaldıran atlet, ter ve ışık (Unsplash: "gym athlete training intense")
+> *Overlay:* Gradient siyah→transparan
+> *Headline:* "SINIRLARINI ZORLA"
+> *Subheadline:* "Şişli'de 7/24 açık, profesyonel antrenörlerle full donanımlı fitness merkezi."
+> *CTA:* Hemen Başla (kırmızı buton)
+>
+> **2. Ders Programı**
+> *Grid:* Haftalık program — kartlar: ders adı + saat + eğitmen
+> - Sabah 07:00 — CrossFit — Eren
+> - Sabah 09:00 — Pilates — Elif
+> - Öğlen 12:00 — Yoga — Merve
+> - Akşam 18:00 — Spinning — Can
+> - Akşam 19:30 — HIIT — Eren
+> - Akşam 21:00 — Boxing — Murat
+>
+> **3. Üyelik Paketleri**
+> *3 sütun:*
+> - **Aylık Standart** — ₺1.500 — Tüm ekipman, soyunma, 2 ders/hafta
+> - **Aylık Premium (En Popüler)** — ₺2.500 — Tüm dersler, kişisel antrenör, sauna
+> - **Yıllık Üyelik** — ₺1.200/ay — Premium paket + 1 ay ücretsiz
+>
+> **4. Eğitmen Kadrosu**
+> *4 kişi kart:* fotoğraf (Unsplash "athlete portrait"), isim, uzmanlık
+> - Eren Yılmaz — CrossFit & HIIT (8 yıl, Level 3 sertifikalı)
+> - Elif Demir — Pilates & Reformer (6 yıl, STOTT sertifikalı)
+> - Merve Aksoy — Yoga & Meditasyon (10 yıl, RYT 500)
+> - Can Öztürk — Spinning & Boxing (7 yıl, AFAA sertifikalı)
+>
+> **5. Yorumlar**
+> *3 yorum:*
+> - "İlk kez bir spor salonunda bu kadar motive oldum. Eren hocaya teşekkürler." — Ali R.
+> - "Pilates dersleri inanılmaz, 2 ayda duruşum düzeldi." — Ayşe K.
+> - "7/24 açık olması iş yoğunluğumda bile gitmemi sağlıyor." — Can B.
+>
+> **6. Konum & İletişim**
+> *Google Maps embed (Şişli, İstanbul) + Adres + İletişim*
+> *Form:* Ad, Telefon, İlgi alanı seçimi, Mesaj
+>
+> ## Teknik Kurallar
+> - Marka adı: **IronFit Spor Merkezi** — tutarlı
+> - Tüm içerik Türkçe, lorem yok, Unsplash
+> - Responsive, semantic HTML, self-contained

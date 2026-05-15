@@ -1,0 +1,74 @@
+**Claude Design Prompt — Oto Servis / Oto Yıkama**
+
+> **Proje:** web10micro — Oto Servis & Oto Yıkama template'i
+> **Hedef:** Modern, dinamik, otomotiv tutkunu — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Siyah `#1A1A1A`
+> - **İkincil:** Neon kırmızı `#E63946`
+> - **Zemin:** Gri `#F0F0F0`
+> - **Koyu:** Kömür `#2B2B2B`
+> - **Vurgu:** Gümüş `#C0C0C0`
+>
+> ## Tipografi
+> - **Başlıklar:** Orbitron (bold, 40-64px)
+> - **Alt başlıklar:** Manrope (semi-bold, 18-24px)
+> - **Gövde:** Manrope (regular, 16px)
+>
+> ## Tasarım Dili
+> - Otomotiv estetiği — karanlık, hızlı, teknolojik
+> - Neon vurgular, ince çizgiler
+> - Servis kartlarında ikon + başlık hiyerarşisi
+> - İmza: her bölümün sol üstünde dikey kırmızı çizgi + section numarası
+> - İmza: floating CTA (randevu), sticky header
+> - Scroll animasyonları: fade-in-up, kart sıralı gelme
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero (Tam ekran)**
+> *Arka plan:* Yüksek kalite spor araba detay fotoğrafı, ışıklı atölye (Unsplash: "luxury car garage workshop")
+> *Overlay:* Alttan gradient siyah→transparan
+> *Headline:* "Aracınız Bizde Güvende"
+> *Subheadline:* "Mecidiyeköy'de profesyonel oto servis, boya, kaporta ve detaylı temizlik. Hemen randevu alın."
+> *CTA:* Randevu Al (kırmızı buton, beyaz yazı)
+> *Sağ alt:* Floating WhatsApp (+90 555 123 45 67)
+>
+> **2. Hizmetler**
+> *Grid:* 3×2 ikonlu kart
+> - Periyodik Bakım — "Yağ değişimi, filtre, fren balatası, triger seti"
+> - Boya & Kaporta — "Çizik giderme, lokal boya, tam kaporta, pasta koruma"
+> - Oto Yıkama & Detay — "El yıkama, iç temizlik, seramik kaplama, cila"
+> - Lastik & Jant — "Mevsimlik lastik, jant yenileme, rot ayarı"
+> - Mekanik Onarım — "Motor, şanzıman, egzoz, süspansiyon arızaları"
+> - Klima Bakımı — "Gaz dolumu, hijyen, filtre değişimi"
+>
+> **3. Fiyat Paketleri**
+> *3 sütunlu kart, yan yana:*
+> - **Temel Bakım** — ₺1.500 — Yağ+filter, 30 nokta kontrol, lastik basıncı
+> - **Tam Bakım (En Popüler)** — ₺3.500 — Temel + buji+triger+fren, ücretsiz yıkama
+> - **Premium Detay** — ₺5.000 — Tam bakım + seramik kaplama + iç temizlik + boya koruma
+> *En Popüler:* Highlight kart, mor/mavi vurgu
+>
+> **4. Neden Biz?**
+> *3 sütunlu istatistik:*
+> - 🔧 15 Yıllık Tecrübe — "2009'dan beri arızasız hizmet"
+> - 🚗 8.000+ Bakım — "Her yıl yüzlerce araç güvende"
+> - ⭐ 4.9 Müşteri Puanı — "Google'da en yüksek puanlı servislerden"
+>
+> **5. Before / After**
+> *2 slide, yan yana:* Boya öncesi/sonrası ve iç temizlik öncesi/sonrası
+> *Unsplash:* "car dent before", "car paint after", "car interior dirty", "car interior clean"
+>
+> **6. Konum & İletişim**
+> *Solda:* Google Maps embed (Mecidiyeköy, İstanbul)
+> *Sağda:* Adres + Telefon + Email + Çalışma Saatleri (Hafta içi 08:00-20:00, Cumartesi 09:00-17:00)
+> *Altında:* Randevu formu (Ad, Telefon, Araç Model, Hizmet seçimi, Tarih)
+>
+> ## Teknik Kurallar
+> - Tüm içerik Türkçe, lorem ipsum veya placeholder metin KULLANILMAYACAK
+> - Her görsel alanına gerçek Unsplash fotoğrafı, placeholder KULLANILMAYACAK
+> - Marka adı: **Viraj Oto Servis** — tüm metinlerde tutarlı kullan
+> - Responsive: mobil tek sütun, tablet iki, masaüstü grid
+> - Fontlar Google Fonts üzerinden yüklenecek
+> - Semantic HTML, section numaraları sol üstte kırmızı
+> - Self-contained HTML, Tailwind CSS, Unsplash CDN

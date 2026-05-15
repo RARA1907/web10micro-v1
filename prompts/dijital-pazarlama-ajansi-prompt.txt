@@ -1,0 +1,54 @@
+**Claude Design Prompt — Dijital Pazarlama Ajansı**
+
+> **Proje:** web10micro — Dijital Pazarlama Ajansı template'i
+> **Hedef:** Modern, agresif, sonuç odaklı — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Siyah `#0A0A0A`
+> - **İkincil:** Neon mavi `#4169E1`
+> - **Zemin:** Soğuk beyaz `#F7F8FA`
+> - **Koyu:** Kömür `#1E1E1E`
+> - **Vurgu:** Elektrik yeşili `#00E676`
+>
+> ## Tipografi
+> - **Başlıklar:** Clash Display (bold, 48-88px)
+> - **Alt başlıklar:** Archivo (semi-bold, 18-24px)
+> - **Gövde:** DM Sans (regular, 16px)
+> - **Teknik veriler:** Fragment Mono
+>
+> ## Tasarım Dili
+> - Bold tipografi — görsel yok, yazı kahraman
+> - Dark mode default + neon vurgular
+> - Bento grid layout (dashboard tarzı küçük kutular)
+> - 3D elementler (Three.js)
+> - İmza: her bölümde neon mavi dikey çizgi + section
+> - İmza: keskin hatlar, 6px radius
+> - Scroll: horizontal case study timeline
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero**
+> *Headline:* "Büyümenin Formülü"
+> *Subheadline:* "Veri odaklı dijital pazarlama stratejileriyle markanızı bir sonraki seviyeye taşıyoruz."
+> *CTA:* Ücretsiz Strateji Görüşmesi (mavi buton)
+> *Arka plan:* Gradient dalga veya 3D soyut geometri (Three.js)
+>
+> **2. Hizmetler (Bento Grid)**
+> *6 kutu:* SEO · Google Ads · Sosyal Medya · E-posta Pazarlama · Web Tasarım · Danışmanlık
+>
+> **3. Case Study**
+> *3 yatay scroll kart:* Müşteri + başarı metriği
+> - "E-ticaret sitesi organik trafiği 6 ayda %280 arttı."
+> - "Google Ads ROAS'ı 3 katına çıktı."
+> - "Sosyal medya etkileşimi %450 yükseldi."
+>
+> **4. Neden Biz**
+> *3 sütun:* 80+ Müşteri · 6 Yıl Tecrübe · %100 Şeffaf Raporlama
+>
+> **5. Yorumlar**
+>
+> **6. Konum & İletişim**
+>
+> ## Teknik Kurallar
+> - Marka: **NextGrowth Dijital**
+> - Türkçe, Unsplash, lorem yok

@@ -1,0 +1,71 @@
+**Claude Design Prompt — Eğitim / Kurs Merkezi**
+
+> **Proje:** web10micro — Eğitim & Kurs Merkezi template'i
+> **Hedef:** Modern, enerjik, öğrenci odaklı — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Canlı mor `#6C63FF`
+> - **İkincil:** Mercan pembe `#FF6584`
+> - **Zemin:** Beyaz `#FFFFFF`
+> - **Koyu:** Koyu lacivert `#1A1A3E`
+> - **Vurgu:** Turkuaz `#00B4D8`
+>
+> ## Tipografi
+> - **Başlıklar:** Poppins (bold, 40-72px)
+> - **Alt başlıklar:** Nunito (semi-bold, 18-24px)
+> - **Gövde:** DM Sans (regular, 16px)
+>
+> ## Tasarım Dili
+> - Enerjik minimal — yuvarlak hatlar, canlı renkler
+> - Bol boşluk, neşeli gradyanlar
+> - Kurs kartlarında thumbnail + başlık + eğitmen grid
+> - İmza: her bölümün sol üstünde dikey mor çizgi + section numarası
+> - İmza: 16px border-radius, yumuşak hover efektleri
+> - Scroll animasyonları: fade-in-up, kademeli kart
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero (Tam ekran)**
+> *Arka plan:* Modern bir sınıf veya atölye — öğrenciler gülümseyen, doğal ışık (Unsplash: "modern classroom students learning")
+> *Overlay:* Gradient gradient mor→transparan
+> *Headline:* "Geleceğini Şekillendir"
+> *Subheadline:* "Kadıköy'de uzman eğitmenlerle yüz yüze ve online kurslar. Hemen başvurun."
+> *CTA:* Ücretsiz Deneme (mor buton, beyaz yazı)
+>
+> **2. Popüler Kurslar**
+> *3×2 kart:*
+> - Yazılım Geliştirme — ₺3.500 — Python, JavaScript, React: 12 hafta, haftada 2 gün
+> - Dijital Pazarlama — ₺2.500 — SEO, Google Ads, sosyal medya: 8 hafta
+> - Grafik Tasarım — ₺2.800 — Photoshop, Illustrator, Figma: 10 hafta
+> - İngilizce (A1-C2) — ₺3.000 — Native eğitmen, konuşma odaklı: 16 hafta
+> - Veri Analitiği — ₺4.000 — SQL, Python, Tableau: 12 hafta
+> - Fotoğrafçılık — ₺2.200 — Kompozisyon, ışık, post-production: 8 hafta
+>
+> **3. Eğitmenler**
+> *3 kişi kart:*
+> - **Ahmet Yıldırım** — Kıdemli Yazılım Eğitmeni (10 yıl, Google Cloud sertifikalı)
+> - **Zeynep Kaya** — Dijital Pazarlama Uzmanı (8 yıl, Meta Blueprint sertifikalı)
+> - **Can Özkan** — İngilizce Eğitmeni (12 yıl, CELTA sertifikalı)
+> *Her kart:* fotoğraf (Unsplash portrait), isim, ünvan, kısa bio
+>
+> **4. Öne Çıkanlar**
+> *3 sütunlu:*
+> - 🎯 2.000+ Mezun — "Aktif iş hayatına atılmış başarılı mezunlar"
+> - 👨‍🏫 15 Uzman Eğitmen — "Her biri sektöründe en az 5 yıl deneyimli"
+> - 🏅 Sertifika Garantili — "E-devlet onaylı katılım ve başarı belgesi"
+>
+> **5. Yorumlar**
+> *3 yorum:*
+> - "Sıfırdan başladım, 3 ay sonra ilk iş görüşmeme gittim. Harika bir deneyimdi." — Merve A.
+> - "Dijital pazarlama kursu sayesinde kendi işimi kurdum." — Emre Y.
+> - "Eğitmenler çok ilgili, müfredat güncel ve işe yarar." — Dilara K.
+>
+> **6. Konum & İletişim**
+> *Solda:* Google Maps embed (Kadıköy, İstanbul)
+> *Sağda:* Adres + Telefon + Email + Çalışma Saatleri
+> *Form:* (Ad, Telefon, İlgi alanı, Mesaj)
+>
+> ## Teknik Kurallar
+> - Marka adı: **Akademi Plus** — tüm metinlerde tutarlı
+> - Her alan Unsplash fotoğraf, Türkçe içerik, placeholder veya lorem yok
+> - Responsive, semantic HTML, self-contained, Google Fonts

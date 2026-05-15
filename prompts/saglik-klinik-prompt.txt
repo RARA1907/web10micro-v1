@@ -1,0 +1,83 @@
+**Claude Design Prompt — Sağlık / Klinik**
+
+> **Proje:** web10micro — Sağlık & Klinik template'i
+> **Hedef:** Modern, güven veren, hijyenik ve profesyonel — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Derin teal `#1A7A7A`
+> - **İkincil:** Adaçayı yeşili `#8AB4A0`
+> - **Zemin:** Buz beyazı `#F5F7F6`
+> - **Koyu:** Lacivert `#0F1E2E`
+> - **Vurgu:** Yumuşak altın `#C9A96E`
+>
+> ## Tipografi
+> - **Başlıklar:** DM Serif Display (400 weight, 40-72px)
+> - **Alt başlıklar:** Plus Jakarta Sans (medium, 18-24px)
+> - **Gövde:** Plus Jakarta Sans (regular, 16px)
+> - **Data/istatistik:** DM Serif Display (bold, 32-48px)
+>
+> ## Tasarım Dili
+> - Medikal minimal — temiz, ferah, güven veren ama soğuk olmayan
+> - Geniş beyaz alan, düzenli grid
+> - Glassmorphism vurgu kartları (frosted glass efektli info kutuları)
+> - İmza: her bölümün sol üstünde soft teal dikey çizgi + section numarası
+> - İmza: yumuşak geçişler, 16px radius, ince border
+> - Scroll animasyonları: fade-in, glass kartlar arkadan öne gelir
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero (Tam ekran)**
+> *Arka plan:* Modern, ferah bir klinik muayene odası — doğal ışık, temiz çizgiler (Unsplash: "modern clinic interior bright")
+> *Overlay:* Gradient mavi→transparan (sol alt köşe)
+> *Headline:* "Sağlığınız Bizimle Güvende"
+> *Subheadline:* "Levent'te modern tıp, uzman kadro ve ileri teknoloji. Randevunuzu hemen alın."
+> *CTA:* Randevu Al (teal buton, beyaz yazı)
+> *Sağ alt:* Floating WhatsApp butonu (+90 555 123 45 67)
+>
+> **2. Uzmanlık Alanları**
+> *Grid:* 3×2 kart, her kartta icon (FontAwesome veya SVG), başlık, açıklama
+> - Dahiliye — "Genel sağlık taramaları, tansiyon, diyabet ve metabolik hastalıklar"
+> - Kardiyoloji — "EKG, efor testi, kalp sağlığı ve risk değerlendirmesi"
+> - Nöroloji — "Baş ağrısı, uyku bozuklukları, nörolojik muayene"
+> - Ortopedi — "Eklem ağrıları, bel fıtığı, spor yaralanmaları"
+> - Dermatoloji — "Cilt kanseri taraması, egzama, akne tedavisi"
+> - Check-Up Paketleri — "Kapsamlı sağlık taraması, tahlil ve görüntüleme"
+> *Kart tasarımı:* Glassmorphism — arka plan blur, ince border, hover'da hafif yükselme
+>
+> **3. Neden Biz?**
+> *3 sütunlu istatistik kartı:*
+> - 🏥 15+ Yıllık Tecrübe — "2009'dan beri İstanbul'da güvenilir sağlık hizmeti"
+> - 👨‍⚕️ 12 Uzman Hekim — "Alanında deneyimli, sürekli eğitim alan kadro"
+> - 📋 25.000+ Hasta — "Her yıl binlerce memnun hasta, yüzde 98 memnuniyet"
+> *Altında:* Kısa metin — "Hastalarımıza sadece tedavi değil, güven ve ilgi sunuyoruz."
+>
+> **4. Ekibimiz**
+> *4 kişi, yan yana kartlar:*
+> - **Prof. Dr. Ayşe Karaca** — Kurucu Hekim, Dahiliye Uzmanı (30 yıl, acil tıp deneyimi)
+> - **Dr. Mehmet Demir** — Kardiyoloji Uzmanı (18 yıl, Avrupa Tıp Derneği üyesi)
+> - **Uz. Dr. Selin Yalçın** — Nöroloji Uzmanı (12 yıl, uyku bozuklukları)
+> - **Uz. Dr. Can Ateş** — Ortopedi Uzmanı (15 yıl, spor hekimliği)
+> *Her kart:* fotoğraf (Unsplash doctor portrait), isim, ünvan, kısa bio
+>
+> **5. Hasta Yorumları**
+> *3 yorum, horizontal scroll:*
+> - "Prof. Dr. Karaca'nın ilgisi ve teşhisindeki isabet her şeyi değiştirdi." — Mehmet S.
+> - "Randevu sistemleri çok pratik, sıra beklemeden muayene oluyorsunuz." — Elif K.
+> - "Check-up paketini tavsiye ederim. Her şey tek seansta, çok profesyonel." — Ahmet T.
+>
+> **6. Konum & İletişim**
+> *Solda:* Google Maps embed (Levent, İstanbul)
+> *Sağda:* Adres + Telefon + Email + Çalışma Saatleri (Hafta içi 09:00-19:00, Cumartesi 09:00-15:00, Pazar kapalı)
+> *Altında:* Randevu formu (Ad, Telefon, Bölüm seçimi drop-down, Tarih, Mesaj)
+>
+> ## Teknik Kurallar
+> - **Tüm içerik Türkçe** olacak, lorem ipsum veya placeholder metin KULLANILMAYACAK
+> - **Her görsel alanına gerçek Unsplash fotoğrafı** konulacak (stock photo), placeholder veya renk kutusu KULLANILMAYACAK
+> - **Marka adı:** "VitaMed Sağlık Merkezi" — tüm metinlerde tutarlı kullan
+> - **Responsive:** Mobilde tek sütun, tablette iki sütun, masaüstünde tasarımdaki grid
+> - **Fontlar:** Google Fonts üzerinden yüklenecek
+> - **SEO:** Her bölüm için semantic HTML etiketleri (section, article, h1-h3)
+> - **İmza detayı:** Section numaraları (01, 02..06) her bölümün sol üstünde ince teal yazıyla
+> - **Canva/Shutterstock lisansı gerekmez** — tüm görseller Unsplash'tan seçilecek
+>
+> Kod çıktısı tek bir HTML dosyası olarak, Tailwind CSS inline veya <style> etiketi içinde, tüm görseller Unsplash CDN linkiyle, tamamen self-contained olarak üretilecek.

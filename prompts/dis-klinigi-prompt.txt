@@ -1,0 +1,61 @@
+**Claude Design Prompt — Diş Kliniği**
+
+> **Proje:** web10micro — Diş Kliniği template'i
+> **Hedef:** Modern, güven veren, hijyenik — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Mint yeşili `#8AB4A0`
+> - **İkincil:** Buz mavisi `#B8D8E3`
+> - **Zemin:** Saf beyaz `#FFFFFF`
+> - **Koyu:** Lacivert `#1B2A4A`
+> - **Vurgu:** Yumuşak mercan `#E88D88`
+>
+> ## Tipografi
+> - **Başlıklar:** DM Serif Display (400 weight, 40-72px)
+> - **Alt başlıklar:** Figtree (semi-bold, 18-24px)
+> - **Gövde:** Inter (regular, 16px)
+>
+> ## Tasarım Dili
+> - Medikal temizlik — ferah, steril ama sıcak
+> - Bol beyaz alan, yuvarlak hatlar
+> - İllüstrasyon veya fotoğraf karışımı
+> - İmza: her bölüm sol üst dikey mint çizgi + section
+> - İmza: 16px radius, ince border, soft shadow
+> - Scroll: fade-in
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero (Tam ekran)**
+> *Arka plan:* Modern diş kliniği muayene odası (Unsplash: "modern dental clinic clean")
+> *Overlay:* gradient soft transparan
+> *Headline:* "Sağlıklı Gülüşler İçin Buradayız"
+> *Subheadline:* "Etiler'de uzman kadro, ileri teknoloji, ağrısız tedavi. Hemen randevu alın."
+> *CTA:* Randevu Al (mint yeşili buton)
+>
+> **2. Hizmetler**
+> *3×2 kart:*
+> - Estetik Diş Hekimliği — "Lamine, zirkonyum, gülüş tasarımı"
+> - İmplant Tedavisi — "Tek dişten tam ağız rehabilitasyonuna"
+> - Ortodonti — "Tel ve şeffaf plak tedavisi"
+> - Kanal Tedavisi — "Ağrısız kök kanal tedavisi"
+> - Diş Beyazlatma — "Ofis tipi ve ev tipi beyazlatma"
+> - Pedodonti — "Çocuk diş sağlığı, koruyucu uygulamalar"
+>
+> **3. Tedavi Öncesi / Sonrası**
+> *2 slider:* Estetik diş + implant öncesi/sonrası
+>
+> **4. Neden Biz**
+> *3 sütun istatistik:*
+> - 12 Yıllık Tecrübe
+> - 8 Uzman Hekim
+> - 5.000+ Mutlu Hasta
+>
+> **5. Yorumlar**
+> *3 yorum*
+>
+> **6. Konum & İletişim**
+> *Maps embed (Etiler, İstanbul) + form*
+>
+> ## Teknik Kurallar
+> - Marka: **WhiteSmile Diş Kliniği**
+> - Türkçe, Unsplash, lorem yok, self-contained

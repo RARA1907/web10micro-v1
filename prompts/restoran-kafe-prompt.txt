@@ -1,0 +1,76 @@
+**Claude Design Prompt — Restoran / Kafe**
+
+> **Proje:** web10micro — Restoran & Kafe template'i
+> **Hedef:** Modern, sıcak, butik restoran hissi — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Zeytin yeşili `#7A8A5D`
+> - **İkincil:** Koyu hardal `#C4A44D`
+> - **Zemin:** Sıcak krem `#F9F6F0`
+> - **Koyu:** Kömür `#1C1A18`
+> - **Vurgu:** Terakota `#C66B4A`
+>
+> ## Tipografi
+> - **Başlıklar:** Fraunces (soft serif, 400 weight, 48-80px, italic alternatif)
+> - **Alt başlıklar:** Sora (semi-bold, 18-24px)
+> - **Gövde:** Inter (regular, 16px)
+> - **Menü fiyatları:** Fraunces italic (bold)
+>
+> ## Tasarım Dili
+> - Rustik modern — taş/fırın estetiği ile temiz dijital çizgilerin birleşimi
+> - Bol beyaz alan, nefes alan düzen
+> - Asimetrik split-screen bölümler (sol fotoğraf / sağ metin)
+> - İmza: her bölümün sol üstünde dikey ince hardal çizgi + section numarası (01, 02..)
+> - İmza: buton ve kartlarda 12px border-radius, soft shadow
+> - Scroll animasyonları: fade-in-up, görsellerde lazy reveal
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero (Tam ekran)**
+> *Arka plan:* Fullscreen auto-play video — şefin elinde taze malzemeler, ocak ateşi, tabak hazırlama (Unsplash video veya cover image: "restaurant kitchen food preparation")
+> *Overlay:* Alttan gradient siyah→transparan
+> *Headline:* "Lezzetin Adresi"
+> *Subheadline:* "Kadıköy'de şarap eşliğinde Akdeniz mutfağı. Rezervasyonunuzu şimdi yapın."
+> *CTA:* Rezervasyon Yap (zeytin yeşili buton, beyaz yazı)
+> *Sağ alt:* Floating WhatsApp butonu (+90 555 123 45 67)
+>
+> **2. Menü Öne Çıkanlar**
+> *Grid:* 3 kart, her kartta yemek fotoğrafı (Unsplash "fine dining plate"), isim, kısa açıklama, fiyat
+> - Izgara Ahtapot — ₺425 — Izgara sebzeler ve limonlu sos ile
+> - El Yapımı Ravioli — ₺380 — Mantarlı ricotta dolgulu, trüflü tereyağ
+> - Dana Tenderloin — ₺595 — Izgara dana bonfile, patates püresi ve demi-glace
+> *Kart tasarımı:* Fotoğraf üstte, altında bilgiler, hover'da fotoğraf zoom
+>
+> **3. Hakkımızda**
+> *Split-screen:* Sol tarafta restoran içi atmosfer fotoğrafı (Unsplash "restaurant interior cozy lighting"), sağ tarafta metin
+> *Başlık:* "Şefin Hikayesi"
+> *İçerik:* "2015'te kapılarını açan La Tavola, Akdeniz ve Ege mutfağını modern yorumlarla buluşturuyor. Şef Ahmet Yılmaz, 20 yıllık deneyimini her tabağa taşıyor. Mevsimlik ürünler, yerel tedarikçiler, özenli sunum."
+> *Altında:* 3 küçük istatistik — 8 Yıllık Tecrübe · 15.000+ Mutlu Müşteri · 4.8 ⭐ Ortalama
+>
+> **4. Galeri (Masonry)**
+> *2 sütunlu masonry grid:* 5 adet yemek ve restoran fotoğrafı
+> *Açıklamalar:* "Izgara Ahtapot", "Restoran Bahçesi", "Şefin Spesiyali", "Şarap Mahzeni", "Tatlı Tabakları"
+> *Hover:* hafif karartma + isim overlay
+> *Görseller:* Unsplash "restaurant food", "dining table", "wine glasses"
+>
+> **5. Müşteri Yorumları**
+> *3 yorum, horizontal scroll:*
+> - "İstanbul'daki en iyi Akdeniz restoranı. Her gelişimizde aynı kalite." — Ali R.
+> - "Ravioli kesinlikle denenmeli. Şarap önerileri de harika." — Sibel D.
+> - "Doğum günüme özel menü hazırladılar, unutulmaz bir geceydi." — Can B.
+>
+> **6. Konum & İletişim**
+> *Solda:* Google Maps embed (Moda, Kadıköy/İstanbul)
+> *Sağda:* Adres + Telefon + Email + Çalışma Saatleri (Hafta içi 12:00-23:00, Hafta sonu 11:00-00:00)
+> *Altında:* Rezervasyon formu (Ad, Telefon, Kişi sayısı, Tarih, Saat, Özel not)
+>
+> ## Teknik Kurallar
+> - **Tüm içerik Türkçe** olacak, lorem ipsum veya placeholder metin KULLANILMAYACAK
+> - **Her görsel alanına gerçek Unsplash fotoğrafı** konulacak (stock photo), placeholder veya renk kutusu KULLANILMAYACAK
+> - **Marka adı:** "La Tavola" (butik restoran) — tüm metinlerde tutarlı kullan
+> - **Responsive:** Mobilde tek sütun, tablette iki sütun, masaüstünde tasarımdaki grid
+> - **Fontlar:** Google Fonts üzerinden yüklenecek
+> - **SEO:** Her bölüm için semantic HTML etiketleri (section, article, h1-h3)
+> - **İmza detayı:** Section numaraları (01, 02..06) her bölümün sol üstünde ince hardal yazıyla
+>
+> Kod çıktısı tek bir HTML dosyası olarak, Tailwind CSS inline veya <style> etiketi içinde, tüm görseller Unsplash CDN linkiyle, tamamen self-contained olarak üretilecek.

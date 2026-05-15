@@ -1,0 +1,76 @@
+**Claude Design Prompt — İnşaat / Tadilat**
+
+> **Proje:** web10micro — İnşaat & Tadilat template'i
+> **Hedef:** Modern, endüstriyel, güven veren — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Kömür gri `#2D2D2D`
+> - **İkincil:** Pas turuncu `#E67E22`
+> - **Zemin:** Soğuk beyaz `#F4F4F6`
+> - **Koyu:** Antrasit `#1A1A1A`
+> - **Vurgu:** Çelik mavi `#5D8AA8`
+>
+> ## Tipografi
+> - **Başlıklar:** Archivo Black (800 weight, 48-80px)
+> - **Alt başlıklar:** Barlow (semi-bold, 18-24px)
+> - **Gövde:** Inter (regular, 16px)
+>
+> ## Tasarım Dili
+> - Endüstriyel minimal — sert çizgiler, pürüzsüz dijital his
+> - Geniş beyaz alan, asimetrik grid
+> - Proje fotoğrafları full-bleed, kenarsız
+> - İmza: her bölümün sol üstünde dikey turuncu çizgi + section numarası
+> - İmza: 8px border-radius, keskin hatlar
+> - Scroll animasyonları: reveal + parallax
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero (Tam ekran)**
+> *Arka plan:* Modern bir inşaat projesi — çelik ve cam cephe, yüksek çözünürlük (Unsplash: "modern building construction architecture")
+> *Overlay:* Alttan gradient siyah→transparan
+> *Headline:* "Hayalinizdeki Yapıyı Gerçeğe Dönüştürüyoruz"
+> *Subheadline:* "15 yıldır İstanbul'da güvenilir inşaat ve tadilat hizmeti. Anahtar teslim projeler."
+> *CTA:* Ücretsiz Keşif İçin Ara (turuncu buton, beyaz yazı)
+> *Sağ alt:* Floating WhatsApp (+90 555 123 45 67)
+>
+> **2. Hizmetler**
+> *Grid:* 3×2 kart, her kartta ikon + başlık + açıklama
+> - Anahtar Teslim İnşaat — "Projelendirmeden teslimata, tüm süreç tek sorumluluk altında"
+> - İç ve Dış Tadilat — "Banyo, mutfak, cephe yenileme, izolasyon ve çatı"
+> - Restorasyon — "Tarihi yapıların aslına uygun yenilenmesi, modern dokunuşlarla"
+> - Dekorasyon — "İç mimari danışmanlık, mobilya ve aksesuar seçimi"
+> - Zemin ve Altyapı — "Beton, seramik, parke, ısı yalıtımı ve su tesisatı"
+> - Proje Yönetimi — "Keşif, bütçe planlaması, ruhsat takibi ve denetim"
+>
+> **3. Projeler (Portföy)**
+> *Masonry grid:* 4 adet proje fotoğrafı + hover overlay'de proje ismi
+> *Kartlar:* "Beykoz Villası · 450m²", "Levent Ofis · 1200m²", "Moda Restorasyon · 150 yıllık", "Kalamış Yazlığı · 250m²"
+> *Her proje:* fotoğraf (Unsplash "architecture building"), hover'da karartma + isim
+>
+> **4. Neden Biz**
+> *3 sütunlu istatistik:*
+> - 🏗️ 200+ Tamamlanan Proje — "Her boyutta iş deneyimi"
+> - 👷 45 Kişilik Ekip — "İnşaat mühendisleri, mimarlar, ustalar"
+> - ⏱️ %92 Zamanında Teslim — "Planlanan takvime sadakat"
+> *Altında kısa metin:* "Her projeye aynı özeni, her müşteriye aynı saygıyı gösteriyoruz."
+>
+> **5. Müşteri Yorumları**
+> *3 yorum horizontal scroll:*
+> - "Evimizi tam istediğimiz gibi teslim ettiler. Her şey söz verildiği gibiydi." — Ahmet K.
+> - "Banyonun tadilatını 1 haftada bitirdiler, fiyat da çok makuldü." — Zeynep T.
+> - "Ofis projemizi zamanında ve bütçeye uygun tamamladılar." — Mehmet S.
+>
+> **6. Konum & İletişim**
+> *Solda:* Google Maps embed (Maslak, İstanbul)
+> *Sağda:* Adres + Telefon + Email + Çalışma Saatleri (Hafta içi 08:00-19:00, Cumartesi 09:00-15:00)
+> *Altında:* Keşif formu (Ad, Telefon, Proje türü, Bütçe aralığı, Mesaj)
+>
+> ## Teknik Kurallar
+> - Tüm içerik Türkçe, lorem ipsum veya placeholder metin KULLANILMAYACAK
+> - Her görsel alanına gerçek Unsplash fotoğrafı konulacak, placeholder KULLANILMAYACAK
+> - Marka adı: **YapıKaan İnşaat** — tüm metinlerde tutarlı kullan
+> - Responsive: mobil tek sütun, tablet iki, masaüstü grid
+> - Fontlar Google Fonts üzerinden yüklenecek
+> - Semantic HTML etiketleri (section, article, h1-h3)
+> - Section numaraları (01, 02..06) sol üstte ince turuncu yazıyla
+> - Tek bir self-contained HTML dosyası, Tailwind CSS style içinde, Unsplash CDN linkli

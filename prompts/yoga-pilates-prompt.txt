@@ -1,0 +1,64 @@
+**Claude Design Prompt — Yoga / Pilates Stüdyosu**
+
+> **Proje:** web10micro — Yoga & Pilates Stüdyosu template'i
+> **Hedef:** Sakin, dengeli, doğal — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Gün batımı turuncusu `#E08A5D`
+> - **İkincil:** Tozlu mor `#B8A4C9`
+> - **Zemin:** Fildişi `#FDF7F2`
+> - **Koyu:** Doğal yeşil `#4A6B5D`
+> - **Vurgu:** Altın sarısı `#E8C87A`
+>
+> ## Tipografi
+> - **Başlıklar:** Fraunces (soft serif italic, 40-72px)
+> - **Alt başlıklar:** Satoshi (medium, 18-24px)
+> - **Gövde:** Satoshi (regular, 16px)
+>
+> ## Tasarım Dili
+> - Doğal, sakin, meditatif
+> - Gradient gün doğumu renk geçişleri
+> - Doğa ve stüdyo fotoğrafları, bol whitespace
+> - İmza: her bölüm sol üst dikey turuncu çizgi + section
+> - İmza: çok yumuşak hatlar, 20px radius
+> - Scroll: yavaş, sakin fade-in
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero**
+> *Arka plan:* Deniz kenarında yoga yapan kadın, gün doğumu (Unsplash: "yoga sunrise beach")
+> *Headline:* "Nefes Al, Yeniden Başla"
+> *Subheadline:* "Kadıköy'de her seviyeye uygun yoga ve pilates dersleri. İlk ders ücretsiz."
+> *CTA:* İlk Ders Ücretsiz (turuncu buton)
+>
+> **2. Ders Programı**
+> *Haftalık takvim:*
+> - Pazartesi 09:00 — Hatha Yoga — Zeynep
+> - Pazartesi 18:00 — Vinyasa Akış — Elif
+> - Salı 10:00 — Reformer Pilates — Canan
+> - Çarşamba 19:00 — Yin Yoga — Merve
+> - Perşembe 09:00 — Mat Pilates — Canan
+> - Cuma 17:00 — Nefes & Meditasyon — Elif
+> - Cumartesi 10:00 — Başlangıç Yogası — Zeynep
+>
+> **3. Eğitmenler**
+> *3 kişi:* fotoğraf + isim + uzmanlık
+> - Zeynep Yılmaz — Hatha & Vinyasa (10 yıl, RYT 500)
+> - Elif Demir — Yin Yoga & Meditasyon (8 yıl, RYT 300)
+> - Canan Aydın — Pilates & Reformer (6 yıl, STOTT sertifikalı)
+>
+> **4. Üyelik**
+> *3 seçenek:*
+> - **10 Derslik Kart** — ₺2.000 — 3 ay geçerli
+> - **Aylık Sınırsız** — ₺3.500 — Tüm dersler, yeni başlayanlar dahil
+> - **Yıllık Üyelik** — ₺2.800/ay — 2 ay ücretsiz, öncelikli rezervasyon
+>
+> **5. Yorumlar**
+> *3 yorum*
+>
+> **6. Konum & İletişim**
+> *Maps embed + form*
+>
+> ## Teknik Kurallar
+> - Marka: **Nefes Yoga & Pilates Stüdyosu**
+> - Türkçe, Unsplash, lorem yok

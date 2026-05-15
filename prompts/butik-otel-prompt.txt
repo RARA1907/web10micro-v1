@@ -1,0 +1,52 @@
+**Claude Design Prompt — Butik Otel / Pansiyon**
+
+> **Proje:** web10micro — Butik Otel & Pansiyon template'i
+> **Hedef:** Sıcak, davetkar, atmosferik — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Deniz mavisi `#2A7D8C`
+> - **İkincil:** Kum beji `#D4C5A9`
+> - **Zemin:** Sıcak beyaz `#FDFAF5`
+> - **Koyu:** Lacivert `#1B3A4B`
+> - **Vurgu:** Terakota `#C86A5A`
+>
+> ## Tipografi
+> - **Başlıklar:** Playfair Display (semi-bold, 40-72px)
+> - **Alt başlıklar:** Plus Jakarta Sans (medium, 18-24px)
+> - **Gövde:** Inter (regular, 16px)
+>
+> ## Tasarım Dili
+> - Atmosferik, butik lüks
+> - Full-bleed oda ve manzara fotoğrafları
+> - Oda kartları, rezervasyon butonu sticky
+> - İmza: section sol üst dikey deniz mavisi çizgi
+> - Scroll: parallax, yavaş reveal
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero**
+> *Arka plan:* Deniz manzaralı oda, akşam ışığı (Unsplash: "hotel room sea view sunset")
+> *Headline:* "Huzurun Adresi"
+> *Subheadline:* "Kaş'ta butik otel, deniz manzaralı odalar, doğal kahvaltı."
+> *CTA:* Oda Ara (mavi buton)
+>
+> **2. Odalar**
+> *3 kart:* fotoğraf + oda adı + özellikler + fiyat
+> - Deniz Manzaralı Oda — ₺2.500/gece — 2 kişi, balkon, mini bar
+> - Bahçe Katı Süit — ₺3.200/gece — 4 kişi, özel teras, jakuzi
+> - Aile Odası — ₺4.000/gece — 6 kişi, mutfak, 2 yatak odası
+>
+> **3. Hizmetler**
+> *Grid:* Organik kahvaltı · WiFi · Otopark · Havuz · Transfer · Çamaşırhane
+>
+> **4. Galeri**
+> *Full-width grid, hover zoom*
+>
+> **5. Yorumlar**
+>
+> **6. Konum & İletişim**
+> *Maps embed (Kaş, Antalya) + form*
+>
+> ## Teknik Kurallar
+> - Marka: **MaviSahil Butik Otel**
+> - Türkçe, Unsplash, lorem yok

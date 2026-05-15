@@ -1,0 +1,65 @@
+**Claude Design Prompt — Emlak / Gayrimenkul**
+
+> **Proje:** web10micro — Emlak & Gayrimenkul template'i
+> **Hedef:** Lüks, prestijli, güvenilir — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Koyu yeşil `#1B4732`
+> - **İkincil:** Kum beji `#E4DCCF`
+> - **Zemin:** Fildişi `#F9F6F0`
+> - **Koyu:** Gece laciverdi `#0A1628`
+> - **Vurgu:** Pirinç altını `#C9A96E`
+>
+> ## Tipografi
+> - **Başlıklar:** Cormorant (semi-bold, 48-80px)
+> - **Alt başlıklar:** Plus Jakarta Sans (medium, 18-24px)
+> - **Gövde:** Inter (regular, 16px)
+>
+> ## Tasarım Dili
+> - Lüks minimal — bol beyaz alan, premium his
+> - Full-bleed emlak fotoğrafları, kenarsız
+> - Detay kartları: glassmorphism (ince cam efekti)
+> - İmza: her bölüm sol üst dikey altın çizgi + section
+> - İmza: 20px radius, soft shadow, smooth scroll
+> - Scroll: parallax, fade reveal
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero (Tam ekran)**
+> *Arka plan:* Modern villa, havuz ve manzara — golden hour (Unsplash: "luxury pool villa sunset")
+> *Overlay:* gradient altın yeşil→transparan
+> *Headline:* "Hayalinizdeki Eve Hoş Geldiniz"
+> *Subheadline:* "Türkiye'nin önde gelen gayrimenkul danışmanlık markası. Size özel portföy."
+> *CTA:* Hemen Keşfedin (yeşil buton)
+>
+> **2. Öne Çıkan İlanlar**
+> *3 property kartı:* fotoğraf, başlık, konum, fiyat, özellikler
+> - Boğaz Manzaralı Daire — Sarıyer — ₺8.500.000 — 3+1, 180m²
+> - Müstakil Villa — Bodrum — ₺22.000.000 — 5+1, havuzlu, 450m²
+> - Ofis — Levent — ₺12.000.000 — 4+1, 250m², manzaralı
+>
+> **3. Hizmetler**
+> *3 sütun kart:*
+> - Konut Satışı — "Size en uygun evi, en doğru fiyatla buluyoruz"
+> - Kiralama — "Kısa ve uzun dönem, kurumsal ve bireysel"
+> - Yatırım Danışmanlığı — "Portföy yönetimi, ekspertiz, fizibilite"
+>
+> **4. Neden Biz**
+> *3 sütun istatistik:*
+> - 🏠 1.200+ Satılık İlan — "Geniş portföy, her bütçeye uygun"
+> - ⭐ %98 Müşteri Memnuniyeti — "Her yıl ölçülen kalite standardı"
+> - 📍 15 Şube — "Türkiye'nin 7 bölgesinde hizmet"
+>
+> **5. Yorumlar**
+> *3 yorum:*
+> - "Evi gezdikten 2 gün sonra tüm işlemler tamamlandı. Profesyonel ekip." — Mehmet B.
+> - "Yatırımlık daire arıyordum, beklediğimden iyi seçenekler sundular." — Zeynep A.
+> - "Kiralama sürecinde her adımda yanımızdaydılar. Çok memnunuz." — Ali K.
+>
+> **6. Konum & İletişim**
+> *Maps embed + iletişim formu*
+>
+> ## Teknik Kurallar
+> - Marka adı: **Nokta Emlak Danışmanlık**
+> - Türkçe içerik, Unsplash, lorem yok
+> - Self-contained HTML, responsive

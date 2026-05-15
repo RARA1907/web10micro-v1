@@ -1,0 +1,54 @@
+**Claude Design Prompt — Çiçekçi / Botanik Atölyesi**
+
+> **Proje:** web10micro — Çiçekçi & Botanik Atölyesi template'i
+> **Hedef:** Organik, romantik, doğal — AI standartlarının dışında özgün bir tasarım
+>
+> ## Renk Paleti
+> - **Ana:** Yaprak yeşili `#6B8E5A`
+> - **İkincil:** Blush pembe `#E8B4B0`
+> - **Zemin:** Sıcak krem `#FEF9F2`
+> - **Koyu:** Orman yeşili `#2D4A2D`
+> - **Vurgu:** Kurutulmuş gül `#C98A8A`
+>
+> ## Tipografi
+> - **Başlıklar:** Caveat (el yazısı, 32-56px)
+> - **Alt başlıklar:** Cormorant (regular, 20-28px)
+> - **Gövde:** Figtree (regular, 16px)
+>
+> ## Tasarım Dili
+> - Organik düzen — katı grid yerine akışkan layout
+> - El çizimi doku ve yumuşak gradientler
+> - Makro çiçek fotoğrafları, sıcak ışık
+> - İmza: her bölüm sol üst dikey yeşil yaprak çizgi + section
+> - İmza: 24px radius, yumuşak shadow
+> - Scroll: petal drift animasyonları, yavaş reveal
+>
+> ## Bölümler ve İçerik
+>
+> **1. Hero**
+> *Arka plan:* Renkli çiçek buketi makro, sabah ışığı (Unsplash: "flower bouquet morning light")
+> *Headline:* "Doğanın En Güzel Halleri"
+> *Subheadline:* "Kadıköy'de özel tasarım buketler, organizasyon çiçekleri ve botanik atölyeleri."
+> *CTA:* Hemen Sipariş Ver (yeşil buton)
+>
+> **2. Kategoriler**
+> *Grid:* fotoğraf + isim + fiyat
+> - Kır Çiçeği Buketi — ₺450
+> - Klasik Gül Aranjmanı — ₺650
+> - Kuru Çiçek Taç — ₺350
+> - Salon Çiçeği (Büyük) — ₺1.200
+> - Orkide Sepeti — ₺550
+> - Botanik Workshop — ₺700
+>
+> **3. Hikayemiz**
+> "Her buket bir hikaye anlatır. 2015'ten beri İstanbul'da en özel anlara çiçeklerle eşlik ediyoruz."
+>
+> **4. Yorumlar**
+> *3 yorum*
+>
+> **5. Konum & İletişim**
+> *Maps embed + form*
+>
+> ## Teknik Kurallar
+> - Marka: **Narin Çiçek Atölyesi**
+> - Türkçe, Unsplash, lorem yok
