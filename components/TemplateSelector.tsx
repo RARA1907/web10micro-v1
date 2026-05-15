@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 
 interface Props {
   onCTA: (sector?: string) => void;
@@ -37,7 +36,7 @@ const templates = [
     color: "#C9A96E",
     active: true,
     url: "/templates/guzellik-kuafor/",
-    img: null,
+    img: "/template-guzellik.png",
     desc: "Modern butik kuaför ve güzellik salonu sitesi.",
   },
   {
@@ -54,7 +53,7 @@ const templates = [
     color: "#8AB4A0",
     active: true,
     url: "/templates/dis-klinigi/",
-    img: null,
+    img: "/template-dis.png",
     desc: "Modern diş kliniği, beyaz ve mint temalı tasarım.",
   },
   {
@@ -95,8 +94,6 @@ const templates = [
 ];
 
 export function TemplateSelector({ onCTA }: Props) {
-  const [selected, setSelected] = useState<string | null>(null);
-
   return (
     <section id="template" className="py-24 bg-[var(--bg)]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -115,23 +112,19 @@ export function TemplateSelector({ onCTA }: Props) {
         <div className="grid sm:grid-cols-2 gap-6">
           {templates.map((t) =>
             t.active ? (
-              <div
+              <a
                 key={t.id}
-                className="group relative bg-white rounded-3xl border border-[var(--border)] overflow-hidden card-hover cursor-pointer"
-                onClick={() => setSelected(t.id === selected ? null : t.id)}
+                href={t.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-white rounded-3xl border border-[var(--border)] overflow-hidden card-hover"
               >
-                <div className="aspect-[4/3] overflow-hidden bg-gray-50 flex items-center justify-center">
-                  {t.img ? (
-                    <img
-                      src={t.img}
-                      alt={t.label}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
-                  ) : (
-                    <span className="text-6xl opacity-30 group-hover:scale-110 transition-transform duration-500">
-                      {t.icon}
-                    </span>
-                  )}
+                <div className="aspect-[4/3] overflow-hidden bg-gray-50">
+                  <img
+                    src={t.img}
+                    alt={t.label}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
@@ -143,25 +136,14 @@ export function TemplateSelector({ onCTA }: Props) {
                     </div>
                     <p className="text-xs text-[var(--text-muted)]">{t.desc}</p>
                   </div>
-                  <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a
-                      href={t.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-semibold text-[var(--primary)] border border-[var(--primary)] px-3 py-1.5 rounded-lg hover:bg-[var(--primary-light)] transition-colors whitespace-nowrap"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      Canlı Gör
-                    </a>
-                    <button
-                      onClick={(e) => { e.stopPropagation(); onCTA(); }}
-                      className="text-xs font-semibold bg-[var(--primary)] text-white px-3 py-1.5 rounded-lg hover:bg-[var(--primary-dark)] transition-colors whitespace-nowrap"
-                    >
-                      Demo Talep Et
-                    </button>
-                  </div>
+                  <button
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); onCTA(); }}
+                    className="text-xs font-semibold bg-[var(--primary)] text-white px-3 py-1.5 rounded-lg hover:bg-[var(--primary-dark)] transition-colors whitespace-nowrap opacity-0 group-hover:opacity-100"
+                  >
+                    Demo Talep Et
+                  </button>
                 </div>
-              </div>
+              </a>
             ) : (
               <div
                 key={t.id}
