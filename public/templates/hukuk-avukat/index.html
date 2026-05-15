@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arslan Hukuk Bürosu — Hukuki Güvenceniz, Deneyimli Ellerde</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #1A3A5C;
+    --navy-deep: #0F2438;
+    --navy-soft: #2A4E73;
+    --gold: #C9A84C;
+    --gold-soft: #E0C77A;
+    --bg: #F8F9FA;
+    --bg-warm: #F2EEE5;
+    --text: #1A1A1A;
+    --text-mute: #5A6470;
+    --line: #E4E2DA;
+    --serif: "Libre Baskerville", Georgia, serif;
+    --sans: "Source Sans 3", "Source Sans Pro", -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    background: var(--bg);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  /* ============ NAVBAR ============ */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+  }
+  .logo { display: flex; flex-direction: column; line-height: 1; }
+  .logo-mark {
+    font-family: var(--serif);
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 22px;
+    letter-spacing: 0.18em;
+  }
+  .logo-sub {
+    font-family: var(--sans);
+    font-size: 9.5px;
+    letter-spacing: 0.32em;
+    color: var(--text-mute);
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1.5px solid var(--gold);
+    align-self: flex-start;
+  }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: 0.02em;
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-links a:hover::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+    height: 1.5px; background: var(--gold);
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-transform: none;
+  }
+  .btn-gold { background: var(--gold); color: var(--navy-deep); }
+  .btn-gold:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.55); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: #fff; }
+  .btn-navy { background: var(--navy); color: #fff; }
+  .btn-navy:hover { background: var(--navy-deep); }
+  .btn-outline { background: transparent; color: var(--navy); border-color: var(--navy); }
+  .btn-outline:hover { background: var(--navy); color: #fff; }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    min-height: 640px;
+    display: flex; align-items: center;
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(rgba(15,36,56,0.78), rgba(15,36,56,0.88)),
+      repeating-linear-gradient(135deg, #2A4E73 0 4px, #224363 4px 8px);
+  }
+  .hero-bg::before {
+    content: "[ courthouse / office photograph ]";
+    position: absolute; top: 24px; left: 32px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.1em;
+  }
+  .hero-content {
+    position: relative;
+    text-align: center;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 110px 32px 100px;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    color: var(--gold-soft);
+    margin-bottom: 28px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ""; display: block; width: 28px; height: 1px; background: var(--gold);
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  .hero p.lede {
+    font-size: 18px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.85);
+    max-width: 680px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+  }
+  .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+  .trust-row {
+    display: flex; justify-content: center; gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    padding-top: 28px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .trust-item {
+    flex: 1;
+    padding: 0 24px;
+    border-right: 1px solid rgba(255,255,255,0.18);
+  }
+  .trust-item:last-child { border-right: none; }
+  .trust-num {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--gold-soft);
+    margin-bottom: 4px;
+  }
+  .trust-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* ============ FEATURE BAND ============ */
+  .feature-band {
+    background: var(--navy);
+    color: #fff;
+    padding: 64px 0;
+    position: relative;
+  }
+  .feature-band::before {
+    content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 3px; background: var(--gold);
+  }
+  .feature-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .feature-item {
+    padding: 8px 32px;
+    border-right: 1px solid rgba(255,255,255,0.12);
+    text-align: left;
+  }
+  .feature-item:last-child { border-right: none; }
+  .feature-icon {
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .feature-icon svg { width: 32px; height: 32px; stroke: var(--gold); fill: none; stroke-width: 1.4; }
+  .feature-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+  .feature-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.55;
+  }
+
+  /* ============ SECTION HEADER ============ */
+  section { padding: 110px 0; }
+  .sec-head { text-align: center; margin-bottom: 64px; }
+  .sec-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 14px;
+    display: inline-block;
+  }
+  .sec-eyebrow::before {
+    content: "—  ";
+    color: var(--gold);
+  }
+  .sec-eyebrow::after {
+    content: "  —";
+    color: var(--gold);
+  }
+  .sec-head h2 {
+    font-size: clamp(30px, 3.6vw, 44px);
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .sec-head p {
+    font-size: 17px;
+    color: var(--text-mute);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* ============ UZMANLIK ALANLARI ============ */
+  .services {
+    background: var(--bg);
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .service-card {
+    background: #fff;
+    padding: 44px 36px;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+  }
+  .service-card:hover {
+    background: var(--navy);
+    color: #fff;
+    transform: scale(1.02);
+    z-index: 2;
+    box-shadow: 0 20px 50px rgba(15,36,56,0.25);
+  }
+  .service-card:hover .service-num,
+  .service-card:hover .service-desc { color: rgba(255,255,255,0.8); }
+  .service-card:hover h3 { color: #fff; }
+  .service-card:hover .service-icon svg { stroke: var(--gold); }
+  .service-card:hover .service-arrow { color: var(--gold); transform: translateX(6px); }
+  .service-num {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--text-mute);
+    letter-spacing: 0.2em;
+    margin-bottom: 24px;
+    transition: color 0.3s;
+  }
+  .service-icon {
+    margin-bottom: 22px;
+  }
+  .service-icon svg { width: 38px; height: 38px; stroke: var(--navy); fill: none; stroke-width: 1.3; transition: stroke 0.3s; }
+  .service-card h3 {
+    font-size: 22px;
+    color: var(--navy);
+    margin-bottom: 14px;
+    transition: color 0.3s;
+  }
+  .service-desc {
+    font-size: 15px;
+    color: var(--text-mute);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    transition: color 0.3s;
+  }
+  .service-arrow {
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+  }
+
+  /* ============ AVUKATLARIMIZ ============ */
+  .lawyers {
+    background: var(--bg-warm);
+    position: relative;
+  }
+  .lawyers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 80px;
+  }
+  .lawyer-card {
+    background: #fff;
+    padding: 0;
+    position: relative;
+  }
+  .lawyer-photo {
+    aspect-ratio: 4 / 5;
+    background:
+      repeating-linear-gradient(45deg, #E8E4D8 0 8px, #DDD8C9 8px 16px);
+    position: relative;
+    display: flex; align-items: flex-end; justify-content: flex-start;
+    overflow: hidden;
+  }
+  .lawyer-photo::before {
+    content: "[ portrait ]";
+    position: absolute; top: 16px; right: 16px;
+    font-family: ui-monospace, monospace;
+    font-size: 10px;
+    color: rgba(0,0,0,0.4);
+    letter-spacing: 0.08em;
+  }
+  .lawyer-bar {
+    background: var(--navy);
+    color: #fff;
+    padding: 6px 14px;
+    margin: 16px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+  }
+  .lawyer-info {
+    padding: 28px 28px 32px;
+    border-top: 3px solid var(--gold);
+  }
+  .lawyer-info h3 {
+    font-size: 22px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .lawyer-role {
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .lawyer-spec {
+    font-size: 14px;
+    color: var(--text-mute);
+    line-height: 1.55;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--navy);
+    color: #fff;
+  }
+  .stat-cell {
+    text-align: center;
+    padding: 36px 24px;
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 42px;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* ============ TESTIMONIALS ============ */
+  .testimonials { background: var(--bg); }
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .test-card {
+    background: #fff;
+    padding: 40px 36px;
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .test-card::before {
+    content: "“";
+    position: absolute;
+    top: 18px; right: 28px;
+    font-family: var(--serif);
+    font-size: 88px;
+    line-height: 1;
+    color: var(--gold);
+    opacity: 0.35;
+  }
+  .test-stars {
+    color: var(--gold);
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+  }
+  .test-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+  .test-author {
+    display: flex; align-items: center; gap: 14px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .test-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+  }
+  .test-meta-name {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 15px;
+  }
+  .test-meta-case {
+    font-size: 12px;
+    color: var(--text-mute);
+    letter-spacing: 0.04em;
+  }
+
+  /* ============ FAQ ============ */
+  .faq { background: var(--bg-warm); }
+  .faq-wrap { max-width: 880px; margin: 0 auto; }
+  .faq-item {
+    background: #fff;
+    border: 1px solid var(--line);
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  .faq-item.open { border-color: var(--gold); }
+  .faq-q {
+    width: 100%;
+    padding: 24px 28px;
+    background: none; border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .faq-toggle {
+    width: 32px; height: 32px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+    color: var(--gold);
+    font-size: 14px;
+    background: transparent;
+  }
+  .faq-item.open .faq-toggle {
+    background: var(--gold);
+    color: #fff;
+    transform: rotate(180deg);
+  }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0 28px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-mute);
+  }
+  .faq-item.open .faq-a {
+    max-height: 200px;
+    padding: 0 28px 26px;
+  }
+
+  /* ============ CONTACT ============ */
+  .contact { background: var(--bg); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .contact-info h3 {
+    font-size: 24px;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+  .info-list { list-style: none; margin-bottom: 32px; }
+  .info-row {
+    display: flex; gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .info-row:first-child { border-top: 1px solid var(--line); }
+  .info-icon {
+    width: 40px; height: 40px;
+    background: var(--navy);
+    color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .info-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 1.6; }
+  .info-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-bottom: 4px;
+  }
+  .info-value {
+    font-size: 15px;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .map-placeholder {
+    aspect-ratio: 16 / 9;
+    background:
+      linear-gradient(rgba(26,58,92,0.06), rgba(26,58,92,0.06)),
+      repeating-linear-gradient(0deg, #E4E2DA 0 1px, transparent 1px 40px),
+      repeating-linear-gradient(90deg, #E4E2DA 0 1px, transparent 1px 40px),
+      #F2EEE5;
+    position: relative;
+    border: 1px solid var(--line);
+  }
+  .map-pin {
+    position: absolute;
+    top: 50%; left: 52%;
+    transform: translate(-50%, -100%);
+  }
+  .map-pin-dot {
+    width: 18px; height: 18px;
+    background: var(--gold);
+    border: 3px solid var(--navy);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .map-pin-pulse {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px; height: 40px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(0.6); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+  }
+
+  .form {
+    background: #fff;
+    padding: 44px 40px;
+    border-top: 4px solid var(--gold);
+    box-shadow: 0 8px 30px rgba(15,36,56,0.06);
+  }
+  .form h3 {
+    font-size: 22px;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .form-sub {
+    font-size: 14px;
+    color: var(--text-mute);
+    margin-bottom: 28px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--text);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--navy);
+    background: #fff;
+  }
+  .field textarea { resize: vertical; min-height: 110px; }
+  .form .btn { width: 100%; justify-content: center; padding: 16px; }
+  .form-note {
+    font-size: 12px;
+    color: var(--text-mute);
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.75);
+    padding: 72px 0 0;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 56px;
+  }
+  .foot-logo .logo-mark { color: #fff; }
+  .foot-logo .logo-sub { color: rgba(255,255,255,0.55); }
+  .foot-tagline {
+    margin-top: 22px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+    max-width: 280px;
+  }
+  .foot-bar-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 22px;
+    padding: 10px 14px;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+  .foot-bar-badge svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.6; }
+  .foot-col h4 {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 22px;
+    font-weight: 600;
+  }
+  .foot-col ul { list-style: none; }
+  .foot-col li { margin-bottom: 12px; }
+  .foot-col a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.2s;
+  }
+  .foot-col a:hover { color: var(--gold); }
+  .foot-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 24px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+  }
+  .foot-bottom .legal { display: flex; gap: 24px; }
+
+  /* ============ FLOATING CTA ============ */
+  .float-cta {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 40;
+    display: flex; align-items: center; gap: 0;
+    background: var(--navy);
+    color: #fff;
+    padding: 0;
+    border: 1.5px solid var(--gold);
+    box-shadow: 0 12px 36px rgba(15,36,56,0.35);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: var(--sans);
+  }
+  .float-cta:hover { transform: translateY(-3px); box-shadow: 0 16px 44px rgba(15,36,56,0.45); }
+  .float-icon {
+    width: 56px; height: 56px;
+    background: var(--gold);
+    color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .float-icon svg { width: 22px; height: 22px; stroke: var(--navy); fill: none; stroke-width: 2; }
+  .float-icon::after {
+    content: "";
+    position: absolute; inset: 0;
+    border: 2px solid var(--gold);
+    animation: ring 2.4s ease-out infinite;
+  }
+  @keyframes ring {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+  .float-text { padding: 0 22px 0 18px; }
+  .float-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--gold-soft);
+    text-transform: uppercase;
+  }
+  .float-cta-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.02em;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 960px) {
+    .nav-links { display: none; }
+    .feature-grid, .services-grid, .lawyers-grid, .test-grid, .stat-strip, .contact-grid, .foot-grid { grid-template-columns: 1fr; }
+    .feature-item, .stat-cell, .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 24px; }
+    .trust-row { flex-direction: column; gap: 16px; }
+    .form-row { grid-template-columns: 1fr; }
+    .foot-bottom { flex-direction: column; gap: 16px; }
+    section { padding: 70px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#">
+      <span class="logo-mark">ARSLAN</span>
+      <span class="logo-sub">HUKUK BÜROSU</span>
+    </a>
+    <div class="nav-links">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#avukatlar">Avukatlarımız</a>
+      <a href="#davalar">Davalarımız</a>
+      <a href="#blog">Blog</a>
+      <a href="#iletisim">İletişim</a>
+    </div>
+    <a href="#iletisim" class="btn btn-gold">Ücretsiz Danışma</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">İSTANBUL · KURULUŞ 2010</span>
+    <h1>Hukuki Güvenceniz,<br/>Deneyimli Ellerde</h1>
+    <p class="lede">15 yıldır ticaret hukuku, aile hukuku ve iş hukuku alanlarında İstanbul'un önde gelen hukuk bürolarından biri olarak, müvekkillerimize titiz ve sonuç odaklı temsil sunuyoruz.</p>
+    <div class="hero-cta">
+      <a href="#iletisim" class="btn btn-gold">Ücretsiz Danışma Al →</a>
+      <a href="#davalar" class="btn btn-ghost">Dava Geçmişimizi İnceleyin</a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item">
+        <div class="trust-num">1.200+</div>
+        <div class="trust-label">Kapatılan Dava</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">%91</div>
+        <div class="trust-label">Başarı Oranı</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">15 Yıl</div>
+        <div class="trust-label">Deneyim</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ FEATURE BAND ============ -->
+<section class="feature-band" style="padding: 64px 0;">
+  <div class="wrap">
+    <div class="feature-grid">
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3v18M5 8h14M3 21h18M7 8l-3 8h6L7 8zM17 8l-3 8h6l-3-8z"/></svg>
+        </div>
+        <div class="feature-title">%91 Başarı Oranı</div>
+        <div class="feature-desc">1.200'den fazla kapatılmış dava ile kanıtlanmış sonuçlar.</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="feature-title">24 Saat Acil Hat</div>
+        <div class="feature-desc">Kritik hukuki durumlarda her saatte yanınızdayız.</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="feature-title">Uluslararası Ağ</div>
+        <div class="feature-desc">AB ve Orta Doğu'da güvenilir iş ortakları.</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <div class="feature-title">Ücretsiz İlk Danışma</div>
+        <div class="feature-desc">İlk 30 dakikalık görüşmeden ücret alınmaz.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UZMANLIK ALANLARI ============ -->
+<section class="services" id="hizmetler">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eyebrow">Uzmanlık Alanlarımız</span>
+      <h2>Kapsamlı Hukuki Hizmetler</h2>
+      <p>Şirket hukukundan aile hukukuna, ticaretten ceza hukukuna kadar geniş bir yelpazede uzman temsil.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-num">— 01</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3v18M5 8h14M3 21h18M7 8l-3 8h6L7 8zM17 8l-3 8h6l-3-8z"/></svg>
+        </div>
+        <h3>Ticaret Hukuku</h3>
+        <p class="service-desc">Şirket kuruluşu, sözleşme hazırlama, ticari uyuşmazlıklar ve iflas davalarında titiz temsil.</p>
+        <span class="service-arrow">Detaylı Bilgi →</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">— 02</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Aile Hukuku</h3>
+        <p class="service-desc">Boşanma, velayet, nafaka ve miras davalarında uzlaşı odaklı, hassas yaklaşım.</p>
+        <span class="service-arrow">Detaylı Bilgi →</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">— 03</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 7h-3V5a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3v2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2h-4z"/></svg>
+        </div>
+        <h3>İş Hukuku</h3>
+        <p class="service-desc">İşçi hakları, haksız fesih, kıdem tazminatı ve toplu sözleşme süreçlerinde tam destek.</p>
+        <span class="service-arrow">Detaylı Bilgi →</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">— 04</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM9 22V12h6v10"/></svg>
+        </div>
+        <h3>Gayrimenkul Hukuku</h3>
+        <p class="service-desc">Tapu uyuşmazlıkları, kira sözleşmeleri ve kat mülkiyeti davalarında uzman çözümler.</p>
+        <span class="service-arrow">Detaylı Bilgi →</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">— 05</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3>Şirketler Hukuku</h3>
+        <p class="service-desc">Birleşme, devralma, ortak anlaşmazlıkları ve yönetim kurulu hukukunda stratejik danışmanlık.</p>
+        <span class="service-arrow">Detaylı Bilgi →</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">— 06</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Ceza Hukuku</h3>
+        <p class="service-desc">Hukuki savunma, ön ödeme, uzlaşma ve temyiz süreçlerinde deneyimli savunuculuk.</p>
+        <span class="service-arrow">Detaylı Bilgi →</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ AVUKATLARIMIZ ============ -->
+<section class="lawyers" id="avukatlar">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eyebrow">Avukatlarımız</span>
+      <h2>Deneyimli Kadromuzla Tanışın</h2>
+      <p>Her avukatımız kendi uzmanlık alanında derin tecrübeye sahip; birlikte çalışırken güçlü bir ekip oluştururlar.</p>
+    </div>
+    <div class="lawyers-grid">
+
+      <div class="lawyer-card">
+        <div class="lawyer-photo">
+          <div class="lawyer-bar">İSTANBUL BAROSU · #12847</div>
+        </div>
+        <div class="lawyer-info">
+          <h3>Av. Kemal Arslan</h3>
+          <div class="lawyer-role">Kurucu Ortak</div>
+          <p class="lawyer-spec">Ticaret hukuku ve şirket birleşmeleri alanında 22 yıllık deneyim. Türkiye Barolar Birliği üyesi.</p>
+        </div>
+      </div>
+
+      <div class="lawyer-card">
+        <div class="lawyer-photo">
+          <div class="lawyer-bar">İSTANBUL BAROSU · #18923</div>
+        </div>
+        <div class="lawyer-info">
+          <h3>Av. Zeynep Arslan</h3>
+          <div class="lawyer-role">Ortak Avukat</div>
+          <p class="lawyer-spec">Aile ve iş hukuku uzmanı. Arabuluculuk sertifikalı. Müvekkil odaklı çözüm yaklaşımı.</p>
+        </div>
+      </div>
+
+      <div class="lawyer-card">
+        <div class="lawyer-photo">
+          <div class="lawyer-bar">İSTANBUL BAROSU · #24671</div>
+        </div>
+        <div class="lawyer-info">
+          <h3>Av. Tarık Yılmaz</h3>
+          <div class="lawyer-role">Avukat</div>
+          <p class="lawyer-spec">Gayrimenkul hukuku ve tapu davalarında uzman. İstanbul Üniversitesi Hukuk Fakültesi mezunu.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat-cell">
+        <div class="stat-num">15</div>
+        <div class="stat-label">Yıllık Deneyim</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">1.200+</div>
+        <div class="stat-label">Kapatılan Dava</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Uzman Avukat</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">%91</div>
+        <div class="stat-label">Başarı Oranı</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="davalar">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eyebrow">Müvekkil Görüşleri</span>
+      <h2>Bize Güvendiler, Sonuç Aldılar</h2>
+      <p>Müvekkil gizliliğimiz gereği isimler kısaltılmıştır. Tüm görüşler yazılı izinle yayınlanmıştır.</p>
+    </div>
+    <div class="test-grid">
+
+      <div class="test-card">
+        <div class="test-stars">★ ★ ★ ★ ★</div>
+        <p class="test-quote">Ticari ortaklık anlaşmazlığımda büyük destek gördüm. Kemal Bey hem hızlı hem çok profesyonel. Dava 4 ayda lehimize sonuçlandı.</p>
+        <div class="test-author">
+          <div class="test-avatar">MK</div>
+          <div>
+            <div class="test-meta-name">M.K.</div>
+            <div class="test-meta-case">Ticari Uyuşmazlık · 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="test-card">
+        <div class="test-stars">★ ★ ★ ★ ★</div>
+        <p class="test-quote">Boşanma sürecinde Zeynep Hanım hem hukuki hem insani desteğini hissettirdi. Velayet davamız çok iyi yönetildi.</p>
+        <div class="test-author">
+          <div class="test-avatar">AT</div>
+          <div>
+            <div class="test-meta-name">A.T.</div>
+            <div class="test-meta-case">Velayet Davası · 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="test-card">
+        <div class="test-stars">★ ★ ★ ★ ☆</div>
+        <p class="test-quote">Kira uyuşmazlığım için danıştım, ücretsiz ilk görüşme gerçekten değerliydi. Süreci adım adım anlattılar.</p>
+        <div class="test-author">
+          <div class="test-avatar">RŞ</div>
+          <div>
+            <div class="test-meta-name">R.Ş.</div>
+            <div class="test-meta-case">Kira Uyuşmazlığı · 2025</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="blog">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eyebrow">Sıkça Sorulan Sorular</span>
+      <h2>Aklınızdaki Sorular</h2>
+      <p>Müvekkillerimizden gelen en sık sorulara verdiğimiz net yanıtlar.</p>
+    </div>
+    <div class="faq-wrap">
+
+      <div class="faq-item open">
+        <button class="faq-q">
+          İlk danışma gerçekten ücretsiz mi?
+          <span class="faq-toggle">▾</span>
+        </button>
+        <div class="faq-a">Evet. İlk 30 dakikalık yüz yüze veya telefon görüşmesi tamamen ücretsizdir. Sonrasında vereceğimiz hizmet için net bir teklif sunulur.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Avukatlık ücretleri nasıl belirleniyor?
+          <span class="faq-toggle">▾</span>
+        </button>
+        <div class="faq-a">Türkiye Barolar Birliği asgari ücret tarifesi esas alınır. Dava türü, süresi ve karmaşıklığına göre belirlenir. İlk görüşmede yazılı teklif verilir.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Davamı takip edebilecek miyim?
+          <span class="faq-toggle">▾</span>
+        </button>
+        <div class="faq-a">Evet, her müvekkile özel dosya takip sistemi sunuyoruz. Gelişmeler SMS ve e-posta ile bildirilir.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          İstanbul dışındaki davalarda yardımcı olabilir misiniz?
+          <span class="faq-toggle">▾</span>
+        </button>
+        <div class="faq-a">Türkiye genelinde iş ortağı avukatlarımız vasıtasıyla hizmet verebiliyoruz. Tüm büyük illerde temsil sağlanmaktadır.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Belgeleri ofise getirmem gerekiyor mu?
+          <span class="faq-toggle">▾</span>
+        </button>
+        <div class="faq-a">İlk danışma için tarama veya fotoğraf yeterlidir. Resmi işlemler için orijinaller gerekir.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="iletisim">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eyebrow">İletişim</span>
+      <h2>Bizimle İletişime Geçin</h2>
+      <p>İlk danışmanız ücretsiz. Mesajınıza 24 saat içinde dönüş yapıyoruz.</p>
+    </div>
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <h3>Ofisimize Ulaşın</h3>
+        <ul class="info-list">
+          <li class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <div class="info-label">Adres</div>
+              <div class="info-value">Harbiye Mah. Cumhuriyet Cad. No:88 Kat:4<br/>Şişli / İstanbul</div>
+            </div>
+          </li>
+          <li class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div>
+              <div class="info-label">Telefon</div>
+              <div class="info-value">0212 247 60 15</div>
+            </div>
+          </li>
+          <li class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+            <div>
+              <div class="info-label">E-posta</div>
+              <div class="info-value">info@arslanhukuk.com.tr</div>
+            </div>
+          </li>
+          <li class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div>
+              <div class="info-label">Çalışma Saatleri</div>
+              <div class="info-value">Pazartesi – Cuma · 09:00 – 18:00</div>
+            </div>
+          </li>
+        </ul>
+        <div class="map-placeholder">
+          <div class="map-pin">
+            <div class="map-pin-pulse"></div>
+            <div class="map-pin-dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <form class="form" onsubmit="event.preventDefault(); alert('Mesajınız iletildi. 24 saat içinde dönüş yapacağız.')">
+        <h3>Ücretsiz Danışma Talebi</h3>
+        <p class="form-sub">Bilgileriniz tamamen gizli tutulur. KVKK kapsamında işlenir.</p>
+        <div class="form-row">
+          <div class="field">
+            <label>Ad Soyad</label>
+            <input type="text" placeholder="Adınız ve soyadınız" required />
+          </div>
+          <div class="field">
+            <label>Telefon</label>
+            <input type="tel" placeholder="0(5__) ___ __ __" required />
+          </div>
+        </div>
+        <div class="field">
+          <label>E-posta</label>
+          <input type="email" placeholder="ornek@eposta.com" required />
+        </div>
+        <div class="field">
+          <label>Hukuki Konu</label>
+          <select required>
+            <option value="">Bir konu seçin</option>
+            <option>Ticaret Hukuku</option>
+            <option>Aile Hukuku</option>
+            <option>İş Hukuku</option>
+            <option>Gayrimenkul Hukuku</option>
+            <option>Şirketler Hukuku</option>
+            <option>Ceza Hukuku</option>
+            <option>Diğer</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Mesajınız</label>
+          <textarea placeholder="Konunuzu kısaca açıklayın..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-navy">Mesajı Gönder →</button>
+        <p class="form-note">Form gönderiminiz KVKK metni kapsamında işlenir.</p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-logo">
+        <div class="logo">
+          <span class="logo-mark">ARSLAN</span>
+          <span class="logo-sub">HUKUK BÜROSU</span>
+        </div>
+        <p class="foot-tagline">Hukuki Güvenceniz, Deneyimli Ellerde. 2010'dan beri İstanbul'da müvekkillerimizin yanındayız.</p>
+        <div class="foot-bar-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          İstanbul Barosuna Kayıtlı
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Hukuk Alanları</h4>
+        <ul>
+          <li><a href="#">Ticaret Hukuku</a></li>
+          <li><a href="#">Aile Hukuku</a></li>
+          <li><a href="#">İş Hukuku</a></li>
+          <li><a href="#">Gayrimenkul Hukuku</a></li>
+          <li><a href="#">Şirketler Hukuku</a></li>
+          <li><a href="#">Ceza Hukuku</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Büromuz</h4>
+        <ul>
+          <li><a href="#">Hakkımızda</a></li>
+          <li><a href="#">Avukatlarımız</a></li>
+          <li><a href="#">Davalarımız</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Kariyer</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>İletişim</h4>
+        <ul>
+          <li>Harbiye Mah. Cumhuriyet Cad. No:88 Kat:4</li>
+          <li>Şişli / İstanbul</li>
+          <li>0212 247 60 15</li>
+          <li>info@arslanhukuk.gen.tr</li>
+          <li>Pzt–Cum · 09:00–18:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Arslan Hukuk Bürosu. Tüm hakları saklıdır.</div>
+      <div class="legal">
+        <a href="#">KVKK Aydınlatma Metni</a>
+        <a href="#">Gizlilik Politikası</a>
+        <a href="#">Çerez Politikası</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING CTA ============ -->
+<a href="#iletisim" class="float-cta">
+  <div class="float-icon">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </div>
+  <div class="float-text">
+    <div class="float-label">İlk Görüşme Ücretsiz</div>
+    <div class="float-cta-text">Ücretsiz Danışma</div>
+  </div>
+</a>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
