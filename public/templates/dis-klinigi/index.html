@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WhiteSmile Diş Kliniği — Etiler, İstanbul</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mint:#8AB4A0;
+    --mint-deep:#6E9B86;
+    --mint-soft:#E6F0EB;
+    --ice:#B8D8E3;
+    --ice-soft:#EEF6FA;
+    --white:#FFFFFF;
+    --paper:#FBFBF9;
+    --navy:#1B2A4A;
+    --navy-soft:#5A6679;
+    --coral:#E88D88;
+    --line:#E8EBE7;
+    --radius:16px;
+    --shadow: 0 1px 2px rgba(27,42,74,.04), 0 12px 32px -16px rgba(27,42,74,.12);
+    --shadow-lg: 0 2px 4px rgba(27,42,74,.05), 0 24px 60px -24px rgba(27,42,74,.18);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--navy);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+    font-size:16px;
+  }
+  h1,h2,h3,h4{font-family:'DM Serif Display',serif;font-weight:400;letter-spacing:-.01em;color:var(--navy);margin:0;line-height:1.08}
+  h1{font-size:clamp(44px,6vw,76px)}
+  h2{font-size:clamp(36px,4.4vw,56px)}
+  h3{font-size:clamp(22px,1.6vw,28px)}
+  .sub{font-family:'Figtree',sans-serif;font-weight:600;font-size:clamp(18px,1.4vw,22px);color:var(--navy)}
+  .eyebrow{
+    font-family:'Figtree',sans-serif;
+    text-transform:uppercase;letter-spacing:.22em;
+    font-size:12px;font-weight:600;
+    color:var(--mint-deep);
+  }
+  p{margin:0;color:var(--navy-soft)}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- Layout ---------- */
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+  section{position:relative;padding:120px 0}
+  /* Signature: vertical mint line at section top-left */
+  .sig{
+    position:relative;
+    padding-left:28px;
+  }
+  .sig::before{
+    content:"";
+    position:absolute;left:0;top:6px;
+    width:2px;height:56px;
+    background:linear-gradient(180deg,var(--mint) 0%, rgba(138,180,160,0) 100%);
+  }
+  .sig .eyebrow{display:block;margin-bottom:14px}
+
+  /* ---------- Nav ---------- */
+  nav.top{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(232,235,231,.7);
+  }
+  nav.top .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;padding:0 32px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Figtree',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.01em}
+  .brand-mark{
+    width:38px;height:38px;border-radius:12px;
+    background:var(--mint);
+    display:grid;place-items:center;
+    box-shadow:inset 0 0 0 1px rgba(27,42,74,.06);
+  }
+  .brand-mark svg{display:block}
+  .brand small{color:var(--navy-soft);font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;display:block;margin-top:2px}
+  .nav-links{display:flex;gap:36px;align-items:center;font-family:'Figtree',sans-serif;font-weight:500;font-size:15px}
+  .nav-links a{color:var(--navy);opacity:.78;transition:opacity .2s}
+  .nav-links a:hover{opacity:1}
+  .nav-cta{
+    font-family:'Figtree',sans-serif;font-weight:600;font-size:14px;
+    background:var(--navy);color:#fff;
+    padding:12px 20px;border-radius:999px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:background .2s, transform .2s;
+  }
+  .nav-cta:hover{background:#0F1B33;transform:translateY(-1px)}
+  .nav-cta .dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(138,180,160,.35)}
+  @media (max-width:880px){.nav-links{display:none}}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding-top:178px;padding-bottom:100px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap:56px;
+    align-items:stretch;
+  }
+  @media (max-width:980px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+  .hero-copy{display:flex;flex-direction:column;justify-content:space-between;gap:48px}
+  .hero h1 .accent{
+    font-style:italic;
+    color:var(--mint-deep);
+    position:relative;
+    display:inline-block;
+  }
+  .hero h1 .accent::after{
+    content:"";
+    position:absolute;left:-2%;right:-2%;bottom:.08em;height:.18em;
+    background:var(--mint-soft);
+    z-index:-1;border-radius:2px;
+  }
+  .hero p.lead{
+    font-size:19px;line-height:1.55;max-width:520px;
+    color:var(--navy-soft);
+  }
+  .hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:36px}
+  .btn-primary{
+    background:var(--mint);color:#fff;
+    font-family:'Figtree',sans-serif;font-weight:600;font-size:15px;
+    padding:16px 28px;border-radius:999px;
+    border:none;cursor:pointer;
+    display:inline-flex;align-items:center;gap:10px;
+    box-shadow:0 8px 24px -10px rgba(138,180,160,.65);
+    transition:transform .2s, box-shadow .2s, background .2s;
+  }
+  .btn-primary:hover{background:var(--mint-deep);transform:translateY(-1px);box-shadow:0 12px 32px -10px rgba(138,180,160,.85)}
+  .btn-ghost{
+    background:transparent;color:var(--navy);
+    font-family:'Figtree',sans-serif;font-weight:600;font-size:15px;
+    padding:16px 22px;border-radius:999px;
+    border:1px solid var(--line);cursor:pointer;
+    display:inline-flex;align-items:center;gap:10px;
+    transition:border-color .2s, background .2s;
+  }
+  .btn-ghost:hover{border-color:var(--navy);background:#fff}
+  .btn-arrow{width:18px;height:18px}
+
+  .hero-meta{
+    display:flex;gap:32px;flex-wrap:wrap;
+    padding-top:28px;border-top:1px solid var(--line);
+  }
+  .hero-meta-item{display:flex;flex-direction:column;gap:2px}
+  .hero-meta-item .k{font-family:'DM Serif Display',serif;font-size:32px;color:var(--navy);line-height:1}
+  .hero-meta-item .v{font-family:'Figtree',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--navy-soft);margin-top:8px}
+
+  /* Hero image stack */
+  .hero-visual{position:relative;min-height:540px}
+  .hero-photo{
+    position:absolute;inset:0;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:var(--shadow-lg);
+    border:1px solid var(--line);
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(160deg, rgba(255,255,255,0) 35%, rgba(27,42,74,.35) 100%);
+  }
+  .hero-badge{
+    position:absolute;left:-24px;bottom:36px;
+    background:#fff;border-radius:18px;
+    padding:18px 22px;
+    display:flex;align-items:center;gap:14px;
+    box-shadow:var(--shadow-lg);
+    border:1px solid var(--line);
+    max-width:280px;
+  }
+  .hero-badge .avs{display:flex}
+  .hero-badge .av{
+    width:36px;height:36px;border-radius:50%;
+    background:var(--mint-soft);
+    border:2px solid #fff;
+    margin-left:-10px;
+    display:grid;place-items:center;
+    font-family:'Figtree',sans-serif;font-weight:600;font-size:13px;color:var(--mint-deep);
+  }
+  .hero-badge .av:first-child{margin-left:0}
+  .hero-badge .av.coral{background:#FCE3E1;color:#B5615C}
+  .hero-badge .av.ice{background:var(--ice-soft);color:#3F708A}
+  .hero-badge-txt{font-family:'Figtree',sans-serif;font-weight:500;font-size:13px;color:var(--navy);line-height:1.35}
+  .hero-badge-txt b{font-weight:700}
+  .hero-pill{
+    position:absolute;right:-12px;top:32px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:10px 16px 10px 12px;
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Figtree',sans-serif;font-size:13px;font-weight:500;
+    box-shadow:var(--shadow);
+  }
+  .pulse{width:10px;height:10px;border-radius:50%;background:var(--mint);position:relative}
+  .pulse::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--mint);opacity:.4;animation:pulse 1.8s ease-out infinite}
+  @keyframes pulse{0%{transform:scale(.6);opacity:.55}100%{transform:scale(1.6);opacity:0}}
+
+  /* ---------- Trust strip ---------- */
+  .trust{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:28px 0;background:var(--paper);
+  }
+  .trust .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .trust-label{font-family:'Figtree',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.22em;color:var(--navy-soft)}
+  .trust-items{display:flex;gap:36px;flex-wrap:wrap;font-family:'Figtree',sans-serif;font-weight:600;font-size:14px;color:var(--navy);opacity:.78}
+  .trust-items span{display:inline-flex;align-items:center;gap:8px}
+  .trust-items svg{opacity:.7}
+
+  /* ---------- Services ---------- */
+  .services-head{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap;
+  }
+  .services-head .sig h2{max-width:560px}
+  .services-head p{max-width:380px}
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  @media (max-width:980px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:640px){.services-grid{grid-template-columns:1fr}}
+  .service{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px 28px 28px;
+    display:flex;flex-direction:column;gap:18px;
+    transition:transform .25s, box-shadow .25s, border-color .25s;
+    position:relative;overflow:hidden;
+  }
+  .service:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
+  .service-num{
+    font-family:'DM Serif Display',serif;font-size:14px;color:var(--mint-deep);letter-spacing:.05em;
+  }
+  .service-ic{
+    width:56px;height:56px;border-radius:14px;
+    background:var(--mint-soft);
+    display:grid;place-items:center;
+    color:var(--mint-deep);
+  }
+  .service.alt .service-ic{background:var(--ice-soft);color:#3F708A}
+  .service.coral .service-ic{background:#FCE3E1;color:#B5615C}
+  .service h3{font-size:24px;line-height:1.15}
+  .service p{font-size:15px;line-height:1.55}
+  .service-link{
+    margin-top:auto;
+    font-family:'Figtree',sans-serif;font-weight:600;font-size:13px;
+    color:var(--navy);
+    display:inline-flex;align-items:center;gap:8px;
+    text-transform:uppercase;letter-spacing:.12em;
+    padding-top:8px;
+  }
+  .service-link svg{transition:transform .2s}
+  .service:hover .service-link svg{transform:translateX(4px)}
+
+  /* ---------- Before/After ---------- */
+  .ba-wrap{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .ba-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+  .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media (max-width:880px){.ba-grid{grid-template-columns:1fr}}
+  .ba-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;
+    box-shadow:var(--shadow);
+  }
+  .ba-img{
+    position:relative;width:100%;aspect-ratio:4/3;border-radius:12px;overflow:hidden;cursor:ew-resize;
+    user-select:none;
+    background:#000;
+  }
+  .ba-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+  .ba-img .after-clip{position:absolute;inset:0;clip-path:inset(0 0 0 50%);transition:clip-path .05s linear}
+  .ba-handle{
+    position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;
+    box-shadow:0 0 0 1px rgba(27,42,74,.1), 0 6px 24px rgba(0,0,0,.25);
+    pointer-events:none;
+    transition:left .05s linear;
+  }
+  .ba-handle::before{
+    content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:44px;height:44px;border-radius:50%;background:#fff;
+    box-shadow:0 6px 24px rgba(0,0,0,.25);
+  }
+  .ba-handle::after{
+    content:"⟷";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    font-size:18px;color:var(--mint-deep);font-weight:700;
+  }
+  .ba-tag{
+    position:absolute;top:14px;background:rgba(255,255,255,.94);
+    font-family:'Figtree',sans-serif;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.16em;
+    padding:6px 12px;border-radius:999px;color:var(--navy);
+    backdrop-filter:blur(6px);
+  }
+  .ba-tag.before{left:14px}
+  .ba-tag.after{right:14px;background:var(--mint);color:#fff}
+  .ba-meta{display:flex;justify-content:space-between;align-items:center;padding:16px 4px 4px;gap:16px}
+  .ba-meta h3{font-size:22px}
+  .ba-meta .ba-sub{font-family:'Figtree',sans-serif;font-size:13px;color:var(--navy-soft);margin-top:4px}
+  .ba-meta-side{font-family:'Figtree',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--mint-deep)}
+
+  /* ---------- Why ---------- */
+  .why-head{margin-bottom:80px}
+  .why-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  @media (max-width:880px){.why-grid{grid-template-columns:1fr}}
+  .stat{
+    padding:56px 40px;
+    border-right:1px solid var(--line);
+    position:relative;
+    display:flex;flex-direction:column;gap:20px;
+    background:#fff;
+  }
+  .stat:last-child{border-right:none}
+  @media (max-width:880px){.stat{border-right:none;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:none}}
+  .stat::before{
+    content:"";position:absolute;left:40px;top:40px;
+    width:24px;height:2px;background:var(--mint);
+  }
+  .stat-k{
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(72px,8vw,108px);
+    line-height:.95;
+    color:var(--navy);
+    margin-top:32px;
+    display:flex;align-items:flex-start;gap:6px;
+  }
+  .stat-k .unit{
+    font-family:'Figtree',sans-serif;font-weight:600;font-size:20px;color:var(--mint-deep);
+    margin-top:14px;
+  }
+  .stat-v{font-family:'Figtree',sans-serif;font-weight:600;font-size:17px;color:var(--navy)}
+  .stat-d{font-size:14px;color:var(--navy-soft);max-width:240px}
+
+  /* ---------- Testimonials ---------- */
+  .testi-wrap{background:var(--navy);color:#fff}
+  .testi-wrap h2,.testi-wrap h3,.testi-wrap .eyebrow{color:#fff}
+  .testi-wrap .eyebrow{color:var(--mint)}
+  .testi-wrap p{color:rgba(255,255,255,.7)}
+  .testi-wrap .sig::before{background:linear-gradient(180deg,var(--mint) 0%, rgba(138,180,160,0) 100%)}
+  .testi-head{margin-bottom:64px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media (max-width:980px){.testi-grid{grid-template-columns:1fr}}
+  .testi{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:var(--radius);
+    padding:32px;
+    display:flex;flex-direction:column;gap:24px;
+    transition:background .25s, border-color .25s;
+  }
+  .testi:hover{background:rgba(255,255,255,.06);border-color:rgba(138,180,160,.4)}
+  .quote-mark{
+    font-family:'DM Serif Display',serif;
+    font-size:64px;line-height:.6;color:var(--mint);font-style:italic;
+  }
+  .testi-body{font-size:16px;line-height:1.6;color:rgba(255,255,255,.88);font-family:'Inter',sans-serif}
+  .testi-person{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:8px}
+  .testi-av{width:44px;height:44px;border-radius:50%;background:var(--mint);display:grid;place-items:center;font-family:'Figtree',sans-serif;font-weight:600;color:#fff;font-size:15px}
+  .testi-av.coral{background:var(--coral)}
+  .testi-av.ice{background:var(--ice);color:#1B2A4A}
+  .testi-name{font-family:'Figtree',sans-serif;font-weight:600;font-size:15px;color:#fff}
+  .testi-meta{font-size:12px;color:rgba(255,255,255,.55);margin-top:2px}
+  .stars{display:flex;gap:3px;color:var(--mint)}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:48px;
+    align-items:stretch;
+  }
+  @media (max-width:980px){.contact-grid{grid-template-columns:1fr}}
+  .contact-map{
+    border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    min-height:520px;
+    position:relative;
+    background:var(--ice-soft);
+  }
+  .contact-map iframe{width:100%;height:100%;border:0;display:block;position:absolute;inset:0}
+  .contact-info{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:40px;display:flex;flex-direction:column;gap:24px;
+    box-shadow:var(--shadow);
+  }
+  .info-rows{display:flex;flex-direction:column;gap:18px;padding:8px 0;border-top:1px solid var(--line);padding-top:24px;margin-top:8px}
+  .info-row{display:flex;gap:16px;align-items:flex-start}
+  .info-ic{width:40px;height:40px;border-radius:12px;background:var(--mint-soft);color:var(--mint-deep);display:grid;place-items:center;flex-shrink:0}
+  .info-row .info-k{font-family:'Figtree',sans-serif;font-weight:600;font-size:14px;color:var(--navy)}
+  .info-row .info-v{font-size:15px;color:var(--navy-soft);margin-top:2px}
+
+  form{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:560px){.form-row{grid-template-columns:1fr}}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-family:'Figtree',sans-serif;font-weight:500;font-size:12px;color:var(--navy-soft);text-transform:uppercase;letter-spacing:.12em}
+  .field input, .field select, .field textarea{
+    font-family:'Inter',sans-serif;font-size:15px;color:var(--navy);
+    background:var(--paper);border:1px solid var(--line);
+    border-radius:12px;padding:14px 16px;
+    transition:border-color .2s, background .2s;
+    width:100%;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none;border-color:var(--mint);background:#fff;
+    box-shadow:0 0 0 4px rgba(138,180,160,.18);
+  }
+  .field textarea{resize:vertical;min-height:88px}
+  .submit{margin-top:8px}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--paper);
+    border-top:1px solid var(--line);
+    padding:56px 0 32px;
+  }
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  @media (max-width:880px){.foot{grid-template-columns:1fr 1fr;gap:32px}}
+  .foot h4{font-family:'Figtree',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.16em;color:var(--navy);margin-bottom:18px}
+  .foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  .foot a{font-family:'Inter',sans-serif;font-size:14px;color:var(--navy-soft);transition:color .2s}
+  .foot a:hover{color:var(--navy)}
+  .foot-brand p{font-size:14px;margin-top:14px;max-width:280px}
+  .foot-bot{
+    border-top:1px solid var(--line);
+    margin-top:40px;padding-top:24px;
+    display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+    font-family:'Figtree',sans-serif;font-size:13px;color:var(--navy-soft);
+  }
+
+  /* ---------- Scroll fade-in ---------- */
+  .fade{opacity:0;transform:translateY(22px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1)}
+  .fade.in{opacity:1;transform:none}
+  .fade.d1{transition-delay:.08s}.fade.d2{transition-delay:.16s}.fade.d3{transition-delay:.24s}.fade.d4{transition-delay:.32s}.fade.d5{transition-delay:.4s}
+
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="top">
+  <div class="wrap">
+    <a class="brand" href="#">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3.5c-2.6 0-3.9 1.2-5.4 1.2C5 4.7 4 6.1 4 8.2c0 2 .6 4 1.5 6.2.7 1.7 1.4 3.7 2.1 5.1.5 1 1.2 1.4 1.9 1.1.7-.3.9-1.2 1.1-2.6.2-1.3.5-2.4 1.4-2.4s1.2 1.1 1.4 2.4c.2 1.4.4 2.3 1.1 2.6.7.3 1.4-.1 1.9-1.1.7-1.4 1.4-3.4 2.1-5.1.9-2.2 1.5-4.2 1.5-6.2 0-2.1-1-3.5-2.6-3.5-1.5 0-2.8-1.2-5.4-1.2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span>
+        WhiteSmile
+        <small>Diş Kliniği</small>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#once-sonra">Tedaviler</a>
+      <a href="#neden-biz">Neden Biz</a>
+      <a href="#yorumlar">Yorumlar</a>
+      <a href="#iletisim">İletişim</a>
+    </div>
+    <a class="nav-cta" href="#iletisim">
+      <span class="dot"></span>
+      Randevu Al
+    </a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="sig fade">
+          <span class="eyebrow">WhiteSmile · Etiler, İstanbul</span>
+          <h1>Sağlıklı gülüşler<br/>için <span class="accent">buradayız</span>.</h1>
+          <p class="lead" style="margin-top:28px">
+            Etiler'de uzman kadro, ileri teknoloji ve ağrısız tedavi yöntemleriyle gülüşünüzü en iyi haline kavuşturuyoruz. İlk muayene değerlendirmenizi bugün planlayın.
+          </p>
+          <div class="hero-ctas">
+            <button class="btn-primary" onclick="document.getElementById('iletisim').scrollIntoView({behavior:'smooth'})">
+              Randevu Al
+              <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            </button>
+            <a class="btn-ghost" href="#hizmetler">
+              Hizmetlerimiz
+            </a>
+          </div>
+        </div>
+        <div class="hero-meta fade d2">
+          <div class="hero-meta-item"><span class="k">12+</span><span class="v">Yıl Tecrübe</span></div>
+          <div class="hero-meta-item"><span class="k">5.000+</span><span class="v">Mutlu Hasta</span></div>
+          <div class="hero-meta-item"><span class="k">4.9</span><span class="v">Google Puanı</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual fade d1">
+        <div class="hero-photo">
+          <img alt="Modern diş kliniği muayene odası"
+               src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1400&q=80"
+               loading="eager"/>
+        </div>
+        <div class="hero-pill">
+          <span class="pulse"></span>
+          Bugün randevu kabul ediliyor
+        </div>
+        <div class="hero-badge">
+          <div class="avs">
+            <span class="av">DA</span>
+            <span class="av coral">ME</span>
+            <span class="av ice">SK</span>
+          </div>
+          <div class="hero-badge-txt">
+            <b>8 uzman hekim</b><br/>tek çatı altında, sizi bekliyor.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<div class="trust">
+  <div class="wrap">
+    <span class="trust-label">Sertifikalar &amp; Üyelikler</span>
+    <div class="trust-items">
+      <span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        TDB Onaylı
+      </span>
+      <span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4Z"/></svg>
+        ISO 9001:2015
+      </span>
+      <span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+        SGK Anlaşmalı
+      </span>
+      <span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="5"/><path d="m8.5 12.5-1.5 8L12 18l5 2.5-1.5-8"/></svg>
+        Invisalign Provider
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section id="hizmetler">
+  <div class="wrap">
+    <div class="services-head">
+      <div class="sig fade">
+        <span class="eyebrow">Hizmetler</span>
+        <h2>Her gülüş için<br/>özel bir tedavi planı.</h2>
+      </div>
+      <p class="fade d1">Estetikten cerrahiye, çocuk diş hekimliğinden ortodontiye — kliniğimizde tüm dental ihtiyaçlarınız tek çatı altında karşılanır.</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service fade">
+        <div class="service-num">01</div>
+        <div class="service-ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.4 0-3.6 1.1-5 1.1C5.6 4.1 5 5.4 5 7.4c0 1.8.5 3.7 1.4 5.7.7 1.6 1.3 3.4 1.9 4.7.5.9 1.1 1.3 1.7 1 .6-.3.8-1.1 1-2.4.2-1.2.5-2.2 1-2.2s.8 1 1 2.2c.2 1.3.4 2.1 1 2.4.6.3 1.2-.1 1.7-1 .6-1.3 1.2-3.1 1.9-4.7.9-2 1.4-3.9 1.4-5.7 0-2-.6-3.3-2-3.3-1.4 0-2.6-1.1-5-1.1Z"/><path d="M9 7c.8.4 1.7.6 3 .6s2.2-.2 3-.6"/></svg>
+        </div>
+        <h3>Estetik Diş Hekimliği</h3>
+        <p>Lamine, zirkonyum ve dijital gülüş tasarımı ile yüzünüze en uygun gülüşü kişiselleştirerek planlıyoruz.</p>
+        <a class="service-link" href="#iletisim">Detay
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="service alt fade d1">
+        <div class="service-num">02</div>
+        <div class="service-ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6"/><path d="M9 6h6"/><path d="M8 21v-7a4 4 0 0 1 8 0v7"/><path d="M8 14h8"/></svg>
+        </div>
+        <h3>İmplant Tedavisi</h3>
+        <p>Tek dişten tam ağız rehabilitasyonuna kadar, premium markalarla uzun ömürlü implant çözümleri.</p>
+        <a class="service-link" href="#iletisim">Detay
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="service coral fade d2">
+        <div class="service-num">03</div>
+        <div class="service-ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16"/><path d="M6 8v9c0 .8.7 1.4 1.5 1.4S9 17.8 9 17v-3.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1V17c0 .8.7 1.4 1.5 1.4S18 17.8 18 17V8"/><path d="M6 8c0-2 1.5-3 2.5-3M18 8c0-2-1.5-3-2.5-3"/></svg>
+        </div>
+        <h3>Ortodonti</h3>
+        <p>Klasik tel tedavisi ve şeffaf plak (aligner) tedavisi ile her yaşa uygun düzgün gülüş çözümleri.</p>
+        <a class="service-link" href="#iletisim">Detay
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="service alt fade">
+        <div class="service-num">04</div>
+        <div class="service-ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M12 22c-3 0-5-2-5-5 0-3 2-5 5-9 3 4 5 6 5 9 0 3-2 5-5 5Z"/></svg>
+        </div>
+        <h3>Kanal Tedavisi</h3>
+        <p>Mikroskobik kanal tedavisi ile ağrısız, tek seansta tamamlanan kök kanal işlemleri.</p>
+        <a class="service-link" href="#iletisim">Detay
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="service fade d1">
+        <div class="service-num">05</div>
+        <div class="service-ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.5 1.5M16.9 16.9l1.5 1.5M5.6 18.4l1.5-1.5M16.9 7.1l1.5-1.5"/></svg>
+        </div>
+        <h3>Diş Beyazlatma</h3>
+        <p>Ofis tipi tek seans Zoom beyazlatma ve özel hazırlanan ev tipi beyazlatma kitleri ile parlak gülüşler.</p>
+        <a class="service-link" href="#iletisim">Detay
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="service coral fade d2">
+        <div class="service-num">06</div>
+        <div class="service-ic">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 1 6 0c0 1.5-1 2.4-1 4M12 19v.5"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <h3>Pedodonti</h3>
+        <p>Çocuk diş hekimliği — koruyucu uygulamalar, fissür örtücü ve oyun temalı sakin muayene deneyimi.</p>
+        <a class="service-link" href="#iletisim">Detay
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEFORE / AFTER ============ -->
+<div class="ba-wrap" id="once-sonra">
+  <section style="padding:120px 0">
+    <div class="wrap">
+      <div class="ba-head">
+        <div class="sig fade">
+          <span class="eyebrow">Tedavi Öncesi · Sonrası</span>
+          <h2>Sonuçları sürükleyerek<br/>kendiniz görün.</h2>
+        </div>
+        <p class="fade d1">Her vaka, klinik öncesi dijital gülüş tasarımı ile planlanır. Hastalarımızın izniyle paylaşılan iki örnek aşağıda.</p>
+      </div>
+
+      <div class="ba-grid">
+        <div class="ba-card fade">
+          <div class="ba-img" data-ba>
+            <img class="before" alt="Tedavi öncesi" src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1100&q=80"/>
+            <div class="after-clip">
+              <img class="after" alt="Tedavi sonrası" src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?auto=format&fit=crop&w=1100&q=80"/>
+            </div>
+            <span class="ba-tag before">Önce</span>
+            <span class="ba-tag after">Sonra</span>
+            <div class="ba-handle"></div>
+          </div>
+          <div class="ba-meta">
+            <div>
+              <h3>Estetik gülüş tasarımı</h3>
+              <div class="ba-sub">8 üst keser · E.max lamine · 2 seans</div>
+            </div>
+            <span class="ba-meta-side">Vaka 01</span>
+          </div>
+        </div>
+
+        <div class="ba-card fade d1">
+          <div class="ba-img" data-ba>
+            <img class="before" alt="İmplant öncesi" src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1100&q=80"/>
+            <div class="after-clip">
+              <img class="after" alt="İmplant sonrası" src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1100&q=80"/>
+            </div>
+            <span class="ba-tag before">Önce</span>
+            <span class="ba-tag after">Sonra</span>
+            <div class="ba-handle"></div>
+          </div>
+          <div class="ba-meta">
+            <div>
+              <h3>Tek diş implant tedavisi</h3>
+              <div class="ba-sub">Üst sağ kanin · Titanyum implant · 3 ay osseointegrasyon</div>
+            </div>
+            <span class="ba-meta-side">Vaka 02</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ WHY ============ -->
+<section id="neden-biz">
+  <div class="wrap">
+    <div class="why-head services-head">
+      <div class="sig fade">
+        <span class="eyebrow">Neden WhiteSmile</span>
+        <h2>Rakamlarla<br/>kliniğimiz.</h2>
+      </div>
+      <p class="fade d1">Etiler'de açıldığımız günden bu yana, hastalarımıza güven veren konforlu bir muayene deneyimi sunmak için çalışıyoruz.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="stat fade">
+        <span class="stat-k">12<span class="unit">YIL</span></span>
+        <div>
+          <div class="stat-v">Tecrübe</div>
+          <div class="stat-d">Etiler'de 2014'ten bu yana uzman kadromuzla hizmet veriyoruz.</div>
+        </div>
+      </div>
+      <div class="stat fade d1">
+        <span class="stat-k">8<span class="unit">UZMAN</span></span>
+        <div>
+          <div class="stat-v">Hekim Kadrosu</div>
+          <div class="stat-d">Estetik, ortodonti, implantoloji ve pedodonti alanlarında deneyimli ekip.</div>
+        </div>
+      </div>
+      <div class="stat fade d2">
+        <span class="stat-k">5K<span class="unit">+</span></span>
+        <div>
+          <div class="stat-v">Mutlu Hasta</div>
+          <div class="stat-d">Bugüne kadar tamamlanan tedavi sayısı. Memnuniyet oranı %98.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<div class="testi-wrap" id="yorumlar">
+  <section style="padding:120px 0">
+    <div class="wrap">
+      <div class="testi-head">
+        <div class="sig fade">
+          <span class="eyebrow">Hasta Yorumları</span>
+          <h2>5.000+ hastanın<br/>tercih ettiği klinik.</h2>
+        </div>
+        <p class="fade d1">Google ve Doktortakvimi üzerinde 4.9 ortalama puanla değerlendiriliyoruz.</p>
+      </div>
+
+      <div class="testi-grid">
+        <article class="testi fade">
+          <span class="quote-mark">"</span>
+          <p class="testi-body">Diş hekimi korkumu yenmemde gerçekten yardımcı oldular. Lamine tedavim boyunca her aşamayı anlattılar, sonuç beklediğimden çok daha doğal oldu. Etiler'de tavsiye ederim.</p>
+          <div class="testi-person">
+            <span class="testi-av">EA</span>
+            <div>
+              <div class="testi-name">Elif Akın</div>
+              <div class="testi-meta">Estetik Gülüş Tasarımı · Mart 2026</div>
+            </div>
+            <div class="stars" style="margin-left:auto">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <article class="testi fade d1">
+          <span class="quote-mark">"</span>
+          <p class="testi-body">İki implant tedavisi oldum, hiç ağrı hissetmedim. Klinik son derece hijyenik, randevu saatine sadıklar. Dr. Mert Bey ve ekibine teşekkürler — fark yaratan bir deneyimdi.</p>
+          <div class="testi-person">
+            <span class="testi-av coral">MC</span>
+            <div>
+              <div class="testi-name">Mert Çelik</div>
+              <div class="testi-meta">İmplant Tedavisi · Şubat 2026</div>
+            </div>
+            <div class="stars" style="margin-left:auto">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <article class="testi fade d2">
+          <span class="quote-mark">"</span>
+          <p class="testi-body">Kızımın ilk diş hekimi deneyimiydi, çocuk dostu yaklaşımları sayesinde keyifle gitti. Bekleme alanı bile çocuklar için düşünülmüş. Pedodonti için kesinlikle WhiteSmile.</p>
+          <div class="testi-person">
+            <span class="testi-av ice">SK</span>
+            <div>
+              <div class="testi-name">Selin Korkmaz</div>
+              <div class="testi-meta">Pedodonti · Ocak 2026</div>
+            </div>
+            <div class="stars" style="margin-left:auto">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<section id="iletisim">
+  <div class="wrap">
+    <div class="services-head" style="margin-bottom:56px">
+      <div class="sig fade">
+        <span class="eyebrow">İletişim &amp; Konum</span>
+        <h2>Etiler'deki kliniğimize<br/>uğramak ister misiniz?</h2>
+      </div>
+      <p class="fade d1">Randevu formunu doldurun, 1 iş günü içinde size dönelim. Acil durumlar için doğrudan arayabilirsiniz.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-map fade">
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=29.020%2C41.075%2C29.045%2C41.085&amp;layer=mapnik&amp;marker=41.0805%2C29.0327"
+          title="WhiteSmile Diş Kliniği — Etiler, İstanbul"></iframe>
+      </div>
+
+      <div class="contact-info fade d1">
+        <div>
+          <h3 style="font-size:28px">Randevu talebi</h3>
+          <p style="margin-top:8px;font-size:15px">Aşağıdaki formu doldurun — uygun saat seçenekleriyle size geri dönelim.</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); this.querySelector('.submit').innerHTML='Talebiniz alındı ✓'; this.querySelector('.submit').disabled=true;">
+          <div class="form-row">
+            <div class="field">
+              <label for="ad">Ad Soyad</label>
+              <input id="ad" type="text" placeholder="Adınız ve soyadınız" required/>
+            </div>
+            <div class="field">
+              <label for="tel">Telefon</label>
+              <input id="tel" type="tel" placeholder="+90 5XX XXX XX XX" required/>
+            </div>
+          </div>
+          <div class="field">
+            <label for="hizmet">Hizmet</label>
+            <select id="hizmet">
+              <option>Estetik Diş Hekimliği</option>
+              <option>İmplant Tedavisi</option>
+              <option>Ortodonti</option>
+              <option>Kanal Tedavisi</option>
+              <option>Diş Beyazlatma</option>
+              <option>Pedodonti</option>
+              <option>Genel Muayene</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="not">Notunuz (opsiyonel)</label>
+            <textarea id="not" placeholder="Şikayetiniz, geçmiş tedaviler veya tercih ettiğiniz saatler..."></textarea>
+          </div>
+          <button class="btn-primary submit" type="submit">
+            Randevu Talebi Gönder
+            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </button>
+        </form>
+
+        <div class="info-rows">
+          <div class="info-row">
+            <div class="info-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="info-k">Adres</div>
+              <div class="info-v">Nispetiye Cad. No: 42, Etiler · Beşiktaş, İstanbul</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2.4Z"/></svg>
+            </div>
+            <div>
+              <div class="info-k">Telefon</div>
+              <div class="info-v">+90 212 358 00 42</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </div>
+            <div>
+              <div class="info-k">E-posta</div>
+              <div class="info-v">randevu@whitesmile.com.tr</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-ic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <div>
+              <div class="info-k">Çalışma Saatleri</div>
+              <div class="info-v">Pzt–Cum 09:00–19:00 · Cmt 10:00–17:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3.5c-2.6 0-3.9 1.2-5.4 1.2C5 4.7 4 6.1 4 8.2c0 2 .6 4 1.5 6.2.7 1.7 1.4 3.7 2.1 5.1.5 1 1.2 1.4 1.9 1.1.7-.3.9-1.2 1.1-2.6.2-1.3.5-2.4 1.4-2.4s1.2 1.1 1.4 2.4c.2 1.4.4 2.3 1.1 2.6.7.3 1.4-.1 1.9-1.1.7-1.4 1.4-3.4 2.1-5.1.9-2.2 1.5-4.2 1.5-6.2 0-2.1-1-3.5-2.6-3.5-1.5 0-2.8-1.2-5.4-1.2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>WhiteSmile<small>Diş Kliniği</small></span>
+        </div>
+        <p>Etiler'de uzman kadro, ileri teknoloji ve ağrısız tedavi yöntemleriyle gülüşünüze değer veriyoruz.</p>
+      </div>
+      <div>
+        <h4>Hizmetler</h4>
+        <ul>
+          <li><a href="#hizmetler">Estetik Diş Hekimliği</a></li>
+          <li><a href="#hizmetler">İmplant Tedavisi</a></li>
+          <li><a href="#hizmetler">Ortodonti</a></li>
+          <li><a href="#hizmetler">Pedodonti</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Klinik</h4>
+        <ul>
+          <li><a href="#neden-biz">Neden Biz</a></li>
+          <li><a href="#once-sonra">Tedaviler</a></li>
+          <li><a href="#yorumlar">Hasta Yorumları</a></li>
+          <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>İletişim</h4>
+        <ul>
+          <li><a href="#">+90 212 358 00 42</a></li>
+          <li><a href="#">randevu@whitesmile.com.tr</a></li>
+          <li><a href="#">Nispetiye Cad. No:42, Etiler</a></li>
+          <li><a href="#">Pzt–Cmt · 09:00–19:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 WhiteSmile Diş Kliniği. Tüm hakları saklıdır.</span>
+      <span>KVKK · Çerez Politikası · Aydınlatma Metni</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---- Scroll fade-in ----
+  (function(){
+    const els = document.querySelectorAll('.fade');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(el=>io.observe(el));
+  })();
+
+  // ---- Before/After slider ----
+  (function(){
+    document.querySelectorAll('[data-ba]').forEach(el => {
+      const clip = el.querySelector('.after-clip');
+      const handle = el.querySelector('.ba-handle');
+      let dragging = false;
+
+      function set(pct){
+        pct = Math.max(0, Math.min(100, pct));
+        clip.style.clipPath = `inset(0 0 0 ${pct}%)`;
+        handle.style.left = pct + '%';
+      }
+      set(50);
+
+      function moveFromEvent(ev){
+        const rect = el.getBoundingClientRect();
+        const x = (ev.touches ? ev.touches[0].clientX : ev.clientX) - rect.left;
+        set((x / rect.width) * 100);
+      }
+
+      el.addEventListener('mousedown', e => { dragging = true; moveFromEvent(e); });
+      window.addEventListener('mousemove', e => { if(dragging) moveFromEvent(e); });
+      window.addEventListener('mouseup', () => dragging = false);
+
+      el.addEventListener('touchstart', e => { dragging = true; moveFromEvent(e); }, {passive:true});
+      window.addEventListener('touchmove', e => { if(dragging) moveFromEvent(e); }, {passive:true});
+      window.addEventListener('touchend', () => dragging = false);
+
+      // hover slide
+      el.addEventListener('mousemove', e => { if(!dragging) moveFromEvent(e); });
+    });
+  })();
+</script>
+</body>
+</html>

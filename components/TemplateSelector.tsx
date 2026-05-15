@@ -48,6 +48,16 @@ const templates = [
     active: false,
   },
   {
+    id: "dis-klinigi",
+    label: "Diş Kliniği",
+    icon: "🦷",
+    color: "#8AB4A0",
+    active: true,
+    url: "/templates/dis-klinigi/",
+    img: null,
+    desc: "Modern diş kliniği, beyaz ve mint temalı tasarım.",
+  },
+  {
     id: "insaat",
     label: "İnşaat / Tadilat",
     icon: "🏗️",
