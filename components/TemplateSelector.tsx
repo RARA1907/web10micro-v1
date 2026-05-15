@@ -20,7 +20,11 @@ const templates = [
     label: "Veteriner",
     icon: "🐾",
     color: "#27AE60",
-    active: false,
+    active: true,
+    url: "/templates/veteriner/",
+    img: "/template-veteriner.png",
+    desc: "Sıcak ve profesyonel veteriner kliniği sitesi.",
+  },
   },
   {
     id: "restoran",
