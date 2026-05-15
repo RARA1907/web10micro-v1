@@ -88,7 +88,7 @@ export function Hero({ onCTA }: Props) {
                 <MiraAvatar mood="celebrating" size={40} />
                 <div className="min-w-0 flex-1">
                   <p className="font-semibold text-xs sm:text-sm text-[var(--text-primary)]">Mira hazırladı! 🎉</p>
-                  <p className="text-[10px] sm:text-xs text-[var(--text-muted)] truncate">arslan-hukuk.web10micro.com</p>
+                  <p className="text-[10px] sm:text-xs text-[var(--text-muted)] truncate">maison-luna.web10micro.com</p>
                 </div>
                 <div className="ml-auto flex-shrink-0">
                   <span className="text-xs font-semibold text-[var(--success)] bg-green-50 px-2 py-1 rounded-full">Canlı ✓</span>
@@ -97,24 +97,24 @@ export function Hero({ onCTA }: Props) {
 
               {/* Site önizleme mockup */}
               <div className="bg-gray-50 rounded-2xl overflow-hidden mb-4 border border-[var(--border)]">
-                <div className="bg-[#1A3A5C] px-3 sm:px-4 py-2 sm:py-3 flex items-center gap-2">
+                <div className="bg-[#C86A5A] px-3 sm:px-4 py-2 sm:py-3 flex items-center gap-2">
                   <div className="flex gap-1">
                     <div className="w-2 h-2 rounded-full bg-red-400" />
                     <div className="w-2 h-2 rounded-full bg-yellow-400" />
                     <div className="w-2 h-2 rounded-full bg-green-400" />
                   </div>
-                  <div className="flex-1 bg-white/20 rounded-full px-2 py-0.5 text-white text-[10px] truncate">arslan-hukuk.web10micro.com</div>
+                  <div className="flex-1 bg-white/20 rounded-full px-2 py-0.5 text-white text-[10px] truncate">maison-luna.web10micro.com</div>
                 </div>
                 <div className="p-3 sm:p-4">
-                  <div className="bg-[#1A3A5C] rounded-xl p-3 sm:p-4 text-white mb-3">
-                    <div className="text-[10px] sm:text-xs font-bold mb-1">ARSLAN HUKUK BÜROSU</div>
-                    <div className="text-[9px] sm:text-[10px] opacity-70">Hukuki Danışmanlık · İstanbul</div>
+                  <div className="bg-[#C86A5A] rounded-xl p-3 sm:p-4 text-white mb-3">
+                    <div className="text-[10px] sm:text-xs font-bold mb-1">MAISON LUNA</div>
+                    <div className="text-[9px] sm:text-[10px] opacity-70">Butik Kuaför · Nişantaşı</div>
                     <div className="mt-3 bg-[var(--accent)] text-white text-[9px] sm:text-[10px] font-semibold px-3 py-1.5 rounded-lg inline-block">
-                      Ücretsiz Danışma →
+                      Hemen Randevu Al →
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
-                    {["Boşanma Hukuku","Ceza Hukuku","İş Hukuku","Gayrimenkul"].map(s => (
+                    {["Saç Kesimi","Saç Boyama","Cilt Bakımı","Makyaj"].map(s => (
                       <div key={s} className="bg-gray-100 rounded-lg p-2 text-[9px] sm:text-[10px] font-medium text-gray-600 truncate">{s}</div>
                     ))}
                   </div>
@@ -123,7 +123,7 @@ export function Hero({ onCTA }: Props) {
 
               {/* İstatistikler */}
               <div className="grid grid-cols-3 gap-2 sm:gap-3 text-center">
-                {[["4.2sn","Üretim"],["37","Bölüm"],["100","Puan"]].map(([val, label]) => (
+                {[["15dk","Teslim"],["7","Bölüm"],["4.9","Puan"]].map(([val, label]) => (
                   <div key={label} className="bg-[var(--primary-light)] rounded-xl p-2">
                     <div className="text-[var(--primary)] font-bold text-xs sm:text-sm">{val}</div>
                     <div className="text-[var(--text-muted)] text-[10px]">{label}</div>
