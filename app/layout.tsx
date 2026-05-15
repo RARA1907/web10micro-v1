@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "web10micro — 60 Saniyede Profesyonel Web Sitesi",
-  description: "Google Maps linkini yapıştır. Yapay zeka sitenizi hazırlasın.",
+  title: "web10micro — 15 Dakikada Demo Web Sitesi",
+  description: "İşletmeniz için profesyonel demo web sitesi. Google Maps linkini yapıştırın, size özel hazırlayalım.",
   icons: {
     icon: "/favicon.png",
   },

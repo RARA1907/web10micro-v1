@@ -24,11 +24,11 @@ export function Hero({ onCTA }: Props) {
           <div>
             <div className="inline-flex items-center gap-2 bg-[var(--primary-light)] text-[var(--primary)] text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
-              AI destekli · Türkiye&apos;nin ilk micro-SaaS web oluşturucusu
+              İşletmenizi bulalım, 15 dakikada demo hazır
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-6">
-              <span className="text-[var(--text-primary)]">60 Saniyede</span>
+              <span className="text-[var(--text-primary)]">İşletmeniz İçin</span>
               <br />
               <span className="text-gradient">Profesyonel</span>
               <br />
@@ -36,7 +36,7 @@ export function Hero({ onCTA }: Props) {
             </h1>
 
             <p className="text-base sm:text-lg text-[var(--text-secondary)] mb-8 leading-relaxed max-w-lg">
-              Google Maps linkini yapıştır. <strong className="text-[var(--text-primary)]">Mira</strong> işletmenizi analiz etsin, sektörünüze özel profesyonel sitenizi hazırlasın.
+              Google Maps linkini yapıştırın, işletmenizi bulalım. Size özel demo sitenizi <strong className="text-[var(--text-primary)]">15 dakikada</strong> hazırlayıp gönderelim.
             </p>
 
             {/* Input */}
@@ -53,12 +53,12 @@ export function Hero({ onCTA }: Props) {
                 onClick={() => onCTA(url)}
                 className="bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white font-semibold text-sm px-6 py-3 rounded-xl transition-colors whitespace-nowrap"
               >
-                Demo Oluştur →
+                Demo Talep Et →
               </button>
             </div>
 
             <p className="text-xs text-[var(--text-muted)] mb-8">
-              Kredi kartı gerekmez · 60 saniyede hazır · Ücretsiz demo
+              İşletmenizi bulalım, size özel demo hazırlayalım
             </p>
 
             {/* Sosyal kanıt */}

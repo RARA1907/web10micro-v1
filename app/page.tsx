@@ -4,7 +4,6 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { HowItWorks } from "@/components/HowItWorks";
 import { TemplateSelector } from "@/components/TemplateSelector";
-import { Pricing } from "@/components/Pricing";
 import { MiraChat } from "@/components/MiraChat";
 import { DemoModal } from "@/components/DemoModal";
 import { Logo } from "@/components/Logo";
@@ -19,18 +18,12 @@ const offices = [
 export default function Home() {
   const [modalOpen, setModalOpen]     = useState(false);
   const [modalUrl, setModalUrl]       = useState("");
-  const [modalSector, setModalSector] = useState<string | undefined>(undefined);
 
   const openModal = (ctx?: string) => {
     if (ctx?.startsWith("http")) {
       setModalUrl(ctx);
-      setModalSector(undefined);
-    } else if (ctx) {
-      setModalUrl("");
-      setModalSector(ctx);
     } else {
       setModalUrl("");
-      setModalSector(undefined);
     }
     setModalOpen(true);
   };
@@ -43,7 +36,6 @@ export default function Home() {
         <Hero onCTA={openModal} />
         <HowItWorks onCTA={() => openModal()} />
         <TemplateSelector onCTA={openModal} />
-        <Pricing onCTA={openModal} />
       </main>
 
       {/* Footer */}
@@ -74,7 +66,7 @@ export default function Home() {
             <div className="col-span-1 sm:col-span-2 lg:col-span-1">
               <Logo size="md" variant="white" className="mb-4" />
               <p className="text-sm text-gray-400 leading-relaxed">
-                KOBİ&apos;ler için yapay zeka destekli web sitesi oluşturucu. 60 saniyede profesyonel, uygun fiyatlı.
+                KOBİ'ler için demo odaklı web sitesi oluşturma platformu. 15 dakikada size özel demo.
               </p>
             </div>
 
@@ -83,10 +75,9 @@ export default function Home() {
               <ul className="space-y-2">
                 <li><a href="#nasil-calisir" className="text-sm text-gray-400 hover:text-white transition-colors">Nasıl Çalışır?</a></li>
                 <li><a href="#template"      className="text-sm text-gray-400 hover:text-white transition-colors">Sektörler</a></li>
-                <li><a href="#fiyat"         className="text-sm text-gray-400 hover:text-white transition-colors">Fiyatlar</a></li>
                 <li>
                   <button onClick={() => openModal()} className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Demo Oluştur
+                    Demo Talep Et
                   </button>
                 </li>
               </ul>
@@ -123,7 +114,6 @@ export default function Home() {
       <DemoModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        defaultSector={modalSector}
         defaultUrl={modalUrl}
       />
     </>

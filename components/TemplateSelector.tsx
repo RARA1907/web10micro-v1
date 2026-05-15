@@ -33,8 +33,7 @@ export function TemplateSelector({ onCTA }: Props) {
             Sektörünüzü seçin
           </h2>
           <p className="text-[var(--text-secondary)] max-w-xl mx-auto">
-            Her sektör için renk paleti, içerik yapısı ve görseller otomatik uyarlanır.
-            2 sektör aktif, diğerleri yakında ekleniyor.
+            Her sektör için özel tasarlanmış template'ler. 2 sektör hazır, diğerleri yakında.
           </p>
         </div>
 
@@ -95,7 +94,7 @@ export function TemplateSelector({ onCTA }: Props) {
                       </div>
                     </div>
                     <p className="text-sm text-[var(--text-secondary)] mb-4">
-                      Bu sektöre özel renk paleti, tipografi ve içerik yapısıyla hazırlanmış template. Google Maps linkinizi yapıştırın, Mira geri kalanını halleder.
+                      Bu sektöre özel tasarlanmış template. Canlı örneği inceleyin, beğenirseniz demo talep edin.
                     </p>
                     <div className="flex gap-3">
                       <a
@@ -110,7 +109,7 @@ export function TemplateSelector({ onCTA }: Props) {
                         onClick={() => onCTA(s.label)}
                         className="text-sm font-semibold bg-[var(--primary)] text-white px-4 py-2 rounded-xl hover:bg-[var(--primary-dark)] transition-colors"
                       >
-                        Bu Template ile Başla
+                        Demo Talep Et
                       </button>
                     </div>
                   </div>

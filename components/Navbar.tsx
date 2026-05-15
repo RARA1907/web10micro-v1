@@ -17,21 +17,14 @@ export function Navbar({ onCTA }: Props) {
         <div className="hidden md:flex items-center gap-8">
           <a href="#nasil-calisir" className="text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors">Nasıl Çalışır?</a>
           <a href="#template" className="text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors">Sektörler</a>
-          <a href="#fiyat" className="text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors">Fiyatlar</a>
         </div>
 
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={onCTA}
-            className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors px-4 py-2"
-          >
-            Giriş Yap
-          </button>
-          <button
-            onClick={onCTA}
             className="text-sm font-semibold bg-[var(--primary)] text-white px-5 py-2.5 rounded-xl hover:bg-[var(--primary-dark)] transition-colors"
           >
-            Ücretsiz Dene
+            Demo Talep Et
           </button>
         </div>
 
@@ -51,12 +44,11 @@ export function Navbar({ onCTA }: Props) {
         <div className="md:hidden bg-white border-t border-[var(--border)] px-4 py-4 flex flex-col gap-4">
           <a href="#nasil-calisir" className="text-sm text-[var(--text-secondary)]" onClick={() => setOpen(false)}>Nasıl Çalışır?</a>
           <a href="#template" className="text-sm text-[var(--text-secondary)]" onClick={() => setOpen(false)}>Sektörler</a>
-          <a href="#fiyat" className="text-sm text-[var(--text-secondary)]" onClick={() => setOpen(false)}>Fiyatlar</a>
           <button
             onClick={() => { setOpen(false); onCTA(); }}
             className="text-sm font-semibold bg-[var(--primary)] text-white px-5 py-2.5 rounded-xl"
           >
-            Ücretsiz Dene
+            Demo Talep Et
           </button>
         </div>
       )}

@@ -8,27 +8,27 @@ const steps = [
   {
     step: "01",
     mood: "helping" as const,
-    title: "İşletmenizi tanıtın",
-    desc: "Google Maps linkini yapıştırın ya da işletme adı, sektör ve iletişim bilgilerinizi girin.",
-    detail: "Haritalar, sosyal medya veya kendi bilgileriniz — Mira hepsini anlıyor.",
+    title: "İşletmenizi bulalım",
+    desc: "Google Maps linkini yapıştırın, işletmenizi bulalım ve bilgilerini kontrol edelim.",
+    detail: "Doğru işletme mi? Onaylayın, gerisini bize bırakın.",
     color: "var(--primary-light)",
     accent: "var(--primary)",
   },
   {
     step: "02",
     mood: "thinking" as const,
-    title: "Mira sitenizi hazırlıyor",
-    desc: "Yapay zeka sektörünüze özel tasarım, metinler ve görselleri otomatik oluşturuyor.",
-    detail: "10 bölüm · Sektör renk paleti · SEO uyumlu içerik · Mobil uyumlu",
+    title: "Size özel demo hazırlıyoruz",
+    desc: "Ekibimiz 15 dakikada sektörünüze uygun, profesyonel bir demo sitesi hazırlar.",
+    detail: "Sektör template\'i · Özel içerik · Mobil uyumlu · Canlı link",
     color: "#F3F0FF",
     accent: "var(--token-color)",
   },
   {
     step: "03",
     mood: "celebrating" as const,
-    title: "60 saniyede yayında!",
-    desc: "Siteniz canlı. Demo linkinizi paylaşın, beğendiyseniz tek tıkla aktifleştirin.",
-    detail: "isletmeniz.web10micro.com · Kendi domain bağlantısı · SSL dahil",
+    title: "Beğen, revize et, yayına al",
+    desc: "Demo linkinizi inceler, beğenirseniz satın alır ve revizelerinizi iletirsiniz. Onay sonrası yayına alırız.",
+    detail: "Domain bağlantısı · SSL dahil · Süresiz revize",
     color: "#ECFDF5",
     accent: "var(--success)",
   },
@@ -44,10 +44,10 @@ export function HowItWorks({ onCTA }: Props) {
             Nasıl Çalışır?
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-4">
-            3 adımda profesyonel web sitesi
+            3 adımda web sitenize kavuşun
           </h2>
           <p className="text-[var(--text-secondary)] max-w-xl mx-auto">
-            Teknik bilgi gerekmez. Mira her şeyi halleder.
+            Siz işletmenizi bulun, gerisini biz hallederiz.
           </p>
         </div>
 
@@ -83,13 +83,13 @@ export function HowItWorks({ onCTA }: Props) {
         {/* Alt not */}
         <div className="text-center mt-12">
           <p className="text-sm text-[var(--text-muted)] mb-6">
-            Beğenmezseniz revize edin — <strong className="text-[var(--text-primary)]">Mira ile sohbet ederek</strong> istediğiniz değişiklikleri yapın
+            Demo yayına alınmadan önce tüm revizeler tamamlanır, onayınız alınır.
           </p>
           <button
             onClick={onCTA}
             className="bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-sm"
           >
-            Hemen Deneyin — Ücretsiz
+            Demo Talep Et
           </button>
         </div>
       </div>
