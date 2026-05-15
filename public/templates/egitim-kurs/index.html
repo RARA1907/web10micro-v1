@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Akademi Plus — Kadıköy Kurs Merkezi</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          violet: '#6C63FF',
+          coral:  '#FF6584',
+          navy:   '#1A1A3E',
+          teal:   '#00B4D8',
+          'violet-light': '#8B85FF',
+          'violet-pale':  '#EEF0FF',
+          'coral-pale':   '#FFF0F3',
+          'teal-pale':    '#E6F9FD',
+        },
+        fontFamily: {
+          heading: ['Poppins', 'sans-serif'],
+          sub:     ['Nunito', 'sans-serif'],
+          body:    ['"DM Sans"', 'system-ui', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  :root { --violet:#6C63FF; --coral:#FF6584; --navy:#1A1A3E; --teal:#00B4D8; }
+  html,body { background:#fff; }
+  body { font-family:'DM Sans',system-ui,sans-serif; color:#1A1A3E; -webkit-font-smoothing:antialiased; }
+
+  .section-mark { display:flex; align-items:flex-start; gap:14px; font-size:11px; letter-spacing:.22em; text-transform:uppercase; }
+  .section-mark::before { content:''; display:block; width:2.5px; height:52px; background:linear-gradient(180deg,#6C63FF 0%,#FF6584 100%); border-radius:2px; margin-top:2px; flex:0 0 auto; }
+  .section-mark .num { color:#6C63FF; font-weight:700; font-family:'Poppins',sans-serif; }
+  .section-mark .lbl { display:block; color:#6b7280; margin-top:4px; }
+
+  .hero-bg {
+    background-image:
+      linear-gradient(110deg, rgba(108,99,255,.93) 0%, rgba(108,99,255,.72) 38%, rgba(26,26,62,.45) 70%, rgba(26,26,62,.12) 100%),
+      url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=2200&q=80');
+    background-size:cover; background-position:center;
+  }
+
+  .glass {
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(20px) saturate(150%);
+    -webkit-backdrop-filter:blur(20px) saturate(150%);
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:20px;
+  }
+  .glass-white {
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(108,99,255,.12);
+    border-radius:20px;
+    box-shadow:0 20px 60px -10px rgba(108,99,255,.16), 0 4px 0 rgba(108,99,255,.04);
+  }
+
+  .card {
+    background:#fff; border-radius:16px;
+    border:1px solid rgba(26,26,62,.08);
+    box-shadow:0 4px 24px -8px rgba(108,99,255,.12);
+    overflow:hidden;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .card:hover { transform:translateY(-5px); box-shadow:0 20px 50px -8px rgba(108,99,255,.22); }
+
+  .btn-primary {
+    display:inline-flex; align-items:center; gap:8px;
+    background:#6C63FF; color:#fff; padding:14px 28px; border-radius:50px;
+    font-family:'Poppins',sans-serif; font-weight:600; font-size:15px;
+    box-shadow:0 8px 24px -6px rgba(108,99,255,.5);
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 32px -6px rgba(108,99,255,.55); background:#5b52f0; }
+
+  .btn-white {
+    display:inline-flex; align-items:center; gap:8px;
+    background:#fff; color:#6C63FF; padding:14px 28px; border-radius:50px;
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:15px;
+    box-shadow:0 8px 24px -6px rgba(0,0,0,.22);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .btn-white:hover { transform:translateY(-2px); box-shadow:0 14px 32px -6px rgba(0,0,0,.28); }
+
+  .reveal { opacity:0; transform:translateY(20px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity:1; transform:none; }
+
+  .ticker-track { display:flex; gap:0; animation:ticker-scroll 38s linear infinite; }
+  @keyframes ticker-scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  .nav-scrolled { background:rgba(255,255,255,.93); backdrop-filter:blur(16px); box-shadow:0 2px 20px rgba(108,99,255,.10); }
+
+  .badge { display:inline-flex; align-items:center; gap:4px; padding:4px 10px; border-radius:50px; font-family:'Nunito',sans-serif; font-size:12px; font-weight:700; }
+
+  .grad-text { background:linear-gradient(135deg,#6C63FF,#FF6584); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+  .stars { color:#FBBF24; letter-spacing:1px; }
+
+  .instructor-card { border-radius:20px; overflow:hidden; background:#fff; border:1px solid rgba(26,26,62,.07); box-shadow:0 8px 32px -8px rgba(108,99,255,.14); transition:transform .3s ease, box-shadow .3s ease; }
+  .instructor-card:hover { transform:translateY(-6px); box-shadow:0 20px 48px -8px rgba(108,99,255,.24); }
+
+  @keyframes wp-pulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,.45)} 100%{box-shadow:0 0 0 20px rgba(37,211,102,0)} }
+  .wp-pulse { animation:wp-pulse 2.2s cubic-bezier(.2,.8,.2,1) infinite; }
+
+  .field { width:100%; padding:14px 16px; border-radius:12px; border:1.5px solid rgba(26,26,62,.12); background:#fafafa; font-family:'DM Sans',sans-serif; font-size:15px; color:#1A1A3E; transition:border-color .2s ease, box-shadow .2s ease, background .2s ease; }
+  .field:focus { outline:none; border-color:#6C63FF; background:#fff; box-shadow:0 0 0 4px rgba(108,99,255,.10); }
+  .field-label { display:block; font-family:'Nunito',sans-serif; font-weight:700; font-size:13px; letter-spacing:.04em; color:#374151; margin-bottom:8px; }
+
+  .bg-soft { background:#F7F7FF; }
+  ::selection { background:#6C63FF; color:#fff; }
+
+  .nav-link { position:relative; font-family:'Nunito',sans-serif; font-weight:600; font-size:15px; transition:color .2s; }
+  .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; height:2px; width:0%; background:#6C63FF; border-radius:2px; transition:width .3s ease; }
+  .nav-link:hover::after { width:100%; }
+
+  .course-thumb { width:100%; height:200px; object-fit:cover; display:block; }
+
+  @media(max-width:768px) { .hero-headline{font-size:42px!important} }
+</style>
+</head>
+<body class="bg-white" style="color:#1A1A3E">
+
+<a href="https://web10micro.com" target="_blank" style="position:fixed;bottom:24px;left:24px;z-index:9999;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:10px 18px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:600;color:#1a1a1a;text-decoration:none;box-shadow:0 8px 30px rgba(0,0,0,.12);display:flex;align-items:center;gap:8px;transition:all .25s ease">← Diğer Demolar</a>
+
+<!-- ===== NAV ===== -->
+<header id="nav" class="fixed top-0 inset-x-0 z-40 transition-all duration-300" style="padding:20px 0">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10 flex items-center justify-between">
+    <a href="#" id="brand" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#6C63FF,#FF6584)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <span id="brandName" class="font-heading font-bold text-[21px] text-white">Akademi<span style="color:#FF6584">Plus</span></span>
+    </a>
+    <nav id="navLinks" class="hidden lg:flex items-center gap-8">
+      <a href="#kurslar"    class="nav-link text-white/90 hover:text-white">Kurslar</a>
+      <a href="#egitmenler" class="nav-link text-white/90 hover:text-white">Eğitmenler</a>
+      <a href="#hakkimizda" class="nav-link text-white/90 hover:text-white">Hakkımızda</a>
+      <a href="#yorumlar"   class="nav-link text-white/90 hover:text-white">Yorumlar</a>
+      <a href="#iletisim"   class="nav-link text-white/90 hover:text-white">İletişim</a>
+    </nav>
+    <a href="#iletisim" id="navCta" class="btn-white !py-2.5 !px-5 !text-[14px]">
+      Ücretsiz Deneme
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="relative min-h-screen hero-bg text-white overflow-hidden flex items-center">
+  <div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 pt-28 pb-20 grid lg:grid-cols-12 gap-10 items-center w-full">
+
+    <!-- Left -->
+    <div class="lg:col-span-6 reveal">
+      <div class="section-mark mb-10" style="color:white">
+        <div>
+          <span class="num" style="color:#fff">01</span>
+          <span class="lbl" style="color:rgba(255,255,255,.55)">Eğitim Merkezi</span>
+        </div>
+      </div>
+      <p style="font-family:'Nunito',sans-serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:18px">Kadıköy · İstanbul · 2015'ten beri</p>
+      <h1 class="font-heading font-extrabold hero-headline leading-[1.06] tracking-tight" style="font-size:66px">
+        Geleceğini<br/>
+        <span style="background:linear-gradient(135deg,#fff,#FF6584);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Şekillendir.</span>
+      </h1>
+      <p style="margin-top:24px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.72);max-width:520px">
+        Kadıköy'de uzman eğitmenlerle yüz yüze ve online kurslar. 2.000+ mezun,
+        sertifika garantili, esnek ödeme seçenekleriyle hemen başlayın.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4">
+        <a href="#iletisim" class="btn-white">
+          Ücretsiz Deneme Dersi
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#kurslar" style="font-family:'Nunito',sans-serif;font-weight:600;color:rgba(255,255,255,.85);font-size:15px;display:flex;align-items:center;gap:6px">
+          Kurslara göz at
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="mt-14 flex flex-wrap gap-x-8 gap-y-2" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)">
+        <span>E-Devlet Sertifikası</span><span style="opacity:.35">·</span>
+        <span>MEB Onaylı</span><span style="opacity:.35">·</span>
+        <span>Esnek Ödeme</span><span style="opacity:.35">·</span>
+        <span>Online & Yüz Yüze</span>
+      </div>
+    </div>
+
+    <!-- Right: glass card -->
+    <div class="lg:col-span-5 lg:col-start-8 reveal" style="transition-delay:.15s">
+      <div class="glass p-6">
+        <div class="flex items-center justify-between mb-5">
+          <div>
+            <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6)">Yaklaşan Başlangıç</div>
+            <div class="font-heading font-bold text-[20px] mt-1">Haziran 2026 Dönemi</div>
+          </div>
+          <div class="flex items-center gap-1.5 rounded-full px-3 py-1.5" style="background:rgba(255,255,255,.15)">
+            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+            <span style="font-size:12px;color:rgba(255,255,255,.8)">Kayıt Açık</span>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="flex items-center justify-between rounded-xl px-4 py-3" style="background:rgba(255,255,255,.12)">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(108,99,255,.45)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <div>
+                <div style="font-family:'Nunito',sans-serif;font-weight:600;font-size:14px">Yazılım Geliştirme</div>
+                <div style="font-size:12px;color:rgba(255,255,255,.55)">2 Haz · Pzt/Çrş 19:00</div>
+              </div>
+            </div>
+            <span class="font-heading font-bold text-[14px]" style="color:#FF6584">₺3.500</span>
+          </div>
+          <div class="flex items-center justify-between rounded-xl px-4 py-3" style="background:rgba(255,255,255,.12)">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(255,101,132,.45)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <div>
+                <div style="font-family:'Nunito',sans-serif;font-weight:600;font-size:14px">Dijital Pazarlama</div>
+                <div style="font-size:12px;color:rgba(255,255,255,.55)">9 Haz · Sal/Per 18:30</div>
+              </div>
+            </div>
+            <span class="font-heading font-bold text-[14px]" style="color:#FF6584">₺2.500</span>
+          </div>
+          <div class="flex items-center justify-between rounded-xl px-4 py-3" style="background:rgba(255,255,255,.12)">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(0,180,216,.45)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3"/></svg>
+              </div>
+              <div>
+                <div style="font-family:'Nunito',sans-serif;font-weight:600;font-size:14px">Veri Analitiği</div>
+                <div style="font-size:12px;color:rgba(255,255,255,.55)">16 Haz · Pzt/Çrş/Cum 20:00</div>
+              </div>
+            </div>
+            <span class="font-heading font-bold text-[14px]" style="color:#FF6584">₺4.000</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3 mt-5">
+          <div class="text-center rounded-xl py-3" style="background:rgba(255,255,255,.12)">
+            <div class="font-heading font-extrabold text-[26px]">2K+</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:2px">Mezun</div>
+          </div>
+          <div class="text-center rounded-xl py-3" style="background:rgba(255,255,255,.12)">
+            <div class="font-heading font-extrabold text-[26px]">15</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:2px">Eğitmen</div>
+          </div>
+          <div class="text-center rounded-xl py-3" style="background:rgba(255,255,255,.12)">
+            <div class="font-heading font-extrabold text-[26px]">6</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:2px">Program</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style="color:rgba(255,255,255,.5);font-size:11px;letter-spacing:.3em;text-transform:uppercase">
+    <span>Keşfet</span>
+    <span style="width:1px;height:40px;background:rgba(255,255,255,.35)"></span>
+  </div>
+</section>
+
+<!-- ===== TICKER ===== -->
+<section class="overflow-hidden border-y" style="background:#1A1A3E;border-color:rgba(255,255,255,.06)">
+  <div class="py-4 overflow-hidden">
+    <div class="ticker-track" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;color:rgba(255,255,255,.5)">
+      <div class="flex gap-12 items-center shrink-0" style="padding-right:48px">
+        <span>Python</span><span style="color:#6C63FF">◆</span>
+        <span>JavaScript</span><span style="color:#FF6584">◆</span>
+        <span>React</span><span style="color:#6C63FF">◆</span>
+        <span>Google Ads</span><span style="color:#FF6584">◆</span>
+        <span>SEO</span><span style="color:#00B4D8">◆</span>
+        <span>Figma</span><span style="color:#6C63FF">◆</span>
+        <span>SQL</span><span style="color:#FF6584">◆</span>
+        <span>Adobe Suite</span><span style="color:#00B4D8">◆</span>
+        <span>İngilizce</span><span style="color:#6C63FF">◆</span>
+        <span>Tableau</span><span style="color:#FF6584">◆</span>
+        <span>Fotoğrafçılık</span><span style="color:#00B4D8">◆</span>
+        <span>Sosyal Medya</span><span style="color:#6C63FF">◆</span>
+      </div>
+      <div class="flex gap-12 items-center shrink-0" style="padding-right:48px" aria-hidden="true">
+        <span>Python</span><span style="color:#6C63FF">◆</span>
+        <span>JavaScript</span><span style="color:#FF6584">◆</span>
+        <span>React</span><span style="color:#6C63FF">◆</span>
+        <span>Google Ads</span><span style="color:#FF6584">◆</span>
+        <span>SEO</span><span style="color:#00B4D8">◆</span>
+        <span>Figma</span><span style="color:#6C63FF">◆</span>
+        <span>SQL</span><span style="color:#FF6584">◆</span>
+        <span>Adobe Suite</span><span style="color:#00B4D8">◆</span>
+        <span>İngilizce</span><span style="color:#6C63FF">◆</span>
+        <span>Tableau</span><span style="color:#FF6584">◆</span>
+        <span>Fotoğrafçılık</span><span style="color:#00B4D8">◆</span>
+        <span>Sosyal Medya</span><span style="color:#6C63FF">◆</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KURSLAR ===== -->
+<section id="kurslar" class="py-28 lg:py-36">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <div class="grid lg:grid-cols-12 gap-10 mb-16 reveal">
+      <div class="lg:col-span-5">
+        <div class="section-mark mb-8">
+          <div><span class="num">02</span><span class="lbl">Kurslar</span></div>
+        </div>
+        <h2 class="font-heading font-extrabold leading-[1.06] tracking-tight" style="font-size:62px">
+          Popüler<br/><span class="grad-text">Kurslarımız</span>
+        </h2>
+      </div>
+      <div class="lg:col-span-6 lg:col-start-7 self-end">
+        <p style="font-size:17px;line-height:1.75;color:rgba(26,26,62,.65)">
+          Her seviye ve hedefe uygun, uzman eğitmenler tarafından hazırlanmış 6 farklı program.
+          Yüz yüze veya çevrimiçi — siz seçin.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Yazılım -->
+      <article class="card reveal">
+        <img class="course-thumb" src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=600&q=80" alt="Yazılım Geliştirme">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge" style="background:#EEF0FF;color:#6C63FF">💻 Teknoloji</span>
+            <span class="font-heading font-bold text-[22px]" style="color:#6C63FF">₺3.500</span>
+          </div>
+          <h3 class="font-heading font-bold text-[22px] leading-tight">Yazılım Geliştirme</h3>
+          <p style="margin-top:8px;font-size:14px;line-height:1.7;color:rgba(26,26,62,.65)">
+            Python, JavaScript ve React — sıfırdan junior seviyeye. Gerçek projelerle desteklenen müfredat.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge" style="background:#F7F7FF;color:#374151">12 Hafta</span>
+            <span class="badge" style="background:#F7F7FF;color:#374151">Haftada 2 Gün</span>
+            <span class="badge" style="background:#F7F7FF;color:#374151">Online & Yüz Yüze</span>
+          </div>
+          <div class="mt-5 pt-5 flex items-center justify-between" style="border-top:1px solid rgba(26,26,62,.08)">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center font-heading text-white text-[11px] font-bold" style="background:#6C63FF">AY</div>
+              <span style="font-size:13px;color:rgba(26,26,62,.65)">Ahmet Yıldırım</span>
+            </div>
+            <a href="#iletisim" style="font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#6C63FF;display:flex;align-items:center;gap:4px">
+              Başvur <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Dijital Pazarlama -->
+      <article class="card reveal" style="transition-delay:.07s">
+        <img class="course-thumb" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Dijital Pazarlama">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge" style="background:#FFF0F3;color:#FF6584">📣 Pazarlama</span>
+            <span class="font-heading font-bold text-[22px]" style="color:#6C63FF">₺2.500</span>
+          </div>
+          <h3 class="font-heading font-bold text-[22px] leading-tight">Dijital Pazarlama</h3>
+          <p style="margin-top:8px;font-size:14px;line-height:1.7;color:rgba(26,26,62,.65)">
+            SEO, Google Ads ve sosyal medya yönetimi. Kampanya oluştur, analiz et, büyüt.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge" style="background:#F7F7FF;color:#374151">8 Hafta</span>
+            <span class="badge" style="background:#F7F7FF;color:#374151">Haftada 2 Gün</span>
+            <span class="badge" style="background:#F7F7FF;color:#374151">Sertifika</span>
+          </div>
+          <div class="mt-5 pt-5 flex items-center justify-between" style="border-top:1px solid rgba(26,26,62,.08)">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center font-heading text-white text-[11px] font-bold" style="background:#FF6584">ZK</div>
+              <span style="font-size:13px;color:rgba(26,26,62,.65)">Zeynep Kaya</span>
+            </div>
+            <a href="#iletisim" style="font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#6C63FF;display:flex;align-items:center;gap:4px">
+              Başvur <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Grafik Tasarım -->
+      <article class="card reveal" style="transition-delay:.14s">
+        <img class="course-thumb" src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80" alt="Grafik Tasarım">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge" style="background:#E6F9FD;color:#00B4D8">🎨 Tasarım</span>
+            <span class="font-heading font-bold text-[22px]" style="color:#6C63FF">₺2.800</span>
+          </div>
+          <h3 class="font-heading font-bold text-[22px] leading-tight">Grafik Tasarım</h3>
+          <p style="margin-top:8px;font-size:14px;line-height:1.7;color:rgba(26,26,62,.65)">
+            Photoshop, Illustrator ve Figma. Marka kimliğinden UI tasarımına profesyonel portfolyo.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge" style="background:#F7F7FF;color:#374151">10 Hafta</span>
+            <span class="badge" style="background:#F7F7FF;color:#374151">Haftada 2 Gün</span>
+            <span class="badge" style="background:#F7F7FF;color:#374151">Portfolyo</span>
+          </div>
+          <div class="mt-5 pt-5 flex items-center justify-between" style="border-top:1px solid rgba(26,26,62,.08)">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center font-heading text-white text-[11px] font-bold" style="background:#00B4D8">EŞ</div>
+              <span style="font-size:13px;color:rgba(26,26,62,.65)">Ece Şahin</span>
+            </div>
+            <a href="#iletisim" style="font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#6C63FF;display:flex;align-items:center;gap:4px">
+              Başvur <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- İngilizce -->
+      <article class="card reveal" style="transition-delay:.07s">
+        <img class="course-thumb" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="İngilizce">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge" style="background:#EEF0FF;color:#6C63FF">🗣 Dil</span>
+            <span class="font-heading font-bold text-[22px]" style="color:#6C63FF">₺3.000</span>
+          </div>
+          <h3 class="font-heading font-bold text-[22px] leading-tight">İngilizce (A1–C2)</h3>
+          <p style="margin-top:8px;font-size:14px;line-height:1.7;color:rgba(26,26,62,.65)">
+            Native eğitmen, konuşma odaklı. Tüm seviyelerde 16 haftalık yoğun program.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge" style="background:#F7F7FF;color:#374151">16 Hafta</span>
+            <span class="badge" style="background:#F7F7FF;color:#374151">Native Eğitmen</span>
+            <span class="badge" style="background:#F7F7FF;color:#374151">Tüm Seviyeler</span>
+          </div>
+          <div class="mt-5 pt-5 flex items-center justify-between" style="border-top:1px solid rgba(26,26,62,.08)">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center font-heading text-white text-[11px] font-bold" style="background:#6C63FF">CÖ</div>
+              <span style="font-size:13px;color:rgba(26,26,62,.65)">Can Özkan</span>
+            </div>
+            <a href="#iletisim" style="font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#6C63FF;display:flex;align-items:center;gap:4px">
+              Başvur <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Veri Analitiği -->
+      <article class="card reveal" style="transition-delay:.14s">
+        <img class="course-thumb" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Veri Analitiği">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge" style="background:#E6F9FD;color:#00B4D8">📊 Veri</span>
+            <span class="font-heading font-bold text-[22px]" style="color:#6C63FF">₺4.000</span>
+          </div>
+          <h3 class="font-heading font-bold text-[22px] leading-tight">Veri Analitiği</h3>
+          <p style="margin-top:8px;font-size:14px;line-height:1.7;color:rgba(26,26,62,.65)">
+            SQL, Python ve Tableau ile veri analizi. İş zekasına geçmek isteyenler için ideal başlangıç.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge" style="background:#F7F7FF;color:#374151">12 Hafta</span>
+            <span class="badge" style="background:#F7F7FF;color:#374151">Proje Bazlı</span>
+            <span class="badge" style="background:#F7F7FF;color:#374151">Sertifika</span>
+          </div>
+          <div class="mt-5 pt-5 flex items-center justify-between" style="border-top:1px solid rgba(26,26,62,.08)">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center font-heading text-white text-[11px] font-bold" style="background:#00B4D8">BT</div>
+              <span style="font-size:13px;color:rgba(26,26,62,.65)">Berk Turan</span>
+            </div>
+            <a href="#iletisim" style="font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#6C63FF;display:flex;align-items:center;gap:4px">
+              Başvur <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Fotoğrafçılık -->
+      <article class="card reveal" style="transition-delay:.21s">
+        <img class="course-thumb" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80" alt="Fotoğrafçılık">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge" style="background:#FFF0F3;color:#FF6584">📸 Sanat</span>
+            <span class="font-heading font-bold text-[22px]" style="color:#6C63FF">₺2.200</span>
+          </div>
+          <h3 class="font-heading font-bold text-[22px] leading-tight">Fotoğrafçılık</h3>
+          <p style="margin-top:8px;font-size:14px;line-height:1.7;color:rgba(26,26,62,.65)">
+            Kompozisyon, ışık ve post-production. Kendi fotoğraf dilinizi geliştirin, sergiyle bitirin.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge" style="background:#F7F7FF;color:#374151">8 Hafta</span>
+            <span class="badge" style="background:#F7F7FF;color:#374151">Atölye + Dış Çekim</span>
+            <span class="badge" style="background:#F7F7FF;color:#374151">Sergi</span>
+          </div>
+          <div class="mt-5 pt-5 flex items-center justify-between" style="border-top:1px solid rgba(26,26,62,.08)">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center font-heading text-white text-[11px] font-bold" style="background:#FF6584">NB</div>
+              <span style="font-size:13px;color:rgba(26,26,62,.65)">Nisan Bulut</span>
+            </div>
+            <a href="#iletisim" style="font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#6C63FF;display:flex;align-items:center;gap:4px">
+              Başvur <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== EĞİTMENLER ===== -->
+<section id="egitmenler" class="py-28 lg:py-36 bg-soft">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <div class="grid lg:grid-cols-12 gap-10 mb-16 reveal">
+      <div class="lg:col-span-5">
+        <div class="section-mark mb-8">
+          <div><span class="num">03</span><span class="lbl">Eğitmenler</span></div>
+        </div>
+        <h2 class="font-heading font-extrabold leading-[1.06] tracking-tight" style="font-size:62px">
+          Uzman<br/><span class="grad-text">Eğitmenler</span>
+        </h2>
+      </div>
+      <div class="lg:col-span-6 lg:col-start-7 self-end">
+        <p style="font-size:17px;line-height:1.75;color:rgba(26,26,62,.65)">
+          Sektörde aktif olarak çalışan, hem teorik hem pratik deneyimi yüksek eğitmenlerimizle öğrenin.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Ahmet -->
+      <div class="instructor-card reveal">
+        <div class="relative" style="height:280px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=400&q=80"
+               alt="Ahmet Yıldırım" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(26,26,62,.72) 0%,transparent 55%)"></div>
+          <div style="position:absolute;bottom:16px;left:16px">
+            <div class="stars" style="font-size:14px">★★★★★</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.8);margin-top:2px">4.9 · 320 öğrenci</div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-heading font-bold text-[20px]">Ahmet Yıldırım</h3>
+          <p style="font-family:'Nunito',sans-serif;font-size:14px;color:#6C63FF;margin-top:2px;font-weight:600">Kıdemli Yazılım Eğitmeni</p>
+          <p style="font-size:14px;line-height:1.65;color:rgba(26,26,62,.65);margin-top:10px">
+            10 yıl yazılım geliştirme deneyimi. Google Cloud sertifikalı. Binlerce satır gerçek üretim kodu yazma deneyimi.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge" style="background:#EEF0FF;color:#6C63FF">Google Cloud</span>
+            <span class="badge" style="background:#EEF0FF;color:#6C63FF">10 Yıl</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zeynep -->
+      <div class="instructor-card reveal" style="transition-delay:.1s">
+        <div class="relative" style="height:280px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80"
+               alt="Zeynep Kaya" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(26,26,62,.72) 0%,transparent 55%)"></div>
+          <div style="position:absolute;bottom:16px;left:16px">
+            <div class="stars" style="font-size:14px">★★★★★</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.8);margin-top:2px">4.8 · 280 öğrenci</div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-heading font-bold text-[20px]">Zeynep Kaya</h3>
+          <p style="font-family:'Nunito',sans-serif;font-size:14px;color:#FF6584;margin-top:2px;font-weight:600">Dijital Pazarlama Uzmanı</p>
+          <p style="font-size:14px;line-height:1.65;color:rgba(26,26,62,.65);margin-top:10px">
+            8 yıl dijital pazarlama deneyimi. Meta Blueprint sertifikalı. 50+ marka ile çalışmış ajans geçmişi.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge" style="background:#FFF0F3;color:#FF6584">Meta Blueprint</span>
+            <span class="badge" style="background:#FFF0F3;color:#FF6584">8 Yıl</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Can -->
+      <div class="instructor-card reveal" style="transition-delay:.2s">
+        <div class="relative" style="height:280px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+               alt="Can Özkan" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(26,26,62,.72) 0%,transparent 55%)"></div>
+          <div style="position:absolute;bottom:16px;left:16px">
+            <div class="stars" style="font-size:14px">★★★★★</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.8);margin-top:2px">4.9 · 410 öğrenci</div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-heading font-bold text-[20px]">Can Özkan</h3>
+          <p style="font-family:'Nunito',sans-serif;font-size:14px;color:#00B4D8;margin-top:2px;font-weight:600">İngilizce Eğitmeni</p>
+          <p style="font-size:14px;line-height:1.65;color:rgba(26,26,62,.65);margin-top:10px">
+            12 yıl dil eğitimi deneyimi. CELTA sertifikalı. Konuşma merkezli yaklaşımıyla öğrencileri hızla ilerletiyor.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge" style="background:#E6F9FD;color:#00B4D8">CELTA</span>
+            <span class="badge" style="background:#E6F9FD;color:#00B4D8">12 Yıl</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== ÖNCÜ RAKAMLAR ===== -->
+<section id="hakkimizda" class="py-28 lg:py-36" style="background:#1A1A3E;color:white">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <div class="grid lg:grid-cols-12 gap-10 items-end mb-20 reveal">
+      <div class="lg:col-span-7">
+        <div class="section-mark mb-8">
+          <div>
+            <span class="num" style="color:#6C63FF">04</span>
+            <span class="lbl" style="color:rgba(255,255,255,.5)">Neden Biz</span>
+          </div>
+        </div>
+        <h2 class="font-heading font-extrabold leading-[1.06] tracking-tight" style="font-size:62px">
+          Rakamlar<br/>
+          <span style="background:linear-gradient(135deg,#6C63FF,#FF6584);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Konuşuyor</span>
+        </h2>
+      </div>
+      <div class="lg:col-span-4 lg:col-start-9">
+        <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,.6)">
+          Kalıcı sonuçlar üreten bir eğitim deneyimi. Her öğrencimizin başarısı bizim başarımız.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="reveal" style="background:rgba(108,99,255,.15);border:1px solid rgba(108,99,255,.3);border-radius:20px;padding:40px">
+        <div style="font-size:52px;margin-bottom:12px">🎯</div>
+        <div class="font-heading font-extrabold" style="font-size:72px;line-height:1;background:linear-gradient(135deg,#6C63FF,#8B85FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">2.000+</div>
+        <div style="font-family:'Nunito',sans-serif;font-weight:700;font-size:22px;margin-top:16px">Mezun</div>
+        <p style="font-size:15px;margin-top:8px;color:rgba(255,255,255,.6)">Aktif iş hayatına atılmış, kariyerinde iz bırakan başarılı mezunlar.</p>
+      </div>
+
+      <div class="reveal" style="transition-delay:.1s;background:rgba(255,101,132,.12);border:1px solid rgba(255,101,132,.3);border-radius:20px;padding:40px">
+        <div style="font-size:52px;margin-bottom:12px">👨‍🏫</div>
+        <div class="font-heading font-extrabold" style="font-size:72px;line-height:1;background:linear-gradient(135deg,#FF6584,#ff8fab);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">15</div>
+        <div style="font-family:'Nunito',sans-serif;font-weight:700;font-size:22px;margin-top:16px">Uzman Eğitmen</div>
+        <p style="font-size:15px;margin-top:8px;color:rgba(255,255,255,.6)">Her biri sektöründe en az 5 yıl deneyimli, aktif profesyoneller.</p>
+      </div>
+
+      <div class="reveal" style="transition-delay:.2s;background:rgba(0,180,216,.12);border:1px solid rgba(0,180,216,.3);border-radius:20px;padding:40px">
+        <div style="font-size:52px;margin-bottom:12px">🏅</div>
+        <div class="font-heading font-extrabold" style="font-size:72px;line-height:1;background:linear-gradient(135deg,#00B4D8,#48cae4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">%100</div>
+        <div style="font-family:'Nunito',sans-serif;font-weight:700;font-size:22px;margin-top:16px">Sertifika Garantili</div>
+        <p style="font-size:15px;margin-top:8px;color:rgba(255,255,255,.6)">E-devlet onaylı katılım ve başarı belgesi. Tüm kurslar için geçerli.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== YORUMLAR ===== -->
+<section id="yorumlar" class="py-28 lg:py-36 bg-soft">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <div class="grid lg:grid-cols-12 gap-10 mb-16 reveal">
+      <div class="lg:col-span-7">
+        <div class="section-mark mb-8">
+          <div><span class="num">05</span><span class="lbl">Yorumlar</span></div>
+        </div>
+        <h2 class="font-heading font-extrabold leading-[1.06] tracking-tight" style="font-size:62px">
+          Öğrencilerimiz<br/><span class="grad-text">Ne Diyor?</span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <article class="glass-white p-8 reveal flex flex-col">
+        <div class="stars text-[20px] mb-4">★★★★★</div>
+        <p class="font-heading font-semibold leading-[1.4] flex-1" style="font-size:21px;color:#1A1A3E">
+          "Sıfırdan başladım, 3 ay sonra ilk iş görüşmeme gittim. Harika bir deneyimdi."
+        </p>
+        <div class="mt-8 pt-6 flex items-center gap-4" style="border-top:1px solid rgba(108,99,255,.1)">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center font-heading font-bold text-white text-[14px]" style="background:linear-gradient(135deg,#6C63FF,#8B85FF)">MA</div>
+          <div>
+            <div style="font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;color:#1A1A3E">Merve A.</div>
+            <div style="font-size:13px;color:rgba(26,26,62,.55)">Yazılım Geliştirme Mezunu</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="glass-white p-8 reveal flex flex-col" style="transition-delay:.1s">
+        <div class="stars text-[20px] mb-4">★★★★★</div>
+        <p class="font-heading font-semibold leading-[1.4] flex-1" style="font-size:21px;color:#1A1A3E">
+          "Dijital pazarlama kursu sayesinde kendi işimi kurdum. Aldığım eğitim birebir işe yaradı."
+        </p>
+        <div class="mt-8 pt-6 flex items-center gap-4" style="border-top:1px solid rgba(108,99,255,.1)">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center font-heading font-bold text-white text-[14px]" style="background:linear-gradient(135deg,#FF6584,#ff8fab)">EY</div>
+          <div>
+            <div style="font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;color:#1A1A3E">Emre Y.</div>
+            <div style="font-size:13px;color:rgba(26,26,62,.55)">Dijital Pazarlama Mezunu</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="glass-white p-8 reveal flex flex-col" style="transition-delay:.2s">
+        <div class="stars text-[20px] mb-4">★★★★★</div>
+        <p class="font-heading font-semibold leading-[1.4] flex-1" style="font-size:21px;color:#1A1A3E">
+          "Eğitmenler çok ilgili, müfredat güncel ve işe yarar. Keşke daha önce başlasaydım."
+        </p>
+        <div class="mt-8 pt-6 flex items-center gap-4" style="border-top:1px solid rgba(108,99,255,.1)">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center font-heading font-bold text-white text-[14px]" style="background:linear-gradient(135deg,#00B4D8,#48cae4)">DK</div>
+          <div>
+            <div style="font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;color:#1A1A3E">Dilara K.</div>
+            <div style="font-size:13px;color:rgba(26,26,62,.55)">İngilizce Programı Mezunu</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== İLETİŞİM ===== -->
+<section id="iletisim" class="py-28 lg:py-36">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <div class="grid lg:grid-cols-12 gap-10 mb-16 reveal">
+      <div class="lg:col-span-7">
+        <div class="section-mark mb-8">
+          <div><span class="num">06</span><span class="lbl">İletişim</span></div>
+        </div>
+        <h2 class="font-heading font-extrabold leading-[1.06] tracking-tight" style="font-size:62px">
+          Kadıköy'de,<br/><span class="grad-text">Kapımız Açık</span>
+        </h2>
+      </div>
+      <div class="lg:col-span-5 self-end">
+        <p style="font-size:17px;line-height:1.75;color:rgba(26,26,62,.65)">
+          Ücretsiz deneme dersi için bize ulaşın. 24 saat içinde dönüş yapacağız.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-10">
+
+      <!-- Harita + İletişim -->
+      <div class="lg:col-span-5 space-y-6 reveal">
+        <div style="border-radius:20px;overflow:hidden;height:300px;border:1px solid rgba(108,99,255,.12);box-shadow:0 8px 32px -8px rgba(108,99,255,.14)">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=29.0200%2C40.9850%2C29.0500%2C41.0050&layer=mapnik&marker=40.9927%2C29.0300"
+            style="width:100%;height:100%;border:0"
+            loading="lazy"
+            aria-label="Kadıköy, İstanbul"></iframe>
+        </div>
+
+        <div class="glass-white p-8">
+          <div class="space-y-5">
+            <div>
+              <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6C63FF;margin-bottom:6px">Adres</div>
+              <p style="font-family:'Nunito',sans-serif;font-weight:700;font-size:18px;color:#1A1A3E;line-height:1.5">
+                Moda Caddesi No: 28, Kat 3<br/>34710 Kadıköy / İstanbul
+              </p>
+            </div>
+            <div style="height:1px;background:rgba(108,99,255,.1)"></div>
+            <div class="grid grid-cols-2 gap-5">
+              <div>
+                <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6C63FF;margin-bottom:6px">Telefon</div>
+                <a href="tel:+902163456789" style="font-family:'Nunito',sans-serif;font-weight:700;font-size:17px;color:#1A1A3E">+90 216 345 67 89</a>
+              </div>
+              <div>
+                <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6C63FF;margin-bottom:6px">E-posta</div>
+                <a href="mailto:info@akademiplus.com.tr" style="font-size:14px;color:rgba(26,26,62,.75)">info@akademiplus.com.tr</a>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(108,99,255,.1)"></div>
+            <div>
+              <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6C63FF;margin-bottom:6px">Çalışma Saatleri</div>
+              <p style="font-size:15px;color:#1A1A3E">Pazartesi — Cumartesi<br/><span style="color:rgba(26,26,62,.5)">09:00 — 20:00</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="lg:col-span-7 reveal">
+        <form class="glass-white p-8 lg:p-10" onsubmit="event.preventDefault();document.getElementById('formOk').classList.remove('hidden');this.reset()">
+          <div class="mb-8">
+            <div class="font-heading font-bold" style="font-size:28px;color:#1A1A3E">Kayıt & Bilgi Talebi</div>
+            <p style="font-size:14px;margin-top:4px;color:rgba(26,26,62,.55)">İlgilendiğiniz kursu seçin, size hemen dönelim.</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="field-label">Ad Soyad</label>
+              <input type="text" class="field" placeholder="Adınız Soyadınız" required>
+            </div>
+            <div>
+              <label class="field-label">Telefon</label>
+              <input type="tel" class="field" placeholder="+90 5__ ___ __ __" required>
+            </div>
+            <div>
+              <label class="field-label">E-posta</label>
+              <input type="email" class="field" placeholder="ornek@mail.com">
+            </div>
+            <div>
+              <label class="field-label">İlgilendiğiniz Kurs</label>
+              <select class="field">
+                <option>Yazılım Geliştirme</option>
+                <option>Dijital Pazarlama</option>
+                <option>Grafik Tasarım</option>
+                <option>İngilizce (A1–C2)</option>
+                <option>Veri Analitiği</option>
+                <option>Fotoğrafçılık</option>
+                <option>Henüz karar vermedim</option>
+              </select>
+            </div>
+            <div class="md:col-span-2">
+              <label class="field-label">Mesaj (opsiyonel)</label>
+              <textarea class="field" rows="4" placeholder="Deneyiminiz, hedefleriniz veya sormak istedikleriniz..."></textarea>
+            </div>
+          </div>
+          <div class="mt-6 flex items-start gap-3">
+            <input type="checkbox" id="kvkk" class="mt-1.5" required>
+            <label for="kvkk" style="font-size:13px;color:rgba(26,26,62,.65);line-height:1.6">
+              KVKK kapsamında <a href="#" style="color:#6C63FF">aydınlatma metnini</a> okudum, bilgilerimin işlenmesine onay veriyorum.
+            </label>
+          </div>
+          <div class="mt-8 flex flex-wrap items-center justify-between gap-4">
+            <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(26,26,62,.4)">Yanıt süresi · 24 saat içinde</div>
+            <button type="submit" class="btn-primary">
+              Bilgi Al & Başvur
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+          <div id="formOk" class="hidden mt-6 p-4 rounded-xl" style="background:rgba(108,99,255,.08);border:1px solid rgba(108,99,255,.25);font-size:14px;color:#6C63FF">
+            Talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz. 🎉
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="background:#1A1A3E;color:rgba(255,255,255,.65)" class="pt-20 pb-10">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,.08)">
+      <div class="lg:col-span-5">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#6C63FF,#FF6584)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <span class="font-heading font-bold text-[22px] text-white">Akademi<span style="color:#FF6584">Plus</span></span>
+            <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:2px">Kadıköy · İstanbul · 2015</div>
+          </div>
+        </div>
+        <p style="font-size:15px;line-height:1.7;max-width:380px">
+          MEB onaylı, e-devlet sertifikalı eğitim merkezi. Uzman eğitmenler, güncel müfredat, esnek çizelge.
+        </p>
+      </div>
+      <div class="lg:col-span-3">
+        <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6C63FF;margin-bottom:16px">Kurslar</div>
+        <ul class="space-y-2.5" style="font-size:14px">
+          <li><a href="#kurslar" class="hover:text-white transition-colors">Yazılım Geliştirme</a></li>
+          <li><a href="#kurslar" class="hover:text-white transition-colors">Dijital Pazarlama</a></li>
+          <li><a href="#kurslar" class="hover:text-white transition-colors">Grafik Tasarım</a></li>
+          <li><a href="#kurslar" class="hover:text-white transition-colors">İngilizce</a></li>
+          <li><a href="#kurslar" class="hover:text-white transition-colors">Veri Analitiği</a></li>
+          <li><a href="#kurslar" class="hover:text-white transition-colors">Fotoğrafçılık</a></li>
+        </ul>
+      </div>
+      <div class="lg:col-span-4">
+        <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6C63FF;margin-bottom:16px">İletişim</div>
+        <ul class="space-y-2.5" style="font-size:14px">
+          <li>Moda Caddesi No:28, Kat 3</li>
+          <li>34710 Kadıköy / İstanbul</li>
+          <li><a href="tel:+902163456789" class="hover:text-white transition-colors">+90 216 345 67 89</a></li>
+          <li><a href="mailto:info@akademiplus.com.tr" class="hover:text-white transition-colors">info@akademiplus.com.tr</a></li>
+          <li style="color:rgba(255,255,255,.4)">Pzt–Cmt · 09:00–20:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 flex flex-wrap items-center justify-between gap-4" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35)">
+      <span>© 2026 Akademi Plus · Tüm Hakları Saklıdır.</span>
+      <span class="flex gap-6">
+        <a href="#" class="hover:text-white transition-colors">KVKK</a>
+        <a href="#" class="hover:text-white transition-colors">Çerez Politikası</a>
+        <a href="#" class="hover:text-white transition-colors">Aydınlatma Metni</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/905551234567" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50" aria-label="WhatsApp ile iletişim">
+  <span class="relative flex items-center gap-3 pl-5 pr-6 py-3.5 rounded-full" style="background:#25D366;box-shadow:0 8px 24px -6px rgba(37,211,102,.5);font-family:'Nunito',sans-serif;font-weight:600;font-size:14px;color:white">
+    <span class="absolute inset-0 rounded-full wp-pulse"></span>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.5 3.5A11 11 0 0 0 3.6 17.3L2 22l4.8-1.6A11 11 0 1 0 20.5 3.5zM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5 0-.2 0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.3.9 2.5 1 2.7.1.2 1.8 2.7 4.3 3.8.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1 0-.1-.2-.2-.4-.3z"/>
+    </svg>
+    +90 555 123 45 67
+  </span>
+</a>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  // Navbar scroll
+  const nav = document.getElementById('nav');
+  const brandName = document.getElementById('brandName');
+  const navLinks = document.getElementById('navLinks');
+  const navCta = document.getElementById('navCta');
+
+  function onScroll() {
+    const s = window.scrollY > 80;
+    nav.classList.toggle('nav-scrolled', s);
+    nav.style.paddingTop = s ? '12px' : '20px';
+    nav.style.paddingBottom = s ? '12px' : '20px';
+
+    if (s) {
+      brandName.style.color = '#1A1A3E';
+      navLinks.querySelectorAll('a').forEach(a => { a.style.color = 'rgba(26,26,62,.75)'; });
+      navCta.style.background = '#6C63FF';
+      navCta.style.color = '#fff';
+    } else {
+      brandName.style.color = '#fff';
+      navLinks.querySelectorAll('a').forEach(a => { a.style.color = 'rgba(255,255,255,.9)'; });
+      navCta.style.background = '#fff';
+      navCta.style.color = '#6C63FF';
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

@@ -100,7 +100,10 @@ const templates = [
     label: "Eğitim / Kurs",
     icon: "🎓",
     color: "#6C3483",
-    active: false,
+    active: true,
+    url: "/templates/egitim-kurs/index.html",
+    img: "/template-egitim.png",
+    desc: "Kurs merkezleri ve eğitim kurumları için modern web tasarımı.",
   },
   {
     id: "spor",
