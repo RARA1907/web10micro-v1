@@ -3,9 +3,9 @@
   "configurations": [
     {
       "name": "web10micro-frontend",
-      "runtimeExecutable": "/usr/local/bin/npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 3000
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "-p", "3010"],
+      "port": 3010
     }
   ]
 }

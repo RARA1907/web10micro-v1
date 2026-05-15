@@ -49,9 +49,11 @@ app.add_middleware(
     allow_origins=[
         "https://web10micro.com",
         "https://www.web10micro.com",
+        "https://web10micro-v1.pages.dev",
         "http://localhost:3000",
         "http://localhost:3010",
     ],
+    allow_origin_regex=r"https://.*\.web10micro-v1\.pages\.dev",
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )

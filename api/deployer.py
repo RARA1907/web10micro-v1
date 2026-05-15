@@ -14,15 +14,19 @@ from config import CF_API_TOKEN, CF_ACCOUNT_ID
 CF_DNS_TOKEN = os.getenv("CF_DNS_TOKEN", "")
 WEB10MICRO_ZONE_ID = "b67813a2d84b67a952efd4c00f2e8f31"
 
-# Railway'de global npm, local'de ~/.npm-global — ikisini de dene
-def _find_wrangler() -> str:
+# Wrangler komutunu liste olarak döner (subprocess.run için)
+def _find_wrangler() -> list:
     import shutil
     if w := shutil.which("wrangler"):
-        return w
-    local = os.path.expanduser("~/.npm-global/bin/wrangler")
-    if os.path.exists(local):
-        return local
-    return "npx wrangler"
+        return [w]
+    for candidate in [
+        os.path.expanduser("~/.npm-global/bin/wrangler"),
+        "/root/.npm-global/bin/wrangler",
+        "/usr/local/bin/wrangler",
+    ]:
+        if os.path.exists(candidate):
+            return [candidate]
+    return ["npx", "wrangler"]
 
 WRANGLER = _find_wrangler()
 
@@ -42,7 +46,7 @@ def _ensure_project(project_name: str):
     """CF Pages projesi yoksa Wrangler ile oluşturur."""
     env = {**os.environ, "CLOUDFLARE_API_TOKEN": CF_API_TOKEN, "CLOUDFLARE_ACCOUNT_ID": CF_ACCOUNT_ID}
     result = subprocess.run(
-        [WRANGLER, "pages", "project", "create", project_name, "--production-branch", "main"],
+        WRANGLER + ["pages", "project", "create", project_name, "--production-branch", "main"],
         capture_output=True, text=True, env=env
     )
     # "already exists" de başarı sayılır
@@ -91,6 +95,33 @@ def _add_dns_cname(subdomain: str, pages_project: str) -> bool:
         return False
 
 
+def _add_pages_domain(pages_project: str, custom_domain: str) -> bool:
+    """CF Pages projesine özel domain ekler (routing için gerekli)."""
+    if not CF_DNS_TOKEN:
+        return False
+    payload = json.dumps({"name": custom_domain}).encode()
+    url = f"https://api.cloudflare.com/client/v4/accounts/{CF_ACCOUNT_ID}/pages/projects/{pages_project}/domains"
+    req = urllib.request.Request(
+        url, data=payload, method="POST",
+        headers={
+            "Authorization": f"Bearer {CF_DNS_TOKEN}",
+            "Content-Type": "application/json",
+        }
+    )
+    try:
+        with urllib.request.urlopen(req) as resp:
+            result = json.loads(resp.read())
+            return result.get("success", False)
+    except urllib.error.HTTPError as e:
+        body = json.loads(e.read())
+        errors = body.get("errors", [])
+        # "already exists" başarı sayılır
+        if any(err.get("code") in (8000007, 8000035) for err in errors):
+            return True
+        print(f"Pages domain ekleme hatası: {errors}")
+        return False
+
+
 def deploy(business_name: str, html: str) -> str:
     """
     Ana deploy fonksiyonu.
@@ -115,8 +146,8 @@ def deploy(business_name: str, html: str) -> str:
 
         # Deploy
         result = subprocess.run(
-            [
-                WRANGLER, "pages", "deploy", tmp_dir,
+            WRANGLER + [
+                "pages", "deploy", tmp_dir,
                 "--project-name", project_name,
                 "--branch", "main",
                 "--commit-dirty=true",
@@ -134,11 +165,13 @@ def deploy(business_name: str, html: str) -> str:
         if not url_match:
             url_match = re.search(r"https://[^\s]+\.pages\.dev", output)
 
-    # Deploy başarılı — özel subdomain için DNS kaydı ekle
+    # Deploy başarılı — özel subdomain için DNS + Pages domain ekle
     subdomain = _slug(business_name)
+    custom_domain = f"{subdomain}.web10micro.com"
     dns_ok = _add_dns_cname(subdomain, project_name)
     if dns_ok:
-        return f"https://{subdomain}.web10micro.com"
+        _add_pages_domain(project_name, custom_domain)
+        return f"https://{custom_domain}"
     # DNS token yoksa veya hata olduysa pages.dev URL'sine fall back
     return url_match.group(0) if url_match else f"https://{project_name}.pages.dev"
 
