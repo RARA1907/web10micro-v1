@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Denge Mali Müşavirlik — Levent, İstanbul</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:    '#1B2A4A',
+          forest: '#2D6A4F',
+          ice:    '#F8F9FA',
+          night:  '#0F1A2E',
+          gold:   '#CFA144',
+          'gold-soft': '#E5C988',
+        },
+        fontFamily: {
+          serif: ['"Cormorant Garamond"', 'serif'],
+          sans:  ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          body:  ['Inter', 'system-ui', 'sans-serif'],
+          mono:  ['"JetBrains Mono"', 'monospace'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  :root{
+    --ink:#1B2A4A; --forest:#2D6A4F; --ice:#F8F9FA;
+    --night:#0F1A2E; --gold:#CFA144;
+  }
+  html,body{background:var(--ice);}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:#1f2a44;
+    -webkit-font-smoothing:antialiased;
+    font-feature-settings:'ss01','cv11';
+  }
+  .font-display{font-family:'Cormorant Garamond',serif; font-feature-settings:'liga','dlig';}
+  .font-ui{font-family:'Plus Jakarta Sans',system-ui,sans-serif;}
+
+  /* signature: vertical gold line + section number, top-left of each section */
+  .section-mark{
+    display:flex; align-items:flex-start; gap:14px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--ink);
+  }
+  .section-mark::before{
+    content:''; display:block; width:1.5px; height:56px;
+    background:linear-gradient(180deg,var(--gold) 0%, var(--gold) 60%, transparent 100%);
+    margin-top:2px; flex:0 0 auto;
+  }
+  .section-mark .num{ color:var(--gold); font-weight:500; }
+  .section-mark .lbl{ display:block; color:#6b7280; margin-top:4px; }
+
+  /* hairlines */
+  .hair{ border-color:rgba(27,42,74,.10); }
+  .hair-b{ border-bottom:1px solid rgba(27,42,74,.10); }
+
+  /* card */
+  .card{
+    background:#fff; border-radius:12px;
+    box-shadow:0 1px 0 rgba(27,42,74,.04), 0 10px 40px -20px rgba(15,26,46,.18);
+    border:1px solid rgba(27,42,74,.06);
+  }
+
+  /* glass dashboard */
+  .glass{
+    background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.6));
+    backdrop-filter:blur(18px) saturate(140%);
+    -webkit-backdrop-filter:blur(18px) saturate(140%);
+    border:1px solid rgba(255,255,255,.55);
+    box-shadow:
+      0 30px 80px -20px rgba(15,26,46,.55),
+      0 2px 0 rgba(255,255,255,.5) inset;
+    border-radius:14px;
+  }
+  .glass-dark{
+    background:linear-gradient(180deg, rgba(15,26,46,.55), rgba(15,26,46,.35));
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    border:1px solid rgba(255,255,255,.12);
+    color:#e9eef7;
+    border-radius:12px;
+  }
+
+  /* fade-in on scroll */
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* gold underline link */
+  .gold-link{ position:relative; }
+  .gold-link::after{
+    content:''; position:absolute; left:0; bottom:-3px; height:1px; width:100%;
+    background:var(--gold); transform:scaleX(.3); transform-origin:left;
+    transition:transform .4s ease;
+  }
+  .gold-link:hover::after{ transform:scaleX(1); }
+
+  /* primary button */
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--ink); color:#fff;
+    padding:14px 22px; border-radius:12px;
+    font-family:'Plus Jakarta Sans',sans-serif; font-weight:500; font-size:15px;
+    letter-spacing:.01em;
+    box-shadow:0 10px 30px -10px rgba(15,26,46,.5);
+    transition:transform .25s ease, background .25s ease;
+  }
+  .btn-primary:hover{ background:var(--night); transform:translateY(-1px); }
+  .btn-ghost{
+    display:inline-flex; align-items:center; gap:10px;
+    color:var(--ink); padding:14px 22px; border-radius:12px;
+    font-family:'Plus Jakarta Sans',sans-serif; font-weight:500; font-size:15px;
+    border:1px solid rgba(27,42,74,.18);
+    transition:background .2s ease;
+  }
+  .btn-ghost:hover{ background:rgba(27,42,74,.04); }
+
+  /* chart bar grow */
+  @keyframes grow { from { transform:scaleY(.0);} to{ transform:scaleY(1);} }
+  .bar{ transform-origin:bottom; animation: grow 1.2s cubic-bezier(.2,.8,.2,1) both; }
+
+  /* sparkline area */
+  .spark path.area{ fill:url(#sparkfill); }
+  .spark path.line{ stroke:#CFA144; stroke-width:1.6; fill:none; }
+
+  /* form */
+  .field{
+    width:100%; padding:14px 14px; border-radius:10px;
+    background:#fff; border:1px solid rgba(27,42,74,.12);
+    font-family:'Inter',sans-serif; font-size:15px; color:#1f2a44;
+    transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .field:focus{
+    outline:none; border-color:var(--ink);
+    box-shadow:0 0 0 4px rgba(27,42,74,.08);
+  }
+  .field-label{
+    display:block; font-family:'Plus Jakarta Sans',sans-serif; font-weight:500;
+    font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    color:#4b5670; margin-bottom:8px;
+  }
+
+  /* placeholder photo stripes — only used if Unsplash blocked */
+  .photo-fallback{
+    background-image:repeating-linear-gradient(135deg, #e9ecf2 0 12px, #f4f6fa 12px 24px);
+  }
+
+  /* navbar blur on scroll */
+  .nav-scrolled{
+    background:rgba(248,249,250,.85);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(27,42,74,.08);
+  }
+
+  /* whatsapp pulse */
+  @keyframes pulse-ring { 0%{ box-shadow:0 0 0 0 rgba(45,106,79,.45);} 100%{ box-shadow:0 0 0 22px rgba(45,106,79,0);} }
+  .pulse-ring{ animation: pulse-ring 2.4s cubic-bezier(.2,.8,.2,1) infinite; }
+
+  /* selection */
+  ::selection{ background:#CFA144; color:#0F1A2E; }
+
+  /* small caps detail */
+  .smallcaps{ font-variant: all-small-caps; letter-spacing:.14em; }
+
+  /* hero image cover with vignette */
+  .hero-img{
+    background-image:
+      linear-gradient(90deg, rgba(15,26,46,.85) 0%, rgba(15,26,46,.55) 40%, rgba(15,26,46,.15) 75%, rgba(15,26,46,0) 100%),
+      url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=2200&q=80');
+    background-size: cover;
+    background-position: center right;
+  }
+
+  /* dotted divider */
+  .dots-divider{
+    height:1px;
+    background-image:radial-gradient(circle, rgba(27,42,74,.25) 1px, transparent 1.5px);
+    background-size:8px 1px; background-repeat:repeat-x;
+  }
+
+  /* process line */
+  .process-line{
+    background-image:linear-gradient(90deg, rgba(207,161,68,.6) 0%, rgba(207,161,68,.6) 100%);
+    background-size:6px 1px; background-repeat:repeat-x; background-position: 0 50%;
+    height:1px;
+  }
+
+  /* ticker */
+  .ticker{ display:flex; gap:48px; animation: scroll 40s linear infinite; }
+  @keyframes scroll { from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+
+  /* quote mark */
+  .quote-mark{
+    font-family:'Cormorant Garamond',serif;
+    font-size:96px; line-height:.6; color:#CFA144;
+  }
+
+  /* glass dashboard inner type */
+  .mono{ font-family:'JetBrains Mono',monospace; }
+
+  /* table */
+  .ledger td, .ledger th{ padding:8px 0; }
+  .ledger th{ font-weight:500; color:#4b5670; font-size:11px; letter-spacing:.1em; text-transform:uppercase; }
+
+  /* responsive type tweaks */
+  @media (max-width:768px){
+    .display-1{ font-size:48px !important; line-height:1.05 !important; }
+  }
+</style>
+</head>
+<body class="font-body bg-ice text-ink">
+
+<a href="https://web10micro.com" target="_blank" style="position:fixed;bottom:24px;left:24px;z-index:9999;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:10px 18px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:600;color:#1a1a1a;text-decoration:none;box-shadow:0 8px 30px rgba(0,0,0,.12);display:flex;align-items:center;gap:8px;transition:all .25s ease">← Diğer Demolar</a>
+
+<!-- =================== NAV =================== -->
+<header id="nav" class="fixed top-0 inset-x-0 z-40 transition-all">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-5 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3 text-white" id="brand">
+      <!-- mark: balanced scale, original mark -->
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="currentColor" stroke-opacity=".25"/>
+        <path d="M20 8 L20 32" stroke="#CFA144" stroke-width="1.2"/>
+        <path d="M10 16 L30 16" stroke="currentColor" stroke-width="1.2"/>
+        <circle cx="13" cy="22" r="3.2" stroke="#CFA144" stroke-width="1.1" fill="none"/>
+        <circle cx="27" cy="22" r="3.2" stroke="#CFA144" stroke-width="1.1" fill="none"/>
+      </svg>
+      <span class="leading-tight">
+        <span class="font-display text-[20px] tracking-tight block">Denge</span>
+        <span class="font-ui text-[10px] tracking-[.22em] uppercase opacity-70 block -mt-1">Mali Müşavirlik</span>
+      </span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-9 font-ui text-[14px] text-white/85" id="navLinks">
+      <a href="#hizmetler" class="gold-link hover:text-white">Hizmetler</a>
+      <a href="#neden-biz" class="gold-link hover:text-white">Neden Biz</a>
+      <a href="#surec" class="gold-link hover:text-white">Süreç</a>
+      <a href="#yorumlar" class="gold-link hover:text-white">Yorumlar</a>
+      <a href="#iletisim" class="gold-link hover:text-white">İletişim</a>
+    </nav>
+    <a href="#iletisim" class="btn-primary !py-3 !px-5 !text-[13px]" id="navCta">
+      Ücretsiz Danışma
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- =================== 1. HERO =================== -->
+<section id="hero" class="relative min-h-[100vh] hero-img text-white overflow-hidden">
+  <!-- soft grain -->
+  <div class="absolute inset-0 pointer-events-none opacity-[.06]" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22/></filter><rect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/></svg>');"></div>
+
+  <div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 pt-40 lg:pt-44 pb-24 grid lg:grid-cols-12 gap-10 lg:gap-8 items-center min-h-[100vh]">
+
+    <!-- LEFT: copy -->
+    <div class="lg:col-span-7 reveal">
+      <div class="section-mark text-white/80 mb-10" style="--ink:#fff;">
+        <div>
+          <span class="num">01</span>
+          <span class="lbl text-white/55">Mali Müşavirlik</span>
+        </div>
+      </div>
+
+      <p class="font-ui text-[13px] tracking-[.22em] uppercase text-gold mb-6">Levent · İstanbul · 2006'dan beri</p>
+
+      <h1 class="font-display display-1 font-medium text-[64px] lg:text-[78px] leading-[1.02] tracking-tight">
+        Finansal geleceğinize<br/>
+        <em class="not-italic text-gold-soft">ortak</em> oluyoruz.
+      </h1>
+
+      <p class="mt-8 max-w-[560px] text-[17px] leading-[1.7] text-white/75 font-light">
+        Levent'te güvenilir mali müşavirlik, şirket kuruluşu ve vergi danışmanlığı.
+        18 yıllık tecrübemizle KOBİ'den holdinge 350+ aktif müşterimize hizmet veriyoruz.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-4">
+        <a href="#iletisim" class="btn-primary" style="background:#fff;color:#1B2A4A;">
+          Ücretsiz Danışma
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#hizmetler" class="font-ui text-[14px] text-white/85 hover:text-white gold-link tracking-wide">
+          Hizmetlerimizi inceleyin
+        </a>
+      </div>
+
+      <!-- meta line -->
+      <div class="mt-16 flex flex-wrap items-center gap-x-10 gap-y-3 text-[12px] font-ui tracking-[.14em] uppercase text-white/55">
+        <span>TÜRMOB Üyesi</span>
+        <span class="opacity-30">·</span>
+        <span>İSMMMO Kayıtlı</span>
+        <span class="opacity-30">·</span>
+        <span>GİB Onaylı Entegratör</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: glass dashboard mockup -->
+    <div class="lg:col-span-5 reveal" style="transition-delay:.15s">
+      <div class="relative">
+        <!-- decorative gold frame -->
+        <div class="absolute -top-6 -left-6 w-24 h-24 border-l border-t border-gold/60"></div>
+        <div class="absolute -bottom-6 -right-6 w-24 h-24 border-r border-b border-gold/60"></div>
+
+        <!-- main dashboard glass card -->
+        <div class="glass p-6 text-ink">
+          <!-- header row -->
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-ui text-[10px] tracking-[.18em] uppercase text-ink/50">Q2 · Mali Rapor</div>
+              <div class="font-display text-[22px] mt-1">Denge / Müvekkil paneli</div>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-forest"></span>
+              <span class="mono text-[11px] text-ink/60">Canlı</span>
+            </div>
+          </div>
+
+          <!-- KPI row -->
+          <div class="grid grid-cols-3 gap-3 mt-5">
+            <div class="bg-white/70 rounded-lg p-3 border border-ink/5">
+              <div class="font-ui text-[10px] tracking-wider uppercase text-ink/55">Ciro</div>
+              <div class="font-display text-[22px] leading-none mt-2">₺ 4.82M</div>
+              <div class="mono text-[10px] text-forest mt-1">▲ 12.4%</div>
+            </div>
+            <div class="bg-white/70 rounded-lg p-3 border border-ink/5">
+              <div class="font-ui text-[10px] tracking-wider uppercase text-ink/55">KDV</div>
+              <div class="font-display text-[22px] leading-none mt-2">₺ 318K</div>
+              <div class="mono text-[10px] text-ink/55 mt-1">Beyan: 24/06</div>
+            </div>
+            <div class="bg-white/70 rounded-lg p-3 border border-ink/5">
+              <div class="font-ui text-[10px] tracking-wider uppercase text-ink/55">Kâr</div>
+              <div class="font-display text-[22px] leading-none mt-2">28.6%</div>
+              <div class="mono text-[10px] text-forest mt-1">▲ 1.8 pp</div>
+            </div>
+          </div>
+
+          <!-- chart -->
+          <div class="mt-5 bg-white/70 rounded-lg p-4 border border-ink/5">
+            <div class="flex items-end justify-between mb-3">
+              <div>
+                <div class="font-ui text-[10px] tracking-wider uppercase text-ink/55">Aylık Gelir / Gider</div>
+                <div class="font-display text-[18px]">12 aylık trend</div>
+              </div>
+              <div class="flex gap-3 mono text-[10px] text-ink/60">
+                <span><span class="inline-block w-2 h-2 rounded-sm bg-ink mr-1 align-middle"></span>Gelir</span>
+                <span><span class="inline-block w-2 h-2 rounded-sm bg-gold mr-1 align-middle"></span>Gider</span>
+              </div>
+            </div>
+            <div class="flex items-end gap-2 h-[110px]">
+              <!-- 12 bar pairs -->
+              <script>
+                // placeholder generated below in body
+              </script>
+              <div class="flex items-end gap-[3px] h-full" id="barChart"></div>
+            </div>
+            <div class="flex justify-between mono text-[9px] text-ink/45 mt-2">
+              <span>Tem</span><span>Ağu</span><span>Eyl</span><span>Eki</span><span>Kas</span><span>Ara</span>
+              <span>Oca</span><span>Şub</span><span>Mar</span><span>Nis</span><span>May</span><span>Haz</span>
+            </div>
+          </div>
+
+          <!-- compliance line -->
+          <div class="mt-5 flex items-center justify-between border-t border-ink/10 pt-4">
+            <div class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2D6A4F" stroke-width="1.8"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
+              <span class="font-ui text-[12px] text-ink/70">Tüm beyannameler güncel</span>
+            </div>
+            <span class="mono text-[10px] text-ink/45">Son senk · 14:02</span>
+          </div>
+        </div>
+
+        <!-- floating sub-card: tax calendar -->
+        <div class="glass-dark absolute -bottom-10 -left-8 p-4 w-[220px] hidden lg:block" style="transform:rotate(-2deg)">
+          <div class="font-ui text-[10px] tracking-[.18em] uppercase text-gold mb-2">Vergi Takvimi</div>
+          <ul class="space-y-1.5 text-[12px] mono text-white/80">
+            <li class="flex justify-between"><span>KDV-2</span><span class="text-gold">26 Haz</span></li>
+            <li class="flex justify-between"><span>Muhtasar</span><span>26 Haz</span></li>
+            <li class="flex justify-between"><span>Geçici Vergi</span><span>17 Tem</span></li>
+            <li class="flex justify-between"><span>BA-BS</span><span>02 Tem</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 font-ui text-[10px] tracking-[.3em] uppercase flex flex-col items-center gap-2">
+    <span>Aşağı</span>
+    <span class="w-px h-10 bg-white/40"></span>
+  </div>
+</section>
+
+<!-- =================== TRUST TICKER =================== -->
+<section class="bg-ink text-white/70 overflow-hidden border-y border-white/5">
+  <div class="py-5 overflow-hidden relative">
+    <div class="ticker font-ui text-[12px] tracking-[.18em] uppercase whitespace-nowrap">
+      <div class="flex gap-12 items-center shrink-0">
+        <span>TÜRMOB</span><span class="text-gold">◆</span>
+        <span>İSMMMO</span><span class="text-gold">◆</span>
+        <span>Gelir İdaresi Başkanlığı</span><span class="text-gold">◆</span>
+        <span>SGK e-Bildirge</span><span class="text-gold">◆</span>
+        <span>E-Fatura · E-Defter · E-Arşiv</span><span class="text-gold">◆</span>
+        <span>KGK Bağımsız Denetim</span><span class="text-gold">◆</span>
+      </div>
+      <div class="flex gap-12 items-center shrink-0" aria-hidden="true">
+        <span>TÜRMOB</span><span class="text-gold">◆</span>
+        <span>İSMMMO</span><span class="text-gold">◆</span>
+        <span>Gelir İdaresi Başkanlığı</span><span class="text-gold">◆</span>
+        <span>SGK e-Bildirge</span><span class="text-gold">◆</span>
+        <span>E-Fatura · E-Defter · E-Arşiv</span><span class="text-gold">◆</span>
+        <span>KGK Bağımsız Denetim</span><span class="text-gold">◆</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 2. HİZMETLER =================== -->
+<section id="hizmetler" class="py-28 lg:py-36">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <div class="grid lg:grid-cols-12 gap-10 mb-16 reveal">
+      <div class="lg:col-span-5">
+        <div class="section-mark mb-8">
+          <div>
+            <span class="num">02</span>
+            <span class="lbl">Hizmetler</span>
+          </div>
+        </div>
+        <h2 class="font-display text-[52px] lg:text-[64px] leading-[1.05] tracking-tight text-ink font-medium">
+          Uçtan uca<br/>
+          <em class="not-italic" style="color:#2D6A4F">mali çözümler.</em>
+        </h2>
+      </div>
+      <div class="lg:col-span-6 lg:col-start-7 self-end">
+        <p class="text-[17px] leading-[1.75] text-ink/70 max-w-[520px]">
+          Şirketinizin kuruluşundan günlük muhasebe operasyonlarına, vergi planlamasından bağımsız denetime kadar
+          finansal sürecin her aşamasında yanınızdayız. Hizmetlerimiz, sektör tecrübemiz ile birleşerek
+          ölçülebilir değer üretir.
+        </p>
+      </div>
+    </div>
+
+    <!-- 3×2 grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-ink/10 border border-ink/10 rounded-[14px] overflow-hidden">
+
+      <!-- service tile -->
+      <article class="bg-white p-8 lg:p-10 group reveal relative">
+        <div class="flex items-start justify-between mb-10">
+          <div class="w-12 h-12 rounded-lg bg-ink/[.04] flex items-center justify-center text-ink">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M3 21V7l9-4 9 4v14"/><path d="M9 21v-8h6v8"/><path d="M3 21h18"/>
+            </svg>
+          </div>
+          <span class="mono text-[11px] text-gold tracking-wider">/01</span>
+        </div>
+        <h3 class="font-display text-[28px] leading-tight text-ink">Şirket Kuruluşu</h3>
+        <p class="mt-3 text-[15px] leading-[1.7] text-ink/65">
+          Ltd. Şti. ve A.Ş. kuruluşu, Mersis başvuruları, ticaret sicil işlemleri, SGK ve
+          vergi dairesi tescilleri — tek elden, hızlı sonuç.
+        </p>
+        <ul class="mt-5 space-y-2 text-[13px] font-ui text-ink/55">
+          <li class="flex gap-2"><span class="text-gold">—</span> Mersis & ticaret sicil</li>
+          <li class="flex gap-2"><span class="text-gold">—</span> SGK & vergi tescil</li>
+          <li class="flex gap-2"><span class="text-gold">—</span> Ana sözleşme tasarımı</li>
+        </ul>
+      </article>
+
+      <article class="bg-white p-8 lg:p-10 reveal">
+        <div class="flex items-start justify-between mb-10">
+          <div class="w-12 h-12 rounded-lg bg-ink/[.04] flex items-center justify-center text-ink">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/>
+            </svg>
+          </div>
+          <span class="mono text-[11px] text-gold tracking-wider">/02</span>
+        </div>
+        <h3 class="font-display text-[28px] leading-tight text-ink">Vergi Danışmanlığı</h3>
+        <p class="mt-3 text-[15px] leading-[1.7] text-ink/65">
+          Kurumlar vergisi, KDV, stopaj, geçici vergi ve yıllık beyannameler — risk analizi ve
+          yasal optimizasyon odaklı, proaktif vergi planlaması.
+        </p>
+        <ul class="mt-5 space-y-2 text-[13px] font-ui text-ink/55">
+          <li class="flex gap-2"><span class="text-gold">—</span> KV, KDV, stopaj</li>
+          <li class="flex gap-2"><span class="text-gold">—</span> Geçici & yıllık beyan</li>
+          <li class="flex gap-2"><span class="text-gold">—</span> Vergi inceleme desteği</li>
+        </ul>
+      </article>
+
+      <article class="bg-white p-8 lg:p-10 reveal">
+        <div class="flex items-start justify-between mb-10">
+          <div class="w-12 h-12 rounded-lg bg-ink/[.04] flex items-center justify-center text-ink">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M4 4h12l4 4v12H4z"/><path d="M16 4v4h4"/><path d="M8 12h8M8 16h8M8 8h4"/>
+            </svg>
+          </div>
+          <span class="mono text-[11px] text-gold tracking-wider">/03</span>
+        </div>
+        <h3 class="font-display text-[28px] leading-tight text-ink">Muhasebe Hizmetleri</h3>
+        <p class="mt-3 text-[15px] leading-[1.7] text-ink/65">
+          Aylık kayıt tutma, envanter ve mizan çalışmaları, mali tabloların hazırlanması,
+          bağımsız denetim öncesi uyum kontrolleri.
+        </p>
+        <ul class="mt-5 space-y-2 text-[13px] font-ui text-ink/55">
+          <li class="flex gap-2"><span class="text-gold">—</span> Aylık kayıt & mutabakat</li>
+          <li class="flex gap-2"><span class="text-gold">—</span> Envanter & mizan</li>
+          <li class="flex gap-2"><span class="text-gold">—</span> Denetim hazırlık</li>
+        </ul>
+      </article>
+
+      <article class="bg-white p-8 lg:p-10 reveal">
+        <div class="flex items-start justify-between mb-10">
+          <div class="w-12 h-12 rounded-lg bg-ink/[.04] flex items-center justify-center text-ink">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <circle cx="9" cy="8" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+              <path d="M16 11l2 2 4-4"/>
+            </svg>
+          </div>
+          <span class="mono text-[11px] text-gold tracking-wider">/04</span>
+        </div>
+        <h3 class="font-display text-[28px] leading-tight text-ink">Bordro Yönetimi</h3>
+        <p class="mt-3 text-[15px] leading-[1.7] text-ink/65">
+          SGK bildirimleri, işsizlik sigortası, muhtasar prim hizmet beyannameleri ve
+          personelinizin yıllık ücret bildirimleri — her ay tam zamanında.
+        </p>
+        <ul class="mt-5 space-y-2 text-[13px] font-ui text-ink/55">
+          <li class="flex gap-2"><span class="text-gold">—</span> SGK & İşsizlik bildirimi</li>
+          <li class="flex gap-2"><span class="text-gold">—</span> Muhtasar prim hizmet</li>
+          <li class="flex gap-2"><span class="text-gold">—</span> Yıllık ücret beyanı</li>
+        </ul>
+      </article>
+
+      <article class="bg-white p-8 lg:p-10 reveal">
+        <div class="flex items-start justify-between mb-10">
+          <div class="w-12 h-12 rounded-lg bg-ink/[.04] flex items-center justify-center text-ink">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/>
+            </svg>
+          </div>
+          <span class="mono text-[11px] text-gold tracking-wider">/05</span>
+        </div>
+        <h3 class="font-display text-[28px] leading-tight text-ink">E-Fatura & E-Defter</h3>
+        <p class="mt-3 text-[15px] leading-[1.7] text-ink/65">
+          GİB uyumlu entegrasyon, e-arşiv, e-irsaliye, e-müstahsil dahil tüm e-belge ekosistemi —
+          özel entegratör seçimi ve geçiş danışmanlığı.
+        </p>
+        <ul class="mt-5 space-y-2 text-[13px] font-ui text-ink/55">
+          <li class="flex gap-2"><span class="text-gold">—</span> GİB portal entegrasyon</li>
+          <li class="flex gap-2"><span class="text-gold">—</span> Özel entegratör seçimi</li>
+          <li class="flex gap-2"><span class="text-gold">—</span> E-belge tüm ürün ailesi</li>
+        </ul>
+      </article>
+
+      <article class="bg-white p-8 lg:p-10 reveal">
+        <div class="flex items-start justify-between mb-10">
+          <div class="w-12 h-12 rounded-lg bg-ink/[.04] flex items-center justify-center text-ink">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M3 17 9 11l4 4 8-8"/><path d="M14 7h7v7"/>
+            </svg>
+          </div>
+          <span class="mono text-[11px] text-gold tracking-wider">/06</span>
+        </div>
+        <h3 class="font-display text-[28px] leading-tight text-ink">İş Planlaması</h3>
+        <p class="mt-3 text-[15px] leading-[1.7] text-ink/65">
+          Nakit akışı projeksiyonu, bütçeleme, fizibilite çalışmaları ve yatırım analizleri — finansal
+          kararlarınızı sayılarla destekleyin.
+        </p>
+        <ul class="mt-5 space-y-2 text-[13px] font-ui text-ink/55">
+          <li class="flex gap-2"><span class="text-gold">—</span> Nakit akışı & bütçe</li>
+          <li class="flex gap-2"><span class="text-gold">—</span> Fizibilite raporu</li>
+          <li class="flex gap-2"><span class="text-gold">—</span> Yatırım analizi</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =================== 3. NEDEN BİZ =================== -->
+<section id="neden-biz" class="py-28 lg:py-36 bg-ink text-white relative overflow-hidden">
+  <!-- subtle pattern -->
+  <div class="absolute inset-0 opacity-[.05]" style="background-image:radial-gradient(circle at 1px 1px, #fff 1px, transparent 0); background-size:32px 32px;"></div>
+
+  <div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <div class="grid lg:grid-cols-12 gap-10 items-end mb-20 reveal">
+      <div class="lg:col-span-7">
+        <div class="section-mark mb-8" style="--ink:#fff;">
+          <div>
+            <span class="num">03</span>
+            <span class="lbl text-white/55">Neden Denge</span>
+          </div>
+        </div>
+        <h2 class="font-display text-[52px] lg:text-[64px] leading-[1.05] tracking-tight font-medium">
+          Rakamlar konuşur.<br/>
+          <em class="not-italic text-gold-soft">Sözler değil.</em>
+        </h2>
+      </div>
+      <div class="lg:col-span-4 lg:col-start-9">
+        <p class="text-white/65 text-[16px] leading-[1.75]">
+          18 yıldır kesintisiz hizmet verdiğimiz portföyümüz, mesleki disiplinimize duyulan güvenin somut karşılığıdır.
+        </p>
+      </div>
+    </div>
+
+    <!-- 3-column stats -->
+    <div class="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-[14px] overflow-hidden">
+
+      <div class="bg-ink p-10 lg:p-12 reveal">
+        <div class="flex items-baseline justify-between mb-6">
+          <span class="mono text-[11px] text-gold tracking-widest">PORTFÖY</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFA144" stroke-width="1.4">
+            <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5V3M17 5V3M3 11h18"/>
+          </svg>
+        </div>
+        <div class="font-display text-[88px] leading-none tracking-tight">
+          350<span class="text-gold">+</span>
+        </div>
+        <div class="mt-4 font-ui text-[16px] text-white/85">Aktif müşteri</div>
+        <p class="mt-2 text-[14px] text-white/55 leading-relaxed">
+          Mikro işletmeden çok ortaklı holdinge — 14 sektörü kapsayan geniş bir portföy.
+        </p>
+      </div>
+
+      <div class="bg-ink p-10 lg:p-12 reveal" style="transition-delay:.1s">
+        <div class="flex items-baseline justify-between mb-6">
+          <span class="mono text-[11px] text-gold tracking-widest">TECRÜBE</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFA144" stroke-width="1.4">
+            <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+          </svg>
+        </div>
+        <div class="font-display text-[88px] leading-none tracking-tight">
+          18<span class="text-gold text-[40px] align-top ml-1">yıl</span>
+        </div>
+        <div class="mt-4 font-ui text-[16px] text-white/85">Kesintisiz hizmet</div>
+        <p class="mt-2 text-[14px] text-white/55 leading-relaxed">
+          2006'dan beri aynı ekip, aynı disiplin — değişen mevzuata adapte, değişmeyen kalite.
+        </p>
+      </div>
+
+      <div class="bg-ink p-10 lg:p-12 reveal" style="transition-delay:.2s">
+        <div class="flex items-baseline justify-between mb-6">
+          <span class="mono text-[11px] text-gold tracking-widest">UYUM</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFA144" stroke-width="1.4">
+            <path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="font-display text-[88px] leading-none tracking-tight">
+          %100
+        </div>
+        <div class="mt-4 font-ui text-[16px] text-white/85">Yasal uyum</div>
+        <p class="mt-2 text-[14px] text-white/55 leading-relaxed">
+          18 yılda tek bir gecikme cezası yok. Müvekkillerimiz mevzuatla değil, işleriyle ilgilenir.
+        </p>
+      </div>
+    </div>
+
+    <!-- sub-row: industries -->
+    <div class="mt-16 grid lg:grid-cols-12 gap-6 items-center reveal">
+      <div class="lg:col-span-3">
+        <div class="mono text-[11px] tracking-widest uppercase text-gold">Hizmet verdiğimiz sektörler</div>
+      </div>
+      <div class="lg:col-span-9 flex flex-wrap gap-x-6 gap-y-2 font-ui text-[14px] text-white/70">
+        <span>İnşaat</span><span class="text-white/20">·</span>
+        <span>Gayrimenkul</span><span class="text-white/20">·</span>
+        <span>E-ticaret</span><span class="text-white/20">·</span>
+        <span>Lojistik</span><span class="text-white/20">·</span>
+        <span>Yazılım & Teknoloji</span><span class="text-white/20">·</span>
+        <span>Sağlık</span><span class="text-white/20">·</span>
+        <span>Tekstil</span><span class="text-white/20">·</span>
+        <span>Üretim</span><span class="text-white/20">·</span>
+        <span>Gıda</span><span class="text-white/20">·</span>
+        <span>Turizm</span><span class="text-white/20">·</span>
+        <span>Reklam & Medya</span><span class="text-white/20">·</span>
+        <span>Mühendislik</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 4. SÜREÇ =================== -->
+<section id="surec" class="py-28 lg:py-36">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <div class="grid lg:grid-cols-12 gap-10 mb-20 reveal">
+      <div class="lg:col-span-7">
+        <div class="section-mark mb-8">
+          <div>
+            <span class="num">04</span>
+            <span class="lbl">Süreç</span>
+          </div>
+        </div>
+        <h2 class="font-display text-[52px] lg:text-[64px] leading-[1.05] tracking-tight text-ink font-medium">
+          Dört adımda<br/>
+          <em class="not-italic" style="color:#2D6A4F">yetki devri.</em>
+        </h2>
+      </div>
+      <div class="lg:col-span-5 self-end">
+        <p class="text-[17px] leading-[1.75] text-ink/70">
+          İlk görüşmeden düzenli raporlamaya kadar her aşama şeffaftır.
+          Süreç haritamızı en başta paylaşır, beklentileri ortak bir takvime bağlarız.
+        </p>
+      </div>
+    </div>
+
+    <!-- timeline -->
+    <div class="relative">
+      <!-- horizontal line -->
+      <div class="hidden lg:block absolute top-[44px] left-[6%] right-[6%] process-line"></div>
+
+      <div class="grid lg:grid-cols-4 gap-10 lg:gap-6 relative">
+
+        <!-- step -->
+        <div class="reveal">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-[88px] h-[88px] rounded-full bg-white border border-ink/10 flex items-center justify-center relative z-10">
+              <span class="font-display text-[40px] text-ink leading-none">01</span>
+            </div>
+          </div>
+          <div class="mono text-[11px] tracking-widest uppercase text-gold mb-2">İlk Adım</div>
+          <h3 class="font-display text-[26px] text-ink leading-tight">Tanışma ve keşif görüşmesi</h3>
+          <p class="mt-3 text-[15px] leading-[1.7] text-ink/65">
+            Ofisimizde veya online — işinizi, sektörünüzü ve mevcut mali yapınızı dinleriz. Tamamen ücretsiz.
+          </p>
+          <div class="mt-4 mono text-[11px] text-ink/40">~ 45 dakika</div>
+        </div>
+
+        <div class="reveal" style="transition-delay:.1s">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-[88px] h-[88px] rounded-full bg-white border border-ink/10 flex items-center justify-center relative z-10">
+              <span class="font-display text-[40px] text-ink leading-none">02</span>
+            </div>
+          </div>
+          <div class="mono text-[11px] tracking-widest uppercase text-gold mb-2">Analiz</div>
+          <h3 class="font-display text-[26px] text-ink leading-tight">İhtiyaç analizi ve teklif</h3>
+          <p class="mt-3 text-[15px] leading-[1.7] text-ink/65">
+            İşletmenize özel ihtiyaçları haritalandırır, kapsamı net şekilde tanımlanmış yazılı bir teklif sunarız.
+          </p>
+          <div class="mt-4 mono text-[11px] text-ink/40">2–3 iş günü</div>
+        </div>
+
+        <div class="reveal" style="transition-delay:.2s">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-[88px] h-[88px] rounded-full bg-white border border-ink/10 flex items-center justify-center relative z-10">
+              <span class="font-display text-[40px] text-ink leading-none">03</span>
+            </div>
+          </div>
+          <div class="mono text-[11px] tracking-widest uppercase text-gold mb-2">Devir</div>
+          <h3 class="font-display text-[26px] text-ink leading-tight">Sözleşme ve yetki devri</h3>
+          <p class="mt-3 text-[15px] leading-[1.7] text-ink/65">
+            Sözleşme imzalanır, e-beyan & SGK yetkileri devredilir. Eski müşaviriniz varsa devir teslimi biz yaparız.
+          </p>
+          <div class="mt-4 mono text-[11px] text-ink/40">1 hafta içinde</div>
+        </div>
+
+        <div class="reveal" style="transition-delay:.3s">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-[88px] h-[88px] rounded-full bg-gold flex items-center justify-center relative z-10">
+              <span class="font-display text-[40px] text-night leading-none">04</span>
+            </div>
+          </div>
+          <div class="mono text-[11px] tracking-widest uppercase text-gold mb-2">Operasyon</div>
+          <h3 class="font-display text-[26px] text-ink leading-tight">Düzenli raporlama ve danışmanlık</h3>
+          <p class="mt-3 text-[15px] leading-[1.7] text-ink/65">
+            Aylık mizan, vergi takvimi uyarıları, çeyreklik strateji görüşmeleri — siz işinize odaklanın.
+          </p>
+          <div class="mt-4 mono text-[11px] text-ink/40">Süreklilik</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =================== 5. YORUMLAR =================== -->
+<section id="yorumlar" class="py-28 lg:py-36 bg-white/60 relative">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <div class="grid lg:grid-cols-12 gap-10 mb-20 reveal">
+      <div class="lg:col-span-7">
+        <div class="section-mark mb-8">
+          <div>
+            <span class="num">05</span>
+            <span class="lbl">Yorumlar</span>
+          </div>
+        </div>
+        <h2 class="font-display text-[52px] lg:text-[64px] leading-[1.05] tracking-tight text-ink font-medium">
+          Müvekkillerimizin<br/>
+          <em class="not-italic" style="color:#2D6A4F">kendi sözleri.</em>
+        </h2>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- testimonial -->
+      <article class="card p-8 reveal flex flex-col">
+        <div class="quote-mark mb-2">"</div>
+        <p class="font-display text-[24px] leading-[1.35] text-ink flex-1">
+          Vergi süreçlerimizi tamamen onlara devrettik; sorunsuz, şeffaf ve güvenilir. Beyan dönemlerinde
+          tek bir mesaj bile yazmamız gerekmiyor.
+        </p>
+        <div class="mt-8 pt-6 border-t border-ink/10 flex items-center gap-4">
+          <div class="w-11 h-11 rounded-full bg-ink/10 flex items-center justify-center font-ui text-[14px] text-ink">AT</div>
+          <div>
+            <div class="font-ui font-medium text-[15px] text-ink">Ayşe T.</div>
+            <div class="font-ui text-[12px] text-ink/55">Genel Müdür · Tekstil İhracat A.Ş.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card p-8 reveal flex flex-col" style="transition-delay:.1s">
+        <div class="quote-mark mb-2">"</div>
+        <p class="font-display text-[24px] leading-[1.35] text-ink flex-1">
+          Şirket kuruluşumu 1 haftada tamamladılar. Mersis'ten SGK tesciline kadar her şeyi
+          onlar hallettiler. İlk gün kapıdan içeri girdiğimde dosyam hazırdı.
+        </p>
+        <div class="mt-8 pt-6 border-t border-ink/10 flex items-center gap-4">
+          <div class="w-11 h-11 rounded-full bg-ink/10 flex items-center justify-center font-ui text-[14px] text-ink">CD</div>
+          <div>
+            <div class="font-ui font-medium text-[15px] text-ink">Can D.</div>
+            <div class="font-ui text-[12px] text-ink/55">Kurucu · Yazılım Stüdyosu Ltd. Şti.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card p-8 reveal flex flex-col" style="transition-delay:.2s">
+        <div class="quote-mark mb-2">"</div>
+        <p class="font-display text-[24px] leading-[1.35] text-ink flex-1">
+          E-fatura geçişinde çok yardımcı oldular — entegratör seçiminden personel eğitimine kadar.
+          Keşke daha önce tanışsaydık.
+        </p>
+        <div class="mt-8 pt-6 border-t border-ink/10 flex items-center gap-4">
+          <div class="w-11 h-11 rounded-full bg-ink/10 flex items-center justify-center font-ui text-[14px] text-ink">EY</div>
+          <div>
+            <div class="font-ui font-medium text-[15px] text-ink">Elif Y.</div>
+            <div class="font-ui text-[12px] text-ink/55">Finans Direktörü · Lojistik Holding</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 6. İLETİŞİM =================== -->
+<section id="iletisim" class="py-28 lg:py-36">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <div class="grid lg:grid-cols-12 gap-10 mb-20 reveal">
+      <div class="lg:col-span-7">
+        <div class="section-mark mb-8">
+          <div>
+            <span class="num">06</span>
+            <span class="lbl">İletişim</span>
+          </div>
+        </div>
+        <h2 class="font-display text-[52px] lg:text-[64px] leading-[1.05] tracking-tight text-ink font-medium">
+          Levent'te,<br/>
+          <em class="not-italic" style="color:#2D6A4F">kapımız her zaman açık.</em>
+        </h2>
+      </div>
+      <div class="lg:col-span-5 self-end">
+        <p class="text-[17px] leading-[1.75] text-ink/70">
+          Ücretsiz keşif görüşmemiz için formu doldurun veya doğrudan arayın. 24 saat içinde
+          size dönüş yapacağız.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-10">
+
+      <!-- LEFT: map + address -->
+      <div class="lg:col-span-5 space-y-8 reveal">
+        <!-- map -->
+        <div class="card overflow-hidden relative h-[340px]">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=29.0050%2C41.0750%2C29.0250%2C41.0900&layer=mapnik&marker=41.0825%2C29.0150"
+            class="absolute inset-0 w-full h-full border-0"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Levent, İstanbul"></iframe>
+          <!-- map overlay pin badge -->
+          <div class="absolute top-4 left-4 glass px-3 py-2 mono text-[11px] text-ink flex items-center gap-2">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#CFA144"><circle cx="12" cy="12" r="6"/></svg>
+            Büyükdere Cad. · Levent
+          </div>
+        </div>
+
+        <!-- contact details -->
+        <div class="card p-8">
+          <div class="space-y-6">
+            <div>
+              <div class="mono text-[11px] tracking-widest uppercase text-gold mb-2">Adres</div>
+              <p class="font-display text-[20px] text-ink leading-[1.4]">
+                Büyükdere Caddesi, Levent Plaza No: 142, Kat 7<br/>
+                34330 Beşiktaş / İstanbul
+              </p>
+            </div>
+            <div class="dots-divider"></div>
+            <div class="grid grid-cols-2 gap-6">
+              <div>
+                <div class="mono text-[11px] tracking-widest uppercase text-gold mb-2">Telefon</div>
+                <a href="tel:+902123456789" class="font-display text-[22px] text-ink gold-link">+90 212 345 67 89</a>
+              </div>
+              <div>
+                <div class="mono text-[11px] tracking-widest uppercase text-gold mb-2">WhatsApp</div>
+                <a href="https://wa.me/905551234567" class="font-display text-[22px] text-ink gold-link">+90 555 123 45 67</a>
+              </div>
+            </div>
+            <div class="dots-divider"></div>
+            <div class="grid grid-cols-2 gap-6">
+              <div>
+                <div class="mono text-[11px] tracking-widest uppercase text-gold mb-2">E-posta</div>
+                <a href="mailto:bilgi@dengemali.com.tr" class="font-ui text-[15px] text-ink gold-link">bilgi@dengemali.com.tr</a>
+              </div>
+              <div>
+                <div class="mono text-[11px] tracking-widest uppercase text-gold mb-2">Çalışma Saatleri</div>
+                <p class="font-ui text-[15px] text-ink">Pzt – Cum<br/><span class="text-ink/55">09:00 — 18:00</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: form -->
+      <div class="lg:col-span-7 reveal">
+        <form class="card p-8 lg:p-10" onsubmit="event.preventDefault(); document.getElementById('formOk').classList.remove('hidden'); this.reset();">
+
+          <div class="mb-8">
+            <div class="font-display text-[28px] text-ink leading-tight">Danışma talebi</div>
+            <p class="font-ui text-[14px] text-ink/55 mt-1">Tüm bilgileriniz gizli tutulur. KVKK uyumlu.</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="field-label" for="ad">Ad Soyad</label>
+              <input id="ad" type="text" class="field" placeholder="Adınız Soyadınız" required>
+            </div>
+            <div>
+              <label class="field-label" for="tel">Telefon</label>
+              <input id="tel" type="tel" class="field" placeholder="+90 5__ ___ __ __" required>
+            </div>
+            <div>
+              <label class="field-label" for="firma">Firma Adı</label>
+              <input id="firma" type="text" class="field" placeholder="Firmanızın ticari unvanı">
+            </div>
+            <div>
+              <label class="field-label" for="hizmet">Hizmet</label>
+              <select id="hizmet" class="field">
+                <option>Şirket Kuruluşu</option>
+                <option>Vergi Danışmanlığı</option>
+                <option>Muhasebe Hizmetleri</option>
+                <option>Bordro Yönetimi</option>
+                <option>E-Fatura & E-Defter</option>
+                <option>İş Planlaması</option>
+                <option>Genel danışmanlık</option>
+              </select>
+            </div>
+            <div class="md:col-span-2">
+              <label class="field-label" for="mesaj">Mesaj</label>
+              <textarea id="mesaj" class="field" rows="4" placeholder="Kısaca durumunuzu yazın — kaç çalışanınız var, hangi destek bekliyorsunuz?"></textarea>
+            </div>
+          </div>
+
+          <div class="mt-6 flex items-start gap-3">
+            <input id="kvkk" type="checkbox" class="mt-1.5" required>
+            <label for="kvkk" class="font-ui text-[13px] text-ink/65 leading-relaxed">
+              KVKK kapsamında <a href="#" class="gold-link text-ink">aydınlatma metnini</a> okudum ve verilerimin
+              danışma talebim için işlenmesine onay veriyorum.
+            </label>
+          </div>
+
+          <div class="mt-8 flex flex-wrap items-center justify-between gap-4">
+            <div class="mono text-[11px] tracking-widest uppercase text-ink/45">
+              Ortalama yanıt süresi · 6 saat
+            </div>
+            <button type="submit" class="btn-primary">
+              Danışma Talebi Gönder
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+
+          <div id="formOk" class="hidden mt-6 p-4 rounded-lg bg-forest/[.08] border border-forest/30 font-ui text-[14px] text-forest">
+            Talebiniz alındı. En geç 24 saat içinde dönüş yapacağız.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer class="bg-night text-white/70 pt-20 pb-10">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+      <div class="lg:col-span-5">
+        <div class="flex items-center gap-3 text-white mb-5">
+          <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+            <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="currentColor" stroke-opacity=".3"/>
+            <path d="M20 8 L20 32" stroke="#CFA144" stroke-width="1.2"/>
+            <path d="M10 16 L30 16" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="13" cy="22" r="3.2" stroke="#CFA144" stroke-width="1.1"/>
+            <circle cx="27" cy="22" r="3.2" stroke="#CFA144" stroke-width="1.1"/>
+          </svg>
+          <span class="leading-tight">
+            <span class="font-display text-[22px] block">Denge Mali Müşavirlik</span>
+            <span class="font-ui text-[11px] tracking-[.18em] uppercase text-white/50">Levent · İstanbul · 2006</span>
+          </span>
+        </div>
+        <p class="text-[15px] leading-[1.7] max-w-[420px] text-white/60">
+          Bağımsız mali müşavirlik ve danışmanlık. TÜRMOB & İSMMMO üyesi. Mesleki sorumluluk
+          sigortası kapsamındadır.
+        </p>
+      </div>
+
+      <div class="lg:col-span-3">
+        <div class="mono text-[11px] tracking-widest uppercase text-gold mb-4">Hizmetler</div>
+        <ul class="space-y-2.5 font-ui text-[14px]">
+          <li><a href="#hizmetler" class="hover:text-white">Şirket Kuruluşu</a></li>
+          <li><a href="#hizmetler" class="hover:text-white">Vergi Danışmanlığı</a></li>
+          <li><a href="#hizmetler" class="hover:text-white">Muhasebe</a></li>
+          <li><a href="#hizmetler" class="hover:text-white">Bordro</a></li>
+          <li><a href="#hizmetler" class="hover:text-white">E-Fatura & E-Defter</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-4">
+        <div class="mono text-[11px] tracking-widest uppercase text-gold mb-4">İletişim</div>
+        <ul class="space-y-2.5 font-ui text-[14px]">
+          <li>Büyükdere Cad. Levent Plaza No:142, Kat 7</li>
+          <li>34330 Beşiktaş / İstanbul</li>
+          <li><a href="tel:+902123456789" class="hover:text-white">+90 212 345 67 89</a></li>
+          <li><a href="mailto:bilgi@dengemali.com.tr" class="hover:text-white">bilgi@dengemali.com.tr</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-8 flex flex-wrap items-center justify-between gap-4 mono text-[11px] tracking-widest uppercase text-white/45">
+      <span>© 2026 Denge Mali Müşavirlik · Tüm hakları saklıdır.</span>
+      <span class="flex gap-6">
+        <a href="#" class="hover:text-white">KVKK</a>
+        <a href="#" class="hover:text-white">Çerez Politikası</a>
+        <a href="#" class="hover:text-white">Aydınlatma Metni</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- =================== WHATSAPP FLOAT =================== -->
+<a href="https://wa.me/905551234567" target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 group" aria-label="WhatsApp ile iletişime geçin">
+  <span class="absolute inset-0 rounded-full pulse-ring"></span>
+  <span class="relative flex items-center gap-3 bg-forest text-white pl-5 pr-6 py-3.5 rounded-full shadow-2xl font-ui text-[14px] font-medium">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.5 3.5A11 11 0 0 0 3.6 17.3L2 22l4.8-1.6A11 11 0 1 0 20.5 3.5zM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5 0-.2 0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.3.9 2.5 1 2.7.1.2 1.8 2.7 4.3 3.8.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1 0-.1-.2-.2-.4-.3z"/>
+    </svg>
+    +90 555 123 45 67
+  </span>
+</a>
+
+<!-- =================== SCRIPTS =================== -->
+<script>
+  // Navbar background on scroll
+  const nav = document.getElementById('nav');
+  const navCta = document.getElementById('navCta');
+  const navLinks = document.getElementById('navLinks');
+  const brand = document.getElementById('brand');
+  function onScroll(){
+    const s = window.scrollY > 80;
+    nav.classList.toggle('nav-scrolled', s);
+    if(s){
+      brand.classList.remove('text-white'); brand.classList.add('text-ink');
+      navLinks.classList.remove('text-white/85'); navLinks.classList.add('text-ink/80');
+    } else {
+      brand.classList.add('text-white'); brand.classList.remove('text-ink');
+      navLinks.classList.add('text-white/85'); navLinks.classList.remove('text-ink/80');
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // Reveal observer
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Bar chart in hero glass dashboard
+  const bars = [
+    [42,28],[55,33],[48,30],[61,38],[58,40],[72,44],
+    [68,42],[75,46],[82,50],[78,48],[88,54],[94,58]
+  ];
+  const chart = document.getElementById('barChart');
+  const max = 100;
+  bars.forEach(([rev,exp], i)=>{
+    const pair = document.createElement('div');
+    pair.className = 'flex items-end gap-[2px] h-full';
+    pair.style.width = 'auto';
+    pair.innerHTML = `
+      <div class="bar w-[6px] rounded-sm bg-ink" style="height:${rev}%; animation-delay:${i*60}ms"></div>
+      <div class="bar w-[6px] rounded-sm bg-gold/80" style="height:${exp}%; animation-delay:${i*60+30}ms"></div>
+    `;
+    chart.appendChild(pair);
+  });
+</script>
+
+</body>
+</html>

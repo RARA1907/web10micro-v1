@@ -90,7 +90,10 @@ const templates = [
     label: "Muhasebe",
     icon: "📊",
     color: "#1B4F72",
-    active: false,
+    active: true,
+    url: "/templates/muhasebe/index.html",
+    img: "/template-muhasebe.png",
+    desc: "Mali müşavir ve muhasebeciler için profesyonel web tasarımı.",
   },
   {
     id: "egitim",
