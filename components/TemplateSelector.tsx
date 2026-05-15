@@ -70,7 +70,10 @@ const templates = [
     label: "İnşaat / Tadilat",
     icon: "🏗️",
     color: "#E67E22",
-    active: false,
+    active: true,
+    url: "/templates/insaat-tadilat/index.html",
+    img: "/template-insaat.png",
+    desc: "İnşaat ve tadilat firmaları için sağlam ve profesyonel web sitesi.",
   },
   {
     id: "oto",
