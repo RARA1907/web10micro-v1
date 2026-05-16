@@ -6,6 +6,16 @@ interface Props {
 
 const templates = [
   {
+    id: "cicekci",
+    label: "Çiçekçi / Botanik",
+    icon: "🌸",
+    color: "#2D4A2D",
+    active: true,
+    url: "/templates/cicekci-botanik/index.html",
+    img: "/template-cicekci.png",
+    desc: "Çiçekçi ve botanik atölyeleri için zarif ve doğal web tasarımı.",
+  },
+  {
     id: "hukuk",
     label: "Hukuk / Avukat",
     icon: "⚖️",

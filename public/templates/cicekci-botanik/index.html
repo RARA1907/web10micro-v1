@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Narin Çiçek Atölyesi — Kadıköy, İstanbul</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          leaf:   '#6B8E5A',
+          blush:  '#E8B4B0',
+          cream:  '#FEF9F2',
+          forest: '#2D4A2D',
+          rose:   '#C98A8A',
+          'leaf-pale':  '#EDF3EA',
+          'blush-pale': '#FDF3F2',
+          'rose-pale':  '#F5E8E8',
+        },
+        fontFamily: {
+          script:  ['Caveat', 'cursive'],
+          serif:   ['Cormorant', 'Georgia', 'serif'],
+          body:    ['Figtree', 'system-ui', 'sans-serif'],
+        },
+        borderRadius: { organic: '24px', soft: '16px' }
+      }
+    }
+  }
+</script>
+<style>
+  :root { --leaf:#6B8E5A; --blush:#E8B4B0; --cream:#FEF9F2; --forest:#2D4A2D; --rose:#C98A8A; }
+  html, body { background:#FEF9F2; }
+  body { font-family:'Figtree',system-ui,sans-serif; color:#2D4A2D; -webkit-font-smoothing:antialiased; }
+
+  /* Section mark — organik yeşil */
+  .section-mark { display:flex; align-items:flex-start; gap:14px; font-size:11px; letter-spacing:.18em; text-transform:uppercase; }
+  .section-mark::before { content:''; display:block; width:2px; height:52px; background:linear-gradient(180deg,#6B8E5A 0%,#E8B4B0 100%); border-radius:99px; margin-top:4px; flex:0 0 auto; }
+  .section-mark .num { color:var(--leaf); font-family:'Caveat',cursive; font-size:22px; font-weight:700; line-height:1; }
+  .section-mark .lbl { display:block; color:rgba(45,74,45,.45); margin-top:4px; font-family:'Figtree',sans-serif; letter-spacing:.12em; }
+
+  /* Hero */
+  .hero-bg {
+    background-image:
+      linear-gradient(180deg, rgba(254,249,242,.0) 0%, rgba(254,249,242,.15) 50%, rgba(254,249,242,.92) 100%),
+      linear-gradient(90deg, rgba(254,249,242,.85) 0%, rgba(254,249,242,.55) 40%, rgba(254,249,242,.05) 80%),
+      url('https://images.unsplash.com/photo-1483794344563-d27a8d18014e?auto=format&fit=crop&w=2200&q=80');
+    background-size:cover; background-position:center right;
+  }
+
+  /* Cards */
+  .card-soft {
+    background:#fff; border-radius:24px;
+    border:1px solid rgba(107,142,90,.12);
+    box-shadow:0 4px 32px -8px rgba(107,142,90,.12);
+    overflow:hidden;
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .card-soft:hover { transform:translateY(-6px); box-shadow:0 16px 48px -8px rgba(107,142,90,.2); }
+
+  /* Buttons */
+  .btn-leaf {
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--leaf); color:#fff;
+    padding:14px 30px; border-radius:50px;
+    font-family:'Figtree',sans-serif; font-weight:600; font-size:15px;
+    box-shadow:0 8px 24px -6px rgba(107,142,90,.45);
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .btn-leaf:hover { transform:translateY(-2px); box-shadow:0 14px 32px -6px rgba(107,142,90,.55); background:#5a7b4a; }
+
+  .btn-ghost-leaf {
+    display:inline-flex; align-items:center; gap:10px;
+    color:var(--leaf); padding:14px 30px; border-radius:50px;
+    font-family:'Figtree',sans-serif; font-weight:600; font-size:15px;
+    border:1.5px solid rgba(107,142,90,.35);
+    transition:background .2s ease, border-color .2s ease;
+  }
+  .btn-ghost-leaf:hover { background:rgba(107,142,90,.07); border-color:var(--leaf); }
+
+  /* Reveal */
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity 1s cubic-bezier(.15,.8,.2,1), transform 1s cubic-bezier(.15,.8,.2,1); }
+  .reveal.in { opacity:1; transform:none; }
+  .reveal-slow { opacity:0; transform:translateY(14px); transition:opacity 1.4s cubic-bezier(.15,.8,.2,1), transform 1.4s cubic-bezier(.15,.8,.2,1); }
+  .reveal-slow.in { opacity:1; transform:none; }
+
+  /* Petals */
+  .petal { position:fixed; pointer-events:none; z-index:0; font-size:22px; opacity:0; animation:petal-fall linear infinite; }
+  @keyframes petal-fall {
+    0%   { opacity:0; transform:translateY(-60px) rotate(0deg) scale(.8); }
+    10%  { opacity:.6; }
+    90%  { opacity:.4; }
+    100% { opacity:0; transform:translateY(110vh) rotate(540deg) scale(1.1); }
+  }
+
+  /* Nav */
+  .nav-scrolled { background:rgba(254,249,242,.9); backdrop-filter:blur(16px); box-shadow:0 2px 20px rgba(107,142,90,.08); }
+
+  /* Nav link */
+  .nav-link { font-family:'Figtree',sans-serif; font-weight:500; font-size:15px; color:rgba(45,74,45,.8); transition:color .2s; position:relative; }
+  .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; height:1.5px; width:0%; background:var(--leaf); border-radius:99px; transition:width .35s ease; }
+  .nav-link:hover { color:var(--forest); }
+  .nav-link:hover::after { width:100%; }
+
+  /* Category card thumb */
+  .cat-thumb { width:100%; height:220px; object-fit:cover; display:block; transition:transform .5s ease; }
+  .card-soft:hover .cat-thumb { transform:scale(1.04); }
+
+  /* Organic blob */
+  .blob { position:absolute; border-radius:60% 40% 55% 45% / 45% 55% 40% 60%; pointer-events:none; }
+
+  /* Quote mark */
+  .quote { font-family:'Cormorant',serif; font-size:80px; line-height:.6; color:var(--blush); opacity:.7; }
+
+  /* Field */
+  .field { width:100%; padding:14px 16px; border-radius:14px; border:1.5px solid rgba(107,142,90,.18); background:#fff; font-family:'Figtree',sans-serif; font-size:15px; color:#2D4A2D; transition:border-color .2s ease, box-shadow .2s ease; }
+  .field:focus { outline:none; border-color:var(--leaf); box-shadow:0 0 0 4px rgba(107,142,90,.1); }
+  .field::placeholder { color:rgba(45,74,45,.35); }
+  .field-label { display:block; font-family:'Figtree',sans-serif; font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:rgba(45,74,45,.55); margin-bottom:8px; }
+
+  /* Ticker */
+  .ticker-track { display:flex; animation:tick 45s linear infinite; }
+  @keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  /* Star */
+  .stars { color:#D4A853; letter-spacing:2px; }
+
+  /* Soft divider */
+  .petal-divider { height:1px; background:linear-gradient(90deg, transparent, rgba(107,142,90,.2), rgba(232,180,176,.3), rgba(107,142,90,.2), transparent); }
+
+  ::selection { background:var(--blush); color:var(--forest); }
+
+  /* WP pulse */
+  @keyframes wp-p { 0%{box-shadow:0 0 0 0 rgba(37,211,102,.45)} 100%{box-shadow:0 0 0 18px rgba(37,211,102,0)} }
+  .wp-pulse { animation:wp-p 2.2s ease-out infinite; }
+
+  /* Organic underline for h2 */
+  .leaf-underline { position:relative; display:inline-block; }
+  .leaf-underline::after { content:''; position:absolute; left:0; bottom:-8px; width:60%; height:3px; background:linear-gradient(90deg,var(--leaf),var(--blush)); border-radius:99px; }
+
+  @media(max-width:768px) { .hero-script{font-size:52px!important} }
+</style>
+</head>
+<body style="background:#FEF9F2;color:#2D4A2D">
+
+<a href="https://web10micro.com" target="_blank" style="position:fixed;bottom:24px;left:24px;z-index:9999;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:10px 18px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:600;color:#1a1a1a;text-decoration:none;box-shadow:0 8px 30px rgba(0,0,0,.12);display:flex;align-items:center;gap:8px;transition:all .25s ease">← Diğer Demolar</a>
+
+<!-- Floating petals -->
+<div id="petals" aria-hidden="true"></div>
+
+<!-- ===== NAV ===== -->
+<header id="nav" class="fixed top-0 inset-x-0 z-40 transition-all duration-500" style="padding:18px 0">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3">
+      <div style="width:38px;height:38px;background:linear-gradient(135deg,#6B8E5A,#E8B4B0);border-radius:50%;display:flex;align-items:center;justify-content:center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 22V12M12 12C12 7 7 4 3 6M12 12C12 7 17 4 21 6M12 12C12 17 7 20 3 18M12 12C12 17 17 20 21 18"/></svg>
+      </div>
+      <div>
+        <span id="brandName" style="font-family:'Caveat',cursive;font-size:22px;font-weight:700;color:#2D4A2D">Narin <span style="color:#C98A8A">Çiçek</span></span>
+        <div style="font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(45,74,45,.45);margin-top:-3px">Atölyesi · Kadıköy</div>
+      </div>
+    </a>
+
+    <nav id="navLinks" class="hidden lg:flex items-center gap-8">
+      <a href="#kategoriler" class="nav-link">Koleksiyon</a>
+      <a href="#hikayemiz"   class="nav-link">Hikayemiz</a>
+      <a href="#yorumlar"    class="nav-link">Yorumlar</a>
+      <a href="#iletisim"    class="nav-link">İletişim</a>
+    </nav>
+
+    <a href="#iletisim" class="btn-leaf !py-2.5 !px-6 !text-[14px]">
+      Sipariş Ver
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="relative min-h-screen hero-bg flex items-center overflow-hidden">
+  <!-- Decorative blobs -->
+  <div class="blob absolute" style="width:500px;height:500px;background:rgba(232,180,176,.25);top:-100px;right:-50px;filter:blur(80px)"></div>
+  <div class="blob absolute" style="width:350px;height:350px;background:rgba(107,142,90,.15);bottom:-80px;left:60px;filter:blur(60px)"></div>
+
+  <div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 pt-28 pb-20 w-full grid lg:grid-cols-12 gap-10 items-center">
+
+    <!-- Left: copy -->
+    <div class="lg:col-span-6 reveal">
+      <div class="section-mark mb-10">
+        <div><span class="num">01</span><span class="lbl">Kadıköy · 2015'ten beri</span></div>
+      </div>
+
+      <p style="font-family:'Cormorant',serif;font-style:italic;font-size:17px;color:rgba(45,74,45,.6);margin-bottom:12px;letter-spacing:.04em">
+        — Her an için özel tasarım
+      </p>
+
+      <h1 class="hero-script font-script font-bold leading-[1.1]" style="font-size:72px;color:#2D4A2D">
+        Doğanın<br/>
+        <span style="color:var(--rose)">En Güzel</span><br/>
+        Halleri
+      </h1>
+
+      <p style="margin-top:24px;font-size:17px;line-height:1.8;color:rgba(45,74,45,.68);max-width:480px">
+        Kadıköy'de özel tasarım buketler, organizasyon çiçekleri ve botanik atölyeleri.
+        Her çiçeği elle seçiyor, her demeti sizin için tasarlıyoruz.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-4">
+        <a href="#iletisim" class="btn-leaf">
+          Hemen Sipariş Ver
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#kategoriler" class="btn-ghost-leaf">
+          Koleksiyonu Gör
+        </a>
+      </div>
+
+      <div class="mt-14 flex flex-wrap gap-x-8 gap-y-2" style="font-family:'Figtree',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(45,74,45,.4)">
+        <span>Aynı Gün Teslimat</span><span style="opacity:.35">·</span>
+        <span>Özel Tasarım</span><span style="opacity:.35">·</span>
+        <span>Taze Çiçek Garantisi</span>
+      </div>
+    </div>
+
+    <!-- Right: floating cards -->
+    <div class="lg:col-span-5 lg:col-start-8 relative reveal" style="transition-delay:.2s;min-height:400px">
+      <!-- Main image card -->
+      <div style="border-radius:24px;overflow:hidden;box-shadow:0 24px 64px -16px rgba(107,142,90,.25);position:relative">
+        <img src="https://images.unsplash.com/photo-1483794344563-d27a8d18014e?auto=format&fit=crop&w=700&q=80"
+             alt="Narin Çiçek" style="width:100%;height:420px;object-fit:cover;display:block">
+        <!-- floating badge -->
+        <div style="position:absolute;bottom:20px;left:20px;background:rgba(254,249,242,.92);backdrop-filter:blur(12px);border-radius:50px;padding:10px 18px;display:flex;align-items:center;gap:8px;border:1px solid rgba(107,142,90,.15)">
+          <span style="font-size:18px">🌸</span>
+          <div>
+            <div style="font-family:'Caveat',cursive;font-size:17px;font-weight:700;color:#2D4A2D">Taze · Özel Tasarım</div>
+            <div style="font-family:'Figtree',sans-serif;font-size:11px;color:rgba(45,74,45,.5);letter-spacing:.1em;text-transform:uppercase">Kadıköy'den tüm İstanbul'a</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating mini card -->
+      <div style="position:absolute;top:-24px;right:-20px;background:#fff;border-radius:20px;padding:16px 20px;box-shadow:0 12px 40px -8px rgba(107,142,90,.18);border:1px solid rgba(232,180,176,.3)">
+        <div style="font-family:'Caveat',cursive;font-size:18px;font-weight:700;color:#2D4A2D">500+ Mutlu Müşteri</div>
+        <div class="stars" style="font-size:14px;margin-top:4px">★★★★★</div>
+        <div style="font-family:'Figtree',sans-serif;font-size:12px;color:rgba(45,74,45,.45);margin-top:2px">Google & Instagram</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style="font-family:'Cormorant',serif;font-style:italic;font-size:13px;color:rgba(45,74,45,.4)">
+    <span>Keşfet</span>
+    <span style="width:1px;height:36px;background:rgba(107,142,90,.3)"></span>
+  </div>
+</section>
+
+<!-- ===== TICKER ===== -->
+<div style="background:#2D4A2D;overflow:hidden;padding:10px 0">
+  <div class="ticker-track" style="font-family:'Cormorant',serif;font-style:italic;font-size:19px;white-space:nowrap;color:rgba(254,249,242,.7)">
+    <div class="flex items-center shrink-0" style="gap:28px;padding-right:28px">
+      <span>Buket Tasarımı</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Düğün Çiçekleri</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Doğum Günü</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Botanik Atölye</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Taze Orkide</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Kuru Çiçek</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Süs Bitkisi</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Aynı Gün Teslimat</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+    </div>
+    <div class="flex items-center shrink-0" style="gap:28px;padding-right:28px" aria-hidden="true">
+      <span>Buket Tasarımı</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Düğün Çiçekleri</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Doğum Günü</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Botanik Atölye</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Taze Orkide</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Kuru Çiçek</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Süs Bitkisi</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+      <span>Aynı Gün Teslimat</span><span style="color:#E8B4B0;font-style:normal">❀</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KATEGORİLER ===== -->
+<section id="kategoriler" class="py-24 lg:py-32" style="background:#FEF9F2">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <div class="grid lg:grid-cols-12 gap-10 mb-16 reveal">
+      <div class="lg:col-span-5">
+        <div class="section-mark mb-8">
+          <div><span class="num">02</span><span class="lbl">Koleksiyon</span></div>
+        </div>
+        <h2 class="font-script font-bold leading-[1.15]" style="font-size:56px;color:#2D4A2D">
+          Size Özel<br/>
+          <span class="leaf-underline" style="color:var(--rose)">Tasarımlar</span>
+        </h2>
+      </div>
+      <div class="lg:col-span-6 lg:col-start-7 self-end">
+        <p style="font-family:'Cormorant',serif;font-size:20px;line-height:1.7;color:rgba(45,74,45,.65);font-style:italic">
+          "Her çiçek, her renk, her doku özenle seçilir.<br/>
+          Siz hayal edin, biz tasarlayalım."
+        </p>
+      </div>
+    </div>
+
+    <!-- 3x2 grid — organik boyutlar -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- Kır Çiçeği -->
+      <article class="card-soft reveal">
+        <div style="overflow:hidden">
+          <img class="cat-thumb" src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=600&q=80" alt="Kır Çiçeği Buketi">
+        </div>
+        <div style="padding:22px 24px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <span style="font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);background:rgba(107,142,90,.1);padding:4px 10px;border-radius:50px">Buket</span>
+            <span style="font-family:'Caveat',cursive;font-size:24px;font-weight:700;color:var(--rose)">₺450</span>
+          </div>
+          <h3 style="font-family:'Caveat',cursive;font-size:28px;font-weight:700;color:#2D4A2D">Kır Çiçeği Buketi</h3>
+          <p style="font-size:14px;line-height:1.65;color:rgba(45,74,45,.6);margin-top:6px">Mevsimsel kır çiçeklerinden özgün dokunuşlarla hazırlanan, doğallığı ön plana çıkaran buket.</p>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(107,142,90,.1);display:flex;align-items:center;justify-content:space-between">
+            <span style="font-size:12px;color:rgba(45,74,45,.45)">🌿 Aynı gün teslimat</span>
+            <a href="#iletisim" style="font-family:'Figtree',sans-serif;font-weight:600;font-size:13px;color:var(--leaf);display:flex;align-items:center;gap:4px">
+              Sipariş <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Gül Aranjmanı -->
+      <article class="card-soft reveal" style="transition-delay:.07s">
+        <div style="overflow:hidden">
+          <img class="cat-thumb" src="https://images.unsplash.com/photo-1455582916367-25f75bfc6710?auto=format&fit=crop&w=600&q=80" alt="Klasik Gül Aranjmanı">
+        </div>
+        <div style="padding:22px 24px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <span style="font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);background:rgba(201,138,138,.1);padding:4px 10px;border-radius:50px">Aranjman</span>
+            <span style="font-family:'Caveat',cursive;font-size:24px;font-weight:700;color:var(--rose)">₺650</span>
+          </div>
+          <h3 style="font-family:'Caveat',cursive;font-size:28px;font-weight:700;color:#2D4A2D">Klasik Gül Aranjmanı</h3>
+          <p style="font-size:14px;line-height:1.65;color:rgba(45,74,45,.6);margin-top:6px">Kadife yapraklı seçkin güller, zarif kutularıyla sunulan zamansız bir hediye tasarımı.</p>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(107,142,90,.1);display:flex;align-items:center;justify-content:space-between">
+            <span style="font-size:12px;color:rgba(45,74,45,.45)">🌹 Özel ambalaj</span>
+            <a href="#iletisim" style="font-family:'Figtree',sans-serif;font-weight:600;font-size:13px;color:var(--leaf);display:flex;align-items:center;gap:4px">
+              Sipariş <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Kuru Çiçek Taç -->
+      <article class="card-soft reveal" style="transition-delay:.14s">
+        <div style="overflow:hidden">
+          <img class="cat-thumb" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" alt="Kuru Çiçek Taç">
+        </div>
+        <div style="padding:22px 24px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <span style="font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#A07D4F;background:rgba(160,125,79,.1);padding:4px 10px;border-radius:50px">Aksesuar</span>
+            <span style="font-family:'Caveat',cursive;font-size:24px;font-weight:700;color:var(--rose)">₺350</span>
+          </div>
+          <h3 style="font-family:'Caveat',cursive;font-size:28px;font-weight:700;color:#2D4A2D">Kuru Çiçek Taç</h3>
+          <p style="font-size:14px;line-height:1.65;color:rgba(45,74,45,.6);margin-top:6px">El dokuması doğal dallar ve kurutulmuş çiçeklerle hazırlanan, uzun ömürlü saç tacı.</p>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(107,142,90,.1);display:flex;align-items:center;justify-content:space-between">
+            <span style="font-size:12px;color:rgba(45,74,45,.45)">✨ Düğün & nişan</span>
+            <a href="#iletisim" style="font-family:'Figtree',sans-serif;font-weight:600;font-size:13px;color:var(--leaf);display:flex;align-items:center;gap:4px">
+              Sipariş <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Salon Çiçeği -->
+      <article class="card-soft reveal" style="transition-delay:.07s">
+        <div style="overflow:hidden">
+          <img class="cat-thumb" src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80" alt="Salon Çiçeği">
+        </div>
+        <div style="padding:22px 24px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <span style="font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);background:rgba(107,142,90,.1);padding:4px 10px;border-radius:50px">Dekor</span>
+            <span style="font-family:'Caveat',cursive;font-size:24px;font-weight:700;color:var(--rose)">₺1.200</span>
+          </div>
+          <h3 style="font-family:'Caveat',cursive;font-size:28px;font-weight:700;color:#2D4A2D">Salon Çiçeği (Büyük)</h3>
+          <p style="font-size:14px;line-height:1.65;color:rgba(45,74,45,.6);margin-top:6px">Mekanınızı doğaya açan büyük boy, bakımı kolay yaprak bitkileri ve çiçekli saksı düzenlemeleri.</p>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(107,142,90,.1);display:flex;align-items:center;justify-content:space-between">
+            <span style="font-size:12px;color:rgba(45,74,45,.45)">🪴 Saksı dahil</span>
+            <a href="#iletisim" style="font-family:'Figtree',sans-serif;font-weight:600;font-size:13px;color:var(--leaf);display:flex;align-items:center;gap:4px">
+              Sipariş <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Orkide Sepeti -->
+      <article class="card-soft reveal" style="transition-delay:.14s">
+        <div style="overflow:hidden">
+          <img class="cat-thumb" src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80" alt="Orkide Sepeti">
+        </div>
+        <div style="padding:22px 24px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <span style="font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);background:rgba(201,138,138,.1);padding:4px 10px;border-radius:50px">Premium</span>
+            <span style="font-family:'Caveat',cursive;font-size:24px;font-weight:700;color:var(--rose)">₺550</span>
+          </div>
+          <h3 style="font-family:'Caveat',cursive;font-size:28px;font-weight:700;color:#2D4A2D">Orkide Sepeti</h3>
+          <p style="font-size:14px;line-height:1.65;color:rgba(45,74,45,.6);margin-top:6px">Egzotik orkide çeşitlerinden hasır sepete özenle yerleştirilmiş, şık ve uzun ömürlü hediye.</p>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(107,142,90,.1);display:flex;align-items:center;justify-content:space-between">
+            <span style="font-size:12px;color:rgba(45,74,45,.45)">🌺 4-6 hafta ömür</span>
+            <a href="#iletisim" style="font-family:'Figtree',sans-serif;font-weight:600;font-size:13px;color:var(--leaf);display:flex;align-items:center;gap:4px">
+              Sipariş <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Botanik Workshop -->
+      <article class="card-soft reveal" style="transition-delay:.21s;border:1.5px solid rgba(107,142,90,.25)">
+        <div style="overflow:hidden;position:relative">
+          <img class="cat-thumb" src="https://images.unsplash.com/photo-1460411794035-42aac080490a?auto=format&fit=crop&w=600&q=80" alt="Botanik Workshop">
+          <div style="position:absolute;top:14px;right:14px;background:var(--leaf);border-radius:50px;padding:5px 14px;font-family:'Figtree',sans-serif;font-size:12px;font-weight:600;color:#fff;letter-spacing:.06em">✦ Atölye</div>
+        </div>
+        <div style="padding:22px 24px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <span style="font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);background:rgba(107,142,90,.1);padding:4px 10px;border-radius:50px">Deneyim</span>
+            <span style="font-family:'Caveat',cursive;font-size:24px;font-weight:700;color:var(--rose)">₺700</span>
+          </div>
+          <h3 style="font-family:'Caveat',cursive;font-size:28px;font-weight:700;color:#2D4A2D">Botanik Workshop</h3>
+          <p style="font-size:14px;line-height:1.65;color:rgba(45,74,45,.6);margin-top:6px">Kendi buketini tasarla! 3 saatlik atölye çalışması — malzeme dahil, çay ikramı eşliğinde.</p>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(107,142,90,.1);display:flex;align-items:center;justify-content:space-between">
+            <span style="font-size:12px;color:rgba(45,74,45,.45)">🧑‍🎨 Maks. 8 kişi</span>
+            <a href="#iletisim" style="font-family:'Figtree',sans-serif;font-weight:600;font-size:13px;color:var(--leaf);display:flex;align-items:center;gap:4px">
+              Rezerve <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== HİKAYEMİZ ===== -->
+<section id="hikayemiz" class="py-24 lg:py-32 relative overflow-hidden" style="background:#EDF3EA">
+  <!-- Blobs -->
+  <div class="blob absolute" style="width:400px;height:400px;background:rgba(232,180,176,.3);top:-80px;right:-60px;filter:blur(70px)"></div>
+  <div class="blob absolute" style="width:300px;height:300px;background:rgba(107,142,90,.15);bottom:-60px;left:-40px;filter:blur(60px)"></div>
+
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-10 items-center">
+
+      <!-- Left: images stacked -->
+      <div class="lg:col-span-5 reveal relative" style="min-height:480px">
+        <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=500&q=80"
+             alt="Atölye" style="width:80%;border-radius:24px;box-shadow:0 24px 64px -16px rgba(45,74,45,.2);display:block">
+        <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=300&q=80"
+             alt="Çiçek" style="width:48%;border-radius:20px;box-shadow:0 16px 48px -10px rgba(45,74,45,.18);position:absolute;bottom:-20px;right:0;border:4px solid #EDF3EA">
+      </div>
+
+      <!-- Right: copy -->
+      <div class="lg:col-span-6 lg:col-start-7 reveal" style="transition-delay:.15s">
+        <div class="section-mark mb-10">
+          <div><span class="num">03</span><span class="lbl">Hikayemiz</span></div>
+        </div>
+
+        <h2 class="font-script font-bold leading-[1.1]" style="font-size:54px;color:#2D4A2D">
+          Her buket bir<br/>
+          <span style="color:var(--rose)">hikaye anlatır</span>
+        </h2>
+
+        <p style="font-family:'Cormorant',serif;font-size:19px;line-height:1.8;color:rgba(45,74,45,.7);margin-top:20px;font-style:italic">
+          "2015'ten beri İstanbul'da en özel anlara çiçeklerle eşlik ediyoruz."
+        </p>
+
+        <p style="font-size:16px;line-height:1.8;color:rgba(45,74,45,.65);margin-top:16px">
+          Narin Çiçek Atölyesi, her çiçeği bir sanat eseri gibi ele alır. Doğayı içeriye taşıyan
+          kompozisyonlarımız; düğünlerden doğum günlerine, iş hediyelerinden
+          kişisel anlara kadar her özel güne anlam katmak için tasarlanır.
+        </p>
+
+        <div class="petal-divider my-8"></div>
+
+        <!-- Mini stats -->
+        <div class="grid grid-cols-3 gap-6">
+          <div>
+            <div style="font-family:'Caveat',cursive;font-size:42px;font-weight:700;color:var(--rose)">10+</div>
+            <div style="font-family:'Figtree',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:rgba(45,74,45,.5)">Yıl Deneyim</div>
+          </div>
+          <div>
+            <div style="font-family:'Caveat',cursive;font-size:42px;font-weight:700;color:var(--rose)">5K+</div>
+            <div style="font-family:'Figtree',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:rgba(45,74,45,.5)">Tasarım</div>
+          </div>
+          <div>
+            <div style="font-family:'Caveat',cursive;font-size:42px;font-weight:700;color:var(--rose)">500+</div>
+            <div style="font-family:'Figtree',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:rgba(45,74,45,.5)">Düğün</div>
+          </div>
+        </div>
+
+        <a href="#iletisim" class="btn-leaf mt-8">
+          Bizimle Çalışın
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== YORUMLAR ===== -->
+<section id="yorumlar" class="py-24 lg:py-32" style="background:#FEF9F2">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <div class="grid lg:grid-cols-12 gap-10 mb-16 reveal">
+      <div class="lg:col-span-7">
+        <div class="section-mark mb-8">
+          <div><span class="num">04</span><span class="lbl">Yorumlar</span></div>
+        </div>
+        <h2 class="font-script font-bold leading-[1.1]" style="font-size:56px;color:#2D4A2D">
+          Sevgilerini<br/>
+          <span class="leaf-underline" style="color:var(--rose)">Paylaşıyorlar</span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <article class="reveal" style="background:#fff;border-radius:24px;padding:32px;box-shadow:0 4px 32px -8px rgba(107,142,90,.12);border:1px solid rgba(232,180,176,.2)">
+        <div class="quote mb-3">"</div>
+        <p style="font-family:'Cormorant',serif;font-size:20px;line-height:1.5;color:#2D4A2D">
+          "Düğünümüz için hazırladıkları buket ve masa düzenlemeleri herkesi büyüledi. Rüya gibiydi."
+        </p>
+        <div class="stars" style="font-size:14px;margin:16px 0 12px">★★★★★</div>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(107,142,90,.1)">
+          <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#E8B4B0,#C98A8A);display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:18px;font-weight:700;color:#fff">ZA</div>
+          <div>
+            <div style="font-family:'Figtree',sans-serif;font-weight:600;font-size:15px;color:#2D4A2D">Zeynep A.</div>
+            <div style="font-family:'Figtree',sans-serif;font-size:12px;color:rgba(45,74,45,.45)">Gelin · Düğün Çiçekleri</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="reveal" style="transition-delay:.1s;background:#fff;border-radius:24px;padding:32px;box-shadow:0 4px 32px -8px rgba(107,142,90,.12);border:1px solid rgba(232,180,176,.2)">
+        <div class="quote mb-3">"</div>
+        <p style="font-family:'Cormorant',serif;font-size:20px;line-height:1.5;color:#2D4A2D">
+          "Annem için sipariş verdiğim orkide sepeti muhteşemdi. Üstelik aynı gün teslim ettiler. Çok teşekkürler!"
+        </p>
+        <div class="stars" style="font-size:14px;margin:16px 0 12px">★★★★★</div>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(107,142,90,.1)">
+          <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#6B8E5A,#2D4A2D);display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:18px;font-weight:700;color:#fff">MK</div>
+          <div>
+            <div style="font-family:'Figtree',sans-serif;font-weight:600;font-size:15px;color:#2D4A2D">Merve K.</div>
+            <div style="font-family:'Figtree',sans-serif;font-size:12px;color:rgba(45,74,45,.45)">Müşteri · Orkide Sepeti</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="reveal" style="transition-delay:.2s;background:#fff;border-radius:24px;padding:32px;box-shadow:0 4px 32px -8px rgba(107,142,90,.12);border:1px solid rgba(232,180,176,.2)">
+        <div class="quote mb-3">"</div>
+        <p style="font-family:'Cormorant',serif;font-size:20px;line-height:1.5;color:#2D4A2D">
+          "Botanik atölyesi çok keyifliydi. Hem öğrendim hem de kendi buketimi yaptım. Herkese tavsiye ederim."
+        </p>
+        <div class="stars" style="font-size:14px;margin:16px 0 12px">★★★★★</div>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(107,142,45,.1)">
+          <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#E8B4B0,#6B8E5A);display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:18px;font-weight:700;color:#fff">DÇ</div>
+          <div>
+            <div style="font-family:'Figtree',sans-serif;font-weight:600;font-size:15px;color:#2D4A2D">Defne Ç.</div>
+            <div style="font-family:'Figtree',sans-serif;font-size:12px;color:rgba(45,74,45,.45)">Atölye Katılımcısı</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== İLETİŞİM ===== -->
+<section id="iletisim" class="py-24 lg:py-32" style="background:#EDF3EA">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <div class="grid lg:grid-cols-12 gap-10 mb-16 reveal">
+      <div class="lg:col-span-7">
+        <div class="section-mark mb-8">
+          <div><span class="num">05</span><span class="lbl">İletişim</span></div>
+        </div>
+        <h2 class="font-script font-bold leading-[1.1]" style="font-size:56px;color:#2D4A2D">
+          Kadıköy'de<br/>
+          <span style="color:var(--rose)">Bizi Bulun</span>
+        </h2>
+      </div>
+      <div class="lg:col-span-5 self-end">
+        <p style="font-family:'Cormorant',serif;font-size:19px;line-height:1.75;color:rgba(45,74,45,.65);font-style:italic">
+          Sipariş, atölye rezervasyonu veya sadece bir soru için — her zaman buradayız.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-10">
+
+      <!-- Sol: harita + bilgiler -->
+      <div class="lg:col-span-5 space-y-5 reveal">
+        <div style="border-radius:24px;overflow:hidden;height:280px;box-shadow:0 8px 32px -8px rgba(107,142,90,.18);border:1px solid rgba(107,142,90,.15)">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=29.0200%2C40.9850%2C29.0500%2C41.0050&layer=mapnik&marker=40.9927%2C29.0300"
+            style="width:100%;height:100%;border:0"
+            loading="lazy" aria-label="Kadıköy, İstanbul"></iframe>
+        </div>
+
+        <div style="background:#fff;border-radius:24px;padding:28px;box-shadow:0 4px 24px -6px rgba(107,142,90,.12);border:1px solid rgba(107,142,90,.1)">
+          <div class="space-y-5">
+            <div>
+              <div style="font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin-bottom:8px">Adres</div>
+              <p style="font-family:'Caveat',cursive;font-size:22px;font-weight:700;color:#2D4A2D;line-height:1.4">Moda Caddesi No: 55/A<br/>34710 Kadıköy / İstanbul</p>
+            </div>
+            <div style="height:1px;background:rgba(107,142,90,.1)"></div>
+            <div class="grid grid-cols-2 gap-5">
+              <div>
+                <div style="font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin-bottom:8px">Telefon</div>
+                <a href="tel:+902163456790" style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;color:#2D4A2D">+90 216 345 67 90</a>
+              </div>
+              <div>
+                <div style="font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin-bottom:8px">Instagram</div>
+                <a href="#" style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;color:#2D4A2D">@narincicek</a>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(107,142,90,.1)"></div>
+            <div>
+              <div style="font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin-bottom:8px">Çalışma Saatleri</div>
+              <p style="font-family:'Figtree',sans-serif;font-size:15px;color:#2D4A2D">Pazartesi — Cumartesi<br/><span style="color:rgba(45,74,45,.5)">09:00 — 19:30</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sağ: form -->
+      <div class="lg:col-span-7 reveal">
+        <form style="background:#fff;border-radius:24px;padding:40px;box-shadow:0 8px 40px -12px rgba(107,142,90,.15);border:1px solid rgba(107,142,90,.1)" onsubmit="event.preventDefault();document.getElementById('formOk').classList.remove('hidden');this.reset()">
+          <div style="margin-bottom:28px">
+            <div style="font-family:'Caveat',cursive;font-size:32px;font-weight:700;color:#2D4A2D">Sipariş & Bilgi Talebi</div>
+            <p style="font-family:'Figtree',sans-serif;font-size:14px;margin-top:4px;color:rgba(45,74,45,.5)">Tüm siparişleri 24 saat içinde onaylıyoruz.</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="field-label">Ad Soyad</label>
+              <input type="text" class="field" placeholder="Adınız Soyadınız" required>
+            </div>
+            <div>
+              <label class="field-label">Telefon</label>
+              <input type="tel" class="field" placeholder="+90 5__ ___ __ __" required>
+            </div>
+            <div>
+              <label class="field-label">E-posta</label>
+              <input type="email" class="field" placeholder="ornek@mail.com">
+            </div>
+            <div>
+              <label class="field-label">Ne İstiyorsunuz?</label>
+              <select class="field">
+                <option>Kır Çiçeği Buketi</option>
+                <option>Klasik Gül Aranjmanı</option>
+                <option>Kuru Çiçek Taç</option>
+                <option>Salon Çiçeği (Büyük)</option>
+                <option>Orkide Sepeti</option>
+                <option>Botanik Workshop Rezervasyonu</option>
+                <option>Düğün / Organizasyon</option>
+                <option>Özel Tasarım Talebi</option>
+              </select>
+            </div>
+            <div class="md:col-span-2">
+              <label class="field-label">Mesajınız</label>
+              <textarea class="field" rows="4" placeholder="Özel tercihleriniz, teslimat tarihi veya eklemek istedikleriniz..."></textarea>
+            </div>
+          </div>
+
+          <div style="margin-top:20px;display:flex;align-items:flex-start;gap:12px">
+            <input type="checkbox" id="kvkk" style="margin-top:4px;accent-color:var(--leaf)" required>
+            <label for="kvkk" style="font-family:'Figtree',sans-serif;font-size:13px;color:rgba(45,74,45,.55);line-height:1.6">
+              KVKK kapsamında <a href="#" style="color:var(--leaf)">aydınlatma metnini</a> okudum, bilgilerimin işlenmesine onay veriyorum.
+            </label>
+          </div>
+
+          <div style="margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+            <div style="font-family:'Figtree',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(45,74,45,.35)">Yanıt süresi · 24 saat</div>
+            <button type="submit" class="btn-leaf">
+              Gönder
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+
+          <div id="formOk" class="hidden" style="margin-top:20px;padding:16px;border-radius:16px;background:rgba(107,142,90,.08);border:1px solid rgba(107,142,90,.2);font-family:'Caveat',cursive;font-size:20px;color:var(--forest)">
+            Talebiniz alındı! 🌸 En kısa sürede sizinle iletişime geçeceğiz.
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="background:#2D4A2D;color:rgba(254,249,242,.65);padding:60px 0 28px">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-10 pb-12" style="border-bottom:1px solid rgba(254,249,242,.08)">
+      <div class="lg:col-span-5">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+          <div style="width:38px;height:38px;background:linear-gradient(135deg,#6B8E5A,#E8B4B0);border-radius:50%;display:flex;align-items:center;justify-content:center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 22V12M12 12C12 7 7 4 3 6M12 12C12 7 17 4 21 6M12 12C12 17 7 20 3 18M12 12C12 17 17 20 21 18"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Caveat',cursive;font-size:24px;font-weight:700;color:rgba(254,249,242,.95)">Narin <span style="color:#E8B4B0">Çiçek</span> Atölyesi</div>
+            <div style="font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(254,249,242,.35);margin-top:-2px">Kadıköy · İstanbul · 2015</div>
+          </div>
+        </div>
+        <p style="font-size:15px;line-height:1.75;max-width:360px">
+          Özel tasarım buketler, taze çiçek aranjmanları ve botanik atölyeleri.
+          Her anı güzelleştirmek için buradayız.
+        </p>
+      </div>
+      <div class="lg:col-span-3">
+        <div style="font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,180,176,.6);margin-bottom:16px">Koleksiyon</div>
+        <ul style="font-size:14px;color:rgba(254,249,242,.55)">
+          <li style="margin-bottom:8px"><a href="#kategoriler" style="color:rgba(254,249,242,.55)">Buket Tasarımı</a></li>
+          <li style="margin-bottom:8px"><a href="#kategoriler" style="color:rgba(254,249,242,.55)">Gül Aranjmanı</a></li>
+          <li style="margin-bottom:8px"><a href="#kategoriler" style="color:rgba(254,249,242,.55)">Kuru Çiçek</a></li>
+          <li style="margin-bottom:8px"><a href="#kategoriler" style="color:rgba(254,249,242,.55)">Orkide & Salon</a></li>
+          <li style="margin-bottom:8px"><a href="#kategoriler" style="color:rgba(254,249,242,.55)">Botanik Atölye</a></li>
+        </ul>
+      </div>
+      <div class="lg:col-span-4">
+        <div style="font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,180,176,.6);margin-bottom:16px">İletişim</div>
+        <ul style="font-size:14px;color:rgba(254,249,242,.55)">
+          <li style="margin-bottom:8px">Moda Caddesi No:55/A</li>
+          <li style="margin-bottom:8px">34710 Kadıköy / İstanbul</li>
+          <li style="margin-bottom:8px"><a href="tel:+902163456790" style="color:rgba(254,249,242,.55)">+90 216 345 67 90</a></li>
+          <li style="margin-bottom:8px"><a href="#" style="color:rgba(254,249,242,.55)">@narincicek</a></li>
+          <li style="color:rgba(254,249,242,.3)">Pzt–Cmt · 09:00–19:30</li>
+        </ul>
+      </div>
+    </div>
+    <div style="padding-top:24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;font-family:'Figtree',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(254,249,242,.25)">
+      <span>© 2026 Narin Çiçek Atölyesi · Tüm Hakları Saklıdır.</span>
+      <span style="display:flex;gap:24px">
+        <a href="#" style="color:rgba(254,249,242,.25)">KVKK</a>
+        <a href="#" style="color:rgba(254,249,242,.25)">Gizlilik</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/905551234567" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50" aria-label="WhatsApp">
+  <span class="relative flex items-center gap-3 pl-5 pr-6 py-3.5" style="background:#25D366;box-shadow:0 8px 24px -6px rgba(37,211,102,.5);font-family:'Figtree',sans-serif;font-weight:600;font-size:14px;color:white;border-radius:50px">
+    <span class="absolute inset-0 wp-pulse" style="border-radius:50px"></span>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.6 17.3L2 22l4.8-1.6A11 11 0 1 0 20.5 3.5zM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5 0-.2 0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.3.9 2.5 1 2.7.1.2 1.8 2.7 4.3 3.8.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1 0-.1-.2-.2-.4-.3z"/></svg>
+    +90 555 123 45 67
+  </span>
+</a>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  // Navbar
+  const nav = document.getElementById('nav');
+  function onScroll() {
+    const s = window.scrollY > 80;
+    nav.classList.toggle('nav-scrolled', s);
+    nav.style.paddingTop    = s ? '12px' : '18px';
+    nav.style.paddingBottom = s ? '12px' : '18px';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal, .reveal-slow').forEach(el => io.observe(el));
+
+  // Floating petals
+  const petalEmojis = ['🌸','🌺','🌼','🌷','❀','✿'];
+  const container = document.getElementById('petals');
+  for (let i = 0; i < 14; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = petalEmojis[i % petalEmojis.length];
+    p.style.left = (Math.random() * 100) + 'vw';
+    p.style.top  = '-40px';
+    p.style.fontSize = (16 + Math.random() * 14) + 'px';
+    p.style.animationDuration  = (12 + Math.random() * 20) + 's';
+    p.style.animationDelay     = (Math.random() * 18) + 's';
+    p.style.opacity = '0';
+    container.appendChild(p);
+  }
+</script>
+
+</body>
+</html>
