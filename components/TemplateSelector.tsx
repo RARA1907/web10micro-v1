@@ -110,7 +110,10 @@ const templates = [
     label: "Spor / Fitness",
     icon: "💪",
     color: "#F39C12",
-    active: false,
+    active: true,
+    url: "/templates/spor-fitness/index.html",
+    img: "/template-spor.png",
+    desc: "Spor salonu ve fitness merkezleri için güçlü ve modern web sitesi.",
   },
 ];
 
