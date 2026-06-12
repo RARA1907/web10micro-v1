@@ -10,20 +10,55 @@ export async function onRequestPost(context) {
     }
 
     const now = new Date().toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" });
+    const displayName = business_name || name;
 
-    const payload = {
-      to: ["rara@raraprojects.com"],
-      subject: `📥 Yeni Demo Talebi — ${business_name || name}`,
-      text: [
-        `Yeni Demo Talebi`,
-        ``,
-        `Tarih: ${now}`,
-        `İşletme: ${business_name || "Belirtilmemiş"}`,
-        `Maps Linki: ${maps_url}`,
-        `İletişim: ${name} — ${email}${phone ? ` — ${phone}` : ""}`,
-        `Not: ${note || "Yok"}`,
-      ].join("\n"),
-    };
+    // Pipeline komutu (emailde copy-paste için)
+    const pipelineCmd = [
+      `cd "00_aktif_proje/web10micro/pipeline"`,
+      `python3 generate.py "${maps_url}" \\`,
+      `  --name "${business_name || ""}" \\`,
+      `  --notify-email "${email}"`,
+    ].join("\n");
+
+    const htmlBody = `
+<!DOCTYPE html>
+<html lang="tr">
+<head><meta charset="UTF-8"><style>
+  body { font-family: -apple-system, Arial, sans-serif; color: #0F0F1A; max-width: 600px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+  .badge { display: inline-block; background: #EEF0FF; color: #1B2FFF; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+  td { padding: 8px 12px; border-bottom: 1px solid #E8E8F0; font-size: 14px; }
+  td:first-child { color: #5A5A7A; width: 130px; font-weight: 600; }
+  .cmd-box { background: #F4F4F8; border: 1px solid #E8E8F0; border-left: 4px solid #1B2FFF; border-radius: 8px; padding: 16px; margin: 0; }
+  .cmd-box pre { margin: 0; font-family: "SF Mono", Menlo, monospace; font-size: 13px; line-height: 1.6; white-space: pre-wrap; word-break: break-all; }
+  .cmd-label { font-size: 12px; font-weight: 700; color: #1B2FFF; margin-bottom: 8px; }
+  .footer { margin-top: 32px; font-size: 11px; color: #9999BB; border-top: 1px solid #E8E8F0; padding-top: 16px; }
+</style></head>
+<body>
+  <div class="badge">📥 Yeni Demo Talebi</div>
+  <h1>${displayName}</h1>
+  <p style="color:#5A5A7A;font-size:13px;margin-bottom:20px;">${now}</p>
+
+  <table>
+    <tr><td>İşletme</td><td>${business_name || "—"}</td></tr>
+    <tr><td>Maps Linki</td><td><a href="${maps_url}" style="color:#1B2FFF;">${maps_url.substring(0, 60)}${maps_url.length > 60 ? "…" : ""}</a></td></tr>
+    <tr><td>Ad Soyad</td><td>${name}</td></tr>
+    <tr><td>E-posta</td><td><a href="mailto:${email}" style="color:#1B2FFF;">${email}</a></td></tr>
+    <tr><td>Telefon</td><td>${phone || "—"}</td></tr>
+    <tr><td>Not</td><td>${note || "—"}</td></tr>
+  </table>
+
+  <div class="cmd-box">
+    <div class="cmd-label">🚀 Pipeline Komutu — Kopyala &amp; Çalıştır</div>
+    <pre>${pipelineCmd}</pre>
+  </div>
+
+  <div class="footer">
+    web10micro · Demo talep formu · ${now}
+  </div>
+</body>
+</html>`;
 
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -33,7 +68,9 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         from: "web10micro <onboarding@resend.dev>",
-        ...payload,
+        to: ["rara@raraprojects.com"],
+        subject: `📥 Yeni Demo Talebi — ${displayName}`,
+        html: htmlBody,
       }),
     });
 

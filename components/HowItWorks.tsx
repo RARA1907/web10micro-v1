@@ -8,27 +8,27 @@ const steps = [
   {
     step: "01",
     mood: "helping" as const,
-    title: "İşletmenizi bulalım",
-    desc: "Google Maps linkini yapıştırın, işletmenizi bulalım ve bilgilerini kontrol edelim.",
-    detail: "Doğru işletme mi? Onaylayın, gerisini bize bırakın.",
+    title: "Linki yapıştırın",
+    desc: "Google Maps veya Google İşletmem linkini forma yapıştırın. AI işletmenizi 15 saniyede bulur, bilgileri otomatik çeker.",
+    detail: "Sadece linki bırakın → gerisini biz hallederiz",
     color: "var(--primary-light)",
     accent: "var(--primary)",
   },
   {
     step: "02",
     mood: "thinking" as const,
-    title: "Size özel demo hazırlıyoruz",
-    desc: "Ekibimiz 15 dakikada sektörünüze uygun, profesyonel bir demo sitesi hazırlar.",
-    detail: "Sektör template\'i · Özel içerik · Mobil uyumlu · Canlı link",
+    title: "Demonuzu hazırlıyoruz",
+    desc: "Sektörünüze özel tasarım, gerçek içerik, mobil uyumlu yapı. 15 dakikada canlı demo linki oluşturuyoruz.",
+    detail: "Özel tasarım · Gerçek içerik · Mobil uyumlu · subdomain.web10micro.com",
     color: "#F3F0FF",
     accent: "var(--token-color)",
   },
   {
     step: "03",
     mood: "celebrating" as const,
-    title: "Beğen, revize et, yayına al",
-    desc: "Demo linkinizi inceler, beğenirseniz satın alır ve revizelerinizi iletirsiniz. Onay sonrası yayına alırız.",
-    detail: "Domain bağlantısı · SSL dahil · Süresiz revize",
+    title: "Mailinize geliyor",
+    desc: "Demo linki doğrudan mailinize düşer. İnceleyin, revizyon isteyin, onayladığınızda ödeme yapın — başka bir şey yok.",
+    detail: "Beğenmezseniz ödemezsiniz · SSL dahil · Alan adı bağlantısı",
     color: "#ECFDF5",
     accent: "var(--success)",
   },
@@ -47,7 +47,7 @@ export function HowItWorks({ onCTA }: Props) {
             3 adımda web sitenize kavuşun
           </h2>
           <p className="text-[var(--text-secondary)] max-w-xl mx-auto">
-            Siz işletmenizi bulun, gerisini biz hallederiz.
+            Restoran mı, avukat mı, kuaför mü? Hangi sektör olursa olsun — linki yapıştır, demoyu bekle.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export function HowItWorks({ onCTA }: Props) {
         {/* Alt not */}
         <div className="text-center mt-12">
           <p className="text-sm text-[var(--text-muted)] mb-6">
-            Demo yayına alınmadan önce tüm revizeler tamamlanır, onayınız alınır.
+            Beğenmezseniz ödemezsiniz — demoyu inceleyin, onaylarsanız devam edelim.
           </p>
           <button
             onClick={onCTA}

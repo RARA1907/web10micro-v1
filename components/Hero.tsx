@@ -24,19 +24,19 @@ export function Hero({ onCTA }: Props) {
           <div>
             <div className="inline-flex items-center gap-2 bg-[var(--primary-light)] text-[var(--primary)] text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
-              İşletmenizi bulalım, 15 dakikada demo hazır
+              Hangi sektör olursa olsun — 15 dakikada demo hazır
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-6">
-              <span className="text-[var(--text-primary)]">İşletmeniz İçin</span>
+              <span className="text-[var(--text-primary)]">Linki Yapıştırın,</span>
               <br />
-              <span className="text-gradient">Profesyonel</span>
+              <span className="text-gradient">Demonuzu</span>
               <br />
-              <span className="text-[var(--text-primary)]">Web Sitesi</span>
+              <span className="text-[var(--text-primary)]">Bekleyin.</span>
             </h1>
 
             <p className="text-base sm:text-lg text-[var(--text-secondary)] mb-8 leading-relaxed max-w-lg">
-              Google Maps linkini yapıştırın, işletmenizi bulalım. Size özel demo sitenizi <strong className="text-[var(--text-primary)]">15 dakikada</strong> hazırlayıp gönderelim.
+              Google Maps veya Google İşletmem linkini yapıştırın — işletmenizi buluyoruz, sektörünüze özel demo hazırlıyoruz, <strong className="text-[var(--text-primary)]">mailinize gönderiyoruz</strong>.
             </p>
 
             {/* Input */}
@@ -58,7 +58,7 @@ export function Hero({ onCTA }: Props) {
             </div>
 
             <p className="text-xs text-[var(--text-muted)] mb-8">
-              İşletmenizi bulalım, size özel demo hazırlayalım
+              Restoran, avukat, kuaför, klinik — hangi sektör olursa olsun. Beğenmezseniz ödemezsiniz.
             </p>
 
             {/* Sosyal kanıt */}
@@ -74,7 +74,7 @@ export function Hero({ onCTA }: Props) {
                 <div className="flex gap-0.5 mb-0.5">
                   {Array(5).fill(0).map((_, i) => <span key={i} className="text-yellow-400 text-sm">★</span>)}
                 </div>
-                <p className="text-xs text-[var(--text-muted)]">200+ işletme siteye kavuştu</p>
+                <p className="text-xs text-[var(--text-muted)]">200+ KOBİ siteye kavuştu</p>
               </div>
             </div>
           </div>

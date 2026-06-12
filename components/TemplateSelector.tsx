@@ -125,6 +125,46 @@ const templates = [
     img: "/template-spor.png",
     desc: "Spor salonu ve fitness merkezleri için güçlü ve modern web sitesi.",
   },
+  {
+    id: "emlak",
+    label: "Emlak / Gayrimenkul",
+    icon: "🏛️",
+    color: "#4A5568",
+    active: false,
+    url: "",
+    img: "",
+    desc: "",
+  },
+  {
+    id: "otel",
+    label: "Otel / Konaklama",
+    icon: "🏨",
+    color: "#4A5568",
+    active: false,
+    url: "",
+    img: "",
+    desc: "",
+  },
+  {
+    id: "ozel-okul",
+    label: "Özel Okul / Kolej",
+    icon: "🎓",
+    color: "#4A5568",
+    active: false,
+    url: "",
+    img: "",
+    desc: "",
+  },
+  {
+    id: "antrenor",
+    label: "Kişisel Antrenör",
+    icon: "🏋️",
+    color: "#4A5568",
+    active: false,
+    url: "",
+    img: "",
+    desc: "",
+  },
 ];
 
 export function TemplateSelector({ onCTA }: Props) {
@@ -139,7 +179,7 @@ export function TemplateSelector({ onCTA }: Props) {
             Şablonları keşfedin
           </h2>
           <p className="text-[var(--text-secondary)] max-w-xl mx-auto">
-            Her sektöre özel profesyonel tasarımlar. Canlı örnekleri inceleyin, sıradaki sizin işletmeniz olsun.
+            12 sektörde canlı demo şablonu. Sektörünüzü seçin, linki yapıştırın — demo mailinize gelsin.
           </p>
         </div>
 
@@ -181,20 +221,29 @@ export function TemplateSelector({ onCTA }: Props) {
             ) : (
               <div
                 key={t.id}
-                className="relative bg-white rounded-3xl border-2 border-dashed border-[var(--border)] p-8 flex flex-col items-center justify-center text-center opacity-60 min-h-[200px]"
+                className="block bg-white rounded-3xl border border-[var(--border)] overflow-hidden opacity-60 cursor-default"
               >
-                <span className="text-3xl mb-3">{t.icon}</span>
-                <p className="font-semibold text-[var(--text-primary)] mb-1">{t.label}</p>
-                <span className="text-[10px] font-semibold bg-gray-100 text-gray-400 px-2 py-0.5 rounded-full">
-                  Yakında
-                </span>
+                <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 via-gray-50 to-gray-200 flex items-center justify-center">
+                  <span className="text-6xl opacity-30">{t.icon}</span>
+                </div>
+                <div className="p-4 flex items-center justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-lg">{t.icon}</span>
+                      <h3 className="font-bold text-[var(--text-primary)]">{t.label}</h3>
+                    </div>
+                    <span className="text-[10px] font-semibold bg-gray-100 text-gray-400 px-2 py-0.5 rounded-full">
+                      Yakında
+                    </span>
+                  </div>
+                </div>
               </div>
             )
           )}
         </div>
 
         <p className="text-center text-xs text-[var(--text-muted)] mt-8">
-          Her hafta yeni şablon ekleniyor · Sektörünüz yoksa bize bildirin
+          Her hafta yeni sektör ekleniyor · Listede yoksa bize bildirin, öncelik veririz
         </p>
       </div>
     </section>

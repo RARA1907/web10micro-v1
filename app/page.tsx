@@ -7,6 +7,7 @@ import { TemplateSelector } from "@/components/TemplateSelector";
 import { MiraChat } from "@/components/MiraChat";
 import { DemoModal } from "@/components/DemoModal";
 import { Logo } from "@/components/Logo";
+import { Pricing } from "@/components/Pricing";
 
 const offices = [
   { city: "İstanbul", flag: "🇹🇷", address: "Büyükdere Cad. No:128", district: "Levent, 34394" },
@@ -35,6 +36,7 @@ export default function Home() {
       <main>
         <Hero onCTA={openModal} />
         <HowItWorks onCTA={() => openModal()} />
+        <Pricing onCTA={() => openModal()} />
         <TemplateSelector onCTA={openModal} />
       </main>
 
@@ -74,6 +76,7 @@ export default function Home() {
               <h4 className="text-sm font-semibold mb-4 text-white">Ürün</h4>
               <ul className="space-y-2">
                 <li><a href="#nasil-calisir" className="text-sm text-gray-400 hover:text-white transition-colors">Nasıl Çalışır?</a></li>
+                <li><a href="#pricing"       className="text-sm text-gray-400 hover:text-white transition-colors">Fiyatlandırma</a></li>
                 <li><a href="#template"      className="text-sm text-gray-400 hover:text-white transition-colors">Sektörler</a></li>
                 <li>
                   <button onClick={() => openModal()} className="text-sm text-gray-400 hover:text-white transition-colors">
